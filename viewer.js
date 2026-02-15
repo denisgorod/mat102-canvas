@@ -14,3 +14,35 @@ const viewer = new JSONCanvasViewer({
   canvas: loadCanvas(canvasJSON),
   markdownParser: parser,
 });
+
+// Wait for viewer DOM to render
+setTimeout(() => {
+  document.querySelectorAll(".jcv-edge-label").forEach(el => {
+    el.style.cursor = "pointer";
+
+    el.addEventListener("click", () => {
+      // Each label has dataset linking to edge id
+      const edgeId = el.dataset.id;
+
+      const edge = canvasJSON.edges.find(e => e.id === edgeId);
+      if (!edge) return;
+
+      const targetNode = edge.toNode;
+
+      focusNode(targetNode);
+    });
+  });
+}, 300);
+
+function focusNode(nodeId) {
+  const node = canvasJSON.nodes.find(n => n.id === nodeId);
+  if (!node) return;
+
+  // viewer exposes a camera / viewport API
+  viewer.setViewport({
+    x: node.x,
+    y: node.y,
+    zoom: 1.2
+  });
+}
+
