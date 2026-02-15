@@ -1,18 +1,13 @@
-import {
-  JSONCanvasViewer,
-  loadCanvas,
-  parser
-} from "https://unpkg.com/json-canvas-viewer/dist/chimp.js";
+import { JSONCanvasViewer } 
+  from "https://unpkg.com/json-canvas-viewer/dist/chimp.js";
 
-// Load the canvas file
 const response = await fetch("./102_map_no_embeds.canvas");
 const canvasJSON = await response.json();
 
 // Create viewer
 const viewer = new JSONCanvasViewer({
   container: document.getElementById("canvas-root"),
-  canvas: loadCanvas(canvasJSON),
-  markdownParser: parser,
+  canvas: canvasJSON
 });
 
 // Wait for viewer DOM to render
