@@ -5,7 +5,7 @@ import {
 } from "https://unpkg.com/json-canvas-viewer/dist/chimp.js";
 
 // Load the canvas file
-const response = await fetch("./my-canvas.canvas");
+const response = await fetch("./102_map_no_embeds.canvas");
 const canvasJSON = await response.json();
 
 // Create viewer
