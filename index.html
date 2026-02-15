@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Canvas Viewer</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #0f1117;
+      color: #ddd;
+      font-family: system-ui, sans-serif;
+    }
+
+    #canvas-root {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    /* Optional: edge labels styling */
+    .jcv-edge-label {
+      background: rgba(0,0,0,0.7);
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="canvas-root"></div>
+
+<script type="module" src="./viewer.js"></script>
+
+</body>
+</html>
