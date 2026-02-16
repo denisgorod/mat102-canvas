@@ -13,6 +13,7 @@ const viewer = new JSONCanvasViewer({
 });
 
 const canvasRoot = document.getElementById("canvas-root");
+const mathRoot = canvasRoot.shadowRoot ?? canvasRoot;
 let pendingMathTypeset = false;
 
 function scheduleMathTypeset() {
@@ -25,7 +26,7 @@ function scheduleMathTypeset() {
 
   requestAnimationFrame(() => {
     pendingMathTypeset = false;
-    window.MathJax.typesetPromise([canvasRoot]).catch(() => {
+    window.MathJax.typesetPromise([mathRoot]).catch(() => {
       // Fail silently if MathJax is not ready or typeset fails.
     });
   });
@@ -39,7 +40,7 @@ const mathObserver = new MutationObserver(() => {
   scheduleMathTypeset();
 });
 
-mathObserver.observe(canvasRoot, {
+mathObserver.observe(mathRoot, {
   childList: true,
   subtree: true,
   characterData: true
@@ -47,7 +48,7 @@ mathObserver.observe(canvasRoot, {
 
 // Wait for viewer DOM to render
 setTimeout(() => {
-  document.querySelectorAll(".jcv-edge-label").forEach(el => {
+  mathRoot.querySelectorAll(".jcv-edge-label").forEach(el => {
     el.style.cursor = "pointer";
 
     el.addEventListener("click", () => {
