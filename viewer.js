@@ -12,6 +12,39 @@ const viewer = new JSONCanvasViewer({
   markdownParser: parser
 });
 
+const canvasRoot = document.getElementById("canvas-root");
+let pendingMathTypeset = false;
+
+function scheduleMathTypeset() {
+  if (!window.MathJax || pendingMathTypeset) return;
+  if (typeof window.MathJax.typesetPromise !== "function") {
+    setTimeout(scheduleMathTypeset, 50);
+    return;
+  }
+  pendingMathTypeset = true;
+
+  requestAnimationFrame(() => {
+    pendingMathTypeset = false;
+    window.MathJax.typesetPromise([canvasRoot]).catch(() => {
+      // Fail silently if MathJax is not ready or typeset fails.
+    });
+  });
+}
+
+// Typeset once after initial render.
+setTimeout(scheduleMathTypeset, 0);
+
+// Re-typeset when the canvas DOM changes (labels/nodes updated).
+const mathObserver = new MutationObserver(() => {
+  scheduleMathTypeset();
+});
+
+mathObserver.observe(canvasRoot, {
+  childList: true,
+  subtree: true,
+  characterData: true
+});
+
 // Wait for viewer DOM to render
 setTimeout(() => {
   document.querySelectorAll(".jcv-edge-label").forEach(el => {
