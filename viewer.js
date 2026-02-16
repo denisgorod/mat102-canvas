@@ -5,102 +5,97 @@ import { JSONCanvasViewer, parser }
 const response = await fetch("./102_map_no_embeds.canvas");
 const canvasJSON = await response.json();
 
-// Custom parser that handles Obsidian callouts and preserves LaTeX for MathJax
+// Custom parser that renders Obsidian-style callouts and preserves LaTeX for MathJax.
 const mathParser = async (text) => {
-  // Process Obsidian-style callouts: >[!type] Title
-  const calloutRegex = /^>\[!(\w+)\]\s*(.*)$/gm;
-  
-  // Map of callout types to colors and labels
-  const calloutStyles = {
-    'd': { color: '#3b82f6', label: 'Definition', icon: '📘' },
-    'e': { color: '#8b5cf6', label: 'Exercise', icon: '✏️' },
-    's': { color: '#10b981', label: 'Statement', icon: '📋' },
-    'p': { color: '#f59e0b', label: 'Proof', icon: '✓' },
-    't': { color: '#ef4444', label: 'Theorem', icon: '⚡' },
-    'note': { color: '#3b82f6', label: 'Note', icon: '📝' },
-    'info': { color: '#06b6d4', label: 'Info', icon: 'ℹ️' },
-    'tip': { color: '#10b981', label: 'Tip', icon: '💡' },
-    'warning': { color: '#f59e0b', label: 'Warning', icon: '⚠️' },
-    'example': { color: '#8b5cf6', label: 'Example', icon: '📌' },
-    'quote': { color: '#6b7280', label: 'Quote', icon: '💬' }
+  const calloutTitles = {
+    d: "Definition",
+    e: "Exercise",
+    s: "Statement",
+    p: "Proof",
+    t: "Theorem",
+    note: "Note",
+    info: "Info",
+    tip: "Tip",
+    warning: "Warning",
+    example: "Example",
+    quote: "Quote"
   };
-  
-  let processedText = text;
+
+  const calloutClassMap = {
+    d: "definition",
+    e: "exercise",
+    s: "statement",
+    p: "proof",
+    t: "theorem"
+  };
+
+  const lines = text.split(/\r?\n/);
   const callouts = [];
-  let match;
-  
-  // Find all callouts
-  while ((match = calloutRegex.exec(text)) !== null) {
-    const type = match[1].toLowerCase();
-    const title = match[2] || '';
-    const startIndex = match.index;
-    
-    // Find the end of this callout (next non-quoted line or end of text)
-    let endIndex = startIndex + match[0].length;
-    const lines = text.substring(endIndex).split('\n');
-    let calloutContent = [];
-    
-    for (let i = 0; i < lines.length; i++) {
-      if (lines[i].startsWith('>')) {
-        calloutContent.push(lines[i].substring(1).trim());
-      } else if (lines[i].trim() === '') {
-        // Allow empty lines within callout
-        calloutContent.push('');
-      } else {
-        // Non-quoted line found, end of callout
-        break;
-      }
+  const outputLines = [];
+
+  for (let i = 0; i < lines.length; i += 1) {
+    const line = lines[i];
+    const calloutMatch = /^>\[!([^\]]+)\]\s*(.*)$/.exec(line);
+
+    if (!calloutMatch) {
+      outputLines.push(line);
+      continue;
     }
-    
-    endIndex += calloutContent.join('\n').length + calloutContent.length;
-    
+
+    const rawType = calloutMatch[1].trim();
+    const typeKey = rawType.replace(/[+-]$/, "").toLowerCase();
+    const title = calloutMatch[2]?.trim() ?? "";
+    const contentLines = [];
+
+    for (let j = i + 1; j < lines.length; j += 1) {
+      const nextLine = lines[j];
+
+      if (nextLine.startsWith(">")) {
+        contentLines.push(nextLine.replace(/^>\s?/, ""));
+        i = j;
+        continue;
+      }
+
+      if (nextLine.trim() === "") {
+        contentLines.push("");
+        i = j;
+        continue;
+      }
+
+      break;
+    }
+
     callouts.push({
-      fullMatch: text.substring(startIndex, endIndex),
-      type,
+      typeKey,
       title,
-      content: calloutContent.join('\n')
+      content: contentLines.join("\n")
     });
+
+    outputLines.push(`<!--CALLOUT_${callouts.length - 1}-->`);
   }
-  
-  // Replace callouts with placeholder tokens
-  callouts.forEach((callout, index) => {
-    processedText = processedText.replace(callout.fullMatch, `__CALLOUT_${index}__`);
-  });
-  
-  // Parse the rest with the default parser
-  let html = await parser(processedText);
-  
-  // Replace placeholder tokens with styled callouts
-  callouts.forEach((callout, index) => {
-    const style = calloutStyles[callout.type] || calloutStyles['note'];
-    const contentHtml = callout.content; // Keep content as-is for MathJax
-    
-    const calloutHtml = `
-      <div class="callout callout-${callout.type}" style="
-        border-left: 4px solid ${style.color};
-        background: ${style.color}15;
-        padding: 12px 16px;
-        margin: 12px 0;
-        border-radius: 4px;
-      ">
-        <div style="
-          font-weight: bold;
-          color: ${style.color};
-          margin-bottom: 8px;
-          display: flex;
-          align-items: center;
-          gap: 6px;
-        ">
-          <span>${style.icon}</span>
-          <span>${style.label}${callout.title ? ': ' + callout.title : ''}</span>
+
+  let html = await parser(outputLines.join("\n"));
+
+  const renderedCallouts = await Promise.all(
+    callouts.map(async (callout) => {
+      const defaultTitle = calloutTitles[callout.typeKey] ?? callout.typeKey;
+      const classKey = calloutClassMap[callout.typeKey] ?? callout.typeKey;
+      const displayTitle = callout.title || defaultTitle;
+      const contentHtml = await parser(callout.content);
+
+      return `
+        <div class="callout callout-${classKey}">
+          <div class="callout-title">${displayTitle}</div>
+          <div class="callout-content">${contentHtml}</div>
         </div>
-        <div class="callout-content">${contentHtml}</div>
-      </div>
-    `;
-    
-    html = html.replace(`__CALLOUT_${index}__`, calloutHtml);
+      `;
+    })
+  );
+
+  renderedCallouts.forEach((calloutHtml, index) => {
+    html = html.replace(`<!--CALLOUT_${index}-->`, calloutHtml);
   });
-  
+
   return html;
 };
 
