@@ -5,50 +5,47 @@ import { JSONCanvasViewer, parser }
 const response = await fetch("./102_map_no_embeds.canvas");
 const canvasJSON = await response.json();
 
+// Custom parser that preserves LaTeX for MathJax
+const mathParser = async (text) => {
+  const html = await parser(text);
+  // MathJax will process the LaTeX in the rendered HTML
+  return html;
+};
+
 // Create viewer
 const viewer = new JSONCanvasViewer({
   container: document.getElementById("canvas-root"),
   canvas: canvasJSON,
-  markdownParser: parser
+  markdownParser: mathParser,
+  noShadow: true  // Disable shadow DOM so MathJax can access content
 });
 
 const canvasRoot = document.getElementById("canvas-root");
-const mathRoot = canvasRoot.shadowRoot ?? canvasRoot;
-let pendingMathTypeset = false;
 
-function scheduleMathTypeset() {
-  if (!window.MathJax || pendingMathTypeset) return;
-  if (typeof window.MathJax.typesetPromise !== "function") {
-    setTimeout(scheduleMathTypeset, 50);
-    return;
-  }
-  pendingMathTypeset = true;
-
-  requestAnimationFrame(() => {
-    pendingMathTypeset = false;
-    window.MathJax.typesetPromise([mathRoot]).catch(() => {
-      // Fail silently if MathJax is not ready or typeset fails.
-    });
-  });
-}
-
-// Typeset once after initial render.
-setTimeout(scheduleMathTypeset, 0);
-
-// Re-typeset when the canvas DOM changes (labels/nodes updated).
-const mathObserver = new MutationObserver(() => {
-  scheduleMathTypeset();
-});
-
-mathObserver.observe(mathRoot, {
-  childList: true,
-  subtree: true,
-  characterData: true
-});
-
-// Wait for viewer DOM to render
+// Wait for viewer to render, then typeset math
 setTimeout(() => {
-  mathRoot.querySelectorAll(".jcv-edge-label").forEach(el => {
+  if (window.MathJax && window.MathJax.typesetPromise) {
+    window.MathJax.typesetPromise([canvasRoot]).catch(err => {
+      console.warn("MathJax typeset failed:", err);
+    });
+  }
+  
+  // Re-typeset when content changes (e.g., zoom, node selection)
+  const observer = new MutationObserver(() => {
+    if (window.MathJax && window.MathJax.typesetPromise) {
+      window.MathJax.typesetPromise([canvasRoot]).catch(() => {});
+    }
+  });
+  
+  observer.observe(canvasRoot, {
+    childList: true,
+    subtree: true
+  });
+}, 500);
+
+// Wait for viewer to render, then setup edge label click handlers
+setTimeout(() => {
+  canvasRoot.querySelectorAll(".jcv-edge-label").forEach(el => {
     el.style.cursor = "pointer";
 
     el.addEventListener("click", () => {
