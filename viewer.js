@@ -5,6 +5,8 @@ import { JSONCanvasViewer, parser }
 const response = await fetch("./102_map_no_embeds.canvas");
 const canvasJSON = await response.json();
 
+const escapeRegex = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
 // Custom parser that renders Obsidian-style callouts and preserves LaTeX for MathJax.
 const mathParser = async (text) => {
   const calloutTitles = {
@@ -32,10 +34,12 @@ const mathParser = async (text) => {
   const lines = text.split(/\r?\n/);
   const callouts = [];
   const outputLines = [];
+  const calloutStartRegex = /^\s*>\s*\[!([^\]]+)\]\s*(.*)$/;
+  const quotedLineRegex = /^\s*>\s?(.*)$/;
 
   for (let i = 0; i < lines.length; i += 1) {
     const line = lines[i];
-    const calloutMatch = /^>\[!([^\]]+)\]\s*(.*)$/.exec(line);
+    const calloutMatch = calloutStartRegex.exec(line);
 
     if (!calloutMatch) {
       outputLines.push(line);
@@ -49,15 +53,15 @@ const mathParser = async (text) => {
 
     for (let j = i + 1; j < lines.length; j += 1) {
       const nextLine = lines[j];
+      const nestedCalloutMatch = calloutStartRegex.exec(nextLine);
+      const quotedMatch = quotedLineRegex.exec(nextLine);
 
-      if (nextLine.startsWith(">")) {
-        contentLines.push(nextLine.replace(/^>\s?/, ""));
-        i = j;
-        continue;
+      if (nestedCalloutMatch) {
+        break;
       }
 
-      if (nextLine.trim() === "") {
-        contentLines.push("");
+      if (quotedMatch) {
+        contentLines.push(quotedMatch[1]);
         i = j;
         continue;
       }
@@ -71,7 +75,7 @@ const mathParser = async (text) => {
       content: contentLines.join("\n")
     });
 
-    outputLines.push(`<!--CALLOUT_${callouts.length - 1}-->`);
+    outputLines.push(`@@CALLOUT_${callouts.length - 1}@@`);
   }
 
   let html = await parser(outputLines.join("\n"));
@@ -80,11 +84,12 @@ const mathParser = async (text) => {
     callouts.map(async (callout) => {
       const defaultTitle = calloutTitles[callout.typeKey] ?? callout.typeKey;
       const classKey = calloutClassMap[callout.typeKey] ?? callout.typeKey;
+      const safeClassKey = classKey.toLowerCase().replace(/[^a-z0-9_-]/g, "") || "note";
       const displayTitle = callout.title || defaultTitle;
       const contentHtml = await parser(callout.content);
 
       return `
-        <div class="callout callout-${classKey}">
+        <div class="callout callout-${safeClassKey}">
           <div class="callout-title">${displayTitle}</div>
           <div class="callout-content">${contentHtml}</div>
         </div>
@@ -93,7 +98,10 @@ const mathParser = async (text) => {
   );
 
   renderedCallouts.forEach((calloutHtml, index) => {
-    html = html.replace(`<!--CALLOUT_${index}-->`, calloutHtml);
+    const token = `@@CALLOUT_${index}@@`;
+    const paragraphTokenRegex = new RegExp(`<p>\\s*${escapeRegex(token)}\\s*</p>`, "g");
+    html = html.replace(paragraphTokenRegex, calloutHtml);
+    html = html.replace(token, calloutHtml);
   });
 
   return html;
@@ -103,51 +111,93 @@ const mathParser = async (text) => {
 const viewer = new JSONCanvasViewer({
   container: document.getElementById("canvas-root"),
   canvas: canvasJSON,
-  markdownParser: mathParser,
-  noShadow: true  // Disable shadow DOM so MathJax can access content
+  parser: mathParser,
+  shadowed: false // Keep content in light DOM so MathJax can access content
 });
 
 const canvasRoot = document.getElementById("canvas-root");
 
-// Wait for viewer to render, then typeset math
-setTimeout(() => {
-  if (window.MathJax && window.MathJax.typesetPromise) {
-    window.MathJax.typesetPromise([canvasRoot]).catch(err => {
-      console.warn("MathJax typeset failed:", err);
-    });
-  }
-  
-  // Re-typeset when content changes (e.g., zoom, node selection)
-  const observer = new MutationObserver(() => {
-    if (window.MathJax && window.MathJax.typesetPromise) {
-      window.MathJax.typesetPromise([canvasRoot]).catch(() => {});
-    }
-  });
-  
-  observer.observe(canvasRoot, {
+let mathTypesetTimer = null;
+let mathTypesettingInProgress = false;
+let mathObserver = null;
+
+const observeMathChanges = () => {
+  if (!mathObserver) return;
+  mathObserver.observe(canvasRoot, {
     childList: true,
     subtree: true
   });
-}, 500);
+};
 
-// Wait for viewer to render, then setup edge label click handlers
-setTimeout(() => {
-  canvasRoot.querySelectorAll(".jcv-edge-label").forEach(el => {
-    el.style.cursor = "pointer";
+const runMathTypeset = async () => {
+  if (mathTypesettingInProgress) return;
 
-    el.addEventListener("click", () => {
-      // Each label has dataset linking to edge id
-      const edgeId = el.dataset.id;
+  const mathJax = window.MathJax;
+  if (!mathJax || !mathJax.typesetPromise) return;
 
-      const edge = canvasJSON.edges.find(e => e.id === edgeId);
-      if (!edge) return;
+  mathTypesettingInProgress = true;
 
-      const targetNode = edge.toNode;
+  try {
+    if (mathObserver) {
+      mathObserver.disconnect();
+    }
 
-      focusNode(targetNode);
-    });
-  });
-}, 300);
+    if (mathJax.startup?.promise) {
+      await mathJax.startup.promise;
+    }
+
+    if (typeof mathJax.typesetClear === "function") {
+      mathJax.typesetClear([canvasRoot]);
+    }
+
+    await mathJax.typesetPromise([canvasRoot]);
+  } catch (err) {
+    console.warn("MathJax typeset failed:", err);
+  } finally {
+    mathTypesettingInProgress = false;
+    observeMathChanges();
+  }
+};
+
+const scheduleMathTypeset = () => {
+  if (mathTypesetTimer !== null) {
+    window.clearTimeout(mathTypesetTimer);
+  }
+
+  mathTypesetTimer = window.setTimeout(() => {
+    mathTypesetTimer = null;
+    void runMathTypeset();
+  }, 120);
+};
+
+// Initial pass after scripts have loaded.
+window.addEventListener("load", scheduleMathTypeset);
+
+// Re-typeset when content changes (e.g., zoom, node selection).
+mathObserver = new MutationObserver(() => {
+  if (mathTypesettingInProgress) return;
+  scheduleMathTypeset();
+});
+
+observeMathChanges();
+
+// Run once in case initial content is already present.
+scheduleMathTypeset();
+
+// Delegated click handler to support re-rendered edge labels.
+canvasRoot.addEventListener("click", (event) => {
+  const clickedElement = event.target instanceof Element ? event.target : null;
+  if (!clickedElement) return;
+
+  const edgeLabel = clickedElement.closest(".jcv-edge-label");
+  if (!edgeLabel || !canvasRoot.contains(edgeLabel)) return;
+
+  const edgeId = edgeLabel.dataset.id;
+  const edge = canvasJSON.edges.find(e => e.id === edgeId);
+  if (!edge) return;
+
+  focusNode(edge.toNode);
+});
 
 function focusNode(nodeId) {
   const node = canvasJSON.nodes.find(n => n.id === nodeId);
@@ -160,4 +210,3 @@ function focusNode(nodeId) {
     zoom: 1.2
   });
 }
-

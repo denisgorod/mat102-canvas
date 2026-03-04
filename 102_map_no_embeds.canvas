@@ -115,7 +115,7 @@
 		{
 			"id":"9d210a6a020d7ebf",
 			"type":"text",
-			"text":"Here is an example of a proposition.\n\n>[!s] Proposition 4\nIf $a$ and $b$ are both even numbers, then so too is their product $a b$.",
+			"text":"Here is an example of a proposition.\n\n>[!s] Proposition 4\n> If $a$ and $b$ are both even numbers, then so too is their product $a b$.",
 			"styleAttributes":{},
 			"x":2280,
 			"y":500,

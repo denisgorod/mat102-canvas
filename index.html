@@ -18,12 +18,24 @@
       height: 100vh;
     }
 
+    /* Override json-canvas-viewer centering so markdown fills node width. */
+    .JSON-Canvas-Viewer .JCV-overlay-container .JCV-content.JCV-markdown-content {
+      display: block;
+    }
+
+    .JSON-Canvas-Viewer .JCV-overlay-container .JCV-parsed-content-wrapper {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
     /* Optional: edge labels styling */
     .jcv-edge-label {
       background: rgba(0,0,0,0.7);
       padding: 4px 8px;
       border-radius: 6px;
       font-size: 13px;
+      cursor: pointer;
     }
 
     .callout {
