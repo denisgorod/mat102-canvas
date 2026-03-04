@@ -1,0 +1,279 @@
+{
+	"nodes":[
+		{"id":"b2bce4e831746bcb","type":"group","x":-600,"y":-920,"width":4600,"height":1220,"label":"The number story"},
+		{"id":"16161ab36c60e771","type":"file","file":"Teaching/Intro to abstract mathematics/Bits/Numbers/A historical introduction to numbers.md","x":-2180,"y":-205,"width":560,"height":390},
+		{"id":"50d61a10b020c2d0","type":"file","file":"Quote (@Dehaene2000).md","x":-510,"y":-2650,"width":640,"height":780},
+		{"id":"ed2b4d56871288ae","type":"file","file":"Teaching/Intro to abstract mathematics/Bits/Numbers/Small numbers.md","x":-460,"y":-1490,"width":560,"height":440},
+		{
+			"id":"422f9bc7ca22f2eb",
+			"type":"text",
+			"text":"SOURCES [[@Dehaene2000]]\nA really well-written book.",
+			"styleAttributes":{},
+			"x":-310,
+			"y":-1710,
+			"width":260,
+			"height":80
+		},
+		{
+			"id":"44c7bb1f8edfac10",
+			"type":"text",
+			"text":"Source: Research on deaf Nicaraguans",
+			"styleAttributes":{},
+			"x":740,
+			"y":-2160,
+			"width":260,
+			"height":60
+		},
+		{
+			"id":"e59766c128bdf404",
+			"type":"text",
+			"text":"Source: Piraha research",
+			"styleAttributes":{},
+			"x":740,
+			"y":-2100,
+			"width":260,
+			"height":60
+		},
+		{
+			"id":"1d8ad708c999caa9",
+			"type":"text",
+			"text":"Research on humans",
+			"styleAttributes":{},
+			"x":600,
+			"y":-1900,
+			"width":260,
+			"height":60
+		},
+		{"id":"ce6214fefa3a6c97","type":"file","file":"Teaching/Intro to abstract mathematics/Bits/Numbers/Shepherd knowledge.md","x":-550,"y":-335,"width":400,"height":470},
+		{"id":"efe9a1f9e82470fd","type":"file","file":"Teaching/Intro to abstract mathematics/Bits/Numbers/Scaling up the flock.md","x":50,"y":-270,"width":450,"height":490},
+		{"id":"0060b41fa4086cd4","type":"file","file":"Teaching/Intro to abstract mathematics/Bits/Numbers/The shepherd start.md","x":-1360,"y":-145,"width":400,"height":270},
+		{
+			"id":"3a41e79ba44a411f",
+			"type":"text",
+			"text":"Natural numbers as a direct counting approach: counting on fingers\n\nImagine you are a shepherd.",
+			"styleAttributes":{},
+			"x":-560,
+			"y":1400,
+			"width":300,
+			"height":140
+		},
+		{
+			"id":"05d530fd7c0d4428",
+			"type":"text",
+			"text":"Counting a specific category of objects",
+			"styleAttributes":{},
+			"x":-80,
+			"y":1440,
+			"width":260,
+			"height":60
+		},
+		{
+			"id":"ce2b6bcc4f5cb017",
+			"type":"text",
+			"text":"Addition on natural numbers",
+			"styleAttributes":{},
+			"x":360,
+			"y":1440,
+			"width":260,
+			"height":60
+		},
+		{
+			"id":"d87ead7a0fcd307e",
+			"type":"text",
+			"text":"The successor operation as the defining property of numbers",
+			"styleAttributes":{},
+			"x":-410,
+			"y":1800,
+			"width":260,
+			"height":100
+		},
+		{
+			"id":"dc5776678c4ea77c",
+			"type":"text",
+			"text":"There are several cognitive leaps that happened here:\n1. A single stone doesn't represent a concrete sheep anymore.\n2. We assumed that, if we keep the pouch intact and no sheep get lost, then, independently on the order of stones and order of sheep, we will get the same answer to the question \"Are there any sheep missing?\"\n3. As a consequence, there is something in common between the flock of sheep and the pouch of stones that does not depend on the objects themselves and is only reflective of the amount of objects. The concept of number is not verbalized yet, but the tokenization is an experimental belief in the *existence* of numbers.",
+			"styleAttributes":{},
+			"x":210,
+			"y":720,
+			"width":660,
+			"height":300
+		},
+		{"id":"1e42e17ad3d2a059","type":"file","file":"Teaching/Intro to abstract mathematics/Bits/Numbers/The birth of addition.md","x":540,"y":-840,"width":400,"height":400},
+		{
+			"id":"cc82f716bf1f9ad2",
+			"type":"text",
+			"text":"You can’t just look at the pile of sheep. You have to verify.\nYou line up your stones. You ask your neighbor to line up his sheep.\n\nYou pair them off:\n- Stone 1 $\\leftrightarrow$ Sheep 1\n- Stone 2 $\\leftrightarrow$ Sheep 2\n- ...\n\nIf every stone has a sheep, and every sheep has a stone, and nothing is left over, you are satisfied.",
+			"styleAttributes":{},
+			"x":1320,
+			"y":-200,
+			"width":380,
+			"height":350
+		},
+		{"id":"d09e2f2ffb5c6fe2","type":"file","file":"Teaching/Intro to abstract mathematics/Bits/Numbers/Checking the flock.md","x":1320,"y":-640,"width":380,"height":410}
+	],
+	"edges":[
+		{
+			"id":"39332ce031e25476",
+			"styleAttributes":{},
+			"toFloating":false,
+			"fromNode":"3a41e79ba44a411f",
+			"fromSide":"right",
+			"toNode":"05d530fd7c0d4428",
+			"toSide":"left"
+		},
+		{
+			"id":"e2e484c3da81654e",
+			"styleAttributes":{},
+			"toFloating":false,
+			"fromNode":"05d530fd7c0d4428",
+			"fromSide":"right",
+			"toNode":"ce2b6bcc4f5cb017",
+			"toSide":"left"
+		},
+		{
+			"id":"6c4e0bfb4085c258",
+			"styleAttributes":{},
+			"toFloating":false,
+			"fromNode":"3a41e79ba44a411f",
+			"fromSide":"bottom",
+			"toNode":"d87ead7a0fcd307e",
+			"toSide":"top",
+			"label":"What makes counting possible?"
+		},
+		{
+			"id":"7478f3a05c2ee149",
+			"styleAttributes":{},
+			"toFloating":false,
+			"fromNode":"16161ab36c60e771",
+			"fromSide":"right",
+			"toNode":"0060b41fa4086cd4",
+			"toSide":"left"
+		},
+		{
+			"id":"ef012aa87b3e8bda",
+			"styleAttributes":{},
+			"toFloating":false,
+			"fromNode":"0060b41fa4086cd4",
+			"fromSide":"right",
+			"toNode":"ce6214fefa3a6c97",
+			"toSide":"left",
+			"label":"How do you perceive differences in your flock? What tools do you have given by your perception?"
+		},
+		{
+			"id":"01d3012816d84f99",
+			"styleAttributes":{},
+			"toFloating":false,
+			"fromNode":"ce6214fefa3a6c97",
+			"fromSide":"top",
+			"toNode":"ed2b4d56871288ae",
+			"toSide":"bottom",
+			"label":"But isn't it true that even small children can recognize a small number of objects before knowing what a number actually is?"
+		},
+		{
+			"id":"d0a14b7f4052cf32",
+			"styleAttributes":{},
+			"toFloating":false,
+			"fromFloating":false,
+			"fromNode":"ed2b4d56871288ae",
+			"fromSide":"top",
+			"toNode":"422f9bc7ca22f2eb",
+			"toSide":"bottom",
+			"label":"Can I read further about perception of numbers?"
+		},
+		{
+			"id":"bf0f7c3e1be4b811",
+			"styleAttributes":{},
+			"toFloating":false,
+			"fromNode":"ce6214fefa3a6c97",
+			"fromSide":"right",
+			"toNode":"efe9a1f9e82470fd",
+			"toSide":"left",
+			"label":"What happens as the amount of sheep increases?"
+		},
+		{
+			"id":"3cf226c7684c7c29",
+			"styleAttributes":{},
+			"toFloating":false,
+			"fromFloating":false,
+			"fromNode":"efe9a1f9e82470fd",
+			"fromSide":"top",
+			"toNode":"1e42e17ad3d2a059",
+			"toSide":"bottom",
+			"label":"What happens if a flock is separated in two separate flocks, or if two flocks are merged into one?"
+		},
+		{
+			"id":"4d34da73c5f4d042",
+			"styleAttributes":{},
+			"toFloating":false,
+			"fromFloating":false,
+			"fromNode":"1e42e17ad3d2a059",
+			"fromSide":"right",
+			"toNode":"d09e2f2ffb5c6fe2",
+			"toSide":"left",
+			"label":"How do you separate the flocks back?"
+		},
+		{
+			"id":"dd5dd8089f0fa3ef",
+			"styleAttributes":{},
+			"toFloating":false,
+			"fromFloating":false,
+			"fromNode":"efe9a1f9e82470fd",
+			"fromSide":"right",
+			"toNode":"cc82f716bf1f9ad2",
+			"toSide":"left",
+			"label":"How do you verify whether all of your sheep came back?"
+		},
+		{
+			"id":"69512c3c44f2e35d",
+			"styleAttributes":{},
+			"toFloating":false,
+			"fromNode":"422f9bc7ca22f2eb",
+			"fromSide":"top",
+			"toNode":"50d61a10b020c2d0",
+			"toSide":"bottom",
+			"label":"An example citation."
+		},
+		{
+			"id":"a313460683861290",
+			"styleAttributes":{},
+			"toFloating":false,
+			"fromFloating":false,
+			"fromNode":"efe9a1f9e82470fd",
+			"fromSide":"bottom",
+			"toNode":"dc5776678c4ea77c",
+			"toSide":"top",
+			"label":"What have we achieved?"
+		},
+		{
+			"id":"881ffbc71a58817f",
+			"styleAttributes":{},
+			"toFloating":false,
+			"fromNode":"ed2b4d56871288ae",
+			"fromSide":"top",
+			"toNode":"1d8ad708c999caa9",
+			"toSide":"bottom",
+			"label":"Are there still some examples of cultures/languages where the transition to numbers has not been finalized?"
+		},
+		{
+			"id":"17651c12cc385a28",
+			"styleAttributes":{},
+			"toFloating":false,
+			"fromNode":"1d8ad708c999caa9",
+			"fromSide":"top",
+			"toNode":"44c7bb1f8edfac10",
+			"toSide":"left"
+		},
+		{
+			"id":"94da5e313b799b8f",
+			"styleAttributes":{},
+			"toFloating":false,
+			"fromNode":"1d8ad708c999caa9",
+			"fromSide":"top",
+			"toNode":"e59766c128bdf404",
+			"toSide":"left"
+		}
+	],
+	"metadata":{
+		"version":"1.0-1.0",
+		"frontmatter":{}
+	}
+}

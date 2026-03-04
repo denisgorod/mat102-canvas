@@ -20,13 +20,15 @@
 
     /* Override json-canvas-viewer centering so markdown fills node width. */
     .JSON-Canvas-Viewer .JCV-overlay-container .JCV-content.JCV-markdown-content {
-      display: block;
+      display: block !important;
+      justify-content: flex-start !important;
+      align-items: stretch !important;
     }
 
     .JSON-Canvas-Viewer .JCV-overlay-container .JCV-parsed-content-wrapper {
-      width: 100%;
-      max-width: 100%;
-      box-sizing: border-box;
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
     }
 
     /* Optional: edge labels styling */
@@ -36,6 +38,76 @@
       border-radius: 6px;
       font-size: 13px;
       cursor: pointer;
+    }
+
+    .edge-label-box {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      border: none;
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 14px;
+      line-height: 1.2;
+      white-space: normal;
+      text-wrap: pretty;
+      word-break: break-word;
+      text-align: center;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+    }
+
+    .outgoing-panel {
+      position: absolute;
+      right: 12px;
+      top: 12px;
+      width: min(360px, calc(100vw - 24px));
+      max-height: min(48vh, 420px);
+      background: rgba(17, 24, 39, 0.88);
+      color: #e5e7eb;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      border-radius: 10px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(4px);
+      padding: 10px;
+      display: none;
+      z-index: 40;
+      overflow: auto;
+      pointer-events: auto;
+    }
+
+    .outgoing-panel.is-visible {
+      display: block;
+    }
+
+    .outgoing-title {
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 700;
+      opacity: 0.85;
+      margin-bottom: 8px;
+    }
+
+    .outgoing-list {
+      display: grid;
+      gap: 6px;
+    }
+
+    .outgoing-link {
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: rgba(30, 41, 59, 0.82);
+      color: #f8fafc;
+      border-radius: 8px;
+      padding: 8px 10px;
+      text-align: left;
+      font-size: 13px;
+      line-height: 1.25;
+      cursor: pointer;
+    }
+
+    .outgoing-link:hover {
+      background: rgba(51, 65, 85, 0.9);
+      border-color: rgba(148, 163, 184, 0.7);
     }
 
     .callout {
