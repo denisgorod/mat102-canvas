@@ -487,7 +487,8 @@ applyFileNodeDisplayNames();
 const focusState = {
   nodeId: null,
   panel: null,
-  panAnimationFrame: null
+  panAnimationFrame: null,
+  history: []
 };
 const nodeTypeById = new Map(canvasJSON.nodes.map((node) => [node.id, node.type || "text"]));
 const overlayNodeTypeClasses = ["node-type-text", "node-type-file", "node-type-group", "node-type-link"];
@@ -547,6 +548,9 @@ const getNodeLabel = (nodeId) => {
   return firstLine.replace(/^#+\s*/, "").trim().slice(0, 80);
 };
 
+const MAX_FOCUS_HISTORY = 80;
+const canGoBackInFocus = () => focusState.history.length > 0;
+
 const setOverlayNodeTypeClass = (overlay) => {
   if (!(overlay instanceof Element) || !overlay.id) return;
 
@@ -572,7 +576,10 @@ const ensureOutgoingPanel = () => {
   const panel = document.createElement("aside");
   panel.className = "outgoing-panel";
   panel.innerHTML = `
-    <div class="outgoing-title">Outgoing Annotations</div>
+    <div class="outgoing-header">
+      <button type="button" class="outgoing-back" aria-label="Back to previous node">Back</button>
+      <div class="outgoing-title">Outgoing Annotations</div>
+    </div>
     <div class="outgoing-list"></div>
   `;
   canvasRoot.appendChild(panel);
@@ -597,6 +604,12 @@ const ensureOutgoingPanel = () => {
   });
 
   panel.addEventListener("click", (event) => {
+    const backButton = event.target instanceof Element ? event.target.closest(".outgoing-back") : null;
+    if (backButton) {
+      goBackToPreviousFocus();
+      return;
+    }
+
     const button = event.target instanceof Element ? event.target.closest(".outgoing-link") : null;
     if (!button) return;
 
@@ -607,6 +620,46 @@ const ensureOutgoingPanel = () => {
   });
 
   return panel;
+};
+
+const activateFocusedNode = (nodeId, { recordHistory = true } = {}) => {
+  if (!nodeId) {
+    setFocusedNode(null);
+    return;
+  }
+
+  if (recordHistory && focusState.nodeId && focusState.nodeId !== nodeId) {
+    const lastHistoryNode = focusState.history[focusState.history.length - 1];
+    if (lastHistoryNode !== focusState.nodeId) {
+      focusState.history.push(focusState.nodeId);
+      if (focusState.history.length > MAX_FOCUS_HISTORY) {
+        focusState.history.shift();
+      }
+    }
+  }
+
+  setFocusedNode(nodeId);
+};
+
+const goBackToPreviousFocus = () => {
+  if (!canGoBackInFocus()) return;
+
+  let previousNodeId = null;
+
+  while (focusState.history.length > 0) {
+    const candidate = focusState.history.pop();
+    if (!candidate || candidate === focusState.nodeId) continue;
+    if (!getNodeById(candidate)) continue;
+    previousNodeId = candidate;
+    break;
+  }
+
+  if (!previousNodeId) {
+    renderOutgoingPanel();
+    return;
+  }
+
+  focusNode(previousNodeId, { recordHistory: false });
 };
 
 const computeCenterOffsetForNode = (node, scale) => {
@@ -621,10 +674,49 @@ const computeCenterOffsetForNode = (node, scale) => {
   };
 };
 
+const getFocusViewportForNode = (node) => {
+  const viewportWidth = canvasRoot.clientWidth || window.innerWidth;
+  const viewportHeight = canvasRoot.clientHeight || window.innerHeight;
+  const viewportCenter = {
+    x: viewportWidth / 2,
+    y: viewportHeight / 2
+  };
+
+  // File/group nodes have a visible title/header above `node.y`; include it in fit bounds.
+  const titleBandHeight = (node.type === "file" || node.type === "group") ? 40 : 0;
+  const focusBounds = {
+    left: node.x,
+    top: node.y - titleBandHeight,
+    right: node.x + node.width,
+    bottom: node.y + node.height
+  };
+  const focusWidth = Math.max(1, focusBounds.right - focusBounds.left);
+  const focusHeight = Math.max(1, focusBounds.bottom - focusBounds.top);
+  const centerX = focusBounds.left + (focusWidth / 2);
+  const centerY = focusBounds.top + (focusHeight / 2);
+  const fitZoom = Math.min(viewportWidth / focusWidth, viewportHeight / focusHeight) * 0.92;
+  const scale = Math.max(0.2, Math.min(4, fitZoom));
+  const offsetX = viewportCenter.x - (centerX * scale);
+  const offsetY = viewportCenter.y - (centerY * scale);
+
+  return { scale, offsetX, offsetY };
+};
+
+const snapViewportForCrispText = (viewport) => ({
+  scale: Math.round(viewport.scale * 1000) / 1000,
+  offsetX: Math.round(viewport.offsetX),
+  offsetY: Math.round(viewport.offsetY)
+});
+
 const renderOutgoingPanel = () => {
   const panel = ensureOutgoingPanel();
   const list = panel.querySelector(".outgoing-list");
+  const backButton = panel.querySelector(".outgoing-back");
   if (!list) return;
+
+  if (backButton instanceof HTMLButtonElement) {
+    backButton.disabled = !canGoBackInFocus();
+  }
 
   if (!focusState.nodeId) {
     panel.classList.remove("is-visible");
@@ -640,7 +732,7 @@ const renderOutgoingPanel = () => {
       label: (edge.label && edge.label.trim().length > 0) ? edge.label.trim() : `Go to: ${getNodeLabel(edge.toNode)}`
     }));
 
-  if (outgoingEdges.length === 0) {
+  if (outgoingEdges.length === 0 && !canGoBackInFocus()) {
     panel.classList.remove("is-visible");
     list.innerHTML = "";
     return;
@@ -676,18 +768,19 @@ const smoothPanToNode = (nodeId, options = {}) => {
   const targetNode = getNodeById(nodeId);
   if (!targetNode) return;
   if (!dataManager?.data) {
-    focusNode(nodeId);
+    focusNode(nodeId, { recordHistory: options.recordHistory !== false });
     return;
   }
 
-  setFocusedNode(nodeId);
+  activateFocusedNode(nodeId, { recordHistory: options.recordHistory !== false });
   cancelPanAnimation();
 
   const durationMs = options.durationMs ?? 520;
-  const fixedScale = dataManager.data.scale;
+  const startScale = dataManager.data.scale;
   const startOffsetX = dataManager.data.offsetX;
   const startOffsetY = dataManager.data.offsetY;
-  const targetOffset = computeCenterOffsetForNode(targetNode, fixedScale);
+  const targetViewport = getFocusViewportForNode(targetNode);
+  const finalViewport = snapViewportForCrispText(targetViewport);
   const startedAt = performance.now();
 
   const step = (now) => {
@@ -696,8 +789,9 @@ const smoothPanToNode = (nodeId, options = {}) => {
     const t = Math.max(0, Math.min(1, rawT));
     const eased = easeInOutCubic(t);
 
-    dataManager.data.offsetX = startOffsetX + ((targetOffset.x - startOffsetX) * eased);
-    dataManager.data.offsetY = startOffsetY + ((targetOffset.y - startOffsetY) * eased);
+    dataManager.data.scale = startScale + ((targetViewport.scale - startScale) * eased);
+    dataManager.data.offsetX = startOffsetX + ((targetViewport.offsetX - startOffsetX) * eased);
+    dataManager.data.offsetY = startOffsetY + ((targetViewport.offsetY - startOffsetY) * eased);
 
     if (typeof viewer.refresh === "function") {
       viewer.refresh();
@@ -708,6 +802,13 @@ const smoothPanToNode = (nodeId, options = {}) => {
       return;
     }
 
+    dataManager.data.scale = finalViewport.scale;
+    dataManager.data.offsetX = finalViewport.offsetX;
+    dataManager.data.offsetY = finalViewport.offsetY;
+    if (typeof viewer.refresh === "function") {
+      viewer.refresh();
+    }
+    scheduleMathTypeset();
     focusState.panAnimationFrame = null;
   };
 
@@ -853,16 +954,18 @@ const renderGroupControls = () => {
       }
     });
 
-    const title = document.createElement("span");
-    title.className = "group-header-title";
-    title.textContent = groupNode.label || "Group";
-    title.addEventListener("click", (event) => {
+    const titleHitbox = document.createElement("button");
+    titleHitbox.type = "button";
+    titleHitbox.className = "group-title-hitbox";
+    titleHitbox.setAttribute("aria-label", `Focus group: ${groupNode.label || "Group"}`);
+    titleHitbox.title = groupNode.label || "Group";
+    titleHitbox.addEventListener("click", (event) => {
       event.stopPropagation();
       focusNodeFromInteraction(groupNode.id);
     });
 
+    header.appendChild(titleHitbox);
     header.appendChild(toggleButton);
-    header.appendChild(title);
     layer.appendChild(header);
   });
 
@@ -1251,42 +1354,17 @@ function syncCollapsedVisibilityFromMutations(mutations) {
   });
 }
 
-function focusNode(nodeId) {
+function focusNode(nodeId, options = {}) {
   const node = canvasJSON.nodes.find(n => n.id === nodeId);
   if (!node) return;
-  setFocusedNode(nodeId);
+  activateFocusedNode(nodeId, { recordHistory: options.recordHistory !== false });
   cancelPanAnimation();
-
-  const viewportWidth = canvasRoot.clientWidth || window.innerWidth;
-  const viewportHeight = canvasRoot.clientHeight || window.innerHeight;
-  const viewportCenter = {
-    x: viewportWidth / 2,
-    y: viewportHeight / 2
-  };
-
-  // File/group nodes have a visible title/header above `node.y`; include it in fit bounds.
-  const titleBandHeight = (node.type === "file" || node.type === "group") ? 40 : 0;
-  const focusBounds = {
-    left: node.x,
-    top: node.y - titleBandHeight,
-    right: node.x + node.width,
-    bottom: node.y + node.height
-  };
-  const focusWidth = Math.max(1, focusBounds.right - focusBounds.left);
-  const focusHeight = Math.max(1, focusBounds.bottom - focusBounds.top);
-  const centerX = focusBounds.left + (focusWidth / 2);
-  const centerY = focusBounds.top + (focusHeight / 2);
-  const fitZoom = Math.min(viewportWidth / focusWidth, viewportHeight / focusHeight) * 0.92;
-  const targetZoom = Math.max(0.2, Math.min(4, fitZoom));
-  const targetOffset = {
-    x: viewportCenter.x - (centerX * targetZoom),
-    y: viewportCenter.y - (centerY * targetZoom)
-  };
+  const targetViewport = snapViewportForCrispText(getFocusViewportForNode(node));
 
   if (dataManager?.data) {
-    dataManager.data.scale = targetZoom;
-    dataManager.data.offsetX = targetOffset.x;
-    dataManager.data.offsetY = targetOffset.y;
+    dataManager.data.scale = targetViewport.scale;
+    dataManager.data.offsetX = targetViewport.offsetX;
+    dataManager.data.offsetY = targetViewport.offsetY;
 
     if (typeof viewer.refresh === "function") {
       viewer.refresh();
@@ -1296,14 +1374,22 @@ function focusNode(nodeId) {
 
   // Fallback: public interaction APIs if internal module lookup fails.
   if (typeof viewer.zoomToScale === "function" && typeof viewer.panToCoords === "function") {
-    viewer.zoomToScale(targetZoom, viewportCenter);
+    const viewportWidth = canvasRoot.clientWidth || window.innerWidth;
+    const viewportHeight = canvasRoot.clientHeight || window.innerHeight;
+    const viewportCenter = {
+      x: viewportWidth / 2,
+      y: viewportHeight / 2
+    };
+    viewer.zoomToScale(targetViewport.scale, viewportCenter);
     window.requestAnimationFrame(() => {
-      viewer.panToCoords(targetOffset);
+      viewer.panToCoords({ x: targetViewport.offsetX, y: targetViewport.offsetY });
     });
     return;
   }
 
   if (typeof viewer.setViewport === "function") {
-    viewer.setViewport({ x: centerX, y: centerY, zoom: targetZoom });
+    const centerX = node.x + (node.width / 2);
+    const centerY = node.y + (node.height / 2);
+    viewer.setViewport({ x: centerX, y: centerY, zoom: targetViewport.scale });
   }
 }

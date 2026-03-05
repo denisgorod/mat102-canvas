@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Canvas Viewer</title>
   <style>
+    :root {
+      --obs-font-text: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --obs-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      --obs-text: #2f3440;
+      --obs-muted: #5b6472;
+      --obs-border: #d8dee9;
+      --obs-bg-soft: #eef2f7;
+      --obs-accent: #3b82f6;
+      --obs-line: 1.55;
+    }
+
     html, body {
       margin: 0;
       padding: 0;
@@ -33,6 +44,124 @@
       width: 100% !important;
       max-width: 100% !important;
       box-sizing: border-box !important;
+    }
+
+    /* Keep markdown typography close to Obsidian reading view with minimal rules. */
+    .JSON-Canvas-Viewer .JCV-overlay-container .JCV-content.JCV-markdown-content .JCV-parsed-content-wrapper {
+      font-family: var(--obs-font-text) !important;
+      font-size: 16px;
+      line-height: var(--obs-line);
+      color: var(--obs-text);
+      font-weight: 400;
+      letter-spacing: 0;
+      word-spacing: 0;
+    }
+
+    .JSON-Canvas-Viewer .JCV-markdown-content .JCV-parsed-content-wrapper > * {
+      margin: 0 0 0.8em 0;
+    }
+
+    .JSON-Canvas-Viewer .JCV-markdown-content .JCV-parsed-content-wrapper > *:first-child {
+      margin-top: 0;
+    }
+
+    .JSON-Canvas-Viewer .JCV-markdown-content .JCV-parsed-content-wrapper > *:last-child {
+      margin-bottom: 0;
+    }
+
+    .JSON-Canvas-Viewer .JCV-markdown-content h1,
+    .JSON-Canvas-Viewer .JCV-markdown-content h2,
+    .JSON-Canvas-Viewer .JCV-markdown-content h3,
+    .JSON-Canvas-Viewer .JCV-markdown-content h4,
+    .JSON-Canvas-Viewer .JCV-markdown-content h5,
+    .JSON-Canvas-Viewer .JCV-markdown-content h6 {
+      color: #1f2937;
+      font-weight: 700;
+      line-height: 1.3;
+      margin: 0.35em 0 0.55em;
+      letter-spacing: 0;
+    }
+
+    .JSON-Canvas-Viewer .JCV-markdown-content h1 { font-size: 1.55em; }
+    .JSON-Canvas-Viewer .JCV-markdown-content h2 { font-size: 1.36em; }
+    .JSON-Canvas-Viewer .JCV-markdown-content h3 { font-size: 1.2em; }
+    .JSON-Canvas-Viewer .JCV-markdown-content h4 { font-size: 1.07em; }
+    .JSON-Canvas-Viewer .JCV-markdown-content h5,
+    .JSON-Canvas-Viewer .JCV-markdown-content h6 { font-size: 1em; }
+
+    .JSON-Canvas-Viewer .JCV-markdown-content p,
+    .JSON-Canvas-Viewer .JCV-markdown-content li {
+      color: var(--obs-text);
+      line-height: var(--obs-line);
+      margin: 0;
+    }
+
+    .JSON-Canvas-Viewer .JCV-markdown-content ul,
+    .JSON-Canvas-Viewer .JCV-markdown-content ol {
+      margin: 0.2em 0 0.85em 1.35em;
+      padding: 0;
+    }
+
+    .JSON-Canvas-Viewer .JCV-markdown-content li + li {
+      margin-top: 0.15em;
+    }
+
+    .JSON-Canvas-Viewer .JCV-markdown-content strong {
+      font-weight: 650;
+      color: #252b36;
+    }
+
+    .JSON-Canvas-Viewer .JCV-markdown-content em {
+      color: #3b4252;
+    }
+
+    .JSON-Canvas-Viewer .JCV-markdown-content a {
+      color: var(--obs-accent);
+      text-decoration: none;
+    }
+
+    .JSON-Canvas-Viewer .JCV-markdown-content a:hover {
+      text-decoration: underline;
+    }
+
+    .JSON-Canvas-Viewer .JCV-markdown-content blockquote {
+      margin: 0.4em 0 0.85em;
+      padding: 0.35em 0.9em;
+      border-left: 3px solid #c8d2e1;
+      color: var(--obs-muted);
+      background: rgba(148, 163, 184, 0.08);
+      border-radius: 4px;
+    }
+
+    .JSON-Canvas-Viewer .JCV-markdown-content code {
+      font-family: var(--obs-font-mono);
+      font-size: 0.9em;
+      background: rgba(148, 163, 184, 0.18);
+      border: 1px solid rgba(148, 163, 184, 0.34);
+      border-radius: 4px;
+      padding: 0.08em 0.32em;
+    }
+
+    .JSON-Canvas-Viewer .JCV-markdown-content pre {
+      margin: 0.45em 0 0.95em;
+      padding: 0.7em 0.8em;
+      background: var(--obs-bg-soft);
+      border: 1px solid var(--obs-border);
+      border-radius: 8px;
+      overflow: auto;
+    }
+
+    .JSON-Canvas-Viewer .JCV-markdown-content pre code {
+      border: none;
+      background: transparent;
+      padding: 0;
+      font-size: 0.88em;
+    }
+
+    .JSON-Canvas-Viewer .JCV-markdown-content hr {
+      margin: 0.95em 0;
+      border: none;
+      border-top: 1px solid #d7dce6;
     }
 
     /* File embeds should remain scrollable even when node is not in JCV-active state. */
@@ -109,25 +238,22 @@
       gap: 8px;
       min-height: 30px;
       padding: 2px 8px;
-      border-radius: 6px 6px 0 0;
-      background: rgba(226, 232, 240, 0.92);
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      border-bottom: none;
       box-sizing: border-box;
       pointer-events: auto;
-      color: #1f2937;
       user-select: none;
     }
 
-    .group-header-title {
-      font-size: 14px;
-      font-weight: 600;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+    .group-title-hitbox {
+      flex: 1 1 auto;
+      min-height: 26px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      padding: 0;
     }
 
     .group-toggle-button {
+      margin-left: auto;
       width: 22px;
       height: 22px;
       border: 1px solid rgba(100, 116, 139, 0.7);
@@ -182,12 +308,36 @@
       text-transform: uppercase;
       font-weight: 700;
       opacity: 0.85;
+      margin: 0;
+    }
+
+    .outgoing-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
       margin-bottom: 8px;
     }
 
     .outgoing-list {
       display: grid;
       gap: 6px;
+    }
+
+    .outgoing-back {
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(30, 41, 59, 0.72);
+      color: #f8fafc;
+      border-radius: 7px;
+      padding: 5px 9px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .outgoing-back:disabled {
+      opacity: 0.45;
+      cursor: default;
     }
 
     .outgoing-link {
@@ -220,7 +370,16 @@
 
       .outgoing-title {
         font-size: 11px;
+      }
+
+      .outgoing-header {
         margin-bottom: 6px;
+      }
+
+      .outgoing-back {
+        min-height: 36px;
+        font-size: 13px;
+        padding: 6px 10px;
       }
 
       .outgoing-link {
@@ -240,8 +399,8 @@
         padding: 2px 6px;
       }
 
-      .group-header-title {
-        font-size: 13px;
+      .group-title-hitbox {
+        min-height: 24px;
       }
 
       .group-toggle-button {
