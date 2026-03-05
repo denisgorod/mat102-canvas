@@ -2,7 +2,16 @@ import { JSONCanvasViewer, parser }
   from "https://unpkg.com/json-canvas-viewer/dist/chimp.js";
 
 
-const response = await fetch("./102_map_no_embeds.canvas");
+const defaultCanvasPath = "./102_map_no_embeds.canvas";
+const canvasPathParam = new URLSearchParams(window.location.search).get("canvas");
+const requestedCanvasPath = (canvasPathParam && canvasPathParam.trim().length > 0)
+  ? canvasPathParam.trim()
+  : defaultCanvasPath;
+
+const response = await fetch(requestedCanvasPath);
+if (!response.ok) {
+  throw new Error(`Failed to load canvas: ${requestedCanvasPath} (${response.status})`);
+}
 const canvasJSON = await response.json();
 
 const escapeRegex = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -69,6 +78,96 @@ const restoreMathSegments = (html, segments) => {
   });
 
   return restored;
+};
+
+const toPosixPath = (path) => String(path ?? "").replace(/\\/g, "/");
+const getBasename = (path) => {
+  const normalized = toPosixPath(path);
+  const segments = normalized.split("/");
+  return segments[segments.length - 1] ?? "";
+};
+const stripFileExtension = (fileName) => String(fileName ?? "").replace(/\.[^./\\]+$/, "");
+const getDisplayFileName = (path) => stripFileExtension(getBasename(path));
+const getDirectoryPath = (path) => {
+  const normalized = toPosixPath(path);
+  const index = normalized.lastIndexOf("/");
+  if (index < 0) return "./";
+
+  const directory = normalized.slice(0, index + 1);
+  if (directory.startsWith("./") || directory.startsWith("../") || directory.startsWith("/")) {
+    return directory;
+  }
+
+  return `./${directory}`;
+};
+const ensureRelativePath = (path) => {
+  const normalized = toPosixPath(path);
+  if (normalized.startsWith("./") || normalized.startsWith("../") || normalized.startsWith("/")) {
+    return normalized;
+  }
+
+  return `./${normalized}`;
+};
+const isHttpPath = (path) => /^https?:\/\//i.test(String(path ?? ""));
+
+const tryResolveReachablePath = async (candidates, cache) => {
+  for (const candidate of candidates) {
+    if (!candidate) continue;
+    if (cache.has(candidate)) {
+      if (cache.get(candidate)) return candidate;
+      continue;
+    }
+
+    let reachable = false;
+
+    try {
+      const headResponse = await fetch(candidate, { method: "HEAD" });
+      reachable = headResponse.ok;
+
+      if (!reachable && (headResponse.status === 405 || headResponse.status === 501)) {
+        const getResponse = await fetch(candidate);
+        reachable = getResponse.ok;
+      }
+    } catch {
+      reachable = false;
+    }
+
+    cache.set(candidate, reachable);
+    if (reachable) return candidate;
+  }
+
+  return null;
+};
+
+const buildAttachmentMap = async (canvasData, canvasPath) => {
+  const files = canvasData.nodes.filter((node) => node.type === "file" && typeof node.file === "string");
+  const canvasDirectory = getDirectoryPath(canvasPath);
+  const attachmentMap = {};
+  const reachabilityCache = new Map();
+
+  for (const fileNode of files) {
+    if (isHttpPath(fileNode.file)) continue;
+
+    const baseName = getBasename(fileNode.file);
+    if (!baseName || attachmentMap[baseName]) continue;
+
+    const normalizedOriginal = ensureRelativePath(fileNode.file);
+    const candidates = [
+      normalizedOriginal,
+      `${canvasDirectory}${baseName}`,
+      `./Numbers/${baseName}`,
+      `./${baseName}`
+    ];
+
+    const uniqueCandidates = [...new Set(candidates)];
+    const resolved = await tryResolveReachablePath(uniqueCandidates, reachabilityCache);
+
+    if (resolved) {
+      attachmentMap[baseName] = resolved;
+    }
+  }
+
+  return attachmentMap;
 };
 
 // Custom parser that renders Obsidian-style callouts and preserves LaTeX for MathJax.
@@ -176,6 +275,7 @@ const mathParser = async (text) => {
 };
 
 const canvasForViewer = structuredClone(canvasJSON);
+const attachmentMap = await buildAttachmentMap(canvasJSON, requestedCanvasPath);
 const edgeLabels = canvasForViewer.edges
   .filter((edge) => typeof edge.label === "string" && edge.label.trim().length > 0)
   .map((edge) => ({ ...edge, label: edge.label.trim() }));
@@ -309,6 +409,8 @@ const viewer = new JSONCanvasViewer({
   container: canvasRoot,
   canvas: canvasForViewer,
   parser: mathParser,
+  attachments: attachmentMap,
+  noAttachmentRelocation: true,
   shadowed: false // Keep content in light DOM so MathJax can access content
 });
 
@@ -365,25 +467,103 @@ const findDataManagerModule = (root) => {
 
 const dataManager = findDataManagerModule(viewer);
 
+const applyFileNodeDisplayNames = () => {
+  if (!dataManager?.data?.nodeMap) return;
+
+  Object.values(dataManager.data.nodeMap).forEach((nodeEntry) => {
+    if (!nodeEntry?.ref || nodeEntry.ref.type !== "file" || typeof nodeEntry.ref.file !== "string") {
+      return;
+    }
+
+    const displayName = getDisplayFileName(nodeEntry.ref.file);
+    if (!displayName) return;
+
+    nodeEntry.fileName = displayName;
+  });
+};
+
+applyFileNodeDisplayNames();
+
 const focusState = {
   nodeId: null,
   panel: null,
   panAnimationFrame: null
 };
+const nodeTypeById = new Map(canvasJSON.nodes.map((node) => [node.id, node.type || "text"]));
+const overlayNodeTypeClasses = ["node-type-text", "node-type-file", "node-type-group", "node-type-link"];
+const groupNodes = canvasJSON.nodes.filter((node) => node.type === "group");
+const collapsedGroupIds = new Set();
+let collapsedHiddenNodeIds = new Set();
 
 const easeInOutCubic = (t) => (t < 0.5)
   ? 4 * t * t * t
   : 1 - ((-2 * t + 2) ** 3) / 2;
 
 const getNodeById = (nodeId) => canvasJSON.nodes.find((node) => node.id === nodeId);
+const isNodeCollapsed = (nodeId) => collapsedHiddenNodeIds.has(nodeId);
+
+const isNodeInsideGroup = (node, group) => {
+  const centerX = node.x + (node.width / 2);
+  const centerY = node.y + (node.height / 2);
+
+  return (
+    centerX >= group.x
+    && centerX <= (group.x + group.width)
+    && centerY >= group.y
+    && centerY <= (group.y + group.height)
+  );
+};
+
+const recomputeCollapsedHiddenNodes = () => {
+  const hiddenNodeIds = new Set();
+
+  collapsedGroupIds.forEach((groupId) => {
+    const groupNode = groupNodes.find((group) => group.id === groupId);
+    if (!groupNode) return;
+
+    canvasJSON.nodes.forEach((node) => {
+      if (node.type === "group") return;
+      if (isNodeInsideGroup(node, groupNode)) {
+        hiddenNodeIds.add(node.id);
+      }
+    });
+  });
+
+  collapsedHiddenNodeIds = hiddenNodeIds;
+};
 
 const getNodeLabel = (nodeId) => {
   const node = getNodeById(nodeId);
   if (!node) return "Unknown node";
+  if (node.type === "group") return node.label || "Group";
+
+  if (node.type === "file" && typeof node.file === "string") {
+    return getDisplayFileName(node.file) || node.id;
+  }
+
   if (typeof node.text !== "string" || node.text.trim().length === 0) return node.id;
 
   const firstLine = node.text.split(/\r?\n/).find((line) => line.trim().length > 0) ?? node.id;
   return firstLine.replace(/^#+\s*/, "").trim().slice(0, 80);
+};
+
+const setOverlayNodeTypeClass = (overlay) => {
+  if (!(overlay instanceof Element) || !overlay.id) return;
+
+  overlayNodeTypeClasses.forEach((className) => {
+    overlay.classList.remove(className);
+  });
+
+  const nodeType = nodeTypeById.get(overlay.id);
+  if (!nodeType) return;
+
+  overlay.classList.add(`node-type-${nodeType}`);
+};
+
+const applyOverlayNodeTypeClasses = () => {
+  canvasRoot.querySelectorAll(".JCV-overlay-container").forEach((overlay) => {
+    setOverlayNodeTypeClass(overlay);
+  });
 };
 
 const ensureOutgoingPanel = () => {
@@ -397,6 +577,24 @@ const ensureOutgoingPanel = () => {
   `;
   canvasRoot.appendChild(panel);
   focusState.panel = panel;
+
+  // Keep touch/pointer gestures on the panel from triggering canvas pan/zoom.
+  const stopPanelPropagation = (event) => {
+    event.stopPropagation();
+  };
+  [
+    "pointerdown",
+    "pointermove",
+    "pointerup",
+    "pointercancel",
+    "click",
+    "wheel",
+    "touchstart",
+    "touchmove",
+    "touchend"
+  ].forEach((eventName) => {
+    panel.addEventListener(eventName, stopPanelPropagation);
+  });
 
   panel.addEventListener("click", (event) => {
     const button = event.target instanceof Element ? event.target.closest(".outgoing-link") : null;
@@ -435,7 +633,7 @@ const renderOutgoingPanel = () => {
   }
 
   const outgoingEdges = canvasJSON.edges
-    .filter((edge) => edge.fromNode === focusState.nodeId)
+    .filter((edge) => edge.fromNode === focusState.nodeId && !isNodeCollapsed(edge.toNode))
     .map((edge) => ({
       id: edge.id,
       toNode: edge.toNode,
@@ -550,6 +748,128 @@ const edgeLabelCandidates = [
   [40, 0]
 ];
 
+const setOverlayCollapsedClass = (overlay) => {
+  if (!(overlay instanceof Element) || !overlay.id) return;
+
+  const shouldHide = isNodeCollapsed(overlay.id);
+  const hasClass = overlay.classList.contains("is-collapsed-hidden");
+
+  if (shouldHide && !hasClass) {
+    overlay.classList.add("is-collapsed-hidden");
+    return;
+  }
+
+  if (!shouldHide && hasClass) {
+    overlay.classList.remove("is-collapsed-hidden");
+  }
+};
+
+const applyCollapsedNodeVisibility = ({ updatePanel = true } = {}) => {
+  canvasRoot.querySelectorAll(".JCV-overlay-container").forEach((overlay) => {
+    setOverlayNodeTypeClass(overlay);
+    setOverlayCollapsedClass(overlay);
+  });
+
+  if (focusState.nodeId && isNodeCollapsed(focusState.nodeId)) {
+    setFocusedNode(null);
+    return;
+  }
+
+  if (updatePanel) {
+    renderOutgoingPanel();
+  }
+};
+
+const renderGroupControls = () => {
+  if (groupNodes.length === 0) return true;
+
+  const overlaysRoot = canvasRoot.querySelector(".JCV-overlays");
+  if (!overlaysRoot) return false;
+
+  let layer = overlaysRoot.querySelector(".group-overlay-layer");
+  if (!layer) {
+    layer = document.createElement("div");
+    layer.className = "group-overlay-layer";
+    layer.style.position = "absolute";
+    layer.style.left = "0";
+    layer.style.top = "0";
+    layer.style.width = "0";
+    layer.style.height = "0";
+    layer.style.overflow = "visible";
+    layer.style.zIndex = "35";
+    layer.style.pointerEvents = "none";
+    overlaysRoot.appendChild(layer);
+  }
+
+  layer.innerHTML = "";
+
+  groupNodes.forEach((groupNode) => {
+    const isCollapsed = collapsedGroupIds.has(groupNode.id);
+
+    if (isCollapsed) {
+      const mask = document.createElement("div");
+      mask.className = "group-collapse-mask";
+      mask.style.left = `${groupNode.x}px`;
+      mask.style.top = `${groupNode.y}px`;
+      mask.style.width = `${groupNode.width}px`;
+      mask.style.height = `${groupNode.height}px`;
+      mask.addEventListener("pointerdown", (event) => {
+        event.stopPropagation();
+      });
+      layer.appendChild(mask);
+    }
+
+    const header = document.createElement("div");
+    header.className = "group-header-box";
+    header.style.left = `${groupNode.x}px`;
+    header.style.top = `${groupNode.y - 36}px`;
+    header.style.width = `${groupNode.width}px`;
+    header.addEventListener("pointerdown", (event) => {
+      event.stopPropagation();
+    });
+
+    const toggleButton = document.createElement("button");
+    toggleButton.type = "button";
+    toggleButton.className = "group-toggle-button";
+    toggleButton.dataset.groupId = groupNode.id;
+    toggleButton.setAttribute("aria-label", isCollapsed ? "Expand group" : "Collapse group");
+    toggleButton.textContent = isCollapsed ? "+" : "−";
+    toggleButton.addEventListener("click", (event) => {
+      event.stopPropagation();
+
+      if (collapsedGroupIds.has(groupNode.id)) {
+        collapsedGroupIds.delete(groupNode.id);
+      } else {
+        collapsedGroupIds.add(groupNode.id);
+      }
+
+      recomputeCollapsedHiddenNodes();
+      applyCollapsedNodeVisibility();
+      renderGroupControls();
+      renderEdgeLabels();
+
+      if (typeof viewer.refresh === "function") {
+        viewer.refresh();
+      }
+    });
+
+    const title = document.createElement("span");
+    title.className = "group-header-title";
+    title.textContent = groupNode.label || "Group";
+    title.addEventListener("click", (event) => {
+      event.stopPropagation();
+      focusNodeFromInteraction(groupNode.id);
+    });
+
+    header.appendChild(toggleButton);
+    header.appendChild(title);
+    layer.appendChild(header);
+  });
+
+  applyCollapsedNodeVisibility();
+  return true;
+};
+
 const renderEdgeLabels = () => {
   const overlaysRoot = canvasRoot.querySelector(".JCV-overlays");
   if (!overlaysRoot) return false;
@@ -583,12 +903,14 @@ const renderEdgeLabels = () => {
   layer.innerHTML = "";
 
   const nodeMap = new Map(canvasJSON.nodes.map((node) => [node.id, node]));
-  const nodeBoxes = canvasJSON.nodes.map((node) => ({
+  const visibleNodeBoxes = canvasJSON.nodes
+    .filter((node) => !isNodeCollapsed(node.id))
+    .map((node) => ({
     left: node.x,
     top: node.y,
     right: node.x + node.width,
     bottom: node.y + node.height
-  }));
+    }));
   const placedLabelBoxes = [];
 
   const measureCanvas = document.createElement("canvas");
@@ -597,6 +919,8 @@ const renderEdgeLabels = () => {
   measureCtx.font = "18px sans-serif";
 
   edgeLabels.forEach((edge) => {
+    if (isNodeCollapsed(edge.fromNode) || isNodeCollapsed(edge.toNode)) return;
+
     const fromNode = nodeMap.get(edge.fromNode);
     const toNode = nodeMap.get(edge.toNode);
     if (!fromNode || !toNode || !edge.label) return;
@@ -629,9 +953,9 @@ const renderEdgeLabels = () => {
         bottom: centerY + dy + height / 2 - 2
       };
 
-      const overlapsNode = nodeBoxes.some((box) => intersects(rect, box, 2));
+      const overlapsNode = visibleNodeBoxes.some((box) => intersects(rect, box, 2));
       const overlapsLabel = placedLabelBoxes.some((box) => intersects(rect, box, 2));
-      const overlapScore = nodeBoxes.reduce((sum, box) => sum + overlapArea(rect, box), 0);
+      const overlapScore = visibleNodeBoxes.reduce((sum, box) => sum + overlapArea(rect, box), 0);
       const distanceScore = (dx * dx) + (dy * dy);
 
       if (!overlapsNode && !overlapsLabel) {
@@ -687,10 +1011,37 @@ const ensureEdgeLabels = (attempt = 0) => {
   }, 120);
 };
 
+const ensureGroupControls = (attempt = 0) => {
+  const done = renderGroupControls();
+  if (done || attempt >= 30) return;
+
+  window.setTimeout(() => {
+    ensureGroupControls(attempt + 1);
+  }, 120);
+};
+
+const ensureOverlayNodeTypeClasses = (attempt = 0) => {
+  const overlays = canvasRoot.querySelectorAll(".JCV-overlay-container");
+  if (overlays.length > 0) {
+    applyOverlayNodeTypeClasses();
+    return;
+  }
+  if (attempt >= 30) return;
+
+  window.setTimeout(() => {
+    ensureOverlayNodeTypeClasses(attempt + 1);
+  }, 120);
+};
+
 ensureEdgeLabels();
+ensureGroupControls();
+ensureOverlayNodeTypeClasses();
 window.addEventListener("resize", () => {
+  applyFileNodeDisplayNames();
+  applyOverlayNodeTypeClasses();
   renderEdgeLabels();
   renderOutgoingPanel();
+  renderGroupControls();
 });
 
 const clearNodeActiveState = () => {
@@ -702,7 +1053,7 @@ const clearNodeActiveState = () => {
 const getOverlayNodeIdFromTarget = (target) => {
   if (!(target instanceof Element)) return null;
   if (target.closest(".edge-label-box")) return null;
-  if (target.closest(".controls, button, input, textarea, select, a, label")) return null;
+  if (target.closest(".controls, button, input, textarea, select, a, label, .outgoing-panel, .group-header-box, .group-collapse-mask")) return null;
 
   const overlay = target.closest(".JCV-overlay-container");
   if (!overlay || !overlay.id) return null;
@@ -710,19 +1061,52 @@ const getOverlayNodeIdFromTarget = (target) => {
   return overlay.id;
 };
 
+const isInteractiveTarget = (target) => (
+  target instanceof Element
+  && Boolean(target.closest(".controls, button, input, textarea, select, a, label, .edge-label-box, .outgoing-panel, .group-header-box, .group-collapse-mask"))
+);
+
 const nodeClickState = {
   pointerId: null,
   nodeId: null,
   startX: 0,
-  startY: 0
+  startY: 0,
+  pointerType: "",
+  startedAt: 0
+};
+
+const TAP_MAX_MOVE_POINTER = 8;
+const TAP_MAX_MOVE_TOUCH = 26;
+const TAP_MAX_DURATION_MS = 500;
+let lastPointerFocusedNodeId = null;
+let lastPointerFocusedAt = 0;
+
+const resetNodeClickState = () => {
+  nodeClickState.pointerId = null;
+  nodeClickState.nodeId = null;
+  nodeClickState.startX = 0;
+  nodeClickState.startY = 0;
+  nodeClickState.pointerType = "";
+  nodeClickState.startedAt = 0;
+};
+
+const focusNodeFromInteraction = (nodeId) => {
+  focusNode(nodeId);
+  lastPointerFocusedNodeId = nodeId;
+  lastPointerFocusedAt = performance.now();
+
+  // Prevent sticky active state from interfering with wheel zoom/pinch.
+  window.setTimeout(() => {
+    clearNodeActiveState();
+  }, 0);
 };
 
 canvasRoot.addEventListener("pointerdown", (event) => {
+  if (!event.isPrimary) return;
   const nodeId = getOverlayNodeIdFromTarget(event.target);
 
   if (!nodeId) {
-    nodeClickState.pointerId = null;
-    nodeClickState.nodeId = null;
+    resetNodeClickState();
     return;
   }
 
@@ -730,30 +1114,55 @@ canvasRoot.addEventListener("pointerdown", (event) => {
   nodeClickState.nodeId = nodeId;
   nodeClickState.startX = event.clientX;
   nodeClickState.startY = event.clientY;
+  nodeClickState.pointerType = event.pointerType || "";
+  nodeClickState.startedAt = performance.now();
 }, true);
 
 canvasRoot.addEventListener("pointerup", (event) => {
+  if (!event.isPrimary) return;
   if (nodeClickState.pointerId !== event.pointerId || !nodeClickState.nodeId) return;
 
   const releasedNodeId = getOverlayNodeIdFromTarget(event.target);
+  const endedOnInteractiveTarget = isInteractiveTarget(event.target);
   const dx = event.clientX - nodeClickState.startX;
   const dy = event.clientY - nodeClickState.startY;
   const moved = Math.hypot(dx, dy);
-  const isClick = releasedNodeId === nodeClickState.nodeId && moved <= 8;
+  const isTouch = nodeClickState.pointerType === "touch";
+  const movedThreshold = isTouch ? TAP_MAX_MOVE_TOUCH : TAP_MAX_MOVE_POINTER;
+  const elapsed = performance.now() - nodeClickState.startedAt;
+  const endedOnSameNode = releasedNodeId === nodeClickState.nodeId;
+  const touchNearMiss = isTouch && !releasedNodeId && !endedOnInteractiveTarget;
+  const isClick = (endedOnSameNode || touchNearMiss) && moved <= movedThreshold && elapsed <= TAP_MAX_DURATION_MS;
 
   const clickedNodeId = isClick ? nodeClickState.nodeId : null;
 
-  nodeClickState.pointerId = null;
-  nodeClickState.nodeId = null;
+  resetNodeClickState();
 
   if (!clickedNodeId) return;
 
-  focusNode(clickedNodeId);
+  focusNodeFromInteraction(clickedNodeId);
+}, true);
 
-  // Prevent sticky active state from interfering with wheel zoom.
-  window.setTimeout(() => {
-    clearNodeActiveState();
-  }, 0);
+canvasRoot.addEventListener("pointercancel", () => {
+  resetNodeClickState();
+}, true);
+
+canvasRoot.addEventListener("lostpointercapture", () => {
+  resetNodeClickState();
+}, true);
+
+canvasRoot.addEventListener("click", (event) => {
+  if (isInteractiveTarget(event.target)) return;
+
+  const nodeId = getOverlayNodeIdFromTarget(event.target);
+  if (!nodeId) return;
+
+  const now = performance.now();
+  if (lastPointerFocusedNodeId === nodeId && (now - lastPointerFocusedAt) < 700) {
+    return;
+  }
+
+  focusNodeFromInteraction(nodeId);
 }, true);
 
 let mathTypesetTimer = null;
@@ -813,7 +1222,8 @@ const scheduleMathTypeset = () => {
 window.addEventListener("load", scheduleMathTypeset);
 
 // Re-typeset when content changes (e.g., zoom, node selection).
-mathObserver = new MutationObserver(() => {
+mathObserver = new MutationObserver((mutations) => {
+  syncCollapsedVisibilityFromMutations(mutations);
   if (mathTypesettingInProgress) return;
   scheduleMathTypeset();
 });
@@ -822,6 +1232,24 @@ observeMathChanges();
 
 // Run once in case initial content is already present.
 scheduleMathTypeset();
+
+function syncCollapsedVisibilityFromMutations(mutations) {
+  mutations.forEach((mutation) => {
+    mutation.addedNodes.forEach((addedNode) => {
+      if (!(addedNode instanceof Element)) return;
+
+      if (addedNode.classList.contains("JCV-overlay-container")) {
+        setOverlayNodeTypeClass(addedNode);
+        setOverlayCollapsedClass(addedNode);
+      }
+
+      addedNode.querySelectorAll(".JCV-overlay-container").forEach((overlay) => {
+        setOverlayNodeTypeClass(overlay);
+        setOverlayCollapsedClass(overlay);
+      });
+    });
+  });
+}
 
 function focusNode(nodeId) {
   const node = canvasJSON.nodes.find(n => n.id === nodeId);
@@ -836,9 +1264,19 @@ function focusNode(nodeId) {
     y: viewportHeight / 2
   };
 
-  const centerX = node.x + (node.width / 2);
-  const centerY = node.y + (node.height / 2);
-  const fitZoom = Math.min(viewportWidth / node.width, viewportHeight / node.height) * 0.94;
+  // File/group nodes have a visible title/header above `node.y`; include it in fit bounds.
+  const titleBandHeight = (node.type === "file" || node.type === "group") ? 40 : 0;
+  const focusBounds = {
+    left: node.x,
+    top: node.y - titleBandHeight,
+    right: node.x + node.width,
+    bottom: node.y + node.height
+  };
+  const focusWidth = Math.max(1, focusBounds.right - focusBounds.left);
+  const focusHeight = Math.max(1, focusBounds.bottom - focusBounds.top);
+  const centerX = focusBounds.left + (focusWidth / 2);
+  const centerY = focusBounds.top + (focusHeight / 2);
+  const fitZoom = Math.min(viewportWidth / focusWidth, viewportHeight / focusHeight) * 0.92;
   const targetZoom = Math.max(0.2, Math.min(4, fitZoom));
   const targetOffset = {
     x: viewportCenter.x - (centerX * targetZoom),
