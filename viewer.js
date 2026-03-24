@@ -2,7 +2,7 @@ import { JSONCanvasViewer, parser }
   from "https://unpkg.com/json-canvas-viewer/dist/chimp.js";
 
 
-const defaultCanvasPath = "./102_map_no_embeds.canvas";
+const defaultCanvasPath = "./MAT102.canvas";
 const canvasPathParam = new URLSearchParams(window.location.search).get("canvas");
 const requestedCanvasPath = (canvasPathParam && canvasPathParam.trim().length > 0)
   ? canvasPathParam.trim()
