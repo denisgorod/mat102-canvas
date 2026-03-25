@@ -25,4 +25,4 @@ Because bijections are one-to-one and onto, they are precisely the functions tha
 Composing bijections gives another bijection. If $f: A \to B$ and $g: B \to C$ are both bijective, then $g \circ f: A \to C$ is also bijective. The reason: bijections preserve the structure of "perfect pairing," so chaining them together preserves it.
 
 >[!idea]
-A bijection is both injective and surjective: a perfect one-to-one correspondence. Bijections are exactly the invertible functions, and composing bijections yields a bijection.
+> A bijection is both injective and surjective: a perfect one-to-one correspondence. Bijections are exactly the invertible functions, and composing bijections yields a bijection.

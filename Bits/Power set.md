@@ -16,7 +16,7 @@ You've now seen several infinite cardinalities: $|\mathbb{N}|$, $|\mathbb{Z}|$, 
 The answer comes from the **power set** — the set of all subsets.
 
 >[!d] Definition
-Let $S$ be a set. The **power set** $\mathcal{P}(S)$ is the set of all subsets of $S$. It is sometimes denoted $2^S$.
+> Let $S$ be a set. The **power set** $\mathcal{P}(S)$ is the set of all subsets of $S$. It is sometimes denoted $2^S$.
 
 **Example:** If $S = \{1, 2, 3\}$, then
 $$\mathcal{P}(S) = \{\emptyset, \{1\}, \{2\}, \{3\}, \{1,2\}, \{1,3\}, \{2,3\}, \{1,2,3\}\}$$
@@ -28,4 +28,4 @@ For infinite sets, the notation $2^S$ makes sense too: there are as many subsets
 For example, $|\mathcal{P}(\mathbb{N})| > |\mathbb{N}|$ (you'll prove this next). Then $|\mathcal{P}(\mathcal{P}(\mathbb{N}))| > |\mathcal{P}(\mathbb{N})|$, and so on forever.
 
 >[!idea]
-The power set $\mathcal{P}(S)$ is the set of all subsets of $S$; for finite sets with $n$ elements, $|\mathcal{P}(S)| = 2^n$.
+> The power set $\mathcal{P}(S)$ is the set of all subsets of $S$; for finite sets with $n$ elements, $|\mathcal{P}(S)| = 2^n$.

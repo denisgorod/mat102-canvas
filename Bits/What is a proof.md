@@ -25,4 +25,4 @@ What makes a proof different from just asserting something? Assertion says "I be
 Proofs can be long or short, straightforward or intricate. A simple proof might take five lines; a complex one might span pages. But regardless of length, the structure is the same: start with something you know (the hypothesis), and build toward the conclusion using only valid logical steps.
 
 >[!idea]
-A proof is a logical chain of statements that begins with the hypothesis and ends with the conclusion, where each step follows necessarily from the ones before it.
+> A proof is a logical chain of statements that begins with the hypothesis and ends with the conclusion, where each step follows necessarily from the ones before it.

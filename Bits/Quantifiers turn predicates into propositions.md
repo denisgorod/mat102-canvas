@@ -25,4 +25,4 @@ Examples of propositions formed this way:
 Once you have a closed proposition, you can ask: is it true or false? You can try to prove it or disprove it. With a bare predicate, that question doesn't make sense.
 
 >[!idea]
-A quantifier closes an open predicate by binding its free variable, turning it into a proposition with a definite truth value.
+> A quantifier closes an open predicate by binding its free variable, turning it into a proposition with a definite truth value.

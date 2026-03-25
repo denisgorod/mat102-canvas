@@ -40,4 +40,4 @@ Therefore $ab^{-1} \in C_G(g)$, and the subgroup test is satisfied.
 This example shows the power of the subgroup test: rather than checking closure, identity, and inverses separately (which would be messy with the conjugation condition), a single check accomplishes all three at once. The computation of $(ab^{-1})g(ab^{-1})^{-1}$ unfolds step by step, using the definitions and the assumption that $a$ and $b$ are in the centralizer.
 
 >[!idea]
-The centralizer $C_G(g) = \{h \in G : hgh^{-1} = g\}$ is a subgroup of $G$ — the subgroup test reduces three separate checks to one elegant algebraic manipulation.
+> The centralizer $C_G(g) = \{h \in G : hgh^{-1} = g\}$ is a subgroup of $G$ — the subgroup test reduces three separate checks to one elegant algebraic manipulation.

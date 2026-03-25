@@ -23,4 +23,4 @@ The only difference between these statements is the order of $\forall$ and $\exi
 This illustrates why quantifier order matters so much. When you write or read a statement with multiple quantifiers, the order encodes *who chooses what*. In the first statement, after someone picks an $x$, you get to respond by choosing a $y$ that works for that specific $x$. In the second, you must commit to a single $y$ before anyone chooses $x$ — a much stricter requirement.
 
 >[!idea]
-Swapping the order of $\forall$ and $\exists$ changes the logical content of a statement. Always read quantifiers left to right, noting which choices depend on which.
+> Swapping the order of $\forall$ and $\exists$ changes the logical content of a statement. Always read quantifiers left to right, noting which choices depend on which.

@@ -29,4 +29,4 @@ The strategy is backward-chaining: to hit an arbitrary target in $C$, first find
 Surjectivity chains through composition because the codomain structure is preserved: nothing in the final codomain is orphaned if nothing was orphaned before.
 
 >[!idea]
-The composition of surjective functions is surjective. Surjectivity is preserved under composition because you can construct preimages by working backward through each layer.
+> The composition of surjective functions is surjective. Surjectivity is preserved under composition because you can construct preimages by working backward through each layer.

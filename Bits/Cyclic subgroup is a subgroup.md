@@ -47,4 +47,4 @@ By the subgroup test, $\langle g \rangle \le G$.
 The simplicity of the proof reflects the power of the subgroup test. One algebraic identity ($g^k \cdot g^{-\ell} = g^{k-\ell}$) is enough to verify that $\langle g \rangle$ is a subgroup.
 
 >[!idea]
-For any element $g \in G$, the cyclic subgroup $\langle g \rangle = \{g^n : n \in \mathbb{Z}\}$ is a subgroup of $G$ — the exponent arithmetic $g^k \cdot g^{-\ell} = g^{k-\ell}$ ensures closure and inverses.
+> For any element $g \in G$, the cyclic subgroup $\langle g \rangle = \{g^n : n \in \mathbb{Z}\}$ is a subgroup of $G$ — the exponent arithmetic $g^k \cdot g^{-\ell} = g^{k-\ell}$ ensures closure and inverses.

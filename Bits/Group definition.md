@@ -49,4 +49,4 @@ Notice what the axioms *don't* require: they don't require the operation to be c
 The beauty of this abstraction is that $Z_n$ under addition is a group. So is the set of nonzero rationals under multiplication. So is the set of all bijections of a set under composition. All of them satisfy these same three axioms. Once you prove something using only the axioms, it automatically applies to all of them.
 
 >[!idea]
-A group is a set with an associative operation, an identity element, and inverses for every element — these three properties unlock a vast landscape of mathematical structures.
+> A group is a set with an associative operation, an identity element, and inverses for every element — these three properties unlock a vast landscape of mathematical structures.

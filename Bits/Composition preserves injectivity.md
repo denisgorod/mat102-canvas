@@ -29,4 +29,4 @@ This argument reveals the intuition: injectivity chains through composition. Whe
 This is powerful: if you build a function by composing injective pieces, the result is injective.
 
 >[!idea]
-The composition of injective functions is injective. Injectivity is preserved under composition because you can reverse equalities of outputs one layer at a time.
+> The composition of injective functions is injective. Injectivity is preserved under composition because you can reverse equalities of outputs one layer at a time.

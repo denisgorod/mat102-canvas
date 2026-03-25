@@ -33,4 +33,4 @@ Another example: $\forall x \in \mathbb{Z}^+,\, x > 10$ says "every positive int
 The key insight is that $\forall$ claims something about *all* members of the set at once. If even one member violates the predicate, the whole statement is false.
 
 >[!idea]
-The universal quantifier $\forall x \in S,\, P(x)$ asserts that $P(x)$ holds for every element of $S$.
+> The universal quantifier $\forall x \in S,\, P(x)$ asserts that $P(x)$ holds for every element of $S$.

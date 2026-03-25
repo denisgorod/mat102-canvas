@@ -110,64 +110,78 @@ const ensureRelativePath = (path) => {
 };
 const isHttpPath = (path) => /^https?:\/\//i.test(String(path ?? ""));
 
-const tryResolveReachablePath = async (candidates, cache) => {
+// Strip YAML frontmatter (--- ... ---) from the top of a markdown string.
+const stripFrontmatter = (text) => {
+  const trimmed = text.trimStart();
+  if (!trimmed.startsWith("---")) return text;
+
+  const afterOpen = trimmed.slice(3);
+  const closeIndex = afterOpen.search(/^---\s*$/m);
+  if (closeIndex === -1) return text;
+
+  return afterOpen.slice(closeIndex + 3).replace(/^\r?\n/, "");
+};
+
+// Fetch a single file trying candidates in order; return { text, resolvedPath } or null.
+const fetchFirstReachable = async (candidates) => {
   for (const candidate of candidates) {
     if (!candidate) continue;
-    if (cache.has(candidate)) {
-      if (cache.get(candidate)) return candidate;
-      continue;
-    }
-
-    let reachable = false;
-
     try {
-      const headResponse = await fetch(candidate, { method: "HEAD" });
-      reachable = headResponse.ok;
-
-      if (!reachable && (headResponse.status === 405 || headResponse.status === 501)) {
-        const getResponse = await fetch(candidate);
-        reachable = getResponse.ok;
+      const response = await fetch(candidate);
+      if (response.ok) {
+        const text = await response.text();
+        return { text, resolvedPath: candidate };
       }
     } catch {
-      reachable = false;
+      // try next candidate
     }
-
-    cache.set(candidate, reachable);
-    if (reachable) return candidate;
   }
-
   return null;
 };
 
-const buildAttachmentMap = async (canvasData, canvasPath) => {
-  const files = canvasData.nodes.filter((node) => node.type === "file" && typeof node.file === "string");
+// Pre-fetch all file-node contents in parallel and return a map of
+// baseName → markdown text.  Embedding the text directly into the canvas
+// data avoids any dependency on how the viewer resolves attachment paths.
+const preloadFileContents = async (canvasData, canvasPath, onProgress) => {
+  const files = canvasData.nodes.filter(
+    (node) => node.type === "file" && typeof node.file === "string"
+  );
   const canvasDirectory = getDirectoryPath(canvasPath);
-  const attachmentMap = {};
-  const reachabilityCache = new Map();
+  const contentMap = {};
 
-  for (const fileNode of files) {
-    if (isHttpPath(fileNode.file)) continue;
+  // Deduplicate by baseName so we only fetch each file once.
+  const seen = new Set();
+  const uniqueFiles = files.filter((node) => {
+    if (isHttpPath(node.file)) return false;
+    const baseName = getBasename(node.file);
+    if (!baseName || seen.has(baseName)) return false;
+    seen.add(baseName);
+    return true;
+  });
 
-    const baseName = getBasename(fileNode.file);
-    if (!baseName || attachmentMap[baseName]) continue;
+  let completed = 0;
+  const total = uniqueFiles.length;
 
-    const normalizedOriginal = ensureRelativePath(fileNode.file);
-    const candidates = [
-      normalizedOriginal,
-      `${canvasDirectory}${baseName}`,
-      `./Numbers/${baseName}`,
-      `./${baseName}`
-    ];
+  await Promise.all(
+    uniqueFiles.map(async (fileNode) => {
+      const baseName = getBasename(fileNode.file);
+      const normalizedOriginal = ensureRelativePath(fileNode.file);
+      const candidates = [
+        normalizedOriginal,
+        `${canvasDirectory}${baseName}`,
+        `./Bits/${baseName}`,
+        `./${baseName}`,
+      ];
 
-    const uniqueCandidates = [...new Set(candidates)];
-    const resolved = await tryResolveReachablePath(uniqueCandidates, reachabilityCache);
+      const result = await fetchFirstReachable([...new Set(candidates)]);
+      if (result) contentMap[baseName] = stripFrontmatter(result.text);
 
-    if (resolved) {
-      attachmentMap[baseName] = resolved;
-    }
-  }
+      completed += 1;
+      onProgress?.(completed, total);
+    })
+  );
 
-  return attachmentMap;
+  return contentMap;
 };
 
 // Custom parser that renders Obsidian-style callouts and preserves LaTeX for MathJax.
@@ -275,7 +289,43 @@ const mathParser = async (text) => {
 };
 
 const canvasForViewer = structuredClone(canvasJSON);
-const attachmentMap = await buildAttachmentMap(canvasJSON, requestedCanvasPath);
+
+// Show progress while pre-fetching all file contents in parallel.
+const updateLoadingProgress = (completed, total) => {
+  const bar = document.getElementById("loading-bar");
+  const label = document.getElementById("loading-label");
+  if (bar) bar.style.width = `${Math.round((completed / total) * 100)}%`;
+  if (label) label.textContent = `Loading… ${completed} / ${total}`;
+};
+
+// Fetch all file content up-front in one parallel burst.
+const fileContentMap = await preloadFileContents(canvasJSON, requestedCanvasPath, updateLoadingProgress);
+
+// Embed content directly into canvasForViewer: convert each file node into
+// a text node carrying the pre-loaded markdown.  The viewer then renders
+// everything from memory with no further network requests.
+//
+// NOTE: nodeTypeById is built from the original canvasJSON below, so the
+// "file" type is preserved there — meaning .node-type-file CSS (scrollable
+// content area, etc.) still applies correctly to these nodes.
+canvasForViewer.nodes = canvasForViewer.nodes.map((node) => {
+  if (node.type !== "file" || typeof node.file !== "string") return node;
+  const baseName = getBasename(node.file);
+  const content = fileContentMap[baseName];
+  if (content == null) return node; // leave as-is if fetch failed
+  const { file: _removed, ...rest } = node;
+  return { ...rest, type: "text", text: content };
+});
+
+// No attachment map needed — all content is already embedded above.
+const attachmentMap = {};
+
+// Hide loading overlay once all files are pre-fetched.
+const loadingOverlay = document.getElementById("loading-overlay");
+if (loadingOverlay) {
+  loadingOverlay.style.opacity = "0";
+  loadingOverlay.addEventListener("transitionend", () => loadingOverlay.remove(), { once: true });
+}
 const edgeLabels = canvasForViewer.edges
   .filter((edge) => typeof edge.label === "string" && edge.label.trim().length > 0)
   .map((edge) => ({ ...edge, label: edge.label.trim() }));

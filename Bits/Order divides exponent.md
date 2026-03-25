@@ -33,4 +33,4 @@ This is a powerful criterion. It says that the divisors of $n$ are exactly the e
 The fact that divisibility determines which powers equal the identity reveals a deep connection between the arithmetic of exponents and the group structure itself.
 
 >[!idea]
-If $g$ has order $n$, then $g^k = e$ if and only if $n$ divides $k$ — the exponents that yield the identity are exactly the multiples of the order.
+> If $g$ has order $n$, then $g^k = e$ if and only if $n$ divides $k$ — the exponents that yield the identity are exactly the multiples of the order.

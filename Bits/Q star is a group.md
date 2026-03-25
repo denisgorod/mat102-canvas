@@ -30,4 +30,4 @@ Here's something important: we *must* exclude zero. Why? Because zero has no mul
 This is a general pattern. When building a multiplicative group, you must always exclude zero (if it's an element of your set). Division by zero is not optional — it's a consequence of the group axioms.
 
 >[!idea]
-The nonzero rationals form a group under multiplication: associativity is inherited, $1$ is the identity, and every nonzero rational has a multiplicative inverse. Zero must be excluded because it has no inverse.
+> The nonzero rationals form a group under multiplication: associativity is inherited, $1$ is the identity, and every nonzero rational has a multiplicative inverse. Zero must be excluded because it has no inverse.

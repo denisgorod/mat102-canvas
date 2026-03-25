@@ -25,4 +25,4 @@ To *apply* this theorem to the number 6, you first verify that 6 is even (yes, $
 Confusing these directions is a common mistake. When you're reading a proof and you see "Assume $n$ is even," you are entering *proof mode* — do not start checking whether $n$ is actually even. Your job is to follow the logical chain. Save the hypothesis-checking for when you apply the theorem later.
 
 >[!idea]
-Proving and applying a theorem are opposite operations. In proofs, you assume the hypothesis and derive the conclusion. In applications, you verify the hypothesis and extract the conclusion.
+> Proving and applying a theorem are opposite operations. In proofs, you assume the hypothesis and derive the conclusion. In applications, you verify the hypothesis and extract the conclusion.

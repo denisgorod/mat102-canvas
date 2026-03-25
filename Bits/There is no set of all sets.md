@@ -26,4 +26,4 @@ Therefore, no set of all sets can exist.
 This is one of the foundational subtleties of mathematics: the distinction between sets (which can be elements of other sets) and proper classes (which cannot). The existence of uncountable towers of cardinality shows that you cannot gather everything into a single set without creating a logical contradiction.
 
 >[!idea]
-There is no set of all sets: Cantor's theorem applied to such a $V$ would contradict itself, so the collection of all sets forms a proper class instead.
+> There is no set of all sets: Cantor's theorem applied to such a $V$ would contradict itself, so the collection of all sets forms a proper class instead.

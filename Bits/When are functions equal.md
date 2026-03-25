@@ -30,4 +30,4 @@ Why does this matter? Part of specifying a function is making a choice about whe
 This is why we insist that the codomain must be part of the definition. It's not extra decoration; it's data.
 
 >[!idea]
-Two functions are equal if and only if they have the same domain, the same codomain, and the same rule. Changing the codomain produces a different function.
+> Two functions are equal if and only if they have the same domain, the same codomain, and the same rule. Changing the codomain produces a different function.

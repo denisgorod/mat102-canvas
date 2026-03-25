@@ -23,4 +23,4 @@ The difference is in what you add. Paraphrasing adds vocabulary. Monitoring adds
 As you practice, you'll develop a feel for it. The test is simple: if you can explain to a friend why each step was needed and how it connects to the whole argument, you've been self-explaining. If you've just restated the words or said "I read it," you haven't.
 
 >[!idea]
-Self-explanation builds logical connections between new information and prior knowledge. Paraphrasing and monitoring are weaker strategies that restate or note understanding without adding these connections.
+> Self-explanation builds logical connections between new information and prior knowledge. Paraphrasing and monitoring are weaker strategies that restate or note understanding without adding these connections.

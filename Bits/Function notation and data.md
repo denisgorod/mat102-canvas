@@ -36,4 +36,4 @@ This is exactly the subset $S_f$ that defined the relation in the first place! T
 In practice, you'll think of $f$ as a machine: feed it an element from $A$, and it produces an element from $B$. The formal definition (a special relation) sits underneath this intuition, ensuring that the machine is well-defined and doesn't produce multiple outputs for the same input.
 
 >[!idea]
-A function $f: A \to B$ is described by its domain $A$, codomain $B$, and rule $x \mapsto f(x)$. Its graph $\Gamma(f) = \{(a, f(a)) : a \in A\}$ is the complete set of input-output pairs.
+> A function $f: A \to B$ is described by its domain $A$, codomain $B$, and rule $x \mapsto f(x)$. Its graph $\Gamma(f) = \{(a, f(a)) : a \in A\}$ is the complete set of input-output pairs.

@@ -20,4 +20,4 @@ Think about other disciplines for a moment. In physics, we refine our theories a
 This does not mean mathematicians never make mistakes — they do. But when someone claims "I have proven that $\sqrt{2}$ is irrational," they are claiming something very specific: that there is a chain of reasoning, starting from accepted axioms, that makes this conclusion unavoidable. If that chain is sound, the result is eternal. No new data will overturn it. No reinterpretation will change it.
 
 >[!idea]
-Mathematical theorems, once proven, are infallible and unchanging — this certainty is what distinguishes mathematics from empirical sciences.
+> Mathematical theorems, once proven, are infallible and unchanging — this certainty is what distinguishes mathematics from empirical sciences.

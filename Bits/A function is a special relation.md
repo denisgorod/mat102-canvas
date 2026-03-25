@@ -28,4 +28,4 @@ So when $A = \{1, 2, 3\}$ and $B = \{a, b, c\}$, the subset $S_f = \{(1, a), (2,
 This formal definition is the mathematical truth about functions, but in practice you'll rarely think about them this way. Instead, you'll think of a function as a "machine" that takes an input and produces an output. Still, it's good to know that under the hood, a function is just a special relation.
 
 >[!idea]
-A function $f: A \to B$ is a left-total, functional binary relation on $A \times B$ — every input maps to exactly one output.
+> A function $f: A \to B$ is a left-total, functional binary relation on $A \times B$ — every input maps to exactly one output.

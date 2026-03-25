@@ -19,7 +19,7 @@ parents:
 Let's see what a proof actually looks like. Here is the proposition: "If $a$ and $b$ are both even, then $ab$ is even."
 
 >[!p] Proof
-Let $a$ and $b$ be even integers. By definition, this means there exist integers $m_1$ and $m_2$ such that $a = 2m_1$ and $b = 2m_2$.
+> Let $a$ and $b$ be even integers. By definition, this means there exist integers $m_1$ and $m_2$ such that $a = 2m_1$ and $b = 2m_2$.
 
 Now compute the product:
 $$ab = (2m_1)(2m_2) = 4m_1 m_2 = 2(2m_1 m_2).$$
@@ -37,4 +37,4 @@ Finally, we conclude: $ab$ is even. The little box □ marks the end of the proo
 Notice that a proof is not just equations. There is exposition — words explaining each step. Proofs are meant to be read and understood, not merely skimmed. Every significant move is explained so that a careful reader can follow the logic without guessing.
 
 >[!idea]
-A concrete proof shows how the hypothesis leads to the conclusion through logical steps; each step is explained in words, making the reasoning transparent.
+> A concrete proof shows how the hypothesis leads to the conclusion through logical steps; each step is explained in words, making the reasoning transparent.

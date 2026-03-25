@@ -32,14 +32,14 @@ Before you move to the next line, ask: *Do I understand the ideas? Do I understa
 Let's practice. Consider this proposition and proof:
 
 >[!t] Theorem
-No odd integer can be expressed as the sum of three even integers.
+> No odd integer can be expressed as the sum of three even integers.
 
 >[!p] Proof
-Suppose, for the sake of contradiction, that some odd integer $x$ can be written as $x = a + b + c$ where $a$, $b$, and $c$ are even integers. Then $a = 2k$, $b = 2\ell$, and $c = 2m$ for some integers $k$, $\ell$, and $m$. Substituting, we have $x = 2k + 2\ell + 2m = 2(k + \ell + m)$. Since $k + \ell + m$ is an integer, $x$ is even. But this contradicts our assumption that $x$ is odd. Therefore, no odd integer can be written as the sum of three even integers.
+> Suppose, for the sake of contradiction, that some odd integer $x$ can be written as $x = a + b + c$ where $a$, $b$, and $c$ are even integers. Then $a = 2k$, $b = 2\ell$, and $c = 2m$ for some integers $k$, $\ell$, and $m$. Substituting, we have $x = 2k + 2\ell + 2m = 2(k + \ell + m)$. Since $k + \ell + m$ is an integer, $x$ is even. But this contradicts our assumption that $x$ is odd. Therefore, no odd integer can be written as the sum of three even integers.
 
 Now, self-explain line by line: *"The proof uses proof by contradiction, so I need to watch for a logical impossibility."* Then: *"We're told $a$, $b$, $c$ are even, so I use the definition: each is twice an integer."* Then: *"The algebra combines them and factors: $2(k + \ell + m)$. By definition, that's even."* Then: *"But we assumed $x$ is odd — even and odd contradict. That's the impossibility we wanted. Proof complete."*
 
 This is self-explanation. You're not just re-reading; you're building a mental map of how the proof works.
 
 >[!idea]
-Self-explanation means pausing at each line to identify main ideas, connect to prior knowledge, and ask yourself why each step matters. This mental engagement significantly deepens your understanding of proofs.
+> Self-explanation means pausing at each line to identify main ideas, connect to prior knowledge, and ask yourself why each step matters. This mental engagement significantly deepens your understanding of proofs.

@@ -40,4 +40,4 @@ In fact, there's a famous relation in $D_3$: $sr = r^2 s$. This encodes the inte
 For a general $n$-gon, $D_n$ has $2n$ elements: $n$ rotations and $n$ reflections. It is non-abelian for all $n \geq 3$.
 
 >[!idea]
-The dihedral group $D_n$ is the group of symmetries of a regular $n$-gon under composition. For $D_3$, it has 6 elements $\{e, r, r^2, s, sr, sr^2\}$ where $r$ is a $120°$ rotation and $s$ is a reflection — and it is non-abelian because reflections and rotations don't commute.
+> The dihedral group $D_n$ is the group of symmetries of a regular $n$-gon under composition. For $D_3$, it has 6 elements $\{e, r, r^2, s, sr, sr^2\}$ where $r$ is a $120°$ rotation and $s$ is a reflection — and it is non-abelian because reflections and rotations don't commute.

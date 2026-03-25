@@ -23,4 +23,4 @@ The diagonal argument *exploits* this infinite bandwidth. When you list rational
 In other words: the diagonal argument works on $\mathbb{R}$ *precisely because* real numbers require infinite data to describe, while natural numbers and their encodings of $\mathbb{Q}$ use only finite data.
 
 >[!idea]
-Naturals and rationals are finitely encodable; reals need infinite data to specify. The diagonal argument exploits this gap by building an infinite object that cannot be a rational.
+> Naturals and rationals are finitely encodable; reals need infinite data to specify. The diagonal argument exploits this gap by building an infinite object that cannot be a rational.

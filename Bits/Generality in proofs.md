@@ -22,4 +22,4 @@ Also observe something subtle in the proof: we showed that $ab = 2(kl(k+l))$, wh
 This is a useful pattern: a careful proof can sometimes reveal that the original hypothesis was unnecessarily restrictive. You might prove the theorem as stated, but the proof's generality hints at a stronger result lurking underneath. Good mathematicians are alert to this — they ask: "Did I really need all the hypotheses, or could I strengthen the conclusion?"
 
 >[!idea]
-Proofs work by assuming the hypothesis is true for arbitrary objects, not for specific values. This generality lets one argument cover infinitely many cases, and it often reveals that a result is stronger than originally stated.
+> Proofs work by assuming the hypothesis is true for arbitrary objects, not for specific values. This generality lets one argument cover infinitely many cases, and it often reveals that a result is stronger than originally stated.

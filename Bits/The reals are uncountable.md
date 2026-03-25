@@ -32,4 +32,4 @@ By construction, $s$ differs from $r_i$ in the $i$-th decimal place for every $i
 Therefore $\mathbb{R}$ is not countable, and $|\mathbb{R}| > |\mathbb{N}|$.
 
 >[!idea]
-The reals are uncountable: no matter how you try to list all real numbers, the diagonal argument constructs one you missed.
+> The reals are uncountable: no matter how you try to list all real numbers, the diagonal argument constructs one you missed.

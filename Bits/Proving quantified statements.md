@@ -28,4 +28,4 @@ Since $a, b, c, d$ are all integers and $bd \neq 0$, we have $x + y \in \mathbb{
 These are fundamentally different proof strategies. Universal proofs demand generality; existential proofs demand a concrete example. When you encounter a claim with a quantifier, check which strategy applies.
 
 >[!idea]
-To prove a universal statement, argue about an arbitrary element; to prove an existential statement, exhibit a witness.
+> To prove a universal statement, argue about an arbitrary element; to prove an existential statement, exhibit a witness.

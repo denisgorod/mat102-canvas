@@ -35,4 +35,4 @@ So all three axioms are satisfied. $(\mathbb{Z}_n, +)$ is a group.
 In an additive group, we usually write $a + a + a = 3a$ rather than $a^3$. Similarly, the inverse of $[a]$ is written $-[a]$ instead of $[a]^{-1}$, and we write $0$ for the identity instead of $e$.
 
 >[!idea]
-The congruence classes $\mathbb{Z}_n$ form a group under addition modulo $n$ — associativity is inherited from the integers, $[0]$ is the identity, and $[-a]$ is the inverse of $[a]$.
+> The congruence classes $\mathbb{Z}_n$ form a group under addition modulo $n$ — associativity is inherited from the integers, $[0]$ is the identity, and $[-a]$ is the inverse of $[a]$.

@@ -43,4 +43,4 @@ So $(S_X, \circ)$ is a group. When $X = \{1, 2, \ldots, n\}$, we write $S_n$ ins
 The symmetric group is one of the most important groups in mathematics. Its elements are called **permutations**, and their composition gives the group structure.
 
 >[!idea]
-The symmetric group $S_X$ is the set of all bijections from a set $X$ to itself, with composition as the operation — it is a group, and for $|X| \geq 3$, it is non-abelian because function composition does not commute.
+> The symmetric group $S_X$ is the set of all bijections from a set $X$ to itself, with composition as the operation — it is a group, and for $|X| \geq 3$, it is non-abelian because function composition does not commute.

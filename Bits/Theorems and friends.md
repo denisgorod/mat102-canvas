@@ -28,11 +28,11 @@ There are several kinds, and the names matter (though mathematical history is fu
 Here is an example proposition:
 
 >[!s] Proposition
-If $a$ and $b$ are both even integers, then their product $ab$ is also even.
+> If $a$ and $b$ are both even integers, then their product $ab$ is also even.
 
 This is not earth-shattering, but it is a true claim built on the definition of evenness. You can verify it: if $a = 2m$ and $b = 2n$, then $ab = (2m)(2n) = 2(2mn)$, so $ab$ is even by the definition.
 
 When you encounter a result with any of these names, you are reading a claim the author believes to be true. Your job is to understand what it says, what conditions it requires, and how to apply it.
 
 >[!idea]
-Mathematical results come in varieties: Lemma, Proposition, Theorem, and Corollary. Each is a precise claim about the objects defined earlier, built on definitions.
+> Mathematical results come in varieties: Lemma, Proposition, Theorem, and Corollary. Each is a precise claim about the objects defined earlier, built on definitions.

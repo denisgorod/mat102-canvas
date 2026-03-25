@@ -30,4 +30,4 @@ The codomain is *where you're allowed to land*. The range is *where you actually
 Why does this distinction matter? It matters because some important properties of functions — like surjectivity, which we'll encounter soon — depend on the relationship between the range and the codomain. A function might "hit all of its codomain" or only part of it. And that turns out to be a meaningful question.
 
 >[!idea]
-The domain is where inputs come from; the codomain is where outputs are allowed to go; the range is where they actually go. Codomain and range need not be equal.
+> The domain is where inputs come from; the codomain is where outputs are allowed to go; the range is where they actually go. Codomain and range need not be equal.

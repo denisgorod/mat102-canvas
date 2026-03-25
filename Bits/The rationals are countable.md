@@ -27,4 +27,4 @@ Since $\mathbb{N} \subseteq \mathbb{Q}$ (every positive integer $n$ is the ratio
 Therefore $|\mathbb{Q}| = |\mathbb{N}|$.
 
 >[!idea]
-The rationals are countable: despite appearing infinitely denser than the integers, $\mathbb{Q}$ has the same cardinality as $\mathbb{N}$.
+> The rationals are countable: despite appearing infinitely denser than the integers, $\mathbb{Q}$ has the same cardinality as $\mathbb{N}$.

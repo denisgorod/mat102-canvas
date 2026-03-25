@@ -34,4 +34,4 @@ says that a *single* $y$ must work for every $x$. There is no dependence; one $y
 These encode fundamentally different claims. Be careful when you write or read statements with multiple quantifiers.
 
 >[!idea]
-Quantifiers of the same type commute, but swapping a $\forall$ and an $\exists$ changes what the statement says: $\forall x,\, \exists y$ allows $y$ to depend on $x$, while $\exists y,\, \forall x$ requires a single $y$ for all $x$.
+> Quantifiers of the same type commute, but swapping a $\forall$ and an $\exists$ changes what the statement says: $\forall x,\, \exists y$ allows $y$ to depend on $x$, while $\exists y,\, \forall x$ requires a single $y$ for all $x$.

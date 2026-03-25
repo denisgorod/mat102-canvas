@@ -54,4 +54,4 @@ In $(\mathbb{Z}, +)$, every nonzero element has infinite order. For instance, $1
 The order of an element is a fundamental way to understand the group's structure. It tells you how the element "cycles" under repeated application.
 
 >[!idea]
-The order of a group is its size; the order of an element $g$ is the smallest positive $n$ with $g^n = e$, or $\infty$ if no such $n$ exists — it measures how the element repeats under the group operation.
+> The order of a group is its size; the order of an element $g$ is the smallest positive $n$ with $g^n = e$, or $\infty$ if no such $n$ exists — it measures how the element repeats under the group operation.

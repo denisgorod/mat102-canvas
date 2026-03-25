@@ -13,10 +13,10 @@ parents:
 You've seen that the power set always has more subsets than elements. But does $|\mathcal{P}(S)|$ always exceed $|S|$? The answer is yes — and the proof is a beautiful generalization of the diagonal argument that proved $\mathbb{R}$ is uncountable.
 
 >[!t] Theorem (Cantor's Theorem)
-For any set $S$, we have $|S| < |\mathcal{P}(S)|$.
+> For any set $S$, we have $|S| < |\mathcal{P}(S)|$.
 
 >[!p] Proof
-We show two things: (1) $|S| \leq |\mathcal{P}(S)|$, and (2) there is no surjection from $S$ onto $\mathcal{P}(S)$.
+> We show two things: (1) $|S| \leq |\mathcal{P}(S)|$, and (2) there is no surjection from $S$ onto $\mathcal{P}(S)$.
 
 **Part 1:** Define $f: S \to \mathcal{P}(S)$ by $f(x) = \{x\}$. This is injective: if $f(x) = f(y)$ then $\{x\} = \{y\}$, so $x = y$. Thus $|S| \leq |\mathcal{P}(S)|$.
 
@@ -32,4 +32,4 @@ But this leads to a contradiction: either $a \in f(a) = D$ or $a \notin f(a) = D
 Therefore no surjection from $S$ onto $\mathcal{P}(S)$ can exist. Combined with Part 1, this gives $|S| < |\mathcal{P}(S)|$.
 
 >[!idea]
-For any set $S$, the power set is strictly larger: $|S| < |\mathcal{P}(S)|$. The diagonal argument extends from reals to all sets.
+> For any set $S$, the power set is strictly larger: $|S| < |\mathcal{P}(S)|$. The diagonal argument extends from reals to all sets.

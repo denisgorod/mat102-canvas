@@ -23,4 +23,4 @@ The key difference from injectivity: proving surjectivity requires you to constr
 Always be clear about your codomain. The formula matters less than the choice of target set.
 
 >[!idea]
-To prove $f$ surjective: let $t \in B$ be arbitrary and construct $s$ with $f(s) = t$. To disprove: find one element in $B$ with no preimage.
+> To prove $f$ surjective: let $t \in B$ be arbitrary and construct $s$ with $f(s) = t$. To disprove: find one element in $B$ with no preimage.

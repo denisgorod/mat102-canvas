@@ -26,4 +26,4 @@ Now consider the same rule on the full real line: $f: \mathbb{R} \to \mathbb{R}$
 Notice: the rule didn't change, only the domain. This shows that injectivity is not just about the rule — the domain matters.
 
 >[!idea]
-A function $f: A \to B$ is injective if different inputs always produce different outputs: $f(s_1) = f(s_2) \Rightarrow s_1 = s_2$.
+> A function $f: A \to B$ is injective if different inputs always produce different outputs: $f(s_1) = f(s_2) \Rightarrow s_1 = s_2$.

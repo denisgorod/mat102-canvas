@@ -31,4 +31,4 @@ Both directions hold, so $f([-1, 2]) = [0, 4]$.
 Note that computing an image often requires careful reasoning — usually by showing that any element of the suspected image can be achieved, and that only elements of the suspected image can be achieved. This "double inclusion" proof is the standard approach.
 
 >[!idea]
-The image of a set $U$ under $f$ is $f(U) = \{f(x) : x \in U\}$. It contains exactly the outputs reachable from inputs in $U$.
+> The image of a set $U$ under $f$ is $f(U) = \{f(x) : x \in U\}$. It contains exactly the outputs reachable from inputs in $U$.

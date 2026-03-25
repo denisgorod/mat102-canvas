@@ -35,4 +35,4 @@ Here is the rhythm:
 When you do this actively, the definition stops being a abstract phrase and becomes a tool in your hands.
 
 >[!idea]
-Right after reading a definition, deliberately hunt for examples and non-examples across a diverse range of cases. This builds intuition grounded in the definition itself, not vague feeling.
+> Right after reading a definition, deliberately hunt for examples and non-examples across a diverse range of cases. This builds intuition grounded in the definition itself, not vague feeling.

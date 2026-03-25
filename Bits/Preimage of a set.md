@@ -32,4 +32,4 @@ Thus $f^{-1}([1, 4]) = [-2, -1] \cup [1, 2]$.
 Like images, preimages require careful reasoning to compute. The double-inclusion proof — showing one direction contains the other — is your standard tool.
 
 >[!idea]
-The preimage of a set $V$ under $f$ is $f^{-1}(V) = \{x \in A : f(x) \in V\}$. It contains exactly the inputs that land in $V$. This notation requires no inverse function.
+> The preimage of a set $V$ under $f$ is $f^{-1}(V) = \{x \in A : f(x) \in V\}$. It contains exactly the inputs that land in $V$. This notation requires no inverse function.

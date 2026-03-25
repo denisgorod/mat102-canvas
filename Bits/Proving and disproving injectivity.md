@@ -23,4 +23,4 @@ A subtle but crucial point: whether a function is injective depends on its *doma
 When proving, be explicit about your domain. When disproving, always give the counterexample clearly: "Let $s_1 = \ldots$ and $s_2 = \ldots$. Then $f(s_1) = \ldots = f(s_2)$, but $s_1 \ne s_2$."
 
 >[!idea]
-To prove $f$ injective: assume $f(s_1) = f(s_2)$ and derive $s_1 = s_2$. To disprove: give two different inputs with the same output. Always verify your domain.
+> To prove $f$ injective: assume $f(s_1) = f(s_2)$ and derive $s_1 = s_2$. To disprove: give two different inputs with the same output. Always verify your domain.

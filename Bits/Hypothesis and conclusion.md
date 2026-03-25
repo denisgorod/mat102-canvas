@@ -34,4 +34,4 @@ Why does this distinction matter? Because before you apply a mathematical result
 This is more subtle than it first appears. Not all mathematical statements are phrased with "if...then." Sometimes the hypothesis is implied. For example, "The sum of the angles in a triangle is 180°" silently assumes you are working with Euclidean geometry, not some other geometric system. Learning to identify hypotheses and conclusions — explicit or hidden — is essential to reading mathematics correctly.
 
 >[!idea]
-A mathematical result consists of a hypothesis (the condition required) and a conclusion (what is guaranteed); you can only apply the result if the hypothesis holds.
+> A mathematical result consists of a hypothesis (the condition required) and a conclusion (what is guaranteed); you can only apply the result if the hypothesis holds.

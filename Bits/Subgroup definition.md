@@ -42,4 +42,4 @@ So $H \le \mathbb{Z}_6$.
 This warns us: a subgroup must use the *same* operation as the parent group. You can't swap operations midstream.
 
 >[!idea]
-A subgroup $H \le G$ is a subset of $G$ that is itself a group under the same operation as $G$ — closure, identity, and inverses must all hold with the same operation.
+> A subgroup $H \le G$ is a subset of $G$ that is itself a group under the same operation as $G$ — closure, identity, and inverses must all hold with the same operation.

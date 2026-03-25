@@ -46,4 +46,4 @@ So all four axioms hold, and $H \le G$.
 The subgroup test is one of the most practical tools in group theory. Memorize it.
 
 >[!idea]
-To check if a nonempty subset $H$ is a subgroup: verify that $ab^{-1} \in H$ for all $a, b \in H$ — this one condition ensures closure, identity, and inverses all at once.
+> To check if a nonempty subset $H$ is a subgroup: verify that $ab^{-1} \in H$ for all $a, b \in H$ — this one condition ensures closure, identity, and inverses all at once.

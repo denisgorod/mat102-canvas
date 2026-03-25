@@ -30,4 +30,4 @@ $$|\mathbb{Z}| \leq |\mathbb{N} \times \mathbb{N}| \leq |\mathbb{N}|$$
 Combined with $|\mathbb{N}| \leq |\mathbb{Z}|$, this gives $|\mathbb{Z}| = |\mathbb{N}|$.
 
 >[!idea]
-Even though $\mathbb{Z}$ extends infinitely in both directions, it has the same cardinality as $\mathbb{N}$ — the map $(|n|, \operatorname{sgn}(n)+1)$ witnesses this equality.
+> Even though $\mathbb{Z}$ extends infinitely in both directions, it has the same cardinality as $\mathbb{N}$ — the map $(|n|, \operatorname{sgn}(n)+1)$ witnesses this equality.

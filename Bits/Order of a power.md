@@ -34,4 +34,4 @@ For example, in $\mathbb{Z}_{12}$ under addition, the element $[1]$ has order 12
 This formula connects combinatorics (the gcd) with group structure (element order) in a elegant way.
 
 >[!idea]
-If $g$ has order $n$, then the order of $g^k$ is $\frac{n}{\gcd(n,k)}$ — the common factors between $k$ and $n$ reduce the order proportionally.
+> If $g$ has order $n$, then the order of $g^k$ is $\frac{n}{\gcd(n,k)}$ — the common factors between $k$ and $n$ reduce the order proportionally.

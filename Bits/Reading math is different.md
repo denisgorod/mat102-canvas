@@ -21,4 +21,4 @@ Learning to read mathematics is not something that happens automatically once yo
 This changes how you should read. It is not enough to let your eyes move across the page. You need to be prepared to loop backward, to test ideas, to ask questions of what you read.
 
 >[!idea]
-Mathematics is read non-linearly, with constant backtracking to definitions, examples, and supporting results. This is how experts read; learning to do it is the core skill.
+> Mathematics is read non-linearly, with constant backtracking to definitions, examples, and supporting results. This is how experts read; learning to do it is the core skill.

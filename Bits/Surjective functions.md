@@ -23,4 +23,4 @@ Compare this to injectivity, which cares about *different* inputs. Surjectivity 
 Notice again: surjectivity depends on the codomain. The function $f(x) = x^2$ is *not* surjective from $\mathbb{R}$ to $\mathbb{R}$ (negative numbers are never outputs), but it *is* surjective from $\mathbb{R}$ to $[0, \infty)$ (every non-negative real is a square).
 
 >[!idea]
-A function is surjective onto its codomain if every codomain element is hit by at least one input. Surjectivity is about coverage, not injectivity, and depends crucially on the codomain.
+> A function is surjective onto its codomain if every codomain element is hit by at least one input. Surjectivity is about coverage, not injectivity, and depends crucially on the codomain.

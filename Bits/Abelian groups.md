@@ -40,4 +40,4 @@ This happens because function composition is inherently directional. The operati
 So there are groups where commutativity fails. These are called **non-abelian groups**, and they're much richer than abelian ones — they have more subtle structure to explore.
 
 >[!idea]
-A group is abelian if its operation commutes; most arithmetic groups are abelian, but groups based on function composition (like bijections) can be non-abelian when the set has three or more elements.
+> A group is abelian if its operation commutes; most arithmetic groups are abelian, but groups based on function composition (like bijections) can be non-abelian when the set has three or more elements.

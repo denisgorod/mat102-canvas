@@ -27,7 +27,7 @@ In mathematics, always return to the definition. Do not trust what feels right.
 Here is a new definition to practice with:
 
 >[!d] Definition
-An integer $n$ is **quirky** if $n^2$ is not even.
+> An integer $n$ is **quirky** if $n^2$ is not even.
 
 Try some examples. Is $1$ quirky? Then $1^2 = 1$. Is $1$ even? No (since $1 \neq 2m$ for any integer $m$). So $1^2$ is not even. Therefore $1$ is quirky. ✓
 
@@ -36,4 +36,4 @@ Is $2$ quirky? Then $2^2 = 4 = 2 \cdot 2$, so $4$ is even. So $2^2$ is even, whi
 Try to find more examples and non-examples. What pattern do you notice? Always return to the definition, not your intuition.
 
 >[!idea]
-Intuition is built from common cases and often fails at edges. Always apply the definition precisely, even when it contradicts what feels right.
+> Intuition is built from common cases and often fails at edges. Always apply the definition precisely, even when it contradicts what feels right.

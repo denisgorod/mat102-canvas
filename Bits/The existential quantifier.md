@@ -32,4 +32,4 @@ The key difference from $\forall$: you only need *one* witness. As soon as you f
 Think of $\exists$ as the statement "there is at least one." That "at least one" might be unique, or there might be many — the $\exists$ statement doesn't care. It's true as long as the count is not zero.
 
 >[!idea]
-The existential quantifier $\exists x \in S,\, P(x)$ asserts that at least one element of $S$ satisfies $P(x)$.
+> The existential quantifier $\exists x \in S,\, P(x)$ asserts that at least one element of $S$ satisfies $P(x)$.

@@ -26,7 +26,7 @@ A mathematical definition is a *complete, precise prescription* for what the wor
 Here is an example:
 
 >[!d] Definition
-An integer $n$ is **even** if there exists another integer $m$ such that $n = 2m$.
+> An integer $n$ is **even** if there exists another integer $m$ such that $n = 2m$.
 
 That is the complete truth of evenness. Nothing more, nothing less. Either $n = 2m$ for some integer $m$, or it is not even. Do not rely on what "even" feels like to you.
 
@@ -35,4 +35,4 @@ There are other ways to phrase this same idea: "$n$ is a multiple of $2$", or "$
 When you encounter a definition in a textbook, you are reading the complete specification of what the word means *for the rest of the course*. Your job is to understand it so fully that you can work with it, even in situations the definition does not explicitly mention.
 
 >[!idea]
-A mathematical definition is a precise, complete statement with no room for intuition. It is the entire specification of what a word means in that context.
+> A mathematical definition is a precise, complete statement with no room for intuition. It is the entire specification of what a word means in that context.

@@ -44,4 +44,4 @@ Notice: the inverses come out in *reverse order*. This is not a coincidence — 
 These four facts hold in *every* group. Once you move beyond the three axioms, any theorem you prove using only these properties applies universally.
 
 >[!idea]
-In any group, the identity is unique, cancellation works, every element has a unique inverse, and inverses of products reverse their order — $(ab)^{-1} = b^{-1}a^{-1}$.
+> In any group, the identity is unique, cancellation works, every element has a unique inverse, and inverses of products reverse their order — $(ab)^{-1} = b^{-1}a^{-1}$.
