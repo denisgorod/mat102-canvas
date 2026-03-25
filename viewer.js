@@ -123,20 +123,38 @@ const stripFrontmatter = (text) => {
 };
 
 // Fetch a single file trying candidates in order; return { text, resolvedPath } or null.
+// Rejects HTML responses so that CDN error pages (e.g. GitHub Pages rate-limit
+// pages) are never mistaken for file content.
 const fetchFirstReachable = async (candidates) => {
   for (const candidate of candidates) {
     if (!candidate) continue;
     try {
       const response = await fetch(candidate);
-      if (response.ok) {
-        const text = await response.text();
-        return { text, resolvedPath: candidate };
-      }
+      if (!response.ok) continue;
+
+      // Reject HTML responses — these are error/rate-limit pages, not .md files.
+      const contentType = response.headers.get("content-type") ?? "";
+      if (contentType.includes("text/html")) continue;
+
+      const text = await response.text();
+      return { text, resolvedPath: candidate };
     } catch {
       // try next candidate
     }
   }
   return null;
+};
+
+// Run at most `limit` async tasks concurrently.
+// Replaces Promise.all for large batches to avoid triggering CDN rate limits.
+const withConcurrency = async (limit, tasks) => {
+  let index = 0;
+  const worker = async () => {
+    while (index < tasks.length) {
+      await tasks[index++]();
+    }
+  };
+  await Promise.all(Array.from({ length: Math.min(limit, tasks.length) }, worker));
 };
 
 // Pre-fetch all file-node contents in parallel and return a map of
@@ -162,24 +180,24 @@ const preloadFileContents = async (canvasData, canvasPath, onProgress) => {
   let completed = 0;
   const total = uniqueFiles.length;
 
-  await Promise.all(
-    uniqueFiles.map(async (fileNode) => {
-      const baseName = getBasename(fileNode.file);
-      const normalizedOriginal = ensureRelativePath(fileNode.file);
-      const candidates = [
-        normalizedOriginal,
-        `${canvasDirectory}${baseName}`,
-        `./Bits/${baseName}`,
-        `./${baseName}`,
-      ];
+  // Use a concurrency limit (8) so we don't hammer GitHub Pages CDN with
+  // 351 simultaneous requests, which triggers rate limiting.
+  await withConcurrency(8, uniqueFiles.map((fileNode) => async () => {
+    const baseName = getBasename(fileNode.file);
+    const normalizedOriginal = ensureRelativePath(fileNode.file);
+    const candidates = [
+      normalizedOriginal,
+      `${canvasDirectory}${baseName}`,
+      `./Bits/${baseName}`,
+      `./${baseName}`,
+    ];
 
-      const result = await fetchFirstReachable([...new Set(candidates)]);
-      if (result) contentMap[baseName] = stripFrontmatter(result.text);
+    const result = await fetchFirstReachable([...new Set(candidates)]);
+    if (result) contentMap[baseName] = stripFrontmatter(result.text);
 
-      completed += 1;
-      onProgress?.(completed, total);
-    })
-  );
+    completed += 1;
+    onProgress?.(completed, total);
+  }));
 
   return contentMap;
 };
@@ -1318,8 +1336,6 @@ canvasRoot.addEventListener("click", (event) => {
   focusNodeFromInteraction(nodeId);
 }, true);
 
-let mathTypesetTimer = null;
-let mathTypesettingInProgress = false;
 let mathObserver = null;
 
 const observeMathChanges = () => {
@@ -1330,28 +1346,41 @@ const observeMathChanges = () => {
   });
 };
 
-const runMathTypeset = async () => {
-  if (mathTypesettingInProgress) return;
+// ---------------------------------------------------------------------------
+// Lazy per-node MathJax typesetting.
+//
+// The original approach called typesetPromise([canvasRoot]) — the full tree —
+// on every DOM mutation (pan, zoom, click). With 351 math-heavy nodes that
+// blocks the main thread for several seconds on load, and again on every
+// interaction. Instead we:
+//   1. Track which overlay nodes have already been typeset (data-math-done).
+//   2. On each scheduled pass, collect only the nodes that are currently
+//      visible in the viewport AND not yet typeset, then typeset just those.
+//   3. The IntersectionObserver pre-queues nodes that are entering the
+//      viewport so panning into new content feels instant.
+// ---------------------------------------------------------------------------
+
+// Nodes queued by the IntersectionObserver waiting for the next flush.
+const mathPendingNodes = new Set();
+let mathFlushScheduled = false;
+let mathTypesettingInProgress = false;
+
+const flushMathPending = async () => {
+  mathFlushScheduled = false;
+  if (mathPendingNodes.size === 0 || mathTypesettingInProgress) return;
 
   const mathJax = window.MathJax;
-  if (!mathJax || !mathJax.typesetPromise) return;
+  if (!mathJax?.typesetPromise) return;
+
+  const batch = [...mathPendingNodes];
+  mathPendingNodes.clear();
 
   mathTypesettingInProgress = true;
+  if (mathObserver) mathObserver.disconnect();
 
   try {
-    if (mathObserver) {
-      mathObserver.disconnect();
-    }
-
-    if (mathJax.startup?.promise) {
-      await mathJax.startup.promise;
-    }
-
-    if (typeof mathJax.typesetClear === "function") {
-      mathJax.typesetClear([canvasRoot]);
-    }
-
-    await mathJax.typesetPromise([canvasRoot]);
+    if (mathJax.startup?.promise) await mathJax.startup.promise;
+    await mathJax.typesetPromise(batch);
   } catch (err) {
     console.warn("MathJax typeset failed:", err);
   } finally {
@@ -1360,31 +1389,53 @@ const runMathTypeset = async () => {
   }
 };
 
-const scheduleMathTypeset = () => {
-  if (mathTypesetTimer !== null) {
-    window.clearTimeout(mathTypesetTimer);
+const scheduleMathFlush = () => {
+  if (!mathFlushScheduled) {
+    mathFlushScheduled = true;
+    requestAnimationFrame(flushMathPending);
   }
-
-  mathTypesetTimer = window.setTimeout(() => {
-    mathTypesetTimer = null;
-    void runMathTypeset();
-  }, 120);
 };
 
-// Initial pass after scripts have loaded.
-window.addEventListener("load", scheduleMathTypeset);
+// Queue a node for typesetting if it hasn't been done yet.
+const enqueueMathNode = (el) => {
+  if (el.dataset.mathDone) return;
+  el.dataset.mathDone = "1";
+  mathPendingNodes.add(el);
+  scheduleMathFlush();
+};
 
-// Re-typeset when content changes (e.g., zoom, node selection).
+// IntersectionObserver: pre-load nodes as they approach the viewport.
+const mathVisibilityObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      mathVisibilityObserver.unobserve(entry.target);
+      enqueueMathNode(entry.target);
+    }
+  });
+}, { rootMargin: "200px" });
+
+const observeNodeForMath = (el) => {
+  if (!el.dataset.mathDone) mathVisibilityObserver.observe(el);
+};
+
+// Watch for overlay nodes added or modified by the library.
 mathObserver = new MutationObserver((mutations) => {
   syncCollapsedVisibilityFromMutations(mutations);
-  if (mathTypesettingInProgress) return;
-  scheduleMathTypeset();
+  mutations.forEach((m) => {
+    m.addedNodes.forEach((node) => {
+      if (!(node instanceof Element)) return;
+      if (node.classList?.contains("JCV-overlay-container")) {
+        observeNodeForMath(node);
+      }
+      node.querySelectorAll?.(".JCV-overlay-container").forEach(observeNodeForMath);
+    });
+  });
 });
 
 observeMathChanges();
 
-// Run once in case initial content is already present.
-scheduleMathTypeset();
+// Observe all nodes already present in the DOM.
+canvasRoot.querySelectorAll(".JCV-overlay-container").forEach(observeNodeForMath);
 
 function syncCollapsedVisibilityFromMutations(mutations) {
   mutations.forEach((mutation) => {
@@ -1443,3 +1494,4 @@ function focusNode(nodeId, options = {}) {
     viewer.setViewport({ x: centerX, y: centerY, zoom: targetViewport.scale });
   }
 }
+

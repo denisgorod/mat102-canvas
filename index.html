@@ -511,6 +511,9 @@
     },
     options: {
       skipHtmlTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+    },
+    startup: {
+      typeset: false  // Typesetting is handled lazily per-node in viewer.js
     }
   };
 </script>
