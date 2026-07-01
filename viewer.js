@@ -559,6 +559,9 @@ const focusState = {
   history: []
 };
 const nodeTypeById = new Map(canvasJSON.nodes.map((node) => [node.id, node.type || "text"]));
+// O(1) id lookups, reused everywhere instead of repeated O(n) nodes/edges.find scans.
+const nodeById = new Map(canvasJSON.nodes.map((node) => [node.id, node]));
+const edgeById = new Map(canvasJSON.edges.map((edge) => [edge.id, edge]));
 const overlayNodeTypeClasses = ["node-type-text", "node-type-file", "node-type-group", "node-type-link"];
 const groupNodes = canvasJSON.nodes.filter((node) => node.type === "group");
 const collapsedGroupIds = new Set();
@@ -568,7 +571,7 @@ const easeInOutCubic = (t) => (t < 0.5)
   ? 4 * t * t * t
   : 1 - ((-2 * t + 2) ** 3) / 2;
 
-const getNodeById = (nodeId) => canvasJSON.nodes.find((node) => node.id === nodeId);
+const getNodeById = (nodeId) => nodeById.get(nodeId);
 const isNodeCollapsed = (nodeId) => collapsedHiddenNodeIds.has(nodeId);
 
 const isNodeInsideGroup = (node, group) => {
@@ -861,10 +864,9 @@ const smoothPanToNode = (nodeId, options = {}) => {
     dataManager.data.offsetX = startOffsetX + ((targetViewport.offsetX - startOffsetX) * eased);
     dataManager.data.offsetY = startOffsetY + ((targetViewport.offsetY - startOffsetY) * eased);
 
-    if (typeof viewer.refresh === "function") {
-      viewer.refresh();
-    }
-
+    // The library's Controller runs its own rAF loop that calls refresh()
+    // whenever scale/offset change, so refreshing per frame here just doubled
+    // the redraw work. The final-frame refresh below still runs.
     if (t < 1) {
       focusState.panAnimationFrame = window.requestAnimationFrame(step);
       return;
@@ -1041,6 +1043,24 @@ const renderGroupControls = () => {
   return true;
 };
 
+// Hoisted, static state for renderEdgeLabels. Rebuilding these on every call
+// (which fires on every resize frame and every group toggle) was pure waste:
+// node geometry never changes, so precompute all boxes once and only filter by
+// the collapsed set per call; reuse a single measuring canvas context.
+const allNodeBoxes = canvasJSON.nodes.map((node) => ({
+  id: node.id,
+  left: node.x,
+  top: node.y,
+  right: node.x + node.width,
+  bottom: node.y + node.height
+}));
+const edgeLabelMeasureCtx = (() => {
+  const measureCanvas = document.createElement("canvas");
+  const ctx = measureCanvas.getContext("2d");
+  if (ctx) ctx.font = "18px sans-serif";
+  return ctx;
+})();
+
 const renderEdgeLabels = () => {
   const overlaysRoot = canvasRoot.querySelector(".JCV-overlays");
   if (!overlaysRoot) return false;
@@ -1064,7 +1084,7 @@ const renderEdgeLabels = () => {
       if (!target) return;
 
       const edgeId = target.dataset.edgeId;
-      const edge = canvasJSON.edges.find((item) => item.id === edgeId);
+      const edge = edgeById.get(edgeId);
       if (!edge) return;
 
       focusNode(edge.toNode);
@@ -1073,21 +1093,12 @@ const renderEdgeLabels = () => {
 
   layer.innerHTML = "";
 
-  const nodeMap = new Map(canvasJSON.nodes.map((node) => [node.id, node]));
-  const visibleNodeBoxes = canvasJSON.nodes
-    .filter((node) => !isNodeCollapsed(node.id))
-    .map((node) => ({
-    left: node.x,
-    top: node.y,
-    right: node.x + node.width,
-    bottom: node.y + node.height
-    }));
+  const nodeMap = nodeById;
+  const visibleNodeBoxes = allNodeBoxes.filter((box) => !isNodeCollapsed(box.id));
   const placedLabelBoxes = [];
 
-  const measureCanvas = document.createElement("canvas");
-  const measureCtx = measureCanvas.getContext("2d");
+  const measureCtx = edgeLabelMeasureCtx;
   if (!measureCtx) return false;
-  measureCtx.font = "18px sans-serif";
 
   edgeLabels.forEach((edge) => {
     if (isNodeCollapsed(edge.fromNode) || isNodeCollapsed(edge.toNode)) return;
@@ -1207,12 +1218,19 @@ const ensureOverlayNodeTypeClasses = (attempt = 0) => {
 ensureEdgeLabels();
 ensureGroupControls();
 ensureOverlayNodeTypeClasses();
+// Coalesce bursts of resize events (which fire continuously while dragging a
+// window edge) into at most one heavy relayout per animation frame.
+let resizeRafId = null;
 window.addEventListener("resize", () => {
-  applyFileNodeDisplayNames();
-  applyOverlayNodeTypeClasses();
-  renderEdgeLabels();
-  renderOutgoingPanel();
-  renderGroupControls();
+  if (resizeRafId !== null) return;
+  resizeRafId = window.requestAnimationFrame(() => {
+    resizeRafId = null;
+    applyFileNodeDisplayNames();
+    applyOverlayNodeTypeClasses();
+    renderEdgeLabels();
+    renderOutgoingPanel();
+    renderGroupControls();
+  });
 });
 
 const clearNodeActiveState = () => {
@@ -1456,7 +1474,7 @@ function syncCollapsedVisibilityFromMutations(mutations) {
 }
 
 function focusNode(nodeId, options = {}) {
-  const node = canvasJSON.nodes.find(n => n.id === nodeId);
+  const node = nodeById.get(nodeId);
   if (!node) return;
   activateFocusedNode(nodeId, { recordHistory: options.recordHistory !== false });
   cancelPanAnimation();
