@@ -269,6 +269,16 @@
       cursor: pointer;
     }
 
+    /* Perf: let the browser skip layout, paint, and hit-testing for overlays
+       that are scrolled outside the viewport. Every overlay carries an explicit
+       inline width/height (set by the library in createOverlay), and size
+       containment respects explicit sizes, so the box dimensions are preserved
+       while off-screen — no contain-intrinsic-size needed. Collapsed / LOD-hidden
+       overlays use display:none below, which composes fine (display:none wins). */
+    .JCV-overlay-container {
+      content-visibility: auto;
+    }
+
     .JCV-overlay-container.is-collapsed-hidden {
       display: none !important;
     }
