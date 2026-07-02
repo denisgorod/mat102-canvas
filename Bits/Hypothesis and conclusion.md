@@ -21,6 +21,9 @@ children:
   - id: what-is-a-proposition
     question: "What exactly is a 'statement' in mathematics?"
     edge_type: prerequisite
+  - id: what-is-an-implication
+    question: "How is the hypothesis-conclusion structure expressed formally?"
+    edge_type: prerequisite
 parents:
   - theorems-and-friends
 ---

@@ -10,10 +10,10 @@ children:
     question: "Can we measure the 'size' of a group or an element?"
     edge_type: prerequisite
   - id: ex-finish-group-properties-proof
-    question: ""
+    question: "Can I prove the remaining parts of this proposition?"
     edge_type: prerequisite
   - id: ex-product-inverse-general
-    question: ""
+    question: "Does the shoe-sock property extend to products of n elements?"
     edge_type: prerequisite
 parents:
   - group-definition

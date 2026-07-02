@@ -5,7 +5,10 @@ role: bit
 group: functions-ii
 curriculum_path: null
 learning_objectives: []
-children: []
+children:
+  - id: reals-are-uncountable
+    question: "Does this pattern continue -- are all infinite sets countable?"
+    edge_type: prerequisite
 parents:
   - integers-are-countable
 ---

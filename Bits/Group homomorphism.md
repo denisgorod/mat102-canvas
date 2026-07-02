@@ -13,7 +13,7 @@ children:
     question: "What elements does a homomorphism send to the identity?"
     edge_type: prerequisite
   - id: ex-check-homomorphisms
-    question: ""
+    question: "Can I determine which functions are homomorphisms?"
     edge_type: related
 parents:
   - cyclic-subgroup-is-subgroup

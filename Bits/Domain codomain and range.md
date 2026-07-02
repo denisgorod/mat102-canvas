@@ -5,7 +5,19 @@ role: bit
 group: functions-i
 curriculum_path: null
 learning_objectives: []
-children: []
+children:
+  - id: image-of-a-set
+    question: "What outputs does a function actually produce from a given input set?"
+    edge_type: prerequisite
+  - id: injective-functions
+    question: "When does each output come from a unique input?"
+    edge_type: prerequisite
+  - id: surjective-functions
+    question: "When does a function hit every element of its codomain?"
+    edge_type: prerequisite
+  - id: ex-empty-domain-codomain
+    question: "What happens at the extremes — can a domain or codomain be empty?"
+    edge_type: prerequisite
 parents:
   - function-notation
 ---

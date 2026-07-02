@@ -10,13 +10,13 @@ children:
     question: "Is there a shortcut for checking whether a subset is a subgroup?"
     edge_type: prerequisite
   - id: ex-center-is-subgroup
-    question: ""
+    question: "Is the set of elements that commute with everything a subgroup?"
     edge_type: prerequisite
   - id: ex-centralizer-is-subgroup
-    question: ""
+    question: "Is the set of elements commuting with a subgroup also a subgroup?"
     edge_type: prerequisite
   - id: ex-alternative-subgroup-test
-    question: ""
+    question: "Is there an alternative set of conditions for being a subgroup?"
     edge_type: prerequisite
 parents:
   - group-order-and-element-order

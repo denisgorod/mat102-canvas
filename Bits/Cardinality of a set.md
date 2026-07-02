@@ -9,6 +9,9 @@ children:
   - id: cardinality-via-bijection
     question: "When do two sets have the same cardinality?"
     edge_type: prerequisite
+  - id: ex-subset-cardinality
+    question: "Does S subset T imply |S| <= |T|?"
+    edge_type: prerequisite
 parents:
   - invertibility-requires-bijectivity
   - injective-functions

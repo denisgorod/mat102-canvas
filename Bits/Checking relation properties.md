@@ -5,7 +5,13 @@ role: bit
 group: binary-relations
 curriculum_path: null
 learning_objectives: []
-children: []
+children:
+  - id: ex-divisibility-relation-properties
+    question: "Which properties does divisibility satisfy?"
+    edge_type: prerequisite
+  - id: ex-relation-properties-hw
+    question: "Can I classify many relations at once?"
+    edge_type: prerequisite
 parents:
   - relation-properties-transitive-total
 ---

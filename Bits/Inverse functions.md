@@ -5,7 +5,22 @@ role: bit
 group: functions-ii
 curriculum_path: null
 learning_objectives: []
-children: []
+children:
+  - id: invertibility-requires-bijectivity
+    question: "When does an inverse actually exist?"
+    edge_type: prerequisite
+  - id: ex-find-inverses
+    question: "Can I find inverses for specific functions?"
+    edge_type: prerequisite
+  - id: ex-one-sided-inverses
+    question: "What if only one direction of composition gives the identity?"
+    edge_type: prerequisite
+  - id: ex-invertibility-hw
+    question: "Can I determine invertibility for more complex functions?"
+    edge_type: prerequisite
+  - id: ex-left-right-invertible
+    question: "Can one-sided inverses characterize injectivity/surjectivity?"
+    edge_type: prerequisite
 parents:
   - function-composition
 ---

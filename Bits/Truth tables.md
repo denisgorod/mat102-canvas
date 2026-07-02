@@ -18,6 +18,9 @@ children:
   - id: ex-logical-equivalence
     question: "When do two different-looking statements say the same thing?"
     edge_type: prerequisite
+  - id: what-is-an-implication
+    question: "What is the truth table for 'if P then Q'?"
+    edge_type: prerequisite
 parents:
   - conjunction-and-disjunction
 ---

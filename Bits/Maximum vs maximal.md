@@ -5,7 +5,10 @@ role: bit
 group: order-relations
 curriculum_path: null
 learning_objectives: []
-children: []
+children:
+  - id: ex-no-maximum
+    question: "Can a poset have maximal elements but no maximum?"
+    edge_type: prerequisite
 parents:
   - maximal-and-minimal-elements
 ---

@@ -9,6 +9,9 @@ children:
   - id: group-definition
     question: "What if we require associativity, identity, and inverses all at once?"
     edge_type: prerequisite
+  - id: inverse-with-respect-to-operator
+    question: "Given an identity, what undoes an operation?"
+    edge_type: prerequisite
 parents:
   - bijective-functions
 ---

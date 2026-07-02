@@ -10,7 +10,7 @@ children:
     question: "What is the order of g^k?"
     edge_type: prerequisite
   - id: ex-order-disjoint-cycles
-    question: ""
+    question: "What is the order of a product of disjoint cycles?"
     edge_type: prerequisite
 parents:
   - group-order-and-element-order

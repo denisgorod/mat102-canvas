@@ -5,7 +5,25 @@ role: bit
 group: functions-i
 curriculum_path: null
 learning_objectives: []
-children: []
+children:
+  - id: proving-injectivity
+    question: "How do I prove a function is injective?"
+    edge_type: prerequisite
+  - id: bijective-functions
+    question: "What if a function is both injective and surjective?"
+    edge_type: prerequisite
+  - id: composition-preserves-injectivity
+    question: "If I compose two injective functions, is the result injective?"
+    edge_type: prerequisite
+  - id: ex-strictly-increasing-injective
+    question: "Does strictly increasing imply injective?"
+    edge_type: prerequisite
+  - id: cardinality-definition
+    question: "Can injectivity tell us about the sizes of sets?"
+    edge_type: prerequisite
+  - id: ex-left-right-invertible
+    question: "Is there an inverse characterization of injectivity?"
+    edge_type: prerequisite
 parents:
   - domain-codomain-range
 ---

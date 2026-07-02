@@ -7,7 +7,7 @@ curriculum_path: null
 learning_objectives: []
 children:
   - id: ex-prove-finite-cyclic-classification
-    question: ""
+    question: "Can I prove the finite case of the classification?"
     edge_type: related
 parents:
   - isomorphism-properties

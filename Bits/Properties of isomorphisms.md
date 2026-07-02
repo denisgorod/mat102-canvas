@@ -10,10 +10,10 @@ children:
     question: "Are all cyclic groups of the same order isomorphic?"
     edge_type: prerequisite
   - id: ex-r-not-isomorphic-q
-    question: ""
+    question: "Can I show two specific groups are NOT isomorphic?"
     edge_type: related
   - id: ex-automorphism-group
-    question: ""
+    question: "Is the set of isomorphisms from G to itself a group?"
     edge_type: related
 parents:
   - isomorphism-example

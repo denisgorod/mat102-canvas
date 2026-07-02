@@ -10,7 +10,7 @@ children:
     question: "What does an isomorphism look like concretely?"
     edge_type: prerequisite
   - id: ex-isomorphic-is-equivalence
-    question: ""
+    question: "Is being isomorphic an equivalence relation?"
     edge_type: related
 parents:
   - homomorphism-properties

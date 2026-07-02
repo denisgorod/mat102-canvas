@@ -7,13 +7,13 @@ curriculum_path: null
 learning_objectives: []
 children:
   - id: ex-sr-neq-rs
-    question: ""
+    question: "Can I prove that sr ≠ rs in D_n?"
     edge_type: prerequisite
   - id: ex-size-of-dn
-    question: ""
+    question: "How many elements does D_n have?"
     edge_type: prerequisite
   - id: ex-dihedral-srs-equals-r-inverse
-    question: ""
+    question: "What is the relation between s, r, and r^{−1} in D_n?"
     edge_type: prerequisite
 parents:
   - symmetric-group

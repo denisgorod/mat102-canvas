@@ -5,7 +5,10 @@ role: bit
 group: functions-ii
 curriculum_path: null
 learning_objectives: []
-children: []
+children:
+  - id: cantors-theorem
+    question: "Is the power set always strictly larger?"
+    edge_type: prerequisite
 parents:
   - countable-sets
   - set-builder-notation

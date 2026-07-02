@@ -5,7 +5,13 @@ role: bit
 group: quantifiers-and-implications
 curriculum_path: null
 learning_objectives: []
-children: []
+children:
+  - id: ex-translate-to-quantifiers
+    question: "Can I convert English sentences into quantifier notation?"
+    edge_type: prerequisite
+  - id: ex-evaluate-quantified-statement
+    question: "Can I evaluate whether a quantified statement is true?"
+    edge_type: prerequisite
 parents:
   - universal-quantifier
   - existential-quantifier

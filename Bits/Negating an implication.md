@@ -9,6 +9,15 @@ children:
   - id: proof-by-contradiction
     question: "Can I use negation to prove a statement is true?"
     edge_type: prerequisite
+  - id: ex-negate-implication-truth-table
+    question: "Can I verify the negation formula with a truth table?"
+    edge_type: prerequisite
+  - id: ex-negate-continuity
+    question: "What happens when I negate a statement with many quantifiers and implications?"
+    edge_type: prerequisite
+  - id: ex-negate-complex-statements
+    question: "Can I negate statements with multiple quantifiers and implications?"
+    edge_type: prerequisite
 parents:
   - what-is-an-implication
 ---

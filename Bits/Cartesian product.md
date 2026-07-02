@@ -9,6 +9,9 @@ children:
   - id: ex-cartesian-product-properties
     question: "Does order matter in Cartesian products?"
     edge_type: prerequisite
+  - id: what-is-a-binary-relation
+    question: "What mathematical structure uses pairs from A × B?"
+    edge_type: prerequisite
 parents:
   - what-is-a-set
 ---

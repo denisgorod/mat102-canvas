@@ -9,6 +9,18 @@ children:
   - id: symmetric-group
     question: "Do the bijections on a set form a group under composition?"
     edge_type: prerequisite
+  - id: ex-which-are-bijective
+    question: "Which of the functions we've seen are bijective?"
+    edge_type: prerequisite
+  - id: ex-binary-strings-bijection
+    question: "Can I build a bijection between two abstract infinite sets?"
+    edge_type: prerequisite
+  - id: binary-operator-identity
+    question: "Before inverses, what is an identity element?"
+    edge_type: prerequisite
+  - id: invertibility-requires-bijectivity
+    question: "Is bijectivity related to reversing a function?"
+    edge_type: prerequisite
 parents:
   - injective-functions
   - surjective-functions

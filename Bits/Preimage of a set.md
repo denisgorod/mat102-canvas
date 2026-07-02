@@ -5,7 +5,13 @@ role: bit
 group: functions-i
 curriculum_path: null
 learning_objectives: []
-children: []
+children:
+  - id: ex-compute-preimage
+    question: "Can I compute a preimage for a specific function?"
+    edge_type: prerequisite
+  - id: ex-image-preimage-hw
+    question: "Can I compute preimages in higher dimensions?"
+    edge_type: prerequisite
 parents:
   - image-of-a-set
 ---

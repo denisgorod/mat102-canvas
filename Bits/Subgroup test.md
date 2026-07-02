@@ -10,10 +10,10 @@ children:
     question: "What does a subgroup test proof look like in practice?"
     edge_type: prerequisite
   - id: ex-squares-subgroup-abelian
-    question: ""
+    question: "Can I apply the subgroup test to a concrete example?"
     edge_type: prerequisite
   - id: ex-units-of-zn
-    question: ""
+    question: "Do the units of Z_n form a subgroup under multiplication?"
     edge_type: prerequisite
 parents:
   - subgroup-definition

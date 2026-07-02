@@ -12,6 +12,12 @@ children:
   - id: ex-predicate-subsets
     question: "Can I find all objects satisfying a compound predicate?"
     edge_type: prerequisite
+  - id: universal-quantifier
+    question: "How do I say 'this is true for everything'?"
+    edge_type: prerequisite
+  - id: existential-quantifier
+    question: "How do I say 'there is at least one thing like this'?"
+    edge_type: prerequisite
 parents:
   - what-is-a-proposition
 ---

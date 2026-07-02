@@ -15,6 +15,9 @@ children:
   - id: ex-subset-proof-homework
     question: "How do I prove one set is a subset of another?"
     edge_type: prerequisite
+  - id: posets
+    question: "Is '⊆' itself a kind of ordering?"
+    edge_type: prerequisite
 parents:
   - what-is-a-set
 ---

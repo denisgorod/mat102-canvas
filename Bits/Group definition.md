@@ -19,13 +19,13 @@ children:
     question: "What can we deduce from the group axioms alone?"
     edge_type: prerequisite
   - id: ex-inverse-power-identity
-    question: ""
+    question: "Is (a^{−1})^n the same as (a^n)^{−1}?"
     edge_type: prerequisite
   - id: ex-odd-integers-not-group
-    question: ""
+    question: "Do the odd integers form a group under addition?"
     edge_type: prerequisite
   - id: ex-group-check-four
-    question: ""
+    question: "Can I check whether various structures are groups?"
     edge_type: prerequisite
 parents:
   - binary-operator-identity

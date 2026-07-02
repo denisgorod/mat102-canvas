@@ -5,7 +5,19 @@ role: bit
 group: functions-ii
 curriculum_path: null
 learning_objectives: []
-children: []
+children:
+  - id: integers-are-countable
+    question: "Is Z countable?"
+    edge_type: prerequisite
+  - id: power-set
+    question: "Is there always a bigger set?"
+    edge_type: prerequisite
+  - id: ex-n-cross-n-countable
+    question: "Is N x N countable?"
+    edge_type: prerequisite
+  - id: ex-algebraic-numbers-countable
+    question: "Are the algebraic numbers countable?"
+    edge_type: prerequisite
 parents:
   - cardinality-via-bijection
 ---

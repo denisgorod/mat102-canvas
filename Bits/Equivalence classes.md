@@ -15,6 +15,9 @@ children:
   - id: ex-construct-rationals
     question: "Can equivalence classes construct new number systems?"
     edge_type: prerequisite
+  - id: ex-equivalence-class-properties
+    question: "What basic properties do equivalence classes always have?"
+    edge_type: prerequisite
 parents:
   - what-is-an-equivalence-relation
 ---

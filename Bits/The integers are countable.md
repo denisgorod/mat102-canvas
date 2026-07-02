@@ -5,7 +5,10 @@ role: bit
 group: functions-ii
 curriculum_path: null
 learning_objectives: []
-children: []
+children:
+  - id: rationals-are-countable
+    question: "What about Q -- is it countable too?"
+    edge_type: prerequisite
 parents:
   - countable-sets
   - standard-number-sets

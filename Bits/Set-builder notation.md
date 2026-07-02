@@ -15,6 +15,12 @@ children:
   - id: ex-write-sets-explicitly
     question: "Can I convert set-builder notation into explicit lists?"
     edge_type: prerequisite
+  - id: image-of-a-set
+    question: "Can I describe the output set of a function using set-builder?"
+    edge_type: prerequisite
+  - id: power-set
+    question: "Can I build a set whose elements are themselves sets?"
+    edge_type: prerequisite
 parents:
   - what-is-a-set
 ---

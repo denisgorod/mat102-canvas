@@ -9,6 +9,9 @@ children:
   - id: de-morgans-laws
     question: "How does negation interact with conjunction and disjunction?"
     edge_type: prerequisite
+  - id: negating-universal-quantifier
+    question: "What is the opposite of 'everything satisfies P'?"
+    edge_type: prerequisite
 parents:
   - conjunction-and-disjunction
 ---

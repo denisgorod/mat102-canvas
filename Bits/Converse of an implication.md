@@ -12,6 +12,9 @@ children:
   - id: math-vs-english-implication
     question: "Why does my mom's 'if you do the dishes...' feel like an iff?"
     edge_type: prerequisite
+  - id: ex-contrapositive-and-converse
+    question: "Can I write the contrapositive and converse of English statements?"
+    edge_type: prerequisite
 parents:
   - what-is-an-implication
 ---
