@@ -115,7 +115,9 @@ store.frontier ||= [];     // [{ fromSlug, toSlug, question }]
 store.history ||= [];      // slug stack (for Back)
 const save = () => localStorage.setItem(STORE_KEY, JSON.stringify(store));
 
-let current = NODES[store.last] ? store.last : ROOT;
+// ?start=<slug> (e.g. arriving from the map) wins over the saved resume point.
+const START = params.get("start");
+let current = (START && NODES[START]) ? START : (NODES[store.last] ? store.last : ROOT);
 let arrivingQuestion = null;
 const contentCache = new Map();
 
@@ -135,8 +137,10 @@ style.textContent = `
   #reader-root { max-width: 1100px; margin: 0 auto; padding: 0 20px 120px; color: var(--obs-text); font-family: var(--obs-font-text); display: grid; grid-template-columns: 1fr 260px; gap: 28px; }
   #reader-main { min-width: 0; }
   .rd-topbar { position: sticky; top: 0; z-index: 5; background: #fff; display: flex; align-items: center; gap: 14px; padding: 14px 0 12px; border-bottom: 1px solid var(--obs-border); }
-  .rd-back { border: 1px solid var(--obs-border); background: var(--obs-bg-soft); border-radius: 7px; padding: 6px 12px; font: inherit; cursor: pointer; }
+  .rd-back, .rd-map { border: 1px solid var(--obs-border); background: var(--obs-bg-soft); border-radius: 7px; padding: 6px 12px; font: inherit; cursor: pointer; }
   .rd-back:disabled { opacity: .4; cursor: default; }
+  .rd-map { color: var(--obs-text); }
+  .rd-map:hover { border-color: var(--obs-accent); }
   .rd-coverage { margin-left: auto; font-size: 13px; color: var(--obs-muted); display: flex; align-items: center; gap: 8px; }
   .rd-bar { width: 120px; height: 6px; border-radius: 999px; background: var(--obs-bg-soft); overflow: hidden; }
   .rd-bar > i { display: block; height: 100%; background: var(--obs-accent); }
@@ -176,6 +180,7 @@ root.innerHTML = `
     <div class="rd-topbar">
       <button class="rd-back" type="button">← Back</button>
       <div class="rd-coverage"><span class="rd-cov-text"></span><span class="rd-bar"><i></i></span></div>
+      <button class="rd-map" type="button" title="See this bit on the map">🗺 Map</button>
     </div>
     <div class="rd-asked" hidden></div>
     <div class="rd-title"></div>
@@ -187,6 +192,11 @@ document.body.appendChild(root);
 
 const $ = (s) => root.querySelector(s);
 $(".rd-back").addEventListener("click", goBack);
+$(".rd-map").addEventListener("click", () => {
+  const u = new URL("./", location.href);
+  u.searchParams.set("focus", current);
+  location.href = u.toString();
+});
 
 // ---------------------------------------------------------------------------
 // Rendering

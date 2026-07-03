@@ -562,6 +562,10 @@ const nodeTypeById = new Map(canvasJSON.nodes.map((node) => [node.id, node.type 
 // O(1) id lookups, reused everywhere instead of repeated O(n) nodes/edges.find scans.
 const nodeById = new Map(canvasJSON.nodes.map((node) => [node.id, node]));
 const edgeById = new Map(canvasJSON.edges.map((edge) => [edge.id, edge]));
+// Reader bridge: hex nodeId <-> frontmatter slug, and a hook to paint reading progress.
+const slugByNodeId = new Map();
+const nodeIdBySlug = new Map();
+let readerStateApply = null; // set once reader-data.json + localStorage state load
 const overlayNodeTypeClasses = ["node-type-text", "node-type-file", "node-type-group", "node-type-link"];
 const groupNodes = canvasJSON.nodes.filter((node) => node.type === "group");
 const collapsedGroupIds = new Set();
@@ -624,6 +628,8 @@ const canGoBackInFocus = () => focusState.history.length > 0;
 
 const setOverlayNodeTypeClass = (overlay) => {
   if (!(overlay instanceof Element) || !overlay.id) return;
+
+  if (readerStateApply) readerStateApply(overlay);
 
   overlayNodeTypeClasses.forEach((className) => {
     overlay.classList.remove(className);
@@ -878,7 +884,7 @@ const smoothPanToNode = (nodeId, options = {}) => {
     if (typeof viewer.refresh === "function") {
       viewer.refresh();
     }
-    scheduleMathTypeset();
+    scheduleMathFlush();
     focusState.panAnimationFrame = null;
   };
 
@@ -1512,4 +1518,74 @@ function focusNode(nodeId, options = {}) {
     viewer.setViewport({ x: centerX, y: centerY, zoom: targetViewport.scale });
   }
 }
+
+// ---------------------------------------------------------------------------
+// Reader bridge: a Reader/Map toggle, deep-linking (?focus=<slug>), and painting
+// the reader's progress (answered ✓ / open-question glow) onto the map. All of
+// it degrades gracefully — if reader-data.json or saved state is missing, the
+// canvas is unchanged.
+// ---------------------------------------------------------------------------
+(async () => {
+  // Toggle is always available (even before data loads).
+  const toggle = document.createElement("div");
+  toggle.className = "mode-toggle";
+  const readerBtn = document.createElement("button");
+  readerBtn.type = "button";
+  readerBtn.textContent = "📖 Reader";
+  readerBtn.title = "Open the reading view (starting at the focused bit, if any)";
+  readerBtn.addEventListener("click", () => {
+    const url = new URL("./", location.href);
+    url.searchParams.set("mode", "reader");
+    const slug = focusState.nodeId ? slugByNodeId.get(focusState.nodeId) : null;
+    if (slug) url.searchParams.set("start", slug);
+    location.href = url.toString();
+  });
+  toggle.appendChild(readerBtn);
+  canvasRoot.appendChild(toggle);
+
+  let readerData;
+  try {
+    readerData = await (await fetch("./reader-data.json")).json();
+  } catch {
+    return; // no reader data → toggle still works, no progress overlay
+  }
+
+  const base2slug = {};
+  Object.entries(readerData.nodes).forEach(([slug, n]) => {
+    if (n.file) base2slug[n.file.split("/").pop()] = slug;
+  });
+  canvasJSON.nodes.forEach((n) => {
+    if (n.type !== "file" || typeof n.file !== "string") return;
+    const slug = base2slug[n.file.split("/").pop()];
+    if (slug) { slugByNodeId.set(n.id, slug); nodeIdBySlug.set(slug, n.id); }
+  });
+
+  let state = {};
+  try { state = JSON.parse(localStorage.getItem("reader.v1")) || {}; } catch { state = {}; }
+  const answered = new Set(
+    Object.entries(state.visited || {}).filter(([, v]) => v && v.answered).map(([slug]) => slug)
+  );
+  const frontier = new Set(
+    (state.frontier || []).map((f) => f.toSlug).filter((slug) => !answered.has(slug))
+  );
+
+  readerStateApply = (overlay) => {
+    overlay.classList.remove("rd-answered", "rd-frontier");
+    const slug = slugByNodeId.get(overlay.id);
+    if (!slug) return;
+    if (answered.has(slug)) overlay.classList.add("rd-answered");
+    else if (frontier.has(slug)) overlay.classList.add("rd-frontier");
+  };
+  applyOverlayNodeTypeClasses(); // re-run now that progress is known
+
+  // ?focus=<slug>: pan to that bit on load (e.g. arriving from the reader).
+  const focusSlug = new URLSearchParams(location.search).get("focus");
+  const focusHex = focusSlug && nodeIdBySlug.get(focusSlug);
+  if (focusHex) {
+    window.setTimeout(() => {
+      try { smoothPanToNode(focusHex, { durationMs: 650 }); }
+      catch { focusNode(focusHex); }
+    }, 350);
+  }
+})();
 

@@ -283,6 +283,50 @@
       display: none !important;
     }
 
+    /* Reading progress reflected on the map (state shared with the reader via
+       localStorage). Inset rings/badges only, so content-visibility's paint
+       containment never clips them. */
+    .JCV-overlay-container.rd-answered {
+      box-shadow: inset 0 0 0 2px rgba(16, 185, 129, 0.9);
+    }
+    .JCV-overlay-container.rd-answered::after {
+      content: "✓";
+      position: absolute;
+      top: 6px;
+      right: 8px;
+      z-index: 3;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #10b981;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+    }
+    .JCV-overlay-container.rd-frontier {
+      box-shadow: inset 0 0 0 3px rgba(245, 158, 11, 0.85);
+      animation: rd-pulse 1.8s ease-in-out infinite;
+    }
+    @keyframes rd-pulse {
+      0%, 100% { box-shadow: inset 0 0 0 2px rgba(245, 158, 11, 0.55); }
+      50%      { box-shadow: inset 0 0 0 4px rgba(245, 158, 11, 0.95); }
+    }
+
+    /* Reader ⇄ Map toggle */
+    .mode-toggle { position: fixed; left: 12px; top: 12px; z-index: 50; }
+    .mode-toggle button {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(17, 24, 39, 0.88); color: #e5e7eb;
+      border: 1px solid rgba(148, 163, 184, 0.4); border-radius: 999px;
+      padding: 7px 13px; font: 600 13px system-ui, sans-serif; cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    }
+    .mode-toggle button:hover { background: rgba(30, 41, 59, 0.95); }
+
     .group-header-box {
       position: absolute;
       display: flex;
