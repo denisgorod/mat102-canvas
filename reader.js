@@ -113,6 +113,7 @@ const store = load();
 store.visited ||= {};      // slug -> { firstSeen, answered }
 store.frontier ||= [];     // [{ fromSlug, toSlug, question }]
 store.history ||= [];      // slug stack (for Back)
+store.srs ||= {};          // exerciseSlug -> { box, due, reps, lapses, last }
 const save = () => localStorage.setItem(STORE_KEY, JSON.stringify(store));
 
 // ?start=<slug> (e.g. arriving from the map) wins over the saved resume point.
@@ -120,6 +121,32 @@ const START = params.get("start");
 let current = (START && NODES[START]) ? START : (NODES[store.last] ? store.last : ROOT);
 let arrivingQuestion = null;
 const contentCache = new Map();
+
+// Review session state (a pass over exercises that are due).
+let reviewActive = false, reviewQueue = null, reviewPos = 0, preReview = null;
+
+// --- Spaced repetition: a Leitner ladder over exercises (exercises are review-
+// only; they never count toward spine coverage). An exercise enters the schedule
+// the first time you rate it, then resurfaces when due. Gentle: a badge, not a gate.
+const DAY = 86400000;
+const SRS_LADDER = [1, 3, 7, 16, 35, 75]; // days between reviews, per box
+const isExercise = (slug) => NODES[slug]?.role === "exercise";
+const nowMs = () => Date.now();
+const dueSlugs = () => Object.entries(store.srs)
+  .filter(([, s]) => s.due <= nowMs())
+  .sort((a, b) => a[1].due - b[1].due)
+  .map(([slug]) => slug);
+const dueCount = () => dueSlugs().length;
+const fmtDue = (due) => { const d = Math.round((due - nowMs()) / DAY); return d <= 0 ? "now" : d === 1 ? "in 1 day" : `in ${d} days`; };
+function rateExercise(slug, gotIt) {
+  const s = store.srs[slug] || { box: -1, reps: 0, lapses: 0 };
+  if (gotIt) { s.box = Math.min((s.box ?? -1) + 1, SRS_LADDER.length - 1); s.reps = (s.reps || 0) + 1; }
+  else { s.box = 0; s.lapses = (s.lapses || 0) + 1; }
+  s.last = nowMs();
+  s.due = nowMs() + SRS_LADDER[Math.max(0, s.box)] * DAY;
+  store.srs[slug] = s;
+  save();
+}
 
 // ---------------------------------------------------------------------------
 // DOM + styles
@@ -169,6 +196,18 @@ style.textContent = `
   .rd-fitem:hover { border-color: var(--obs-accent); }
   .rd-fitem small { display:block; color: var(--obs-muted); margin-top:2px; }
   .rd-empty { color: var(--obs-muted); font-size: 13px; }
+  .rd-review { border:1px solid var(--obs-border); background:var(--obs-bg-soft); border-radius:7px; padding:6px 12px; font:inherit; cursor:pointer; color:var(--obs-text); }
+  .rd-review.has-due { border-color:#f59e0b; background:rgba(245,158,11,.14); color:#b45309; font-weight:650; }
+  .rd-review:disabled { opacity:.45; cursor:default; }
+  .rd-rating { border:1px solid var(--obs-border); background:var(--obs-bg-soft); border-radius:10px; padding:12px 14px; margin:22px 0 4px; }
+  .rd-rating-row { display:flex; gap:10px; margin-top:8px; flex-wrap:wrap; }
+  .rd-rate { border:1px solid var(--obs-border); border-radius:8px; padding:8px 14px; font:inherit; cursor:pointer; background:#fff; }
+  .rd-got { border-color:#10b981; color:#047857; }
+  .rd-got:hover { background:rgba(16,185,129,.1); }
+  .rd-miss { border-color:#ef4444; color:#b91c1c; }
+  .rd-miss:hover { background:rgba(239,68,68,.1); }
+  .rd-skip { color:var(--obs-muted); }
+  .rd-sched { font-size:12px; color:var(--obs-muted); margin-top:10px; }
   @media (max-width: 820px) { #reader-root { grid-template-columns: 1fr; } .rd-frontier { border-left: none; border-top: 1px solid var(--obs-border); padding-left: 0; } }
 `;
 document.head.appendChild(style);
@@ -179,6 +218,7 @@ root.innerHTML = `
   <main id="reader-main">
     <div class="rd-topbar">
       <button class="rd-back" type="button">← Back</button>
+      <button class="rd-review" type="button" title="Review exercises that are due"></button>
       <div class="rd-coverage"><span class="rd-cov-text"></span><span class="rd-bar"><i></i></span></div>
       <button class="rd-map" type="button" title="See this bit on the map">🗺 Map</button>
     </div>
@@ -197,6 +237,7 @@ $(".rd-map").addEventListener("click", () => {
   u.searchParams.set("focus", current);
   location.href = u.toString();
 });
+$(".rd-review").addEventListener("click", startReview);
 
 // ---------------------------------------------------------------------------
 // Rendering
@@ -246,20 +287,85 @@ function renderFrontier() {
   });
 }
 
-function renderCards() {
+function makeCard(e) {
+  const kind = cardKind(e);
+  const gloss = typeof GLOSS[kind] === "function" ? GLOSS[kind](e) : GLOSS[kind];
+  const b = document.createElement("button");
+  b.className = `rd-card ${kind}`; b.type = "button";
+  b.innerHTML = `<span class="rd-q">${e.question || "Go to: " + (NODES[e.to]?.title || e.to)}</span><span class="rd-gloss">${gloss}</span>`;
+  b.addEventListener("click", () => chooseCard(e));
+  return b;
+}
+
+// Self-rating panel for an exercise (adds/updates its spaced-repetition schedule).
+function renderRating(box, inReview) {
+  const s = store.srs[current];
+  const wrap = document.createElement("div");
+  wrap.className = "rd-rating";
+  wrap.innerHTML = `<div class="rd-cards-h" style="margin-top:0">${inReview ? `Review — ${reviewPos + 1} of ${reviewQueue.length} due` : "Try it, then rate yourself"}</div>
+    <div class="rd-rating-row">
+      <button class="rd-rate rd-got" type="button">Got it ✓</button>
+      <button class="rd-rate rd-miss" type="button">Missed it ✗</button>
+      ${inReview ? '<button class="rd-rate rd-skip" type="button">Skip</button>' : ""}
+    </div>
+    <div class="rd-sched">${s ? `Next review ${fmtDue(s.due)}.` : "Not yet scheduled — rating adds it to your reviews."}</div>`;
+  wrap.querySelector(".rd-got").addEventListener("click", () => (inReview ? reviewRate(true) : (rateExercise(current, true), afterRate())));
+  wrap.querySelector(".rd-miss").addEventListener("click", () => (inReview ? reviewRate(false) : (rateExercise(current, false), afterRate())));
+  if (inReview) wrap.querySelector(".rd-skip").addEventListener("click", reviewAdvance);
+  box.appendChild(wrap);
+}
+function afterRate() { renderReviewBadge(); renderActions(); }
+
+// The bottom section: in review it's the rating; otherwise the question cards
+// (with a rating panel first when the current node is an exercise).
+function renderActions() {
   const box = $(".rd-cards");
+  box.innerHTML = "";
+  if (reviewActive) {
+    renderRating(box, true);
+    const end = document.createElement("button");
+    end.className = "rd-rate rd-skip"; end.type = "button"; end.textContent = "End review";
+    end.style.marginTop = "10px";
+    end.addEventListener("click", exitReview);
+    box.appendChild(end);
+    return;
+  }
+  if (isExercise(current)) renderRating(box, false);
   const edges = (outEdges[current] || []).slice().sort((a, b) => KIND_ORDER[cardKind(a)] - KIND_ORDER[cardKind(b)]);
-  if (!edges.length) { box.innerHTML = `<div class="rd-cards-h">End of this thread</div><p class="rd-empty">No further questions branch from here — head back or pick one from your open questions.</p>`; renderFrontier(); return; }
-  box.innerHTML = `<div class="rd-cards-h">What do you want to ask next?</div>`;
-  edges.forEach((e) => {
-    const kind = cardKind(e);
-    const gloss = typeof GLOSS[kind] === "function" ? GLOSS[kind](e) : GLOSS[kind];
-    const b = document.createElement("button");
-    b.className = `rd-card ${kind}`; b.type = "button";
-    b.innerHTML = `<span class="rd-q">${e.question || "Go to: " + (NODES[e.to]?.title || e.to)}</span><span class="rd-gloss">${gloss}</span>`;
-    b.addEventListener("click", () => chooseCard(e));
-    box.appendChild(b);
-  });
+  if (edges.length) {
+    const h = document.createElement("div"); h.className = "rd-cards-h";
+    h.textContent = isExercise(current) ? "Where next?" : "What do you want to ask next?";
+    box.appendChild(h);
+    edges.forEach((e) => box.appendChild(makeCard(e)));
+  } else if (!isExercise(current)) {
+    box.insertAdjacentHTML("beforeend", `<div class="rd-cards-h">End of this thread</div><p class="rd-empty">No further questions branch from here — head back or pick one from your open questions.</p>`);
+  }
+}
+
+function renderReviewBadge() {
+  const n = dueCount();
+  const btn = $(".rd-review");
+  btn.textContent = n > 0 ? `✦ Review ${n}` : "Review";
+  btn.classList.toggle("has-due", n > 0);
+  btn.disabled = n === 0 && !reviewActive;
+}
+
+function startReview() {
+  const due = dueSlugs();
+  if (!due.length) return;
+  preReview = current; reviewQueue = due; reviewPos = 0; reviewActive = true;
+  current = reviewQueue[0]; arrivingQuestion = null; renderBit();
+}
+function reviewRate(gotIt) { rateExercise(current, gotIt); reviewAdvance(); }
+function reviewAdvance() {
+  reviewPos += 1;
+  if (reviewQueue && reviewPos < reviewQueue.length) { current = reviewQueue[reviewPos]; arrivingQuestion = null; renderBit(); }
+  else exitReview();
+}
+function exitReview() {
+  reviewActive = false; reviewQueue = null; reviewPos = 0;
+  if (preReview) current = preReview;
+  arrivingQuestion = null; renderBit();
 }
 
 async function renderBit() {
@@ -283,7 +389,8 @@ async function renderBit() {
   }
   requestAnimationFrame(() => { contentEl.style.opacity = "1"; });
 
-  renderCards();
+  renderReviewBadge();
+  renderActions();
   renderCoverage();
   renderFrontier();
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -318,6 +425,7 @@ function goTo(slug, question) {
 }
 
 function goBack() {
+  if (reviewActive) { exitReview(); return; }
   if (!store.history.length) return;
   current = store.history.pop();
   arrivingQuestion = null;
