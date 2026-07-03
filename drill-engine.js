@@ -108,6 +108,7 @@ export function makeInstance(spec) {
     for (let i = order.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [order[i], order[j]] = [order[j], order[i]]; }
     inst.options = order.map((i) => rendered[i]);
     inst.correct = order.indexOf(spec.answer);
+    if (inst.correct === -1) throw new Error(`mc drill "${spec.id}": answer index ${spec.answer} is out of range (0..${spec.options.length - 1})`);
   }
   return inst;
 }

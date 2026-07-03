@@ -415,7 +415,10 @@ function renderDrillScreen() {
     const correct = checkAnswer(inst, answer);
     rateExercise(it.key, correct);
     fb.className = "rd-drill-feedback " + (correct ? "ok" : "no");
-    fb.innerHTML = correct ? "✓ Correct" : `✗ Not quite — answer: <b>${formatAnswer(inst)}</b>`;
+    // Build feedback via the DOM (never innerHTML) — drill content is authored,
+    // but this keeps content strictly text. MathJax still typesets $...$.
+    fb.textContent = correct ? "✓ Correct" : "✗ Not quite — answer: ";
+    if (!correct) { const b = document.createElement("b"); b.textContent = formatAnswer(inst); fb.appendChild(b); typesetMath(fb); }
     nextBtn.style.display = "";
     renderReviewBadge();
   };
@@ -425,7 +428,7 @@ function renderDrillScreen() {
     mc.className = "rd-mc";
     inst.options.forEach((opt, i) => {
       const b = document.createElement("button");
-      b.className = "rd-mc-opt"; b.type = "button"; b.innerHTML = opt;
+      b.className = "rd-mc-opt"; b.type = "button"; b.textContent = opt; // textContent, not innerHTML; MathJax typesets the LaTeX
       b.addEventListener("click", () => {
         if (checked) return;
         grade(i);
@@ -467,7 +470,7 @@ function renderReviewBadge() {
   const btn = $(".rd-review");
   btn.textContent = n > 0 ? `✦ Review ${n}` : "Review";
   btn.classList.toggle("has-due", n > 0);
-  btn.disabled = n === 0 && !session;
+  btn.disabled = Boolean(session) || n === 0; // never start a new review over an active session
 }
 
 function startPractice(slug) {
@@ -477,6 +480,7 @@ function startPractice(slug) {
   enterItem();
 }
 function startReview() {
+  if (session) return; // don't clobber an in-progress session
   const due = dueSlugs();
   if (!due.length) return;
   const items = due.map((k) => (DRILLS[k] ? { kind: "drill", key: k } : { kind: "exercise", slug: k }));

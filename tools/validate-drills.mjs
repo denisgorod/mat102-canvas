@@ -31,7 +31,10 @@ const drills = [
 function correctInputFor(inst) {
   const { spec } = inst;
   if (spec.type === "mc") return inst.correct;
-  if (spec.type === "predicate") return spec.inputs.map((k) => evalExpr(spec.witness[k], inst.vars)).join(",");
+  if (spec.type === "predicate") {
+    if (!spec.witness) throw new Error(`predicate drill "${spec.id}" needs a \`witness\` (an expression per input) so validation can construct a correct answer`);
+    return spec.inputs.map((k) => evalExpr(spec.witness[k], inst.vars)).join(",");
+  }
   return formatAnswer(inst);
 }
 function wrongInputFor(inst, correctInput) {
