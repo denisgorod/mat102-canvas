@@ -22,6 +22,16 @@ drills:
       n: {int: [3, 12]}
     answer: 'mod(a*b,n)'
     type: integer
+  - id: inverse
+    prompt: 'Find $x$ with $0 \le x < %n%$ and $%a%\,x \equiv 1 \pmod{%n%}$.'
+    vars:
+      a: {int: [2, 20]}
+      n: {int: [3, 21]}
+    where: 'gcd(a,n)==1'
+    inputs: [x]
+    answer: 'mod(a*x, n) == 1'
+    witness: {x: 'inverse(a, n)'}
+    type: predicate
 children:
   - id: congruence-classes-and-zn
     question: "What are the equivalence classes of congruence mod n?"

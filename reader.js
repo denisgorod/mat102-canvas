@@ -224,7 +224,13 @@ style.textContent = `
   .rd-drill-form { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-top:8px; }
   .rd-drill-input { font:inherit; font-size:16px; padding:8px 12px; border:1px solid var(--obs-border); border-radius:8px; min-width:180px; }
   .rd-drill-input:focus { outline:none; border-color:var(--obs-accent); }
-  .rd-check { border-color:var(--obs-accent); color:var(--obs-accent); font-weight:600; }
+  .rd-check, .rd-next { border-color:var(--obs-accent); color:var(--obs-accent); font-weight:600; }
+  .rd-mc { display:flex; flex-direction:column; gap:10px; margin:8px 0 12px; max-width:560px; }
+  .rd-mc-opt { text-align:left; border:1px solid var(--obs-border); background:#fff; border-radius:10px; padding:11px 14px; font:inherit; font-size:15px; cursor:pointer; }
+  .rd-mc-opt:hover:not(:disabled) { border-color:var(--obs-accent); background:#f8fafc; }
+  .rd-mc-opt.ok { border-color:#10b981; background:rgba(16,185,129,.1); color:#047857; font-weight:600; }
+  .rd-mc-opt.no { border-color:#ef4444; background:rgba(239,68,68,.08); color:#b91c1c; }
+  .rd-mc-opt:disabled { cursor:default; }
   .rd-drill-feedback { flex-basis:100%; margin-top:8px; font-size:15px; }
   .rd-drill-feedback.ok { color:#047857; font-weight:600; }
   .rd-drill-feedback.no { color:#b91c1c; font-weight:600; }
@@ -373,10 +379,14 @@ function renderActions() {
   }
 }
 
-// Auto-graded drill screen (drill items, in Practice or Review).
+const typesetMath = (el) => { if (window.MathJax?.typesetPromise) window.MathJax.typesetPromise([el]).catch(() => {}); };
+
+// Auto-graded drill screen (drill items, in Practice or Review). Text-entry for
+// numeric/boolean/predicate/fraction types; clickable options for multiple choice.
 function renderDrillScreen() {
   const it = currentItem();
   const inst = session.inst;
+  const spec = inst.spec;
   const bit = NODES[DRILLS[it.key].bitSlug];
   $(".rd-asked").hidden = true;
   $(".rd-title").textContent = session.review ? "Review" : "Practice";
@@ -386,36 +396,70 @@ function renderDrillScreen() {
   content.innerHTML = `<div class="rd-drill-progress">${session.review ? "Review" : "Practice"} — ${session.pos + 1} of ${session.items.length} · <span class="rd-muted">${bit?.title || ""}</span></div><div class="rd-drill-prompt"></div>`;
   const promptEl = content.querySelector(".rd-drill-prompt");
   promptEl.textContent = inst.prompt;
-  if (window.MathJax?.typesetPromise) window.MathJax.typesetPromise([promptEl]).catch(() => {});
+  typesetMath(promptEl);
 
   const box = $(".rd-cards");
-  const ph = inst.spec.type === "boolean" ? "true / false" : inst.spec.type === "set" ? "e.g. 1, 3, 5" : "Your answer";
-  box.innerHTML = `<div class="rd-drill-form">
-    <input class="rd-drill-input" type="text" autocomplete="off" placeholder="${ph}" />
-    <button class="rd-rate rd-check" type="button">Check</button>
-    <button class="rd-rate rd-skip rd-endsession" type="button">End ${session.review ? "review" : "practice"}</button>
-    <div class="rd-drill-feedback"></div>
-  </div>`;
-  const input = box.querySelector(".rd-drill-input");
-  const checkBtn = box.querySelector(".rd-check");
-  const fb = box.querySelector(".rd-drill-feedback");
-  box.querySelector(".rd-endsession").addEventListener("click", endSession);
-  input.focus();
+  box.innerHTML = "";
+  const fb = document.createElement("div");
+  fb.className = "rd-drill-feedback";
+  const nextBtn = document.createElement("button");
+  nextBtn.className = "rd-rate rd-next"; nextBtn.type = "button";
+  nextBtn.textContent = session.pos < session.items.length - 1 ? "Next →" : "Finish";
+  nextBtn.style.display = "none";
+  nextBtn.addEventListener("click", sessionAdvance);
+
   let checked = false;
-  const doCheck = () => {
+  const grade = (answer) => {
     if (checked) return;
-    const correct = checkAnswer(inst.spec, inst.vars, input.value);
     checked = true;
+    const correct = checkAnswer(inst, answer);
     rateExercise(it.key, correct);
-    input.disabled = true;
     fb.className = "rd-drill-feedback " + (correct ? "ok" : "no");
-    fb.innerHTML = correct ? "✓ Correct" : `✗ Not quite — answer: <b>${formatAnswer(inst.spec, inst.vars)}</b>`;
-    checkBtn.textContent = session.pos < session.items.length - 1 ? "Next →" : "Finish";
-    checkBtn.onclick = sessionAdvance;
+    fb.innerHTML = correct ? "✓ Correct" : `✗ Not quite — answer: <b>${formatAnswer(inst)}</b>`;
+    nextBtn.style.display = "";
     renderReviewBadge();
   };
-  checkBtn.onclick = doCheck;
-  input.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); checked ? sessionAdvance() : doCheck(); } });
+
+  if (spec.type === "mc") {
+    const mc = document.createElement("div");
+    mc.className = "rd-mc";
+    inst.options.forEach((opt, i) => {
+      const b = document.createElement("button");
+      b.className = "rd-mc-opt"; b.type = "button"; b.innerHTML = opt;
+      b.addEventListener("click", () => {
+        if (checked) return;
+        grade(i);
+        mc.querySelectorAll(".rd-mc-opt").forEach((el, j) => { el.disabled = true; if (j === inst.correct) el.classList.add("ok"); else if (j === i) el.classList.add("no"); });
+      });
+      mc.appendChild(b);
+    });
+    box.appendChild(mc);
+    typesetMath(mc);
+  } else {
+    const ph = spec.type === "boolean" ? "true / false"
+      : spec.type === "set" ? "e.g. 1, 3, 5"
+      : spec.type === "predicate" ? spec.inputs.join(", ")
+      : spec.type === "fraction" ? "e.g. 3/4" : "Your answer";
+    const form = document.createElement("div");
+    form.className = "rd-drill-form";
+    const input = document.createElement("input");
+    input.className = "rd-drill-input"; input.type = "text"; input.autocomplete = "off"; input.placeholder = ph;
+    const checkBtn = document.createElement("button");
+    checkBtn.className = "rd-rate rd-check"; checkBtn.type = "button"; checkBtn.textContent = "Check";
+    const submit = () => { grade(input.value); input.disabled = true; checkBtn.style.display = "none"; };
+    checkBtn.addEventListener("click", submit);
+    input.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); checked ? sessionAdvance() : submit(); } });
+    form.append(input, checkBtn);
+    box.appendChild(form);
+    setTimeout(() => input.focus(), 0);
+  }
+
+  const endBtn = document.createElement("button");
+  endBtn.className = "rd-rate rd-skip"; endBtn.type = "button";
+  endBtn.textContent = `End ${session.review ? "review" : "practice"}`;
+  endBtn.style.marginLeft = "8px";
+  endBtn.addEventListener("click", endSession);
+  box.append(nextBtn, endBtn, fb);
 }
 
 function renderReviewBadge() {

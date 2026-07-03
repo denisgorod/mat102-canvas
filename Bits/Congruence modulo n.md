@@ -21,6 +21,15 @@ drills:
       n: {int: [2, 9]}
     answer: 'mod(a-b,n)==0'
     type: boolean
+  - id: def
+    prompt: 'What does $a \equiv b \pmod{n}$ mean?'
+    options:
+      - '$n$ divides $a - b$'
+      - '$a$ divides $b - n$'
+      - '$a$ and $b$ have the same sign'
+      - '$ab$ is a multiple of $n$'
+    answer: 0
+    type: mc
 children:
   - id: congruence-is-equivalence-relation
     question: "Is congruence mod n reflexive, symmetric, and transitive?"

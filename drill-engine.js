@@ -14,7 +14,17 @@
 const gcd = (a, b) => { a = Math.abs(a); b = Math.abs(b); while (b) [a, b] = [b, a % b]; return a; };
 const mod = (a, n) => ((a % n) + n) % n;
 const modpow = (b, e, m) => { let r = 1; b = ((b % m) + m) % m; while (e > 0) { if (e & 1) r = (r * b) % m; b = (b * b) % m; e >>= 1; } return r; };
-const FUNCS = { gcd, mod, modpow, abs: Math.abs, floor: Math.floor, min: Math.min, max: Math.max, sqrt: Math.sqrt };
+// extended Euclid: returns [g, x, y] with a*x + b*y = g
+function extgcd(a, b) {
+  let [or, r] = [a, b], [os, s] = [1, 0], [ot, t] = [0, 1];
+  while (r !== 0) { const q = Math.floor(or / r); [or, r] = [r, or - q * r]; [os, s] = [s, os - q * s]; [ot, t] = [t, ot - q * t]; }
+  return [or, os, ot];
+}
+const inverse = (a, n) => { const [g, x] = extgcd(mod(a, n), n); if (g !== 1) throw new Error("no inverse mod " + n); return mod(x, n); };
+const FUNCS = {
+  gcd, mod, modpow, abs: Math.abs, floor: Math.floor, min: Math.min, max: Math.max, sqrt: Math.sqrt,
+  inverse, bezx: (a, b) => extgcd(a, b)[1], bezy: (a, b) => extgcd(a, b)[2],
+};
 
 // Pratt parser: numbers, + - * / % ^, unary -, parentheses, whitelisted calls, vars.
 export function evalExpr(src, vars) {
@@ -86,23 +96,54 @@ export function computeAnswer(spec, vars) {
 
 export const renderPrompt = (spec, vars) => spec.prompt.replace(/%(\w+)%/g, (_, k) => vars[k]);
 
-export function formatAnswer(spec, vars) {
-  const a = computeAnswer(spec, vars);
-  if (spec.type === "boolean") return a ? "True" : "False";
-  if (spec.type === "set") return [...a].sort((x, y) => x - y).join(", ");
-  return String(a);
+// An instance carries the spec, sampled vars, rendered prompt, and (for mc) the
+// shuffled options + index of the correct one. checkAnswer/formatAnswer take the
+// instance so per-instance state (like the shuffle) is available.
+export function makeInstance(spec) {
+  const vars = sampleVars(spec);
+  const inst = { spec, vars, prompt: renderPrompt(spec, vars) };
+  if (spec.type === "mc") {
+    const rendered = spec.options.map((o) => String(o).replace(/%(\w+)%/g, (_, k) => vars[k]));
+    const order = rendered.map((_, i) => i);
+    for (let i = order.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [order[i], order[j]] = [order[j], order[i]]; }
+    inst.options = order.map((i) => rendered[i]);
+    inst.correct = order.indexOf(spec.answer);
+  }
+  return inst;
 }
 
-export function checkAnswer(spec, vars, input) {
+export function formatAnswer(inst) {
+  const { spec, vars } = inst;
+  if (spec.type === "mc") return inst.options[inst.correct];
+  if (spec.type === "boolean") return evalBool(spec.answer, vars) ? "True" : "False";
+  if (spec.type === "set") return [...computeAnswer(spec, vars)].sort((a, b) => a - b).join(", ");
+  if (spec.type === "predicate") return spec.witness ? spec.inputs.map((k) => `${k} = ${evalExpr(spec.witness[k], vars)}`).join(", ") : "(any values satisfying the condition)";
+  if (spec.type === "fraction") { let p = evalExpr(spec.num, vars), q = evalExpr(spec.den, vars); const g = gcd(p, q) || 1; p /= g; q /= g; if (q < 0) { p = -p; q = -q; } return q === 1 ? String(p) : `${p}/${q}`; }
+  if (spec.type === "number") { const v = evalExpr(spec.answer, vars); return Number.isInteger(v) ? String(v) : String(Math.round(v * 1e6) / 1e6); }
+  return String(computeAnswer(spec, vars));
+}
+
+export function checkAnswer(inst, input) {
+  const { spec, vars } = inst;
+  if (spec.type === "mc") return Number(input) === inst.correct;
   const s = String(input).trim();
   if (s === "") return false;
   if (spec.type === "boolean") { const truth = evalBool(spec.answer, vars); const t = s.toLowerCase(); return truth ? /^(t|y|true|yes)/.test(t) : /^(f|n|false|no)/.test(t); }
-  if (spec.type === "set") { const want = computeAnswer(spec, vars); const got = new Set(s.split(/[,\s]+/).map((x) => Number(x)).filter((x) => !Number.isNaN(x))); return want.size === got.size && [...want].every((x) => got.has(x)); }
+  if (spec.type === "predicate") {
+    const nums = s.split(/[,\s]+/).map(Number);
+    if (nums.length !== spec.inputs.length || nums.some((x) => Number.isNaN(x))) return false;
+    const scope = { ...vars };
+    spec.inputs.forEach((name, i) => (scope[name] = nums[i]));
+    return evalBool(spec.answer, scope);
+  }
+  if (spec.type === "set") { const want = computeAnswer(spec, vars); const got = new Set(s.split(/[,\s]+/).map(Number).filter((x) => !Number.isNaN(x))); return want.size === got.size && [...want].every((x) => got.has(x)); }
+  if (spec.type === "fraction") {
+    const num = evalExpr(spec.num, vars), den = evalExpr(spec.den, vars);
+    const m = s.match(/^(-?\d+)\s*\/\s*(-?\d+)$/);
+    if (m) { const p = +m[1], q = +m[2]; return q !== 0 && p * den === q * num; }
+    const d = Number(s); return Number.isFinite(d) && Math.abs(d - num / den) <= (spec.tol ?? 1e-6);
+  }
+  if (spec.type === "number") return Math.abs(Number(s) - evalExpr(spec.answer, vars)) <= (spec.tol ?? 1e-6);
   if (spec.type === "mod") { const n = evalExpr(spec.modulus, vars); return mod(Number(s), n) === computeAnswer(spec, vars); }
-  return Number(s) === computeAnswer(spec, vars);
-}
-
-export function makeInstance(spec) {
-  const vars = sampleVars(spec);
-  return { spec, vars, prompt: renderPrompt(spec, vars) };
+  return Number(s) === computeAnswer(spec, vars); // integer
 }
