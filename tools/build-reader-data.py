@@ -35,6 +35,8 @@ for f in glob.glob(os.path.join(BITS, "**", "*.md"), recursive=True):
         "curriculum_path": d.get("curriculum_path"),  # null today; reader falls back to role==bit
         "file": rel,
     }
+    if d.get("drills"):  # parametric spaced-repetition drills (see drill-engine.js)
+        nodes[slug]["drills"] = d["drills"]
     base2slug[os.path.basename(f)] = slug
 
 hex2slug = {n["id"]: base2slug.get(os.path.basename(n["file"]))

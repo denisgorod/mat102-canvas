@@ -4,6 +4,7 @@
 // with Frontier + localStorage coverage/resume. SRS layer is a separate step.
 
 import { parser } from "https://unpkg.com/json-canvas-viewer/dist/chimp.js";
+import { makeInstance, checkAnswer, formatAnswer } from "./drill-engine.js";
 
 const params = new URLSearchParams(location.search);
 const TOPIC = params.get("topic") || "modular-arithmetic";
@@ -93,6 +94,11 @@ const NODES = data.nodes;
 const outEdges = {};
 data.edges.forEach((e) => { (outEdges[e.from] ||= []).push(e); });
 
+// Parametric drills authored in bit frontmatter -> registry keyed drill:<bit>:<id>.
+const DRILLS = {};
+for (const [slug, n] of Object.entries(NODES)) for (const sp of (n.drills || [])) DRILLS[`drill:${slug}:${sp.id}`] = { bitSlug: slug, spec: sp };
+const bitDrillKeys = (slug) => (NODES[slug]?.drills || []).map((sp) => `drill:${slug}:${sp.id}`);
+
 const inTopic = (slug) => NODES[slug] && NODES[slug].group === TOPIC;
 const isSpine = (slug) => {
   const n = NODES[slug];
@@ -122,8 +128,11 @@ let current = (START && NODES[START]) ? START : (NODES[store.last] ? store.last 
 let arrivingQuestion = null;
 const contentCache = new Map();
 
-// Review session state (a pass over exercises that are due).
-let reviewActive = false, reviewQueue = null, reviewPos = 0, preReview = null;
+// Session state: a Practice run over one bit's drills, or a Review pass over due
+// items (drills auto-graded; exercises self-rated).
+let session = null;   // { items:[{kind:'drill',key}|{kind:'exercise',slug}], pos, review, inst }
+let preSession = null;
+const currentItem = () => (session ? session.items[session.pos] : null);
 
 // --- Spaced repetition: a Leitner ladder over exercises (exercises are review-
 // only; they never count toward spine coverage). An exercise enters the schedule
@@ -208,6 +217,23 @@ style.textContent = `
   .rd-miss:hover { background:rgba(239,68,68,.1); }
   .rd-skip { color:var(--obs-muted); }
   .rd-sched { font-size:12px; color:var(--obs-muted); margin-top:10px; }
+  .rd-card.practice-drill { border-left:4px solid #0ea5e9; }
+  .rd-drill-progress { font-size:13px; color:var(--obs-muted); margin-bottom:16px; }
+  .rd-muted { color:var(--obs-muted); }
+  .rd-drill-prompt { font-size:22px; line-height:1.5; color:#1f2937; margin:8px 0 4px; }
+  .rd-drill-form { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-top:8px; }
+  .rd-drill-input { font:inherit; font-size:16px; padding:8px 12px; border:1px solid var(--obs-border); border-radius:8px; min-width:180px; }
+  .rd-drill-input:focus { outline:none; border-color:var(--obs-accent); }
+  .rd-check, .rd-next { border-color:var(--obs-accent); color:var(--obs-accent); font-weight:600; }
+  .rd-mc { display:flex; flex-direction:column; gap:10px; margin:8px 0 12px; max-width:560px; }
+  .rd-mc-opt { text-align:left; border:1px solid var(--obs-border); background:#fff; border-radius:10px; padding:11px 14px; font:inherit; font-size:15px; cursor:pointer; }
+  .rd-mc-opt:hover:not(:disabled) { border-color:var(--obs-accent); background:#f8fafc; }
+  .rd-mc-opt.ok { border-color:#10b981; background:rgba(16,185,129,.1); color:#047857; font-weight:600; }
+  .rd-mc-opt.no { border-color:#ef4444; background:rgba(239,68,68,.08); color:#b91c1c; }
+  .rd-mc-opt:disabled { cursor:default; }
+  .rd-drill-feedback { flex-basis:100%; margin-top:8px; font-size:15px; }
+  .rd-drill-feedback.ok { color:#047857; font-weight:600; }
+  .rd-drill-feedback.no { color:#b91c1c; font-weight:600; }
   @media (max-width: 820px) { #reader-root { grid-template-columns: 1fr; } .rd-frontier { border-left: none; border-top: 1px solid var(--obs-border); padding-left: 0; } }
 `;
 document.head.appendChild(style);
@@ -297,40 +323,51 @@ function makeCard(e) {
   return b;
 }
 
-// Self-rating panel for an exercise (adds/updates its spaced-repetition schedule).
-function renderRating(box, inReview) {
+function makePracticeCard(slug) {
+  const n = bitDrillKeys(slug).length;
+  const b = document.createElement("button");
+  b.className = "rd-card practice-drill"; b.type = "button";
+  b.innerHTML = `<span class="rd-q">✎ Practice — ${n} drill${n > 1 ? "s" : ""}</span><span class="rd-gloss">auto-graded questions with fresh numbers each time</span>`;
+  b.addEventListener("click", () => startPractice(slug));
+  return b;
+}
+
+// Self-rating panel for an exercise. inSession = shown inside a Review pass
+// (rating advances the session rather than just rescheduling).
+function renderRating(box, inSession) {
   const s = store.srs[current];
   const wrap = document.createElement("div");
   wrap.className = "rd-rating";
-  wrap.innerHTML = `<div class="rd-cards-h" style="margin-top:0">${inReview ? `Review — ${reviewPos + 1} of ${reviewQueue.length} due` : "Try it, then rate yourself"}</div>
+  wrap.innerHTML = `<div class="rd-cards-h" style="margin-top:0">${inSession ? `Review — ${session.pos + 1} of ${session.items.length}` : "Try it, then rate yourself"}</div>
     <div class="rd-rating-row">
       <button class="rd-rate rd-got" type="button">Got it ✓</button>
       <button class="rd-rate rd-miss" type="button">Missed it ✗</button>
-      ${inReview ? '<button class="rd-rate rd-skip" type="button">Skip</button>' : ""}
+      ${inSession ? '<button class="rd-rate rd-skip" type="button">Skip</button>' : ""}
     </div>
     <div class="rd-sched">${s ? `Next review ${fmtDue(s.due)}.` : "Not yet scheduled — rating adds it to your reviews."}</div>`;
-  wrap.querySelector(".rd-got").addEventListener("click", () => (inReview ? reviewRate(true) : (rateExercise(current, true), afterRate())));
-  wrap.querySelector(".rd-miss").addEventListener("click", () => (inReview ? reviewRate(false) : (rateExercise(current, false), afterRate())));
-  if (inReview) wrap.querySelector(".rd-skip").addEventListener("click", reviewAdvance);
+  wrap.querySelector(".rd-got").addEventListener("click", () => (inSession ? reviewRate(true) : (rateExercise(current, true), afterRate())));
+  wrap.querySelector(".rd-miss").addEventListener("click", () => (inSession ? reviewRate(false) : (rateExercise(current, false), afterRate())));
+  if (inSession) wrap.querySelector(".rd-skip").addEventListener("click", sessionAdvance);
   box.appendChild(wrap);
 }
 function afterRate() { renderReviewBadge(); renderActions(); }
 
-// The bottom section: in review it's the rating; otherwise the question cards
-// (with a rating panel first when the current node is an exercise).
+function appendEndSession(box) {
+  const end = document.createElement("button");
+  end.className = "rd-rate rd-skip"; end.type = "button";
+  end.textContent = `End ${session.review ? "review" : "practice"}`;
+  end.style.marginTop = "10px";
+  end.addEventListener("click", endSession);
+  box.appendChild(end);
+}
+
+// Bottom section for a normal bit/exercise (drill items use renderDrillScreen).
 function renderActions() {
   const box = $(".rd-cards");
   box.innerHTML = "";
-  if (reviewActive) {
-    renderRating(box, true);
-    const end = document.createElement("button");
-    end.className = "rd-rate rd-skip"; end.type = "button"; end.textContent = "End review";
-    end.style.marginTop = "10px";
-    end.addEventListener("click", exitReview);
-    box.appendChild(end);
-    return;
-  }
+  if (session) { renderRating(box, true); appendEndSession(box); return; } // exercise item in a Review pass
   if (isExercise(current)) renderRating(box, false);
+  if (!isExercise(current) && bitDrillKeys(current).length) box.appendChild(makePracticeCard(current));
   const edges = (outEdges[current] || []).slice().sort((a, b) => KIND_ORDER[cardKind(a)] - KIND_ORDER[cardKind(b)]);
   if (edges.length) {
     const h = document.createElement("div"); h.className = "rd-cards-h";
@@ -342,33 +379,140 @@ function renderActions() {
   }
 }
 
+const typesetMath = (el) => { if (window.MathJax?.typesetPromise) window.MathJax.typesetPromise([el]).catch(() => {}); };
+
+// Auto-graded drill screen (drill items, in Practice or Review). Text-entry for
+// numeric/boolean/predicate/fraction types; clickable options for multiple choice.
+function renderDrillScreen() {
+  const it = currentItem();
+  const inst = session.inst;
+  const spec = inst.spec;
+  const bit = NODES[DRILLS[it.key].bitSlug];
+  $(".rd-asked").hidden = true;
+  $(".rd-title").textContent = session.review ? "Review" : "Practice";
+  $(".rd-back").disabled = false;
+  const content = $(".rd-content");
+  content.style.opacity = "1";
+  content.innerHTML = `<div class="rd-drill-progress">${session.review ? "Review" : "Practice"} — ${session.pos + 1} of ${session.items.length} · <span class="rd-muted">${bit?.title || ""}</span></div><div class="rd-drill-prompt"></div>`;
+  const promptEl = content.querySelector(".rd-drill-prompt");
+  promptEl.textContent = inst.prompt;
+  typesetMath(promptEl);
+
+  const box = $(".rd-cards");
+  box.innerHTML = "";
+  const fb = document.createElement("div");
+  fb.className = "rd-drill-feedback";
+  const nextBtn = document.createElement("button");
+  nextBtn.className = "rd-rate rd-next"; nextBtn.type = "button";
+  nextBtn.textContent = session.pos < session.items.length - 1 ? "Next →" : "Finish";
+  nextBtn.style.display = "none";
+  nextBtn.addEventListener("click", sessionAdvance);
+
+  let checked = false;
+  const grade = (answer) => {
+    if (checked) return;
+    checked = true;
+    const correct = checkAnswer(inst, answer);
+    rateExercise(it.key, correct);
+    fb.className = "rd-drill-feedback " + (correct ? "ok" : "no");
+    // Build feedback via the DOM (never innerHTML) — drill content is authored,
+    // but this keeps content strictly text. MathJax still typesets $...$.
+    fb.textContent = correct ? "✓ Correct" : "✗ Not quite — answer: ";
+    if (!correct) { const b = document.createElement("b"); b.textContent = formatAnswer(inst); fb.appendChild(b); typesetMath(fb); }
+    nextBtn.style.display = "";
+    renderReviewBadge();
+  };
+
+  if (spec.type === "mc") {
+    const mc = document.createElement("div");
+    mc.className = "rd-mc";
+    inst.options.forEach((opt, i) => {
+      const b = document.createElement("button");
+      b.className = "rd-mc-opt"; b.type = "button"; b.textContent = opt; // textContent, not innerHTML; MathJax typesets the LaTeX
+      b.addEventListener("click", () => {
+        if (checked) return;
+        grade(i);
+        mc.querySelectorAll(".rd-mc-opt").forEach((el, j) => { el.disabled = true; if (j === inst.correct) el.classList.add("ok"); else if (j === i) el.classList.add("no"); });
+      });
+      mc.appendChild(b);
+    });
+    box.appendChild(mc);
+    typesetMath(mc);
+  } else {
+    const ph = spec.type === "boolean" ? "true / false"
+      : spec.type === "set" ? "e.g. 1, 3, 5"
+      : spec.type === "predicate" ? spec.inputs.join(", ")
+      : spec.type === "fraction" ? "e.g. 3/4" : "Your answer";
+    const form = document.createElement("div");
+    form.className = "rd-drill-form";
+    const input = document.createElement("input");
+    input.className = "rd-drill-input"; input.type = "text"; input.autocomplete = "off"; input.placeholder = ph;
+    const checkBtn = document.createElement("button");
+    checkBtn.className = "rd-rate rd-check"; checkBtn.type = "button"; checkBtn.textContent = "Check";
+    const submit = () => { grade(input.value); input.disabled = true; checkBtn.style.display = "none"; };
+    checkBtn.addEventListener("click", submit);
+    input.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); checked ? sessionAdvance() : submit(); } });
+    form.append(input, checkBtn);
+    box.appendChild(form);
+    setTimeout(() => input.focus(), 0);
+  }
+
+  const endBtn = document.createElement("button");
+  endBtn.className = "rd-rate rd-skip"; endBtn.type = "button";
+  endBtn.textContent = `End ${session.review ? "review" : "practice"}`;
+  endBtn.style.marginLeft = "8px";
+  endBtn.addEventListener("click", endSession);
+  box.append(nextBtn, endBtn, fb);
+}
+
 function renderReviewBadge() {
   const n = dueCount();
   const btn = $(".rd-review");
   btn.textContent = n > 0 ? `✦ Review ${n}` : "Review";
   btn.classList.toggle("has-due", n > 0);
-  btn.disabled = n === 0 && !reviewActive;
+  btn.disabled = Boolean(session) || n === 0; // never start a new review over an active session
 }
 
+function startPractice(slug) {
+  const items = bitDrillKeys(slug).map((key) => ({ kind: "drill", key }));
+  if (!items.length) return;
+  preSession = current; session = { items, pos: 0, review: false, inst: null };
+  enterItem();
+}
 function startReview() {
+  if (session) return; // don't clobber an in-progress session
   const due = dueSlugs();
   if (!due.length) return;
-  preReview = current; reviewQueue = due; reviewPos = 0; reviewActive = true;
-  current = reviewQueue[0]; arrivingQuestion = null; renderBit();
+  const items = due.map((k) => (DRILLS[k] ? { kind: "drill", key: k } : { kind: "exercise", slug: k }));
+  preSession = current; session = { items, pos: 0, review: true, inst: null };
+  enterItem();
 }
-function reviewRate(gotIt) { rateExercise(current, gotIt); reviewAdvance(); }
-function reviewAdvance() {
-  reviewPos += 1;
-  if (reviewQueue && reviewPos < reviewQueue.length) { current = reviewQueue[reviewPos]; arrivingQuestion = null; renderBit(); }
-  else exitReview();
+function enterItem() {
+  const it = currentItem();
+  if (it.kind === "drill") { session.inst = makeInstance(DRILLS[it.key].spec); current = DRILLS[it.key].bitSlug; }
+  else { session.inst = null; current = it.slug; }
+  arrivingQuestion = null;
+  renderBit();
 }
-function exitReview() {
-  reviewActive = false; reviewQueue = null; reviewPos = 0;
-  if (preReview) current = preReview;
-  arrivingQuestion = null; renderBit();
+function reviewRate(gotIt) { rateExercise(current, gotIt); sessionAdvance(); }
+function sessionAdvance() {
+  session.pos += 1;
+  if (session.pos < session.items.length) enterItem();
+  else endSession();
+}
+function endSession() {
+  session = null;
+  if (preSession) current = preSession;
+  arrivingQuestion = null;
+  renderBit();
 }
 
 async function renderBit() {
+  if (session && currentItem().kind === "drill") {
+    renderDrillScreen(); renderReviewBadge(); renderCoverage(); renderFrontier();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    return;
+  }
   const node = NODES[current];
   store.visited[current] = store.visited[current] || { firstSeen: true };
   store.last = current; save();
@@ -425,7 +569,7 @@ function goTo(slug, question) {
 }
 
 function goBack() {
-  if (reviewActive) { exitReview(); return; }
+  if (session) { endSession(); return; }
   if (!store.history.length) return;
   current = store.history.pop();
   arrivingQuestion = null;
