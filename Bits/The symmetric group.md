@@ -10,10 +10,10 @@ children:
     question: "Are there other natural non-abelian groups?"
     edge_type: prerequisite
   - id: ex-cycle-composition
-    question: ""
+    question: "How do we compute with permutations using cycle notation?"
     edge_type: prerequisite
   - id: ex-sn-abelian-iff
-    question: ""
+    question: "For which n is S_n abelian?"
     edge_type: prerequisite
 parents:
   - abelian-groups

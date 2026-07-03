@@ -12,6 +12,12 @@ children:
   - id: math-vs-english-not
     question: "Does 'not' work the same way in math as in English?"
     edge_type: prerequisite
+  - id: ex-negate-continuity
+    question: "How do I negate alternating quantifiers?"
+    edge_type: prerequisite
+  - id: ex-negate-complex-statements
+    question: "How does quantifier negation chain with implication negation?"
+    edge_type: prerequisite
 parents:
   - negation
   - universal-quantifier

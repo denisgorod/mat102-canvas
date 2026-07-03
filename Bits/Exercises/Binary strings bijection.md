@@ -5,7 +5,10 @@ role: exercise
 group: functions-i
 curriculum_path: null
 learning_objectives: []
-children: []
+children:
+  - id: ex-advanced-cardinality
+    question: "Can I relate binary strings to real numbers?"
+    edge_type: prerequisite
 parents:
   - bijective-functions
 ---

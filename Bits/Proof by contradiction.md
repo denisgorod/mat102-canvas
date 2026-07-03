@@ -21,6 +21,9 @@ children:
   - id: ex-contradiction-proofs-hw
     question: "Can I apply contradiction to several different problems?"
     edge_type: prerequisite
+  - id: reals-are-uncountable
+    question: "The diagonal argument is a contradiction proof -- what does it show?"
+    edge_type: prerequisite
 parents:
   - what-is-a-proof
   - negating-an-implication

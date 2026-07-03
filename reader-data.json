@@ -1,0 +1,4953 @@
+{
+	"nodes": {
+		"inverse-with-respect-to-operator": {
+			"title": "Inverse with respect to an operator",
+			"role": "bit",
+			"group": "functions-ii",
+			"curriculum_path": null,
+			"file": "Bits/Inverse with respect to an operator.md"
+		},
+		"fermats-little-theorem": {
+			"title": "Fermat's Little Theorem",
+			"role": "bit",
+			"group": "modular-arithmetic",
+			"curriculum_path": null,
+			"file": "Bits/Fermats Little Theorem.md"
+		},
+		"bezout-corollaries": {
+			"title": "Bézout corollaries",
+			"role": "bit",
+			"group": "gcd-and-euclidean-algorithm",
+			"curriculum_path": null,
+			"file": "Bits/Bezout corollaries.md"
+		},
+		"principle-of-induction": {
+			"title": "Principle of Mathematical Induction",
+			"role": "bit",
+			"group": "mathematical-induction",
+			"curriculum_path": null,
+			"file": "Bits/Principle of Mathematical Induction.md"
+		},
+		"induction-example-divisibility": {
+			"title": "Induction example: divisibility",
+			"role": "bit",
+			"group": "mathematical-induction",
+			"curriculum_path": null,
+			"file": "Bits/Induction example divisibility.md"
+		},
+		"what-is-a-binary-relation": {
+			"title": "What is a binary relation?",
+			"role": "bit",
+			"group": "binary-relations",
+			"curriculum_path": null,
+			"file": "Bits/What is a binary relation.md"
+		},
+		"vacuous-truth": {
+			"title": "Vacuous truth",
+			"role": "bit",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/Vacuous truth.md"
+		},
+		"irrationality-of-sqrt-2": {
+			"title": "The irrationality of √2",
+			"role": "bit",
+			"group": "proof-techniques",
+			"curriculum_path": null,
+			"file": "Bits/The irrationality of sqrt 2.md"
+		},
+		"rationals-are-countable": {
+			"title": "The rationals are countable",
+			"role": "bit",
+			"group": "functions-ii",
+			"curriculum_path": null,
+			"file": "Bits/The rationals are countable.md"
+		},
+		"group-definition": {
+			"title": "Group definition",
+			"role": "bit",
+			"group": "groups-first-principles",
+			"curriculum_path": null,
+			"file": "Bits/Group definition.md"
+		},
+		"bijective-functions": {
+			"title": "Bijective functions",
+			"role": "bit",
+			"group": "functions-i",
+			"curriculum_path": null,
+			"file": "Bits/Bijective functions.md"
+		},
+		"structural-induction-principle": {
+			"title": "Principle of structural induction",
+			"role": "bit",
+			"group": "recursion-and-structural-induction",
+			"curriculum_path": null,
+			"file": "Bits/Principle of structural induction.md"
+		},
+		"proving-vs-applying": {
+			"title": "Proving vs applying a theorem",
+			"role": "bit",
+			"group": "reading-mathematics",
+			"curriculum_path": null,
+			"file": "Bits/Proving vs applying a theorem.md"
+		},
+		"congruence-classes-and-zn": {
+			"title": "Congruence classes and Zn",
+			"role": "bit",
+			"group": "modular-arithmetic",
+			"curriculum_path": null,
+			"file": "Bits/Congruence classes and Zn.md"
+		},
+		"converse-of-an-implication": {
+			"title": "Converse of an implication",
+			"role": "bit",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/Converse of an implication.md"
+		},
+		"division-algorithm": {
+			"title": "Division Algorithm",
+			"role": "bit",
+			"group": "gcd-and-euclidean-algorithm",
+			"curriculum_path": null,
+			"file": "Bits/Division Algorithm.md"
+		},
+		"sets-can-contain-anything": {
+			"title": "Sets can contain anything",
+			"role": "bit",
+			"group": "sets",
+			"curriculum_path": null,
+			"file": "Bits/Sets can contain anything.md"
+		},
+		"basic-group-properties": {
+			"title": "Basic group properties",
+			"role": "bit",
+			"group": "groups-first-principles",
+			"curriculum_path": null,
+			"file": "Bits/Basic group properties.md"
+		},
+		"isomorphism-properties": {
+			"title": "Properties of isomorphisms",
+			"role": "bit",
+			"group": "isomorphisms",
+			"curriculum_path": null,
+			"file": "Bits/Properties of isomorphisms.md"
+		},
+		"what-is-an-equivalence-relation": {
+			"title": "What is an equivalence relation?",
+			"role": "bit",
+			"group": "equivalence-relations",
+			"curriculum_path": null,
+			"file": "Bits/What is an equivalence relation.md"
+		},
+		"modular-cancellation-lemma": {
+			"title": "Modular cancellation lemma",
+			"role": "bit",
+			"group": "modular-arithmetic",
+			"curriculum_path": null,
+			"file": "Bits/Modular cancellation lemma.md"
+		},
+		"homomorphism-properties": {
+			"title": "Properties of homomorphisms",
+			"role": "bit",
+			"group": "homomorphisms",
+			"curriculum_path": null,
+			"file": "Bits/Properties of homomorphisms.md"
+		},
+		"predicates": {
+			"title": "Predicates",
+			"role": "bit",
+			"group": "propositional-logic",
+			"curriculum_path": null,
+			"file": "Bits/Predicates.md"
+		},
+		"invertibility-requires-bijectivity": {
+			"title": "Invertibility requires bijectivity",
+			"role": "bit",
+			"group": "functions-ii",
+			"curriculum_path": null,
+			"file": "Bits/Invertibility requires bijectivity.md"
+		},
+		"gcd-respects-remainders": {
+			"title": "GCD respects remainders",
+			"role": "bit",
+			"group": "gcd-and-euclidean-algorithm",
+			"curriculum_path": null,
+			"file": "Bits/GCD respects remainders.md"
+		},
+		"cardinality-via-bijection": {
+			"title": "Equal cardinality via bijection",
+			"role": "bit",
+			"group": "functions-ii",
+			"curriculum_path": null,
+			"file": "Bits/Equal cardinality via bijection.md"
+		},
+		"theorems-and-friends": {
+			"title": "Theorems and friends",
+			"role": "bit",
+			"group": "reading-mathematics",
+			"curriculum_path": null,
+			"file": "Bits/Theorems and friends.md"
+		},
+		"gcd-definition": {
+			"title": "GCD definition and coprimality",
+			"role": "bit",
+			"group": "gcd-and-euclidean-algorithm",
+			"curriculum_path": null,
+			"file": "Bits/GCD definition and coprimality.md"
+		},
+		"coprime-divides-product": {
+			"title": "Coprime divides product",
+			"role": "bit",
+			"group": "diophantine-equations",
+			"curriculum_path": null,
+			"file": "Bits/Coprime divides product.md"
+		},
+		"subgroup-definition": {
+			"title": "Subgroup definition",
+			"role": "bit",
+			"group": "subgroups-and-order",
+			"curriculum_path": null,
+			"file": "Bits/Subgroup definition.md"
+		},
+		"recursive-definitions": {
+			"title": "Recursive definitions",
+			"role": "bit",
+			"group": "recursion-and-structural-induction",
+			"curriculum_path": null,
+			"file": "Bits/Recursive definitions.md"
+		},
+		"set-builder-notation": {
+			"title": "Set-builder notation",
+			"role": "bit",
+			"group": "sets",
+			"curriculum_path": null,
+			"file": "Bits/Set-builder notation.md"
+		},
+		"math-vs-english-or": {
+			"title": "Math vs English: OR",
+			"role": "bit",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/Math vs English OR.md"
+		},
+		"bezouts-identity": {
+			"title": "Bézout's Identity",
+			"role": "bit",
+			"group": "gcd-and-euclidean-algorithm",
+			"curriculum_path": null,
+			"file": "Bits/Bezouts Identity.md"
+		},
+		"abelian-groups": {
+			"title": "Abelian groups",
+			"role": "bit",
+			"group": "groups-first-principles",
+			"curriculum_path": null,
+			"file": "Bits/Abelian groups.md"
+		},
+		"isomorphism-definition": {
+			"title": "Isomorphism definition",
+			"role": "bit",
+			"group": "isomorphisms",
+			"curriculum_path": null,
+			"file": "Bits/Isomorphism definition.md"
+		},
+		"set-equality-via-double-inclusion": {
+			"title": "Set equality via double inclusion",
+			"role": "bit",
+			"group": "sets",
+			"curriculum_path": null,
+			"file": "Bits/Set equality via double inclusion.md"
+		},
+		"structural-induction-example-divisibility": {
+			"title": "Structural induction example: divisibility",
+			"role": "bit",
+			"group": "recursion-and-structural-induction",
+			"curriculum_path": null,
+			"file": "Bits/Structural induction example divisibility.md"
+		},
+		"subsets": {
+			"title": "Subsets",
+			"role": "bit",
+			"group": "sets",
+			"curriculum_path": null,
+			"file": "Bits/Subsets.md"
+		},
+		"divisibility-definition": {
+			"title": "Divisibility definition",
+			"role": "bit",
+			"group": "divisibility",
+			"curriculum_path": null,
+			"file": "Bits/Divisibility definition.md"
+		},
+		"cyclic-groups-classification": {
+			"title": "Classification of cyclic groups",
+			"role": "bit",
+			"group": "isomorphisms",
+			"curriculum_path": null,
+			"file": "Bits/Classification of cyclic groups.md"
+		},
+		"order-divides-exponent": {
+			"title": "Order divides exponent",
+			"role": "bit",
+			"group": "subgroups-and-order",
+			"curriculum_path": null,
+			"file": "Bits/Order divides exponent.md"
+		},
+		"q-star-is-a-group": {
+			"title": "Q* is a group under multiplication",
+			"role": "bit",
+			"group": "groups-first-principles",
+			"curriculum_path": null,
+			"file": "Bits/Q star is a group.md"
+		},
+		"induction-example-inequality": {
+			"title": "Induction example: inequality",
+			"role": "bit",
+			"group": "mathematical-induction",
+			"curriculum_path": null,
+			"file": "Bits/Induction example inequality.md"
+		},
+		"domain-codomain-range": {
+			"title": "Domain, codomain, and range",
+			"role": "bit",
+			"group": "functions-i",
+			"curriculum_path": null,
+			"file": "Bits/Domain codomain and range.md"
+		},
+		"induction-example-l-tiling": {
+			"title": "Induction example: L-tiling",
+			"role": "bit",
+			"group": "mathematical-induction",
+			"curriculum_path": null,
+			"file": "Bits/Induction example L-tiling.md"
+		},
+		"negation": {
+			"title": "Negation",
+			"role": "bit",
+			"group": "propositional-logic",
+			"curriculum_path": null,
+			"file": "Bits/Negation.md"
+		},
+		"congruence-is-equivalence-relation": {
+			"title": "Congruence is an equivalence relation",
+			"role": "bit",
+			"group": "modular-arithmetic",
+			"curriculum_path": null,
+			"file": "Bits/Congruence is an equivalence relation.md"
+		},
+		"math-vs-english-implication": {
+			"title": "Math vs English: implication",
+			"role": "bit",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/Math vs English implication.md"
+		},
+		"prime-divisibility-property": {
+			"title": "Prime divisibility property",
+			"role": "bit",
+			"group": "primes",
+			"curriculum_path": null,
+			"file": "Bits/Prime divisibility property.md"
+		},
+		"countable-sets": {
+			"title": "Countable sets",
+			"role": "bit",
+			"group": "functions-ii",
+			"curriculum_path": null,
+			"file": "Bits/Countable sets.md"
+		},
+		"sigma-notation": {
+			"title": "Sigma notation",
+			"role": "bit",
+			"group": "summation-notation",
+			"curriculum_path": null,
+			"file": "Bits/Sigma notation.md"
+		},
+		"negating-existential-quantifier": {
+			"title": "Negating the existential quantifier",
+			"role": "bit",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/Negating the existential quantifier.md"
+		},
+		"lde-general-solution": {
+			"title": "LDE general solution",
+			"role": "bit",
+			"group": "diophantine-equations",
+			"curriculum_path": null,
+			"file": "Bits/LDE general solution.md"
+		},
+		"subgroup-test-example": {
+			"title": "Subgroup test example: centralizer",
+			"role": "bit",
+			"group": "subgroups-and-order",
+			"curriculum_path": null,
+			"file": "Bits/Subgroup test example centralizer.md"
+		},
+		"fta-uniqueness": {
+			"title": "FTA uniqueness",
+			"role": "bit",
+			"group": "primes",
+			"curriculum_path": null,
+			"file": "Bits/FTA uniqueness.md"
+		},
+		"proving-quantified-statements": {
+			"title": "Proving quantified statements",
+			"role": "bit",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/Proving quantified statements.md"
+		},
+		"kernel-and-image-example": {
+			"title": "Kernel and image example",
+			"role": "bit",
+			"group": "homomorphisms",
+			"curriculum_path": null,
+			"file": "Bits/Kernel and image example.md"
+		},
+		"negating-universal-quantifier": {
+			"title": "Negating the universal quantifier",
+			"role": "bit",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/Negating the universal quantifier.md"
+		},
+		"set-difference": {
+			"title": "Set difference",
+			"role": "bit",
+			"group": "sets",
+			"curriculum_path": null,
+			"file": "Bits/Set difference.md"
+		},
+		"lde-particular-solution": {
+			"title": "LDE particular solution",
+			"role": "bit",
+			"group": "diophantine-equations",
+			"curriculum_path": null,
+			"file": "Bits/LDE particular solution.md"
+		},
+		"cyclic-group-definition": {
+			"title": "Cyclic groups",
+			"role": "bit",
+			"group": "cyclic-groups",
+			"curriculum_path": null,
+			"file": "Bits/Cyclic groups.md"
+		},
+		"case-analysis-via-remainders": {
+			"title": "Case analysis via remainders",
+			"role": "bit",
+			"group": "gcd-and-euclidean-algorithm",
+			"curriculum_path": null,
+			"file": "Bits/Case analysis via remainders.md"
+		},
+		"anatomy-of-a-proof": {
+			"title": "Anatomy of a proof",
+			"role": "bit",
+			"group": "reading-mathematics",
+			"curriculum_path": null,
+			"file": "Bits/Anatomy of a proof.md"
+		},
+		"posets": {
+			"title": "Partially ordered sets (posets)",
+			"role": "bit",
+			"group": "order-relations",
+			"curriculum_path": null,
+			"file": "Bits/Partially ordered sets.md"
+		},
+		"generality-in-proofs": {
+			"title": "Generality in proofs",
+			"role": "bit",
+			"group": "reading-mathematics",
+			"curriculum_path": null,
+			"file": "Bits/Generality in proofs.md"
+		},
+		"function-composition": {
+			"title": "Function composition",
+			"role": "bit",
+			"group": "functions-ii",
+			"curriculum_path": null,
+			"file": "Bits/Function composition.md"
+		},
+		"equivalence-relations-partition-a-set": {
+			"title": "Equivalence relations partition a set",
+			"role": "bit",
+			"group": "equivalence-relations",
+			"curriculum_path": null,
+			"file": "Bits/Equivalence relations partition a set.md"
+		},
+		"proof-by-contrapositive": {
+			"title": "Proof by contrapositive",
+			"role": "bit",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/Proof by contrapositive.md"
+		},
+		"what-is-an-order-relation": {
+			"title": "What is an order relation?",
+			"role": "bit",
+			"group": "order-relations",
+			"curriculum_path": null,
+			"file": "Bits/What is an order relation.md"
+		},
+		"subgroup-test": {
+			"title": "Subgroup test",
+			"role": "bit",
+			"group": "subgroups-and-order",
+			"curriculum_path": null,
+			"file": "Bits/Subgroup test.md"
+		},
+		"contradiction-is-not-constructive": {
+			"title": "Contradiction is not constructive",
+			"role": "bit",
+			"group": "proof-techniques",
+			"curriculum_path": null,
+			"file": "Bits/Contradiction is not constructive.md"
+		},
+		"group-homomorphism-definition": {
+			"title": "Group homomorphism",
+			"role": "bit",
+			"group": "homomorphisms",
+			"curriculum_path": null,
+			"file": "Bits/Group homomorphism.md"
+		},
+		"inverse-functions": {
+			"title": "Inverse functions",
+			"role": "bit",
+			"group": "functions-ii",
+			"curriculum_path": null,
+			"file": "Bits/Inverse functions.md"
+		},
+		"what-is-an-implication": {
+			"title": "What is an implication?",
+			"role": "bit",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/What is an implication.md"
+		},
+		"complement-of-a-set": {
+			"title": "Complement of a set",
+			"role": "bit",
+			"group": "sets",
+			"curriculum_path": null,
+			"file": "Bits/Complement of a set.md"
+		},
+		"quantifier-order-matters": {
+			"title": "Quantifier order matters",
+			"role": "bit",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/Quantifier order matters.md"
+		},
+		"maximum-vs-maximal": {
+			"title": "Maximum vs maximal",
+			"role": "bit",
+			"group": "order-relations",
+			"curriculum_path": null,
+			"file": "Bits/Maximum vs maximal.md"
+		},
+		"union-and-intersection": {
+			"title": "Union and intersection",
+			"role": "bit",
+			"group": "sets",
+			"curriculum_path": null,
+			"file": "Bits/Union and intersection.md"
+		},
+		"well-ordering-principle": {
+			"title": "Well-Ordering Principle",
+			"role": "bit",
+			"group": "gcd-and-euclidean-algorithm",
+			"curriculum_path": null,
+			"file": "Bits/Well-Ordering Principle.md"
+		},
+		"universal-quantifier": {
+			"title": "The universal quantifier",
+			"role": "bit",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/The universal quantifier.md"
+		},
+		"mathematical-results-are-infallible": {
+			"title": "Mathematical results are infallible",
+			"role": "bit",
+			"group": "reading-mathematics",
+			"curriculum_path": null,
+			"file": "Bits/Mathematical results are infallible.md"
+		},
+		"supremum-and-infimum": {
+			"title": "Supremum and infimum",
+			"role": "bit",
+			"group": "order-relations",
+			"curriculum_path": null,
+			"file": "Bits/Supremum and infimum.md"
+		},
+		"math-vs-english-not": {
+			"title": "Math vs English: NOT",
+			"role": "bit",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/Math vs English NOT.md"
+		},
+		"function-as-relation": {
+			"title": "A function is a special relation",
+			"role": "bit",
+			"group": "functions-i",
+			"curriculum_path": null,
+			"file": "Bits/A function is a special relation.md"
+		},
+		"summation-identity-example": {
+			"title": "Summation identity via induction",
+			"role": "bit",
+			"group": "summation-notation",
+			"curriculum_path": null,
+			"file": "Bits/Summation identity via induction.md"
+		},
+		"kernel-and-image": {
+			"title": "Kernel and image",
+			"role": "bit",
+			"group": "homomorphisms",
+			"curriculum_path": null,
+			"file": "Bits/Kernel and image.md"
+		},
+		"linear-diophantine-equation": {
+			"title": "Linear Diophantine Equation",
+			"role": "bit",
+			"group": "diophantine-equations",
+			"curriculum_path": null,
+			"file": "Bits/Linear Diophantine Equation.md"
+		},
+		"what-is-a-definition": {
+			"title": "What is a definition?",
+			"role": "bit",
+			"group": "reading-mathematics",
+			"curriculum_path": null,
+			"file": "Bits/What is a definition.md"
+		},
+		"if-and-only-if": {
+			"title": "If and only if",
+			"role": "bit",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/If and only if.md"
+		},
+		"fta-existence": {
+			"title": "FTA existence",
+			"role": "bit",
+			"group": "primes",
+			"curriculum_path": null,
+			"file": "Bits/FTA existence.md"
+		},
+		"reals-are-uncountable": {
+			"title": "The reals are uncountable",
+			"role": "bit",
+			"group": "functions-ii",
+			"curriculum_path": null,
+			"file": "Bits/The reals are uncountable.md"
+		},
+		"negating-an-implication": {
+			"title": "Negating an implication",
+			"role": "bit",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/Negating an implication.md"
+		},
+		"cantor-schroder-bernstein": {
+			"title": "Cantor-Schroder-Bernstein theorem",
+			"role": "bit",
+			"group": "functions-ii",
+			"curriculum_path": null,
+			"file": "Bits/Cantor-Schroder-Bernstein theorem.md"
+		},
+		"group-order-and-element-order": {
+			"title": "Group order and element order",
+			"role": "bit",
+			"group": "subgroups-and-order",
+			"curriculum_path": null,
+			"file": "Bits/Group order and element order.md"
+		},
+		"euclidean-algorithm": {
+			"title": "Euclidean Algorithm",
+			"role": "bit",
+			"group": "gcd-and-euclidean-algorithm",
+			"curriculum_path": null,
+			"file": "Bits/Euclidean Algorithm.md"
+		},
+		"hypothesis-and-conclusion": {
+			"title": "Hypothesis and conclusion",
+			"role": "bit",
+			"group": "reading-mathematics",
+			"curriculum_path": null,
+			"file": "Bits/Hypothesis and conclusion.md"
+		},
+		"quantifiers-turn-predicates-into-propositions": {
+			"title": "Quantifiers turn predicates into propositions",
+			"role": "bit",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/Quantifiers turn predicates into propositions.md"
+		},
+		"why-diagonalization-fails-for-rationals": {
+			"title": "Why diagonalization fails for Q",
+			"role": "bit",
+			"group": "functions-ii",
+			"curriculum_path": null,
+			"file": "Bits/Why diagonalization fails for Q.md"
+		},
+		"conjunction-and-disjunction": {
+			"title": "Conjunction and disjunction",
+			"role": "bit",
+			"group": "propositional-logic",
+			"curriculum_path": null,
+			"file": "Bits/Conjunction and disjunction.md"
+		},
+		"checking-relation-properties": {
+			"title": "Checking relation properties",
+			"role": "bit",
+			"group": "binary-relations",
+			"curriculum_path": null,
+			"file": "Bits/Checking relation properties.md"
+		},
+		"relation-properties-transitive-total": {
+			"title": "Transitive, total, left-total, functional",
+			"role": "bit",
+			"group": "binary-relations",
+			"curriculum_path": null,
+			"file": "Bits/Transitive total left-total functional.md"
+		},
+		"relation-properties-reflexive-symmetric": {
+			"title": "Reflexive, irreflexive, symmetric, anti-symmetric",
+			"role": "bit",
+			"group": "binary-relations",
+			"curriculum_path": null,
+			"file": "Bits/Reflexive irreflexive symmetric anti-symmetric.md"
+		},
+		"composition-preserves-surjectivity": {
+			"title": "Composition preserves surjectivity",
+			"role": "bit",
+			"group": "functions-i",
+			"curriculum_path": null,
+			"file": "Bits/Composition preserves surjectivity.md"
+		},
+		"strong-induction-postage-stamps": {
+			"title": "Strong induction postage stamps",
+			"role": "bit",
+			"group": "strong-induction",
+			"curriculum_path": null,
+			"file": "Bits/Strong induction postage stamps.md"
+		},
+		"equivalence-classes": {
+			"title": "Equivalence classes",
+			"role": "bit",
+			"group": "equivalence-relations",
+			"curriculum_path": null,
+			"file": "Bits/Equivalence classes.md"
+		},
+		"multiplicative-inverses-in-zp": {
+			"title": "Multiplicative inverses in Zp",
+			"role": "bit",
+			"group": "modular-arithmetic",
+			"curriculum_path": null,
+			"file": "Bits/Multiplicative inverses in Zp.md"
+		},
+		"zn-is-a-group": {
+			"title": "Z_n is a group under addition",
+			"role": "bit",
+			"group": "groups-first-principles",
+			"curriculum_path": null,
+			"file": "Bits/Zn is a group.md"
+		},
+		"existential-quantifier": {
+			"title": "The existential quantifier",
+			"role": "bit",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/The existential quantifier.md"
+		},
+		"self-explanation-vs-paraphrasing": {
+			"title": "Self-explanation vs paraphrasing and monitoring",
+			"role": "bit",
+			"group": "reading-mathematics",
+			"curriculum_path": null,
+			"file": "Bits/Self-explanation vs paraphrasing and monitoring.md"
+		},
+		"function-notation": {
+			"title": "Function notation and data",
+			"role": "bit",
+			"group": "functions-i",
+			"curriculum_path": null,
+			"file": "Bits/Function notation and data.md"
+		},
+		"strong-induction-principle": {
+			"title": "Strong induction",
+			"role": "bit",
+			"group": "strong-induction",
+			"curriculum_path": null,
+			"file": "Bits/Strong induction.md"
+		},
+		"relations-on-a-set": {
+			"title": "Relations on a set",
+			"role": "bit",
+			"group": "binary-relations",
+			"curriculum_path": null,
+			"file": "Bits/Relations on a set.md"
+		},
+		"infinite-sets-surprise": {
+			"title": "Infinite sets can match their subsets",
+			"role": "bit",
+			"group": "functions-ii",
+			"curriculum_path": null,
+			"file": "Bits/Infinite sets can match their subsets.md"
+		},
+		"composition-preserves-injectivity": {
+			"title": "Composition preserves injectivity",
+			"role": "bit",
+			"group": "functions-i",
+			"curriculum_path": null,
+			"file": "Bits/Composition preserves injectivity.md"
+		},
+		"homomorphism-well-definedness": {
+			"title": "Well-definedness of homomorphisms",
+			"role": "bit",
+			"group": "homomorphisms",
+			"curriculum_path": null,
+			"file": "Bits/Homomorphism well-definedness.md"
+		},
+		"definitions-vs-intuition": {
+			"title": "Definitions vs intuition",
+			"role": "bit",
+			"group": "reading-mathematics",
+			"curriculum_path": null,
+			"file": "Bits/Definitions vs intuition.md"
+		},
+		"dihedral-group": {
+			"title": "The dihedral group",
+			"role": "bit",
+			"group": "groups-first-principles",
+			"curriculum_path": null,
+			"file": "Bits/The dihedral group.md"
+		},
+		"back-substitution": {
+			"title": "Back-substitution technique",
+			"role": "bit",
+			"group": "gcd-and-euclidean-algorithm",
+			"curriculum_path": null,
+			"file": "Bits/Back-substitution technique.md"
+		},
+		"lde-non-negative-solutions": {
+			"title": "LDE non-negative solutions",
+			"role": "bit",
+			"group": "diophantine-equations",
+			"curriculum_path": null,
+			"file": "Bits/LDE non-negative solutions.md"
+		},
+		"what-is-a-set": {
+			"title": "What is a set?",
+			"role": "bit",
+			"group": "sets",
+			"curriculum_path": null,
+			"file": "Bits/What is a set.md"
+		},
+		"doubly-quantified-statements": {
+			"title": "Doubly quantified statements",
+			"role": "bit",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/Doubly quantified statements.md"
+		},
+		"image-of-a-set": {
+			"title": "Image of a set",
+			"role": "bit",
+			"group": "functions-i",
+			"curriculum_path": null,
+			"file": "Bits/Image of a set.md"
+		},
+		"no-set-of-all-sets": {
+			"title": "There is no set of all sets",
+			"role": "bit",
+			"group": "functions-ii",
+			"curriculum_path": null,
+			"file": "Bits/There is no set of all sets.md"
+		},
+		"order-of-a-power": {
+			"title": "Order of a power",
+			"role": "bit",
+			"group": "subgroups-and-order",
+			"curriculum_path": null,
+			"file": "Bits/Order of a power.md"
+		},
+		"isomorphism-example": {
+			"title": "Isomorphism example: three groups of order 2",
+			"role": "bit",
+			"group": "isomorphisms",
+			"curriculum_path": null,
+			"file": "Bits/Isomorphism example three groups of order 2.md"
+		},
+		"basic-divisibility-properties": {
+			"title": "Basic divisibility properties",
+			"role": "bit",
+			"group": "divisibility",
+			"curriculum_path": null,
+			"file": "Bits/Basic divisibility properties.md"
+		},
+		"infinitely-many-primes": {
+			"title": "Infinitely many primes",
+			"role": "bit",
+			"group": "primes",
+			"curriculum_path": null,
+			"file": "Bits/Infinitely many primes.md"
+		},
+		"generalized-induction": {
+			"title": "Generalized induction",
+			"role": "bit",
+			"group": "strong-induction",
+			"curriculum_path": null,
+			"file": "Bits/Generalized induction.md"
+		},
+		"arithmetic-of-congruences": {
+			"title": "Arithmetic of congruences",
+			"role": "bit",
+			"group": "modular-arithmetic",
+			"curriculum_path": null,
+			"file": "Bits/Arithmetic of congruences.md"
+		},
+		"set-notation": {
+			"title": "Set notation",
+			"role": "bit",
+			"group": "sets",
+			"curriculum_path": null,
+			"file": "Bits/Set notation.md"
+		},
+		"reading-math-is-different": {
+			"title": "Reading math is different",
+			"role": "bit",
+			"group": "reading-mathematics",
+			"curriculum_path": null,
+			"file": "Bits/Reading math is different.md"
+		},
+		"necessary-and-sufficient-conditions": {
+			"title": "Necessary and sufficient conditions",
+			"role": "bit",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/Necessary and sufficient conditions.md"
+		},
+		"self-explanation-training": {
+			"title": "Self-explanation training",
+			"role": "bit",
+			"group": "reading-mathematics",
+			"curriculum_path": null,
+			"file": "Bits/Self-explanation training.md"
+		},
+		"truth-tables": {
+			"title": "Truth tables",
+			"role": "bit",
+			"group": "propositional-logic",
+			"curriculum_path": null,
+			"file": "Bits/Truth tables.md"
+		},
+		"surjective-functions": {
+			"title": "Surjective functions",
+			"role": "bit",
+			"group": "functions-i",
+			"curriculum_path": null,
+			"file": "Bits/Surjective functions.md"
+		},
+		"lde-solvability": {
+			"title": "LDE solvability criterion",
+			"role": "bit",
+			"group": "diophantine-equations",
+			"curriculum_path": null,
+			"file": "Bits/LDE solvability criterion.md"
+		},
+		"prime-definition": {
+			"title": "Prime definition",
+			"role": "bit",
+			"group": "primes",
+			"curriculum_path": null,
+			"file": "Bits/Prime definition.md"
+		},
+		"cantors-theorem": {
+			"title": "Cantor's theorem",
+			"role": "bit",
+			"group": "functions-ii",
+			"curriculum_path": null,
+			"file": "Bits/Cantors theorem.md"
+		},
+		"last-digit-computation": {
+			"title": "Last-digit computation",
+			"role": "bit",
+			"group": "modular-arithmetic",
+			"curriculum_path": null,
+			"file": "Bits/Last-digit computation.md"
+		},
+		"irrationality-via-fta": {
+			"title": "Irrationality via FTA",
+			"role": "bit",
+			"group": "primes",
+			"curriculum_path": null,
+			"file": "Bits/Irrationality via FTA.md"
+		},
+		"what-is-a-proposition": {
+			"title": "What is a proposition?",
+			"role": "bit",
+			"group": "propositional-logic",
+			"curriculum_path": null,
+			"file": "Bits/What is a proposition.md"
+		},
+		"maximal-and-minimal-elements": {
+			"title": "Maximal and minimal elements",
+			"role": "bit",
+			"group": "order-relations",
+			"curriculum_path": null,
+			"file": "Bits/Maximal and minimal elements.md"
+		},
+		"cartesian-product": {
+			"title": "Cartesian product",
+			"role": "bit",
+			"group": "sets",
+			"curriculum_path": null,
+			"file": "Bits/Cartesian product.md"
+		},
+		"fibonacci-sequence": {
+			"title": "The Fibonacci sequence",
+			"role": "bit",
+			"group": "recursion-and-structural-induction",
+			"curriculum_path": null,
+			"file": "Bits/The Fibonacci sequence.md"
+		},
+		"what-is-a-proof": {
+			"title": "What is a proof?",
+			"role": "bit",
+			"group": "reading-mathematics",
+			"curriculum_path": null,
+			"file": "Bits/What is a proof.md"
+		},
+		"integers-are-countable": {
+			"title": "The integers are countable",
+			"role": "bit",
+			"group": "functions-ii",
+			"curriculum_path": null,
+			"file": "Bits/The integers are countable.md"
+		},
+		"binary-operator-identity": {
+			"title": "Binary operators and identity elements",
+			"role": "bit",
+			"group": "functions-ii",
+			"curriculum_path": null,
+			"file": "Bits/Binary operators and identity elements.md"
+		},
+		"proving-injectivity": {
+			"title": "Proving and disproving injectivity",
+			"role": "bit",
+			"group": "functions-i",
+			"curriculum_path": null,
+			"file": "Bits/Proving and disproving injectivity.md"
+		},
+		"proving-surjectivity": {
+			"title": "Proving and disproving surjectivity",
+			"role": "bit",
+			"group": "functions-i",
+			"curriculum_path": null,
+			"file": "Bits/Proving and disproving surjectivity.md"
+		},
+		"de-morgans-laws": {
+			"title": "De Morgan's laws",
+			"role": "bit",
+			"group": "propositional-logic",
+			"curriculum_path": null,
+			"file": "Bits/De Morgans laws.md"
+		},
+		"contrapositive-of-an-implication": {
+			"title": "Contrapositive of an implication",
+			"role": "bit",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/Contrapositive of an implication.md"
+		},
+		"power-set": {
+			"title": "Power set",
+			"role": "bit",
+			"group": "functions-ii",
+			"curriculum_path": null,
+			"file": "Bits/Power set.md"
+		},
+		"proof-by-contradiction": {
+			"title": "Proof by contradiction",
+			"role": "bit",
+			"group": "proof-techniques",
+			"curriculum_path": null,
+			"file": "Bits/Proof by contradiction.md"
+		},
+		"cardinality-definition": {
+			"title": "Cardinality of a set",
+			"role": "bit",
+			"group": "functions-ii",
+			"curriculum_path": null,
+			"file": "Bits/Cardinality of a set.md"
+		},
+		"symmetric-group": {
+			"title": "The symmetric group",
+			"role": "bit",
+			"group": "groups-first-principles",
+			"curriculum_path": null,
+			"file": "Bits/The symmetric group.md"
+		},
+		"upper-and-lower-bounds": {
+			"title": "Upper and lower bounds",
+			"role": "bit",
+			"group": "order-relations",
+			"curriculum_path": null,
+			"file": "Bits/Upper and lower bounds.md"
+		},
+		"working-with-a-definition": {
+			"title": "Working with a definition",
+			"role": "bit",
+			"group": "reading-mathematics",
+			"curriculum_path": null,
+			"file": "Bits/Working with a definition.md"
+		},
+		"when-are-functions-equal": {
+			"title": "When are functions equal?",
+			"role": "bit",
+			"group": "functions-i",
+			"curriculum_path": null,
+			"file": "Bits/When are functions equal.md"
+		},
+		"standard-number-sets": {
+			"title": "Standard number sets",
+			"role": "bit",
+			"group": "sets",
+			"curriculum_path": null,
+			"file": "Bits/Standard number sets.md"
+		},
+		"congruence-mod-n": {
+			"title": "Congruence modulo n",
+			"role": "bit",
+			"group": "modular-arithmetic",
+			"curriculum_path": null,
+			"file": "Bits/Congruence modulo n.md"
+		},
+		"cyclic-subgroup-is-subgroup": {
+			"title": "Cyclic subgroup is a subgroup",
+			"role": "bit",
+			"group": "cyclic-groups",
+			"curriculum_path": null,
+			"file": "Bits/Cyclic subgroup is a subgroup.md"
+		},
+		"strong-induction-equivalence": {
+			"title": "Strong induction equivalence",
+			"role": "bit",
+			"group": "strong-induction",
+			"curriculum_path": null,
+			"file": "Bits/Strong induction equivalence.md"
+		},
+		"injective-functions": {
+			"title": "Injective (one-to-one) functions",
+			"role": "bit",
+			"group": "functions-i",
+			"curriculum_path": null,
+			"file": "Bits/Injective functions.md"
+		},
+		"preimage-of-a-set": {
+			"title": "Preimage of a set",
+			"role": "bit",
+			"group": "functions-i",
+			"curriculum_path": null,
+			"file": "Bits/Preimage of a set.md"
+		},
+		"fermats-little-theorem-corollary": {
+			"title": "Fermat's Little Theorem corollary",
+			"role": "bit",
+			"group": "modular-arithmetic",
+			"curriculum_path": null,
+			"file": "Bits/FLT corollary.md"
+		},
+		"ex-squares-mod-4": {
+			"title": "Show that squares are congruent to 0 or 1 modulo 4",
+			"role": "exercise",
+			"group": "modular-arithmetic",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Squares are 0 or 1 mod 4.md"
+		},
+		"ex-negate-complex-statements": {
+			"title": "Negate complex logical statements",
+			"role": "exercise",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Negate complex statements.md"
+		},
+		"ex-conjugation-and-inner-automorphisms": {
+			"title": "Conjugation and inner automorphisms",
+			"role": "exercise",
+			"group": "isomorphisms",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Conjugation and inner automorphisms.md"
+		},
+		"ex-compute-preimage": {
+			"title": "Compute a preimage",
+			"role": "exercise",
+			"group": "functions-i",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Compute a preimage.md"
+		},
+		"ex-prove-order-of-power": {
+			"title": "Prove the order-of-a-power formula",
+			"role": "exercise",
+			"group": "subgroups-and-order",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Prove order of a power.md"
+		},
+		"ex-which-are-orders": {
+			"title": "Which relations are order relations?",
+			"role": "exercise",
+			"group": "order-relations",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Which are orders.md"
+		},
+		"ex-rotation-subgroup-isomorphic-z3": {
+			"title": "⟨r⟩ ≅ Z_3 in D_3",
+			"role": "exercise",
+			"group": "isomorphisms",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Rotation subgroup isomorphic Z3.md"
+		},
+		"ex-contrapositive-and-converse": {
+			"title": "Write contrapositive and converse",
+			"role": "exercise",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Contrapositive and converse.md"
+		},
+		"ex-intersection-complement-empty": {
+			"title": "A ∩ (B \\ A) = ∅",
+			"role": "exercise",
+			"group": "proof-techniques",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Intersection complement empty.md"
+		},
+		"ex-generated-by-power-equals-gcd": {
+			"title": "⟨a^k⟩ = ⟨a^{gcd(k,n)}⟩",
+			"role": "exercise",
+			"group": "cyclic-groups",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Generated by power equals gcd.md"
+		},
+		"ex-birthday-quantifiers": {
+			"title": "Birthday quantifier statements",
+			"role": "exercise",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Birthday quantifiers.md"
+		},
+		"ex-automorphism-group": {
+			"title": "Aut(G) is a group",
+			"role": "exercise",
+			"group": "isomorphisms",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Automorphism group.md"
+		},
+		"ex-z8-not-cyclic-z10-cyclic": {
+			"title": "Z_8* not cyclic, Z_10* cyclic",
+			"role": "exercise",
+			"group": "cyclic-groups",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Z8 star not cyclic Z10 star cyclic.md"
+		},
+		"ex-prove-divisibility-iii-v": {
+			"title": "Prove divisibility properties (iii)–(v)",
+			"role": "exercise",
+			"group": "divisibility",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Prove divisibility iii-v.md"
+		},
+		"ex-quirky-number-result": {
+			"title": "State a result about quirky numbers",
+			"role": "exercise",
+			"group": "reading-mathematics",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/State a result about quirky numbers.md"
+		},
+		"ex-set-identities": {
+			"title": "Prove set identities",
+			"role": "exercise",
+			"group": "sets",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Prove set identities.md"
+		},
+		"ex-even-iff-square-even": {
+			"title": "n is even iff n² is even",
+			"role": "exercise",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Even iff square even.md"
+		},
+		"ex-fibonacci-closed-form": {
+			"title": "Fibonacci closed form",
+			"role": "exercise",
+			"group": "recursion-and-structural-induction",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Fibonacci closed form.md"
+		},
+		"ex-prime-divides-iff-square": {
+			"title": "p|n iff p|n²",
+			"role": "exercise",
+			"group": "primes",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/p divides iff p divides square.md"
+		},
+		"ex-implication-truth-tables": {
+			"title": "Implication truth tables",
+			"role": "exercise",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Implication truth tables.md"
+		},
+		"ex-subset-proof-homework": {
+			"title": "Prove subset relationships",
+			"role": "exercise",
+			"group": "sets",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Prove subset relationships.md"
+		},
+		"ex-maximal-elements": {
+			"title": "Find maximal elements",
+			"role": "exercise",
+			"group": "order-relations",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Find maximal elements.md"
+		},
+		"ex-which-are-equivalence": {
+			"title": "Which relations are equivalence relations?",
+			"role": "exercise",
+			"group": "equivalence-relations",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Which are equivalence.md"
+		},
+		"ex-expand-set-builder": {
+			"title": "Expand a set in set-builder notation",
+			"role": "exercise",
+			"group": "sets",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Expand set-builder notation.md"
+		},
+		"ex-subset-implies-union": {
+			"title": "Subset implies union equality",
+			"role": "exercise",
+			"group": "sets",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Subset implies union equality.md"
+		},
+		"ex-set-operations-compute": {
+			"title": "Compute set operations",
+			"role": "exercise",
+			"group": "sets",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Compute set operations.md"
+		},
+		"ex-compute-gcds": {
+			"title": "Compute four gcds",
+			"role": "exercise",
+			"group": "gcd-and-euclidean-algorithm",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Compute four gcds.md"
+		},
+		"ex-slippery-true-or-false": {
+			"title": "Are slippery statements true or false?",
+			"role": "exercise",
+			"group": "reading-mathematics",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Slippery true or false.md"
+		},
+		"ex-sum-of-squares": {
+			"title": "Sum of squares formula",
+			"role": "exercise",
+			"group": "summation-notation",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Sum of squares formula.md"
+		},
+		"ex-classify-propositions": {
+			"title": "Classify propositions, predicates, neither",
+			"role": "exercise",
+			"group": "propositional-logic",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Classify propositions.md"
+		},
+		"ex-contradiction-proofs-hw": {
+			"title": "Contradiction proofs",
+			"role": "exercise",
+			"group": "proof-techniques",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Contradiction proofs.md"
+		},
+		"ex-primes-of-form-4k3": {
+			"title": "Infinitely many primes of the form 4k+3",
+			"role": "exercise",
+			"group": "primes",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Primes of form 4k+3.md"
+		},
+		"ex-cycle-composition": {
+			"title": "Compute cycle compositions in S_5",
+			"role": "exercise",
+			"group": "groups-first-principles",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Cycle compositions in S5.md"
+		},
+		"ex-quantifier-implication-equivalence": {
+			"title": "Quantifier-implication equivalence",
+			"role": "exercise",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Quantifier implication equivalence.md"
+		},
+		"ex-interval-cardinality": {
+			"title": "|(a,b)| = |R| and |[a,b]|?",
+			"role": "exercise",
+			"group": "functions-ii",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Interval cardinality.md"
+		},
+		"ex-last-digits": {
+			"title": "Find the last digit of large powers",
+			"role": "exercise",
+			"group": "modular-arithmetic",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Last digits of large powers.md"
+		},
+		"ex-palindromic-hypothesis": {
+			"title": "Palindromic number hypothesis and conclusion",
+			"role": "exercise",
+			"group": "reading-mathematics",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Palindromic hypothesis and conclusion.md"
+		},
+		"ex-equality-relation-subset": {
+			"title": "Equality relation as a subset",
+			"role": "exercise",
+			"group": "binary-relations",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Equality relation subset.md"
+		},
+		"ex-four-divides-odd-squared-minus-one": {
+			"title": "4|(n²-1) for odd n",
+			"role": "exercise",
+			"group": "gcd-and-euclidean-algorithm",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/4 divides odd-squared minus 1.md"
+		},
+		"ex-negate-prime-characterization": {
+			"title": "Negate the prime characterization",
+			"role": "exercise",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Negate prime characterization.md"
+		},
+		"ex-solve-lde-1053-481": {
+			"title": "Solve LDE 1053x+481y=39",
+			"role": "exercise",
+			"group": "diophantine-equations",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Solve LDE 1053x481y39.md"
+		},
+		"ex-negate-implication-truth-table": {
+			"title": "Prove negation of implication by truth table",
+			"role": "exercise",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Negate implication truth table.md"
+		},
+		"ex-squares-mod-prime": {
+			"title": "Squares congruent mod a prime imply bases congruent to ±",
+			"role": "exercise",
+			"group": "modular-arithmetic",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Squares mod prime.md"
+		},
+		"ex-binary-representation": {
+			"title": "Binary representation of positive integers",
+			"role": "exercise",
+			"group": "strong-induction",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Binary representation.md"
+		},
+		"ex-logical-equivalence": {
+			"title": "Identify logical equivalences",
+			"role": "exercise",
+			"group": "propositional-logic",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Identify logical equivalences.md"
+		},
+		"ex-factor-n-cubed-minus-n": {
+			"title": "Factor n³-n",
+			"role": "exercise",
+			"group": "gcd-and-euclidean-algorithm",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Factor n-cubed minus n.md"
+		},
+		"ex-which-sets-are-equal": {
+			"title": "Which sets are equal?",
+			"role": "exercise",
+			"group": "sets",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Which sets are equal.md"
+		},
+		"ex-gcd-after-dividing": {
+			"title": "GCD after dividing",
+			"role": "exercise",
+			"group": "gcd-and-euclidean-algorithm",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/GCD after dividing.md"
+		},
+		"ex-bernoullis-inequality": {
+			"title": "Bernoulli's Inequality",
+			"role": "exercise",
+			"group": "mathematical-induction",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Bernoullis inequality.md"
+		},
+		"ex-image-intersection-subset": {
+			"title": "Image of intersection is subset",
+			"role": "exercise",
+			"group": "functions-i",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Image of intersection subset.md"
+		},
+		"ex-left-total-functional": {
+			"title": "Check left-total and functional",
+			"role": "exercise",
+			"group": "binary-relations",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Check left-total functional.md"
+		},
+		"ex-cyclic-implies-abelian": {
+			"title": "Cyclic implies abelian",
+			"role": "exercise",
+			"group": "cyclic-groups",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Cyclic implies abelian.md"
+		},
+		"ex-build-truth-table": {
+			"title": "Build a compound truth table",
+			"role": "exercise",
+			"group": "propositional-logic",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Build a compound truth table.md"
+		},
+		"ex-invertibility-hw": {
+			"title": "Determine invertibility",
+			"role": "exercise",
+			"group": "functions-ii",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Determine invertibility.md"
+		},
+		"ex-sign-equivalence-relation": {
+			"title": "Sign equivalence relation",
+			"role": "exercise",
+			"group": "equivalence-relations",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Sign equivalence relation.md"
+		},
+		"ex-centralizer-is-subgroup": {
+			"title": "Centralizer C(H) is a subgroup",
+			"role": "exercise",
+			"group": "subgroups-and-order",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Centralizer is subgroup.md"
+		},
+		"ex-even-digit-palindromes": {
+			"title": "Even-digit palindromes divisible by 11",
+			"role": "exercise",
+			"group": "reading-mathematics",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Even-digit palindromes.md"
+		},
+		"ex-nine-divides-10n-minus-1": {
+			"title": "Show that 9 divides 10ⁿ − 1",
+			"role": "exercise",
+			"group": "modular-arithmetic",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Nine divides 10n minus 1.md"
+		},
+		"ex-which-are-bijective": {
+			"title": "Which functions are bijective?",
+			"role": "exercise",
+			"group": "functions-i",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Which functions are bijective.md"
+		},
+		"ex-cardinality-bijections": {
+			"title": "Construct explicit bijections",
+			"role": "exercise",
+			"group": "functions-ii",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Construct cardinality bijections.md"
+		},
+		"ex-prove-set-equality": {
+			"title": "Prove set equality",
+			"role": "exercise",
+			"group": "sets",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Prove set equality.md"
+		},
+		"ex-prove-lde-solvability": {
+			"title": "Prove LDE solvability",
+			"role": "exercise",
+			"group": "diophantine-equations",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Prove LDE solvability.md"
+		},
+		"ex-invertible-iff-bijective-proof": {
+			"title": "ex-invertible-iff-bijective-proof",
+			"role": "exercise",
+			"group": "functions-ii",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Invertible iff bijective proof.md"
+		},
+		"ex-element-order-divides-group-order": {
+			"title": "Element order divides cyclic group order",
+			"role": "exercise",
+			"group": "cyclic-groups",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Element order divides group order.md"
+		},
+		"ex-count-divisors": {
+			"title": "Counting divisors",
+			"role": "exercise",
+			"group": "primes",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Counting divisors.md"
+		},
+		"ex-alternative-subgroup-test": {
+			"title": "Alternative subgroup test",
+			"role": "exercise",
+			"group": "subgroups-and-order",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Alternative subgroup test.md"
+		},
+		"ex-binary-string-reversal": {
+			"title": "Binary string reversal",
+			"role": "exercise",
+			"group": "recursion-and-structural-induction",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Binary string reversal.md"
+		},
+		"ex-truth-tables-homework": {
+			"title": "Construct truth tables",
+			"role": "exercise",
+			"group": "propositional-logic",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Construct truth tables.md"
+		},
+		"ex-polynomial-quantifiers": {
+			"title": "Polynomial quantifier statements",
+			"role": "exercise",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Polynomial quantifiers.md"
+		},
+		"ex-equivalence-class-properties": {
+			"title": "Equivalence class properties",
+			"role": "exercise",
+			"group": "equivalence-relations",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Equivalence class properties.md"
+		},
+		"ex-compute-image-sphere": {
+			"title": "Compute image of a sphere",
+			"role": "exercise",
+			"group": "functions-i",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Compute image of a sphere.md"
+		},
+		"ex-find-inverse-in-z41": {
+			"title": "Find the multiplicative inverse of [22] in Z₄₁",
+			"role": "exercise",
+			"group": "modular-arithmetic",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Find inverse in Z41.md"
+		},
+		"ex-nth-root-of-2-bound": {
+			"title": "nth root of 2 bound",
+			"role": "exercise",
+			"group": "mathematical-induction",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/nth root of 2 bound.md"
+		},
+		"ex-induction-wop-equivalence": {
+			"title": "Induction ↔ Well-Ordering Principle",
+			"role": "exercise",
+			"group": "mathematical-induction",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Induction WOP equivalence.md"
+		},
+		"ex-negate-continuity": {
+			"title": "Negate the definition of continuity",
+			"role": "exercise",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Negate continuity.md"
+		},
+		"ex-no-smallest-positive-real": {
+			"title": "No smallest positive real number",
+			"role": "exercise",
+			"group": "proof-techniques",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/No smallest positive real.md"
+		},
+		"ex-solve-bezout-equation": {
+			"title": "Solve Bézout equation",
+			"role": "exercise",
+			"group": "gcd-and-euclidean-algorithm",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Solve Bezout equation.md"
+		},
+		"ex-strictly-increasing-injective": {
+			"title": "Strictly increasing implies injective",
+			"role": "exercise",
+			"group": "functions-i",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Strictly increasing injective.md"
+		},
+		"ex-squares-subgroup-abelian": {
+			"title": "Square-identity elements form a subgroup",
+			"role": "exercise",
+			"group": "subgroups-and-order",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Squares subgroup abelian.md"
+		},
+		"ex-gauss-sum": {
+			"title": "Sum 1+2+⋯+n",
+			"role": "exercise",
+			"group": "summation-notation",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Gauss sum.md"
+		},
+		"ex-advanced-cardinality": {
+			"title": "Advanced cardinality",
+			"role": "exercise",
+			"group": "functions-ii",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Advanced cardinality.md"
+		},
+		"ex-slippery-hypothesis-conclusion": {
+			"title": "Hypothesis and conclusion for slippery statements",
+			"role": "exercise",
+			"group": "reading-mathematics",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Slippery hypothesis and conclusion.md"
+		},
+		"ex-why-not-q-with-zero": {
+			"title": "Why Q with zero fails",
+			"role": "exercise",
+			"group": "groups-first-principles",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Why Q with zero fails.md"
+		},
+		"ex-implication-associativity": {
+			"title": "Is implication associative?",
+			"role": "exercise",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Implication associativity.md"
+		},
+		"ex-divisibility-relation-properties": {
+			"title": "Divisibility relation properties",
+			"role": "exercise",
+			"group": "binary-relations",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Divisibility relation properties.md"
+		},
+		"ex-structural-induction-pairs": {
+			"title": "Structural induction on pairs",
+			"role": "exercise",
+			"group": "recursion-and-structural-induction",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Structural induction on pairs.md"
+		},
+		"ex-left-right-invertible": {
+			"title": "Left- and right-invertible functions",
+			"role": "exercise",
+			"group": "functions-ii",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Left and right invertible.md"
+		},
+		"ex-prove-bezout-corollaries": {
+			"title": "Prove Bézout corollaries",
+			"role": "exercise",
+			"group": "gcd-and-euclidean-algorithm",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Prove Bezout corollaries.md"
+		},
+		"ex-equivalence-relation-on-pairs": {
+			"title": "Equivalence relation on pairs",
+			"role": "exercise",
+			"group": "equivalence-relations",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Equivalence relation on pairs.md"
+		},
+		"ex-recursive-sequence-closed-form": {
+			"title": "Closed form for a recursive sequence",
+			"role": "exercise",
+			"group": "recursion-and-structural-induction",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Recursive sequence closed form.md"
+		},
+		"ex-find-inverses": {
+			"title": "Find or disprove inverse functions",
+			"role": "exercise",
+			"group": "functions-ii",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Find or disprove inverses.md"
+		},
+		"ex-compute-kernels": {
+			"title": "Compute kernels of homomorphisms",
+			"role": "exercise",
+			"group": "homomorphisms",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Compute kernels of homomorphisms.md"
+		},
+		"ex-size-of-dn": {
+			"title": "|D_n| = 2n",
+			"role": "exercise",
+			"group": "groups-first-principles",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Size of Dn.md"
+		},
+		"ex-translate-to-english": {
+			"title": "Translate logical statements to English",
+			"role": "exercise",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Translate to English.md"
+		},
+		"ex-minimal-elements": {
+			"title": "Find minimal elements",
+			"role": "exercise",
+			"group": "order-relations",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Find minimal elements.md"
+		},
+		"ex-compute-gcd-1053-481": {
+			"title": "Compute gcd(1053,481)",
+			"role": "exercise",
+			"group": "gcd-and-euclidean-algorithm",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Compute gcd 1053 481.md"
+		},
+		"ex-primality-necessary": {
+			"title": "Primality is necessary",
+			"role": "exercise",
+			"group": "primes",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Primality is necessary.md"
+		},
+		"ex-prove-homomorphism-properties": {
+			"title": "Prove homomorphism properties",
+			"role": "exercise",
+			"group": "homomorphisms",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Prove homomorphism properties.md"
+		},
+		"ex-open-interval-equals-reals": {
+			"title": "|(0,1)| = |R|",
+			"role": "exercise",
+			"group": "functions-ii",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Open interval equals reals.md"
+		},
+		"ex-center-is-subgroup": {
+			"title": "Center Z(G) is a subgroup",
+			"role": "exercise",
+			"group": "subgroups-and-order",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Center is subgroup.md"
+		},
+		"ex-inversion-homomorphism-iff-abelian": {
+			"title": "Inversion is a homomorphism iff abelian",
+			"role": "exercise",
+			"group": "homomorphisms",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Inversion homomorphism iff abelian.md"
+		},
+		"ex-units-of-zn": {
+			"title": "Units of Z_n form a group",
+			"role": "exercise",
+			"group": "subgroups-and-order",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Units of Zn form a group.md"
+		},
+		"ex-construct-rationals": {
+			"title": "Constructing the rationals",
+			"role": "exercise",
+			"group": "equivalence-relations",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Constructing the rationals.md"
+		},
+		"ex-lde-four-equations": {
+			"title": "Solve four LDEs",
+			"role": "exercise",
+			"group": "diophantine-equations",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Solve four LDEs.md"
+		},
+		"ex-digital-roots": {
+			"title": "Prove the digital root formula",
+			"role": "exercise",
+			"group": "modular-arithmetic",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Digital roots formula.md"
+		},
+		"ex-negate-quantified-sentences": {
+			"title": "Negate quantified sentences",
+			"role": "exercise",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Negate quantified sentences.md"
+		},
+		"ex-classify-inj-surj": {
+			"title": "Classify injective/surjective",
+			"role": "exercise",
+			"group": "functions-i",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Classify injective surjective.md"
+		},
+		"ex-identify-hypothesis-conclusion": {
+			"title": "Identify hypothesis and conclusion",
+			"role": "exercise",
+			"group": "reading-mathematics",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Identify hypothesis and conclusion.md"
+		},
+		"ex-algebraic-numbers-countable": {
+			"title": "Algebraic numbers are countable",
+			"role": "exercise",
+			"group": "functions-ii",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Algebraic numbers countable.md"
+		},
+		"ex-prove-coprime-divides-product": {
+			"title": "Prove coprime divides product",
+			"role": "exercise",
+			"group": "diophantine-equations",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Prove coprime divides product.md"
+		},
+		"ex-complement-of-integers": {
+			"title": "Complement in ℤ",
+			"role": "exercise",
+			"group": "sets",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Complement in Z.md"
+		},
+		"ex-cyclic-subgroup-order": {
+			"title": "|⟨g⟩| = |g|",
+			"role": "exercise",
+			"group": "cyclic-groups",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Cyclic subgroup order.md"
+		},
+		"ex-r-not-isomorphic-q": {
+			"title": "R and Q are not isomorphic",
+			"role": "exercise",
+			"group": "isomorphisms",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/R and Q not isomorphic.md"
+		},
+		"ex-show-a2-minus-2-not-div-7": {
+			"title": "Show: if a² − 2 not divisible by 7, then a − 4 not divisible by 7",
+			"role": "exercise",
+			"group": "modular-arithmetic",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/a squared minus 2 not div 7.md"
+		},
+		"ex-which-functions-equal": {
+			"title": "Which functions are equal?",
+			"role": "exercise",
+			"group": "functions-i",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Which functions are equal.md"
+		},
+		"ex-image-preimage-hw": {
+			"title": "Compute images and preimages",
+			"role": "exercise",
+			"group": "functions-i",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Compute images and preimages.md"
+		},
+		"ex-sn-abelian-iff": {
+			"title": "S_n is abelian iff n ∈ {1,2}",
+			"role": "exercise",
+			"group": "groups-first-principles",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Sn abelian iff.md"
+		},
+		"ex-integers-cyclic": {
+			"title": "Z is cyclic; describe ⟨n⟩",
+			"role": "exercise",
+			"group": "cyclic-groups",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Integers cyclic.md"
+		},
+		"ex-contrapositive-truth-table": {
+			"title": "Prove contrapositive equivalence by truth table",
+			"role": "exercise",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Contrapositive truth table.md"
+		},
+		"ex-prove-flt-corollary": {
+			"title": "Prove Fermat's Little Theorem corollary: a^p ≡ a (mod p)",
+			"role": "exercise",
+			"group": "modular-arithmetic",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Prove FLT corollary.md"
+		},
+		"ex-trivial-kernel-isomorphism": {
+			"title": "Trivial kernel implies G ≅ φ(G)",
+			"role": "exercise",
+			"group": "homomorphisms",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Trivial kernel isomorphism.md"
+		},
+		"ex-composition-surjectivity": {
+			"title": "Composition and surjectivity",
+			"role": "exercise",
+			"group": "functions-i",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Composition and surjectivity.md"
+		},
+		"ex-set-palindromic-proof": {
+			"title": "SET on a palindromic number proof",
+			"role": "exercise",
+			"group": "reading-mathematics",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/SET palindromic proof.md"
+		},
+		"ex-z6-multiplicative-subgroup": {
+			"title": "{[1]_6,[5]_6} is a group under multiplication mod 6",
+			"role": "exercise",
+			"group": "groups-first-principles",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Z6 multiplicative subgroup.md"
+		},
+		"ex-subgroup-of-cyclic-is-cyclic": {
+			"title": "Every subgroup of a cyclic group is cyclic",
+			"role": "exercise",
+			"group": "cyclic-groups",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Subgroup of cyclic is cyclic.md"
+		},
+		"ex-gcd-linear-combo": {
+			"title": "GCD of a linear combination",
+			"role": "exercise",
+			"group": "gcd-and-euclidean-algorithm",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/GCD of linear combination.md"
+		},
+		"ex-exponentiation-well-defined": {
+			"title": "Is exponentiation well-defined in modular arithmetic?",
+			"role": "exercise",
+			"group": "modular-arithmetic",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Exponentiation well-defined mod n.md"
+		},
+		"ex-set-triangular-numbers": {
+			"title": "SET on a triangular-number proof",
+			"role": "exercise",
+			"group": "reading-mathematics",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/SET triangular numbers.md"
+		},
+		"ex-divisibility-and-zero": {
+			"title": "Divisibility and zero",
+			"role": "exercise",
+			"group": "divisibility",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Divisibility and zero.md"
+		},
+		"ex-find-predicate-quantifier-swap": {
+			"title": "Find a predicate where quantifier swap matters",
+			"role": "exercise",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Predicate quantifier swap.md"
+		},
+		"ex-domino-tiling-count": {
+			"title": "Domino tilings of a 2×n grid",
+			"role": "exercise",
+			"group": "mathematical-induction",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Domino tilings of 2 by n grid.md"
+		},
+		"ex-product-injection": {
+			"title": "Product of functions and injectivity",
+			"role": "exercise",
+			"group": "functions-i",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Product of functions injectivity.md"
+		},
+		"ex-cartesian-product-properties": {
+			"title": "Cartesian product properties",
+			"role": "exercise",
+			"group": "sets",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Cartesian product properties.md"
+		},
+		"ex-finish-group-properties-proof": {
+			"title": "Finish the proof of basic group properties",
+			"role": "exercise",
+			"group": "groups-first-principles",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Finish group properties proof.md"
+		},
+		"ex-define-odd-and-prime": {
+			"title": "Define odd and prime numbers",
+			"role": "exercise",
+			"group": "reading-mathematics",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Define odd and prime numbers.md"
+		},
+		"ex-rational-multiplication-automorphism": {
+			"title": "φ_q(r) = qr is an automorphism of Q",
+			"role": "exercise",
+			"group": "isomorphisms",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Rational multiplication automorphism.md"
+		},
+		"ex-relation-properties-hw": {
+			"title": "Determine relation properties",
+			"role": "exercise",
+			"group": "binary-relations",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Determine relation properties.md"
+		},
+		"ex-write-sets-explicitly": {
+			"title": "Write sets explicitly",
+			"role": "exercise",
+			"group": "sets",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Write sets explicitly.md"
+		},
+		"ex-divisor-closed-poset": {
+			"title": "Divisor-closed subsets poset",
+			"role": "exercise",
+			"group": "order-relations",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Divisor-closed subsets poset.md"
+		},
+		"ex-composition-injectivity": {
+			"title": "Composition and injectivity",
+			"role": "exercise",
+			"group": "functions-i",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Composition and injectivity.md"
+		},
+		"ex-trailing-zeros-factorial": {
+			"title": "Trailing zeros of 100!",
+			"role": "exercise",
+			"group": "primes",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Trailing zeros of 100 factorial.md"
+		},
+		"ex-seven-divides-sum": {
+			"title": "Does 7 divide 3²⁰⁰¹ + 4²⁰⁰¹?",
+			"role": "exercise",
+			"group": "modular-arithmetic",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Seven divides 3 to 2001 plus 4 to 2001.md"
+		},
+		"ex-balanced-parentheses": {
+			"title": "Balanced parentheses in logical formulas",
+			"role": "exercise",
+			"group": "recursion-and-structural-induction",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Balanced parentheses.md"
+		},
+		"ex-group-check-four": {
+			"title": "Check four structures for group axioms",
+			"role": "exercise",
+			"group": "groups-first-principles",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Check four structures for group axioms.md"
+		},
+		"ex-slippery-numbers": {
+			"title": "Slippery numbers",
+			"role": "exercise",
+			"group": "reading-mathematics",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Slippery numbers.md"
+		},
+		"ex-relation-defines-function": {
+			"title": "Does a relation define a function?",
+			"role": "exercise",
+			"group": "functions-i",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Does a relation define a function.md"
+		},
+		"ex-dihedral-srs-equals-r-inverse": {
+			"title": "srs = r^{−1} in D_n",
+			"role": "exercise",
+			"group": "groups-first-principles",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Dihedral srs equals r inverse.md"
+		},
+		"ex-divisibility-cancel-product": {
+			"title": "Divisibility with products",
+			"role": "exercise",
+			"group": "divisibility",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Divisibility with products.md"
+		},
+		"ex-subset-cardinality": {
+			"title": "Subset cardinality",
+			"role": "exercise",
+			"group": "functions-ii",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Subset cardinality.md"
+		},
+		"ex-odd-integers-not-group": {
+			"title": "Odd integers are not a group under addition",
+			"role": "exercise",
+			"group": "groups-first-principles",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Odd integers not group.md"
+		},
+		"ex-complete-isomorphism-example": {
+			"title": "Complete the isomorphism ψ: Z_2 → ⟨[2]_4⟩",
+			"role": "exercise",
+			"group": "isomorphisms",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Complete isomorphism example.md"
+		},
+		"ex-negate-conjunction": {
+			"title": "Negate a disjunction (De Morgan's)",
+			"role": "exercise",
+			"group": "propositional-logic",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Negate a disjunction.md"
+		},
+		"ex-divisibility-examples": {
+			"title": "Divisibility examples",
+			"role": "exercise",
+			"group": "reading-mathematics",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Divisibility examples.md"
+		},
+		"ex-induction-2n-leq-2n": {
+			"title": "Prove 2n ≤ 2^n",
+			"role": "exercise",
+			"group": "mathematical-induction",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Prove 2n leq 2 to n.md"
+		},
+		"ex-no-maximum": {
+			"title": "Show no maximum exists",
+			"role": "exercise",
+			"group": "order-relations",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/No maximum exists.md"
+		},
+		"ex-prove-finite-cyclic-classification": {
+			"title": "Prove finite cyclic classification",
+			"role": "exercise",
+			"group": "isomorphisms",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Prove finite cyclic classification.md"
+		},
+		"ex-evaluate-quantified-statement": {
+			"title": "Evaluate a quantified statement",
+			"role": "exercise",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Evaluate quantified statement.md"
+		},
+		"ex-isomorphic-is-equivalence": {
+			"title": "Isomorphic is an equivalence relation",
+			"role": "exercise",
+			"group": "isomorphisms",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Isomorphic is equivalence relation.md"
+		},
+		"ex-inverse-power-identity": {
+			"title": "(a^{−1})^n = (a^n)^{−1}",
+			"role": "exercise",
+			"group": "groups-first-principles",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Inverse power identity.md"
+		},
+		"ex-upper-bound-properties": {
+			"title": "Upper bound properties",
+			"role": "exercise",
+			"group": "order-relations",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Upper bound properties.md"
+		},
+		"ex-all-lde-solutions": {
+			"title": "All solutions to LDE 1053x+481y=39",
+			"role": "exercise",
+			"group": "diophantine-equations",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/All LDE solutions 1053x481y39.md"
+		},
+		"ex-inj-surj-neither-hw": {
+			"title": "Injective, surjective, or neither?",
+			"role": "exercise",
+			"group": "functions-i",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Inj surj neither hw.md"
+		},
+		"ex-image-union-equality": {
+			"title": "Image of union is equality",
+			"role": "exercise",
+			"group": "functions-i",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Image of union equality.md"
+		},
+		"ex-binary-strings-bijection": {
+			"title": "Binary strings and functions",
+			"role": "exercise",
+			"group": "functions-i",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Binary strings bijection.md"
+		},
+		"ex-alternating-odd-squares": {
+			"title": "Alternating sum of odd squares",
+			"role": "exercise",
+			"group": "summation-notation",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Alternating sum of odd squares.md"
+		},
+		"ex-product-inverse-general": {
+			"title": "(a₁⋯aₙ)^{−1} = aₙ^{−1}⋯a₁^{−1}",
+			"role": "exercise",
+			"group": "groups-first-principles",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Product inverse general.md"
+		},
+		"ex-predicate-subsets": {
+			"title": "Predicate-satisfying subsets",
+			"role": "exercise",
+			"group": "propositional-logic",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Predicate-satisfying subsets.md"
+		},
+		"ex-order-disjoint-cycles": {
+			"title": "Order of disjoint cycle product",
+			"role": "exercise",
+			"group": "subgroups-and-order",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Order of disjoint cycle product.md"
+		},
+		"ex-coprime-modular-inverse": {
+			"title": "Existence of a modular inverse",
+			"role": "exercise",
+			"group": "gcd-and-euclidean-algorithm",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Existence of modular inverse.md"
+		},
+		"ex-translate-to-quantifiers": {
+			"title": "Translate sentences to quantifier notation",
+			"role": "exercise",
+			"group": "quantifiers-and-implications",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Translate to quantifiers.md"
+		},
+		"ex-odd-pyramid-sum": {
+			"title": "Odd-number pyramid row sums",
+			"role": "exercise",
+			"group": "summation-notation",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Odd-number pyramid row sums.md"
+		},
+		"ex-marble-game": {
+			"title": "Marble game winning strategy",
+			"role": "exercise",
+			"group": "strong-induction",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Marble game winning strategy.md"
+		},
+		"ex-sr-neq-rs": {
+			"title": "sr ≠ rs in D_n",
+			"role": "exercise",
+			"group": "groups-first-principles",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/sr neq rs in Dn.md"
+		},
+		"ex-order-of-ab-equals-ba": {
+			"title": "|ab| = |ba|",
+			"role": "exercise",
+			"group": "subgroups-and-order",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Order of ab equals ba.md"
+		},
+		"ex-n-cross-n-countable": {
+			"title": "|N x N| = |N|",
+			"role": "exercise",
+			"group": "functions-ii",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/N cross N countable.md"
+		},
+		"ex-check-homomorphisms": {
+			"title": "Check five maps for homomorphism",
+			"role": "exercise",
+			"group": "homomorphisms",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Check five maps for homomorphism.md"
+		},
+		"ex-subset-intersection": {
+			"title": "Subset and intersection",
+			"role": "exercise",
+			"group": "sets",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Subset and intersection.md"
+		},
+		"ex-one-sided-inverses": {
+			"title": "One-sided inverses",
+			"role": "exercise",
+			"group": "functions-ii",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/One-sided inverses.md"
+		},
+		"ex-restate-product-proposition": {
+			"title": "Restate and prove the product proposition",
+			"role": "exercise",
+			"group": "reading-mathematics",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Restate and prove the product proposition.md"
+		},
+		"ex-write-prime-property-logic": {
+			"title": "Prime property in logic",
+			"role": "exercise",
+			"group": "primes",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Prime property in logic.md"
+		},
+		"ex-divisibility-via-prime-factorization": {
+			"title": "Divisibility via prime factorization",
+			"role": "exercise",
+			"group": "primes",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Divisibility via prime factorization.md"
+		},
+		"ex-empty-domain-codomain": {
+			"title": "Functions with empty domain or codomain",
+			"role": "exercise",
+			"group": "functions-i",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Empty domain or codomain.md"
+		},
+		"ex-no-rational-cubic-solution": {
+			"title": "No rational solution to x³+x²=1",
+			"role": "exercise",
+			"group": "proof-techniques",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/No rational cubic solution.md"
+		},
+		"ex-abelian-iff-inverse-commutes": {
+			"title": "Abelian iff (ab)^{−1} = a^{−1}b^{−1}",
+			"role": "exercise",
+			"group": "groups-first-principles",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Abelian iff inverse commutes.md"
+		},
+		"ex-conjunction-disjunction-practice": {
+			"title": "Evaluate compound propositions",
+			"role": "exercise",
+			"group": "propositional-logic",
+			"curriculum_path": null,
+			"file": "Bits/Exercises/Evaluate compound propositions.md"
+		}
+	},
+	"edges": [
+		{
+			"from": "reading-math-is-different",
+			"to": "what-is-a-definition",
+			"question": "What are these labeled blocks in a math textbook?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "what-is-a-definition",
+			"to": "definitions-vs-intuition",
+			"question": "Why can't I just use my intuition for what a word means?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "what-is-a-definition",
+			"to": "working-with-a-definition",
+			"question": "What should I do right after I read a new definition?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "what-is-a-definition",
+			"to": "theorems-and-friends",
+			"question": "Once we have definitions, what do we do with them?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "definitions-vs-intuition",
+			"to": "ex-quirky-number-result",
+			"question": "What can I say about quirky numbers using only the definition?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "definitions-vs-intuition",
+			"to": "what-is-a-set",
+			"question": "How do mathematicians organize the objects they define?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "working-with-a-definition",
+			"to": "ex-define-odd-and-prime",
+			"question": "Can I write my own precise definition?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "working-with-a-definition",
+			"to": "ex-divisibility-examples",
+			"question": "Can I generate examples for a definition I haven't seen before?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "theorems-and-friends",
+			"to": "mathematical-results-are-infallible",
+			"question": "How reliable are these results?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "theorems-and-friends",
+			"to": "hypothesis-and-conclusion",
+			"question": "How do I use a theorem — can I always apply it?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "mathematical-results-are-infallible",
+			"to": "what-is-a-proof",
+			"question": "How can anything be absolutely certain?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "hypothesis-and-conclusion",
+			"to": "ex-identify-hypothesis-conclusion",
+			"question": "Can I identify hypothesis and conclusion in practice?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "hypothesis-and-conclusion",
+			"to": "ex-quirky-number-result",
+			"question": "Can I state my own result and label its parts?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "hypothesis-and-conclusion",
+			"to": "ex-slippery-hypothesis-conclusion",
+			"question": "Can I dissect statements about an unfamiliar concept?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "hypothesis-and-conclusion",
+			"to": "ex-palindromic-hypothesis",
+			"question": "Can I find the hypothesis and conclusion in a less obvious statement?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "hypothesis-and-conclusion",
+			"to": "what-is-a-proposition",
+			"question": "What exactly is a 'statement' in mathematics?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "what-is-a-proof",
+			"to": "anatomy-of-a-proof",
+			"question": "What does a proof actually look like?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "what-is-a-proof",
+			"to": "self-explanation-training",
+			"question": "How should I read a proof to actually understand it?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "anatomy-of-a-proof",
+			"to": "proving-vs-applying",
+			"question": "Is proving a theorem the same as applying it?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "anatomy-of-a-proof",
+			"to": "generality-in-proofs",
+			"question": "How can one argument cover infinitely many cases?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "generality-in-proofs",
+			"to": "ex-restate-product-proposition",
+			"question": "Can I strengthen a result by weakening its hypothesis?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "self-explanation-training",
+			"to": "self-explanation-vs-paraphrasing",
+			"question": "Is restating each line in my own words enough?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "self-explanation-training",
+			"to": "ex-set-palindromic-proof",
+			"question": "Can I practice self-explanation on a real proof?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "self-explanation-training",
+			"to": "ex-set-triangular-numbers",
+			"question": "Can I self-explain a proof that uses a clever trick?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "ex-divisibility-examples",
+			"to": "divisibility-definition",
+			"question": "Can we prove general facts about divisibility?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "ex-divisibility-examples",
+			"to": "ex-slippery-numbers",
+			"question": "What happens when a definition combines two divisibility conditions?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "ex-slippery-hypothesis-conclusion",
+			"to": "ex-slippery-true-or-false",
+			"question": "Are those statements actually true?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "ex-palindromic-hypothesis",
+			"to": "ex-set-palindromic-proof",
+			"question": "How does the proof resolve the hypothesis into the conclusion?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "ex-set-palindromic-proof",
+			"to": "ex-even-digit-palindromes",
+			"question": "Does this hold for palindromes with more than 4 digits?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "what-is-a-set",
+			"to": "set-notation",
+			"question": "How do we write down a set?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "what-is-a-set",
+			"to": "set-builder-notation",
+			"question": "What if a set has too many elements to list?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "what-is-a-set",
+			"to": "union-and-intersection",
+			"question": "Given two sets, what new sets can I build from them?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "what-is-a-set",
+			"to": "cartesian-product",
+			"question": "Can I pair up elements from two different sets?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "what-is-a-set",
+			"to": "subsets",
+			"question": "When is one set 'contained' in another?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "set-notation",
+			"to": "sets-can-contain-anything",
+			"question": "What kinds of things can be elements of a set?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "set-notation",
+			"to": "ex-which-sets-are-equal",
+			"question": "Does the way I write a set change which set it is?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "set-builder-notation",
+			"to": "standard-number-sets",
+			"question": "What are the standard sets mathematicians work with?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "set-builder-notation",
+			"to": "ex-expand-set-builder",
+			"question": "Can I go backwards and list the elements from a set-builder description?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "set-builder-notation",
+			"to": "ex-write-sets-explicitly",
+			"question": "Can I convert set-builder notation into explicit lists?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "union-and-intersection",
+			"to": "set-difference",
+			"question": "What if I want the elements in one set but not the other?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "union-and-intersection",
+			"to": "ex-set-operations-compute",
+			"question": "Can I compute union, intersection, and difference for specific sets?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "union-and-intersection",
+			"to": "ex-set-identities",
+			"question": "Are there algebraic laws for set operations, like distributivity?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "union-and-intersection",
+			"to": "what-is-a-proposition",
+			"question": "Set operations use 'or' and 'and' — is there a logic behind that?",
+			"edge_type": "analogy"
+		},
+		{
+			"from": "set-difference",
+			"to": "complement-of-a-set",
+			"question": "What if I want everything that's NOT in a set?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "complement-of-a-set",
+			"to": "ex-complement-of-integers",
+			"question": "What does the complement look like for a concrete set?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "complement-of-a-set",
+			"to": "ex-set-identities",
+			"question": "How does complement interact with union and intersection?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "cartesian-product",
+			"to": "ex-cartesian-product-properties",
+			"question": "Does order matter in Cartesian products?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "subsets",
+			"to": "ex-subset-intersection",
+			"question": "Is a set always a subset of its intersection with another set, or the other way around?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "subsets",
+			"to": "set-equality-via-double-inclusion",
+			"question": "If two sets are subsets of each other, what does that tell us?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "subsets",
+			"to": "ex-subset-proof-homework",
+			"question": "How do I prove one set is a subset of another?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "set-equality-via-double-inclusion",
+			"to": "ex-prove-set-equality",
+			"question": "Can I prove two complicated-looking sets are actually the same?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "set-equality-via-double-inclusion",
+			"to": "ex-subset-implies-union",
+			"question": "If A ⊆ B, what happens to A ∪ B?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "what-is-a-proposition",
+			"to": "predicates",
+			"question": "What if a statement's truth depends on a variable?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "what-is-a-proposition",
+			"to": "conjunction-and-disjunction",
+			"question": "Can I combine two propositions into one?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "predicates",
+			"to": "ex-classify-propositions",
+			"question": "Can I tell which statements are propositions, predicates, or neither?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "predicates",
+			"to": "ex-predicate-subsets",
+			"question": "Can I find all objects satisfying a compound predicate?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "conjunction-and-disjunction",
+			"to": "negation",
+			"question": "What if I want the opposite of a statement?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "conjunction-and-disjunction",
+			"to": "truth-tables",
+			"question": "How do I systematically check all possible truth values?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "conjunction-and-disjunction",
+			"to": "ex-conjunction-disjunction-practice",
+			"question": "Can I evaluate AND/OR/NOT for concrete sets and predicates?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "negation",
+			"to": "de-morgans-laws",
+			"question": "How does negation interact with conjunction and disjunction?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "truth-tables",
+			"to": "de-morgans-laws",
+			"question": "What happens when I negate an AND or an OR?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "truth-tables",
+			"to": "ex-build-truth-table",
+			"question": "Can I build a truth table for a compound expression?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "truth-tables",
+			"to": "ex-truth-tables-homework",
+			"question": "Can I handle more complex truth tables?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "truth-tables",
+			"to": "ex-logical-equivalence",
+			"question": "When do two different-looking statements say the same thing?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "de-morgans-laws",
+			"to": "ex-negate-conjunction",
+			"question": "Can I discover the negation rule for OR myself?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "ex-truth-tables-homework",
+			"to": "ex-logical-equivalence",
+			"question": "Do any of these statements have the same truth table?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "predicates",
+			"to": "universal-quantifier",
+			"question": "How do I say 'this is true for everything'?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "predicates",
+			"to": "existential-quantifier",
+			"question": "How do I say 'there is at least one thing like this'?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "universal-quantifier",
+			"to": "proving-quantified-statements",
+			"question": "How do I actually prove a 'for all' statement?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "existential-quantifier",
+			"to": "proving-quantified-statements",
+			"question": "How do I prove that something exists?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "universal-quantifier",
+			"to": "quantifiers-turn-predicates-into-propositions",
+			"question": "Why does adding ∀ suddenly give me a true/false statement?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "existential-quantifier",
+			"to": "quantifiers-turn-predicates-into-propositions",
+			"question": "Does ∃ also turn a predicate into a proposition?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "universal-quantifier",
+			"to": "doubly-quantified-statements",
+			"question": "What if I need two quantifiers in the same statement?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "existential-quantifier",
+			"to": "doubly-quantified-statements",
+			"question": "Can I have multiple ∃ in one statement?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "doubly-quantified-statements",
+			"to": "quantifier-order-matters",
+			"question": "Does the order of different quantifiers matter?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "negation",
+			"to": "negating-universal-quantifier",
+			"question": "What is the opposite of 'everything satisfies P'?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "universal-quantifier",
+			"to": "negating-universal-quantifier",
+			"question": "How do I disprove a ∀ statement?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "negating-universal-quantifier",
+			"to": "negating-existential-quantifier",
+			"question": "What about negating 'there exists'?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "hypothesis-and-conclusion",
+			"to": "what-is-an-implication",
+			"question": "How is the hypothesis-conclusion structure expressed formally?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "truth-tables",
+			"to": "what-is-an-implication",
+			"question": "What is the truth table for 'if P then Q'?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "what-is-an-implication",
+			"to": "principle-of-induction",
+			"question": "How can a chain of implications prove something for all integers?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "what-is-an-implication",
+			"to": "vacuous-truth",
+			"question": "Why is 'if pigs fly then the sky is black' true?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "what-is-an-implication",
+			"to": "converse-of-an-implication",
+			"question": "If P implies Q, does Q imply P?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "what-is-an-implication",
+			"to": "contrapositive-of-an-implication",
+			"question": "Is there another statement always equivalent to P ⟹ Q?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "contrapositive-of-an-implication",
+			"to": "proof-by-contrapositive",
+			"question": "Can I use the contrapositive to prove theorems?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "converse-of-an-implication",
+			"to": "if-and-only-if",
+			"question": "When IS the converse also true?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "what-is-an-implication",
+			"to": "if-and-only-if",
+			"question": "What does it mean for two statements to imply each other?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "if-and-only-if",
+			"to": "necessary-and-sufficient-conditions",
+			"question": "What do 'necessary' and 'sufficient' mean precisely?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "what-is-an-implication",
+			"to": "negating-an-implication",
+			"question": "What is the negation of 'if P then Q'?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "conjunction-and-disjunction",
+			"to": "math-vs-english-or",
+			"question": "Does 'or' in math mean the same as in everyday English?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "negating-universal-quantifier",
+			"to": "math-vs-english-not",
+			"question": "Does 'not' work the same way in math as in English?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "what-is-an-implication",
+			"to": "math-vs-english-implication",
+			"question": "Does 'if-then' in English work the same as in math?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "converse-of-an-implication",
+			"to": "math-vs-english-implication",
+			"question": "Why does my mom's 'if you do the dishes...' feel like an iff?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "quantifiers-turn-predicates-into-propositions",
+			"to": "ex-translate-to-quantifiers",
+			"question": "Can I convert English sentences into quantifier notation?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "quantifiers-turn-predicates-into-propositions",
+			"to": "ex-evaluate-quantified-statement",
+			"question": "Can I evaluate whether a quantified statement is true?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "quantifier-order-matters",
+			"to": "ex-birthday-quantifiers",
+			"question": "Can I see the difference in a concrete example?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "quantifier-order-matters",
+			"to": "ex-find-predicate-quantifier-swap",
+			"question": "Can I find my own example where swapping quantifiers changes truth?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "negating-existential-quantifier",
+			"to": "ex-negate-quantified-sentences",
+			"question": "Can I negate quantified sentences in practice?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "contrapositive-of-an-implication",
+			"to": "ex-contrapositive-truth-table",
+			"question": "Can I verify the equivalence with a truth table?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "proof-by-contrapositive",
+			"to": "ex-even-iff-square-even",
+			"question": "Can I prove 'n even iff n² even' using contrapositive?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "negating-an-implication",
+			"to": "ex-negate-implication-truth-table",
+			"question": "Can I verify the negation formula with a truth table?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "negating-an-implication",
+			"to": "ex-negate-continuity",
+			"question": "What happens when I negate a statement with many quantifiers and implications?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "negating-universal-quantifier",
+			"to": "ex-negate-continuity",
+			"question": "How do I negate alternating quantifiers?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "quantifier-order-matters",
+			"to": "ex-translate-to-english",
+			"question": "Can I turn formal quantified statements into plain English?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "proving-quantified-statements",
+			"to": "ex-polynomial-quantifiers",
+			"question": "Can I evaluate quantified statements about polynomials?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "what-is-an-implication",
+			"to": "ex-implication-truth-tables",
+			"question": "Can I build truth tables for implications?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "if-and-only-if",
+			"to": "ex-implication-truth-tables",
+			"question": "What does the iff truth table look like?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "what-is-an-implication",
+			"to": "ex-implication-associativity",
+			"question": "Is P ⟹ (Q ⟹ R) the same as (P ⟹ Q) ⟹ R?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "negating-an-implication",
+			"to": "ex-negate-complex-statements",
+			"question": "Can I negate statements with multiple quantifiers and implications?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "negating-universal-quantifier",
+			"to": "ex-negate-complex-statements",
+			"question": "How does quantifier negation chain with implication negation?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "proving-quantified-statements",
+			"to": "ex-quantifier-implication-equivalence",
+			"question": "Does 'for all P implies for all Q' mean the same as 'for all, P implies Q'?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "ex-negate-complex-statements",
+			"to": "ex-negate-prime-characterization",
+			"question": "Can I negate a deeply nested formal statement?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "converse-of-an-implication",
+			"to": "ex-contrapositive-and-converse",
+			"question": "Can I write the contrapositive and converse of English statements?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "contrapositive-of-an-implication",
+			"to": "ex-contrapositive-and-converse",
+			"question": "Can I practice finding contrapositives?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "what-is-a-proof",
+			"to": "proof-by-contradiction",
+			"question": "What if I can't build a direct chain from hypothesis to conclusion?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "negating-an-implication",
+			"to": "proof-by-contradiction",
+			"question": "Can I use negation to prove a statement is true?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "proof-by-contrapositive",
+			"to": "proof-by-contradiction",
+			"question": "Is there a proof technique even stronger than contrapositive?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "proof-by-contradiction",
+			"to": "contradiction-is-not-constructive",
+			"question": "Does a contradiction proof tell me which case is true?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "proof-by-contradiction",
+			"to": "irrationality-of-sqrt-2",
+			"question": "Can I see contradiction in action on a famous result?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "ex-even-iff-square-even",
+			"to": "irrationality-of-sqrt-2",
+			"question": "What can we do with 'n² even implies n even'?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "standard-number-sets",
+			"to": "irrationality-of-sqrt-2",
+			"question": "Are there numbers that aren't rational?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "cartesian-product",
+			"to": "what-is-a-binary-relation",
+			"question": "What mathematical structure uses pairs from A × B?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "what-is-a-binary-relation",
+			"to": "relations-on-a-set",
+			"question": "What if the two sets are the same?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "relations-on-a-set",
+			"to": "relation-properties-reflexive-symmetric",
+			"question": "How do I tell different types of relations apart?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "relation-properties-reflexive-symmetric",
+			"to": "relation-properties-transitive-total",
+			"question": "Are there more properties a relation can have?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "relation-properties-transitive-total",
+			"to": "checking-relation-properties",
+			"question": "How do I check these properties in practice?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "relation-properties-reflexive-symmetric",
+			"to": "what-is-an-equivalence-relation",
+			"question": "Which combination of properties captures 'sameness'?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "relation-properties-transitive-total",
+			"to": "what-is-an-equivalence-relation",
+			"question": "What combination makes a relation behave like equality?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "set-equality-via-double-inclusion",
+			"to": "what-is-an-equivalence-relation",
+			"question": "Double inclusion feels like equality — can we generalize equality itself?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "what-is-an-equivalence-relation",
+			"to": "congruence-is-equivalence-relation",
+			"question": "Can we build an equivalence relation from divisibility?",
+			"edge_type": "analogy"
+		},
+		{
+			"from": "what-is-an-equivalence-relation",
+			"to": "equivalence-classes",
+			"question": "What do the 'equal' elements look like as a group?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "equivalence-classes",
+			"to": "congruence-classes-and-zn",
+			"question": "What do the equivalence classes look like for modular congruence?",
+			"edge_type": "analogy"
+		},
+		{
+			"from": "equivalence-classes",
+			"to": "equivalence-relations-partition-a-set",
+			"question": "Can two different equivalence classes overlap?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "relation-properties-reflexive-symmetric",
+			"to": "what-is-an-order-relation",
+			"question": "Which combination of properties captures 'ordering'?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "relation-properties-transitive-total",
+			"to": "what-is-an-order-relation",
+			"question": "What distinguishes a total order from a partial one?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "what-is-an-order-relation",
+			"to": "posets",
+			"question": "What is a set equipped with a partial order called?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "subsets",
+			"to": "posets",
+			"question": "Is '⊆' itself a kind of ordering?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "posets",
+			"to": "maximal-and-minimal-elements",
+			"question": "Which elements are 'at the top' of a partial order?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "maximal-and-minimal-elements",
+			"to": "maximum-vs-maximal",
+			"question": "Is a maximal element the same as the maximum?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "posets",
+			"to": "upper-and-lower-bounds",
+			"question": "What if I want to bound a subset, not just find extremes?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "upper-and-lower-bounds",
+			"to": "supremum-and-infimum",
+			"question": "Is there a 'best' upper or lower bound?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "supremum-and-infimum",
+			"to": "well-ordering-principle",
+			"question": "Does every subset of Z⁺ have a least element?",
+			"edge_type": "analogy"
+		},
+		{
+			"from": "proof-by-contradiction",
+			"to": "ex-no-smallest-positive-real",
+			"question": "Can I prove something doesn't exist using contradiction?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "proof-by-contradiction",
+			"to": "ex-intersection-complement-empty",
+			"question": "Can I use contradiction to prove a set identity?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "irrationality-of-sqrt-2",
+			"to": "ex-no-rational-cubic-solution",
+			"question": "Can I show other equations have no rational solutions?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "relations-on-a-set",
+			"to": "ex-equality-relation-subset",
+			"question": "What subset of A × A represents equality?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "relation-properties-transitive-total",
+			"to": "ex-left-total-functional",
+			"question": "Can a relation between different sets be left-total and functional?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "checking-relation-properties",
+			"to": "ex-divisibility-relation-properties",
+			"question": "Which properties does divisibility satisfy?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "what-is-an-equivalence-relation",
+			"to": "ex-equivalence-relation-on-pairs",
+			"question": "Can I verify an equivalence relation on ordered pairs?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "equivalence-classes",
+			"to": "ex-equivalence-class-properties",
+			"question": "What basic properties do equivalence classes always have?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "maximal-and-minimal-elements",
+			"to": "ex-maximal-elements",
+			"question": "Can I find the maximal elements in a concrete poset?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "maximal-and-minimal-elements",
+			"to": "ex-minimal-elements",
+			"question": "What about the bottom — what are the minimal elements?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "maximum-vs-maximal",
+			"to": "ex-no-maximum",
+			"question": "Can a poset have maximal elements but no maximum?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "upper-and-lower-bounds",
+			"to": "ex-upper-bound-properties",
+			"question": "Can I find bounds for a concrete set?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "proof-by-contradiction",
+			"to": "ex-contradiction-proofs-hw",
+			"question": "Can I apply contradiction to several different problems?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "irrationality-of-sqrt-2",
+			"to": "ex-contradiction-proofs-hw",
+			"question": "Can I generalize the √2 argument to other primes?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "checking-relation-properties",
+			"to": "ex-relation-properties-hw",
+			"question": "Can I classify many relations at once?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "ex-relation-properties-hw",
+			"to": "ex-which-are-equivalence",
+			"question": "Which of these relations are equivalence relations?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "ex-relation-properties-hw",
+			"to": "ex-which-are-orders",
+			"question": "Which of these relations are order relations?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "what-is-an-equivalence-relation",
+			"to": "ex-sign-equivalence-relation",
+			"question": "Can I build an equivalence relation from a function?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "equivalence-classes",
+			"to": "ex-construct-rationals",
+			"question": "Can equivalence classes construct new number systems?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "supremum-and-infimum",
+			"to": "ex-divisor-closed-poset",
+			"question": "Can I find sup and inf in a non-numeric poset?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "relation-properties-transitive-total",
+			"to": "function-as-relation",
+			"question": "What kind of relation is both left-total and functional?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "what-is-a-binary-relation",
+			"to": "function-as-relation",
+			"question": "Can a relation do more than compare — can it assign?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "function-as-relation",
+			"to": "function-notation",
+			"question": "How do mathematicians actually write functions?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "function-notation",
+			"to": "domain-codomain-range",
+			"question": "What are all the parts of a function's description?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "function-notation",
+			"to": "when-are-functions-equal",
+			"question": "When are two functions the same?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "domain-codomain-range",
+			"to": "image-of-a-set",
+			"question": "What outputs does a function actually produce from a given input set?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "set-builder-notation",
+			"to": "image-of-a-set",
+			"question": "Can I describe the output set of a function using set-builder?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "image-of-a-set",
+			"to": "preimage-of-a-set",
+			"question": "Can I go backwards — which inputs land in a given output set?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "domain-codomain-range",
+			"to": "injective-functions",
+			"question": "When does each output come from a unique input?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "injective-functions",
+			"to": "proving-injectivity",
+			"question": "How do I prove a function is injective?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "domain-codomain-range",
+			"to": "surjective-functions",
+			"question": "When does a function hit every element of its codomain?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "surjective-functions",
+			"to": "proving-surjectivity",
+			"question": "How do I prove a function is surjective?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "injective-functions",
+			"to": "bijective-functions",
+			"question": "What if a function is both injective and surjective?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "surjective-functions",
+			"to": "bijective-functions",
+			"question": "Can I combine injectivity and surjectivity?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "bijective-functions",
+			"to": "symmetric-group",
+			"question": "Do the bijections on a set form a group under composition?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "injective-functions",
+			"to": "composition-preserves-injectivity",
+			"question": "If I compose two injective functions, is the result injective?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "surjective-functions",
+			"to": "composition-preserves-surjectivity",
+			"question": "If I compose two surjective functions, is the result surjective?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "function-as-relation",
+			"to": "ex-relation-defines-function",
+			"question": "Does every subset of A × B define a function?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "domain-codomain-range",
+			"to": "ex-empty-domain-codomain",
+			"question": "What happens at the extremes — can a domain or codomain be empty?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "when-are-functions-equal",
+			"to": "ex-which-functions-equal",
+			"question": "Can two functions with the same rule but different data be equal?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "preimage-of-a-set",
+			"to": "ex-compute-preimage",
+			"question": "Can I compute a preimage for a specific function?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "image-of-a-set",
+			"to": "ex-compute-image-sphere",
+			"question": "Can I compute the image of a geometric object?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "proving-injectivity",
+			"to": "ex-classify-inj-surj",
+			"question": "Can I determine injectivity/surjectivity for specific functions?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "proving-surjectivity",
+			"to": "ex-classify-inj-surj",
+			"question": "Can I classify concrete functions?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "composition-preserves-injectivity",
+			"to": "ex-composition-injectivity",
+			"question": "If the composition is injective, must the parts be?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "composition-preserves-surjectivity",
+			"to": "ex-composition-surjectivity",
+			"question": "If the composition is surjective, must the parts be?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "bijective-functions",
+			"to": "ex-which-are-bijective",
+			"question": "Which of the functions we've seen are bijective?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "image-of-a-set",
+			"to": "ex-image-preimage-hw",
+			"question": "Can I compute images for different functions?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "preimage-of-a-set",
+			"to": "ex-image-preimage-hw",
+			"question": "Can I compute preimages in higher dimensions?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "image-of-a-set",
+			"to": "ex-image-intersection-subset",
+			"question": "Does the image respect set intersection?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "image-of-a-set",
+			"to": "ex-image-union-equality",
+			"question": "Does the image respect set union?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "ex-classify-inj-surj",
+			"to": "ex-inj-surj-neither-hw",
+			"question": "Can I handle more challenging injectivity/surjectivity questions?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "composition-preserves-injectivity",
+			"to": "ex-product-injection",
+			"question": "Does forming a product of functions preserve injectivity?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "injective-functions",
+			"to": "ex-strictly-increasing-injective",
+			"question": "Does strictly increasing imply injective?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "bijective-functions",
+			"to": "ex-binary-strings-bijection",
+			"question": "Can I build a bijection between two abstract infinite sets?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "bijective-functions",
+			"to": "binary-operator-identity",
+			"question": "Before inverses, what is an identity element?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "binary-operator-identity",
+			"to": "group-definition",
+			"question": "What if we require associativity, identity, and inverses all at once?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "binary-operator-identity",
+			"to": "inverse-with-respect-to-operator",
+			"question": "Given an identity, what undoes an operation?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "inverse-with-respect-to-operator",
+			"to": "group-definition",
+			"question": "What structure do we get when every element has an inverse?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "inverse-with-respect-to-operator",
+			"to": "function-composition",
+			"question": "What is the 'operation' for functions?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "function-composition",
+			"to": "symmetric-group",
+			"question": "Does the set of all bijections under composition have special structure?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "function-composition",
+			"to": "inverse-functions",
+			"question": "What undoes a function composition?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "inverse-functions",
+			"to": "invertibility-requires-bijectivity",
+			"question": "When does an inverse actually exist?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "bijective-functions",
+			"to": "invertibility-requires-bijectivity",
+			"question": "Is bijectivity related to reversing a function?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "invertibility-requires-bijectivity",
+			"to": "cardinality-definition",
+			"question": "Can bijections measure size?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "injective-functions",
+			"to": "cardinality-definition",
+			"question": "Can injectivity tell us about the sizes of sets?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "surjective-functions",
+			"to": "cardinality-definition",
+			"question": "What does surjectivity say about relative size?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "cardinality-definition",
+			"to": "cardinality-via-bijection",
+			"question": "When do two sets have the same cardinality?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "cardinality-via-bijection",
+			"to": "infinite-sets-surprise",
+			"question": "Can an infinite set have the same cardinality as a proper subset?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "cardinality-via-bijection",
+			"to": "countable-sets",
+			"question": "Is there a name for sets with |S| <= |N|?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "countable-sets",
+			"to": "integers-are-countable",
+			"question": "Is Z countable?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "standard-number-sets",
+			"to": "integers-are-countable",
+			"question": "Do Z, Q, R all have the same size?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "integers-are-countable",
+			"to": "rationals-are-countable",
+			"question": "What about Q -- is it countable too?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "rationals-are-countable",
+			"to": "reals-are-uncountable",
+			"question": "Does this pattern continue -- are all infinite sets countable?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "proof-by-contradiction",
+			"to": "reals-are-uncountable",
+			"question": "The diagonal argument is a contradiction proof -- what does it show?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "reals-are-uncountable",
+			"to": "why-diagonalization-fails-for-rationals",
+			"question": "Why can't I diagonalize the rationals the same way?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "reals-are-uncountable",
+			"to": "cantor-schroder-bernstein",
+			"question": "If I have injections both ways, do I get a bijection?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "countable-sets",
+			"to": "power-set",
+			"question": "Is there always a bigger set?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "set-builder-notation",
+			"to": "power-set",
+			"question": "Can I build a set whose elements are themselves sets?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "power-set",
+			"to": "cantors-theorem",
+			"question": "Is the power set always strictly larger?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "cantors-theorem",
+			"to": "no-set-of-all-sets",
+			"question": "Can I keep taking power sets forever -- is there a set of all sets?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "inverse-functions",
+			"to": "ex-find-inverses",
+			"question": "Can I find inverses for specific functions?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "inverse-functions",
+			"to": "ex-one-sided-inverses",
+			"question": "What if only one direction of composition gives the identity?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "invertibility-requires-bijectivity",
+			"to": "ex-invertible-iff-bijective-proof",
+			"question": "Can I prove the forward direction myself?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "cardinality-definition",
+			"to": "ex-subset-cardinality",
+			"question": "Does S subset T imply |S| <= |T|?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "infinite-sets-surprise",
+			"to": "ex-open-interval-equals-reals",
+			"question": "Can I show (0,1) has the same cardinality as all of R?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "ex-open-interval-equals-reals",
+			"to": "ex-interval-cardinality",
+			"question": "Does this generalize to any interval?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "cantor-schroder-bernstein",
+			"to": "ex-interval-cardinality",
+			"question": "Can CSB simplify cardinality proofs?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "countable-sets",
+			"to": "ex-n-cross-n-countable",
+			"question": "Is N x N countable?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "inverse-functions",
+			"to": "ex-invertibility-hw",
+			"question": "Can I determine invertibility for more complex functions?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "invertibility-requires-bijectivity",
+			"to": "ex-invertibility-hw",
+			"question": "Can I use the bijectivity criterion?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "inverse-functions",
+			"to": "ex-left-right-invertible",
+			"question": "Can one-sided inverses characterize injectivity/surjectivity?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "injective-functions",
+			"to": "ex-left-right-invertible",
+			"question": "Is there an inverse characterization of injectivity?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "surjective-functions",
+			"to": "ex-left-right-invertible",
+			"question": "Is there an inverse characterization of surjectivity?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "cardinality-via-bijection",
+			"to": "ex-cardinality-bijections",
+			"question": "Can I construct bijections between specific sets?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "cantors-theorem",
+			"to": "ex-advanced-cardinality",
+			"question": "Can I apply these cardinality tools to harder problems?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "ex-binary-strings-bijection",
+			"to": "ex-advanced-cardinality",
+			"question": "Can I relate binary strings to real numbers?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "countable-sets",
+			"to": "ex-algebraic-numbers-countable",
+			"question": "Are the algebraic numbers countable?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "divisibility-definition",
+			"to": "basic-divisibility-properties",
+			"question": "What can we deduce from divisibility alone?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "divisibility-definition",
+			"to": "ex-divisibility-and-zero",
+			"question": "What happens when zero is involved?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "divisibility-definition",
+			"to": "congruence-mod-n",
+			"question": "What if we only care about remainders, not exact divisibility?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "basic-divisibility-properties",
+			"to": "well-ordering-principle",
+			"question": "What foundational property of Z⁺ helps prove deeper results?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "basic-divisibility-properties",
+			"to": "ex-prove-divisibility-iii-v",
+			"question": "Can I prove the remaining properties myself?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "basic-divisibility-properties",
+			"to": "ex-divisibility-cancel-product",
+			"question": "Can I prove divisibility identities involving products and cancellation?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "basic-divisibility-properties",
+			"to": "ex-gcd-linear-combo",
+			"question": "Can I apply divisibility properties to simplify a gcd expression?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "well-ordering-principle",
+			"to": "division-algorithm",
+			"question": "Can we formalize remainders using the least element property?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "well-ordering-principle",
+			"to": "fta-existence",
+			"question": "Can WOP prove that prime factorizations exist?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "well-ordering-principle",
+			"to": "principle-of-induction",
+			"question": "Can the Well-Ordering Principle justify a chain-of-implications proof strategy?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "division-algorithm",
+			"to": "case-analysis-via-remainders",
+			"question": "How can remainders help prove divisibility results?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "division-algorithm",
+			"to": "gcd-definition",
+			"question": "Is there a way to measure the common structure between two numbers?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "division-algorithm",
+			"to": "congruence-mod-n",
+			"question": "Can we formalize the idea that two numbers give the same remainder?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "case-analysis-via-remainders",
+			"to": "ex-factor-n-cubed-minus-n",
+			"question": "Is there a faster proof using factoring?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "case-analysis-via-remainders",
+			"to": "ex-four-divides-odd-squared-minus-one",
+			"question": "Can I use remainders for other divisibility problems?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "gcd-definition",
+			"to": "gcd-respects-remainders",
+			"question": "Can the Division Algorithm simplify computing gcds?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "gcd-definition",
+			"to": "prime-definition",
+			"question": "What special role do numbers with no nontrivial divisors play?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "gcd-definition",
+			"to": "ex-compute-gcd-1053-481",
+			"question": "Can I compute a gcd by hand?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "gcd-respects-remainders",
+			"to": "euclidean-algorithm",
+			"question": "What if I apply the gcd-remainder trick repeatedly?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "gcd-respects-remainders",
+			"to": "ex-gcd-linear-combo",
+			"question": "Can I apply the gcd-invariance principle to more general linear combinations?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "euclidean-algorithm",
+			"to": "bezouts-identity",
+			"question": "Can I unwind the algorithm to express gcd as a combination of a and b?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "euclidean-algorithm",
+			"to": "ex-compute-gcds",
+			"question": "Can I practice computing gcds with the Euclidean Algorithm?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "bezouts-identity",
+			"to": "bezout-corollaries",
+			"question": "What else follows from Bézout's identity?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "bezouts-identity",
+			"to": "back-substitution",
+			"question": "How do I actually find the coefficients m and n?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "bezouts-identity",
+			"to": "coprime-divides-product",
+			"question": "What can Bézout tell us about coprime divisors?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "bezout-corollaries",
+			"to": "ex-prove-bezout-corollaries",
+			"question": "Can I prove these corollaries myself?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "bezout-corollaries",
+			"to": "ex-gcd-after-dividing",
+			"question": "What happens to the gcd after dividing out common factors?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "bezout-corollaries",
+			"to": "ex-coprime-modular-inverse",
+			"question": "Can Bézout guarantee the existence of a modular inverse?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "back-substitution",
+			"to": "ex-solve-bezout-equation",
+			"question": "Can I apply back-substitution to another example?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "back-substitution",
+			"to": "lde-particular-solution",
+			"question": "Can I use back-substitution to solve Diophantine equations?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "ex-coprime-modular-inverse",
+			"to": "multiplicative-inverses-in-zp",
+			"question": "When does every nonzero element have a modular inverse?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "coprime-divides-product",
+			"to": "linear-diophantine-equation",
+			"question": "When does an integer equation ax+by=d have integer solutions?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "coprime-divides-product",
+			"to": "prime-divisibility-property",
+			"question": "How does coprimality relate to primes?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "coprime-divides-product",
+			"to": "lde-general-solution",
+			"question": "How does coprimality help parametrize solutions?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "coprime-divides-product",
+			"to": "ex-prove-coprime-divides-product",
+			"question": "Can I prove this myself using Bézout?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "coprime-divides-product",
+			"to": "modular-cancellation-lemma",
+			"question": "Can coprimality let us cancel in modular equations?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "linear-diophantine-equation",
+			"to": "lde-solvability",
+			"question": "Which linear Diophantine equations are solvable?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "lde-solvability",
+			"to": "lde-particular-solution",
+			"question": "How do I actually find a solution?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "lde-solvability",
+			"to": "ex-prove-lde-solvability",
+			"question": "Can I prove the solvability criterion?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "lde-particular-solution",
+			"to": "lde-general-solution",
+			"question": "Is there more than one solution?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "lde-particular-solution",
+			"to": "ex-solve-lde-1053-481",
+			"question": "Can I solve another LDE?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "lde-general-solution",
+			"to": "lde-non-negative-solutions",
+			"question": "Can I find non-negative solutions?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "lde-general-solution",
+			"to": "ex-all-lde-solutions",
+			"question": "Can I find all solutions to a specific LDE?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "lde-non-negative-solutions",
+			"to": "ex-lde-four-equations",
+			"question": "Can I apply the full LDE solution technique to new equations?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "prime-definition",
+			"to": "prime-divisibility-property",
+			"question": "Can we characterize primes in terms of divisibility?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "prime-definition",
+			"to": "fta-existence",
+			"question": "Can every number be built from primes?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "prime-divisibility-property",
+			"to": "fta-uniqueness",
+			"question": "How does the prime divisibility property ensure uniqueness?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "prime-divisibility-property",
+			"to": "ex-write-prime-property-logic",
+			"question": "Can I express the prime property in formal logic?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "prime-divisibility-property",
+			"to": "ex-primality-necessary",
+			"question": "Does the divisibility property fail for composite numbers?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "prime-divisibility-property",
+			"to": "ex-prime-divides-iff-square",
+			"question": "What does prime divisibility say about squares?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "prime-divisibility-property",
+			"to": "ex-squares-mod-prime",
+			"question": "How does the prime divisibility property apply to modular squares?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "fta-existence",
+			"to": "fta-uniqueness",
+			"question": "Is the prime factorization unique?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "fta-uniqueness",
+			"to": "irrationality-via-fta",
+			"question": "Can unique factorization prove irrationality?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "fta-uniqueness",
+			"to": "infinitely-many-primes",
+			"question": "Are there finitely or infinitely many primes?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "fta-uniqueness",
+			"to": "ex-trailing-zeros-factorial",
+			"question": "Can unique factorization tell me how many times a prime divides n!?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "fta-uniqueness",
+			"to": "ex-divisibility-via-prime-factorization",
+			"question": "Does unique factorization give a complete description of all divisors?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "fta-uniqueness",
+			"to": "ex-count-divisors",
+			"question": "How many divisors does n have in terms of its prime factorization?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "infinitely-many-primes",
+			"to": "ex-primes-of-form-4k3",
+			"question": "Can Euclid's proof be adapted to show infinitely many primes of a specific form?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "ex-divisibility-via-prime-factorization",
+			"to": "ex-count-divisors",
+			"question": "How many divisors does n have given its prime factorization?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "congruence-mod-n",
+			"to": "congruence-is-equivalence-relation",
+			"question": "Is congruence mod n reflexive, symmetric, and transitive?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "congruence-mod-n",
+			"to": "ex-show-a2-minus-2-not-div-7",
+			"question": "Can congruence help prove a divisibility statement by checking all cases?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "congruence-is-equivalence-relation",
+			"to": "arithmetic-of-congruences",
+			"question": "Can we add and multiply congruences?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "arithmetic-of-congruences",
+			"to": "congruence-classes-and-zn",
+			"question": "What are the equivalence classes of congruence mod n?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "arithmetic-of-congruences",
+			"to": "last-digit-computation",
+			"question": "Can I use modular arithmetic to find the last digit of a huge number?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "arithmetic-of-congruences",
+			"to": "ex-exponentiation-well-defined",
+			"question": "Is exponentiation also well-defined in modular arithmetic?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "congruence-classes-and-zn",
+			"to": "modular-cancellation-lemma",
+			"question": "Can we cancel common factors in a modular equation?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "congruence-classes-and-zn",
+			"to": "ex-last-digits",
+			"question": "Can I compute last digits of large powers using Z_10?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "congruence-classes-and-zn",
+			"to": "ex-digital-roots",
+			"question": "Can modular arithmetic explain the digit-sum trick?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "congruence-classes-and-zn",
+			"to": "ex-nine-divides-10n-minus-1",
+			"question": "Does 9 always divide 10^n − 1?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "congruence-classes-and-zn",
+			"to": "ex-squares-mod-4",
+			"question": "What are the possible remainders of n² when divided by 4?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "congruence-classes-and-zn",
+			"to": "zn-is-a-group",
+			"question": "Does Z_n with its addition form a group?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "modular-cancellation-lemma",
+			"to": "fermats-little-theorem",
+			"question": "What deeper properties does Z_p have when p is prime?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "modular-cancellation-lemma",
+			"to": "ex-squares-mod-prime",
+			"question": "Can cancellation help us factor congruences mod a prime?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "fermats-little-theorem",
+			"to": "fermats-little-theorem-corollary",
+			"question": "What if p does divide a?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "fermats-little-theorem",
+			"to": "ex-prove-flt-corollary",
+			"question": "Can I prove the corollary that a^p ≡ a (mod p)?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "fermats-little-theorem",
+			"to": "ex-seven-divides-sum",
+			"question": "Can Fermat's Little Theorem determine divisibility of large sums?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "fermats-little-theorem-corollary",
+			"to": "multiplicative-inverses-in-zp",
+			"question": "Can Fermat's theorem produce multiplicative inverses?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "multiplicative-inverses-in-zp",
+			"to": "ex-find-inverse-in-z41",
+			"question": "Can I compute a specific inverse in Z_p?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "principle-of-induction",
+			"to": "induction-example-inequality",
+			"question": "What does an induction proof look like in practice?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "principle-of-induction",
+			"to": "ex-induction-wop-equivalence",
+			"question": "Are induction and the Well-Ordering Principle equivalent?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "principle-of-induction",
+			"to": "ex-induction-2n-leq-2n",
+			"question": "Can I try a simple induction proof myself?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "induction-example-inequality",
+			"to": "induction-example-divisibility",
+			"question": "Can induction prove divisibility results too?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "induction-example-inequality",
+			"to": "ex-bernoullis-inequality",
+			"question": "Can I prove a more general inequality by induction?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "induction-example-inequality",
+			"to": "ex-nth-root-of-2-bound",
+			"question": "Can induction prove bounds involving roots or powers?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "induction-example-divisibility",
+			"to": "induction-example-l-tiling",
+			"question": "Can induction prove geometric or combinatorial facts?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "induction-example-l-tiling",
+			"to": "sigma-notation",
+			"question": "Is there a compact way to write down long sums for induction?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "induction-example-l-tiling",
+			"to": "ex-domino-tiling-count",
+			"question": "How many ways can you tile a 2×n grid with dominoes?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "sigma-notation",
+			"to": "summation-identity-example",
+			"question": "How do I prove a summation identity by induction?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "sigma-notation",
+			"to": "ex-sum-of-squares",
+			"question": "Can I prove the sum-of-squares formula by induction?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "sigma-notation",
+			"to": "ex-gauss-sum",
+			"question": "Can I prove the formula for 1+2+⋯+n?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "sigma-notation",
+			"to": "ex-alternating-odd-squares",
+			"question": "Can I discover and prove a formula for an alternating sum?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "sigma-notation",
+			"to": "ex-odd-pyramid-sum",
+			"question": "Can I find a formula for the sum of a row in the odd-number pyramid?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "summation-identity-example",
+			"to": "generalized-induction",
+			"question": "What if the base case isn't n=1?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "generalized-induction",
+			"to": "strong-induction-principle",
+			"question": "What if the induction step needs more than just P(k)?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "strong-induction-principle",
+			"to": "strong-induction-equivalence",
+			"question": "Is strong induction actually stronger than regular induction?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "strong-induction-principle",
+			"to": "strong-induction-postage-stamps",
+			"question": "What does a strong induction proof look like?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "strong-induction-principle",
+			"to": "ex-recursive-sequence-closed-form",
+			"question": "Can strong induction prove a closed-form identity for a recursion?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "strong-induction-principle",
+			"to": "ex-fibonacci-closed-form",
+			"question": "Can strong induction verify a closed-form for a two-term recurrence?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "strong-induction-postage-stamps",
+			"to": "ex-marble-game",
+			"question": "Can strong induction prove a game-theoretic result?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "strong-induction-postage-stamps",
+			"to": "ex-binary-representation",
+			"question": "Can strong induction show every integer has a binary representation?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "strong-induction-postage-stamps",
+			"to": "recursive-definitions",
+			"question": "Can we define mathematical objects using a base case and a building rule?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "recursive-definitions",
+			"to": "fibonacci-sequence",
+			"question": "What is a famous example of a recursively defined sequence?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "recursive-definitions",
+			"to": "structural-induction-principle",
+			"question": "How do we prove things about recursively defined objects?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "fibonacci-sequence",
+			"to": "ex-fibonacci-closed-form",
+			"question": "Is there a non-recursive formula for the Fibonacci numbers?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "fibonacci-sequence",
+			"to": "ex-recursive-sequence-closed-form",
+			"question": "Can I find a closed form for a different recursive sequence?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "structural-induction-principle",
+			"to": "structural-induction-example-divisibility",
+			"question": "What does a structural induction proof look like?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "structural-induction-example-divisibility",
+			"to": "ex-structural-induction-pairs",
+			"question": "Can I apply structural induction to pairs of integers?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "structural-induction-example-divisibility",
+			"to": "ex-balanced-parentheses",
+			"question": "Can structural induction prove a property of formal strings?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "structural-induction-example-divisibility",
+			"to": "ex-binary-string-reversal",
+			"question": "Can structural induction prove a property about string operations?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "group-definition",
+			"to": "zn-is-a-group",
+			"question": "Is Z_n a group?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "group-definition",
+			"to": "q-star-is-a-group",
+			"question": "Are the nonzero rationals a group under multiplication?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "group-definition",
+			"to": "abelian-groups",
+			"question": "What if the group operation is also commutative?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "group-definition",
+			"to": "basic-group-properties",
+			"question": "What can we deduce from the group axioms alone?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "group-definition",
+			"to": "ex-inverse-power-identity",
+			"question": "Is (a^{−1})^n the same as (a^n)^{−1}?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "group-definition",
+			"to": "ex-odd-integers-not-group",
+			"question": "Do the odd integers form a group under addition?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "group-definition",
+			"to": "ex-group-check-four",
+			"question": "Can I check whether various structures are groups?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "zn-is-a-group",
+			"to": "ex-z6-multiplicative-subgroup",
+			"question": "Can a subset of Z_n be a group under multiplication instead?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "q-star-is-a-group",
+			"to": "ex-why-not-q-with-zero",
+			"question": "What goes wrong if we include zero?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "abelian-groups",
+			"to": "symmetric-group",
+			"question": "What is the simplest example of a non-abelian group?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "abelian-groups",
+			"to": "ex-abelian-iff-inverse-commutes",
+			"question": "Is there an equivalent condition for being abelian?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "abelian-groups",
+			"to": "ex-squares-subgroup-abelian",
+			"question": "Does the set of square-identity elements form a subgroup?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "abelian-groups",
+			"to": "ex-inversion-homomorphism-iff-abelian",
+			"question": "Does abelianness interact with the inversion map?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "symmetric-group",
+			"to": "dihedral-group",
+			"question": "Are there other natural non-abelian groups?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "symmetric-group",
+			"to": "ex-cycle-composition",
+			"question": "How do we compute with permutations using cycle notation?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "symmetric-group",
+			"to": "ex-sn-abelian-iff",
+			"question": "For which n is S_n abelian?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "dihedral-group",
+			"to": "ex-sr-neq-rs",
+			"question": "Can I prove that sr ≠ rs in D_n?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "dihedral-group",
+			"to": "ex-size-of-dn",
+			"question": "How many elements does D_n have?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "dihedral-group",
+			"to": "ex-dihedral-srs-equals-r-inverse",
+			"question": "What is the relation between s, r, and r^{−1} in D_n?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "basic-group-properties",
+			"to": "group-order-and-element-order",
+			"question": "Can we measure the 'size' of a group or an element?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "basic-group-properties",
+			"to": "ex-finish-group-properties-proof",
+			"question": "Can I prove the remaining parts of this proposition?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "basic-group-properties",
+			"to": "ex-product-inverse-general",
+			"question": "Does the shoe-sock property extend to products of n elements?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "group-order-and-element-order",
+			"to": "order-divides-exponent",
+			"question": "When does g^k equal the identity?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "group-order-and-element-order",
+			"to": "subgroup-definition",
+			"question": "Can a subset of a group be a group in its own right?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "group-order-and-element-order",
+			"to": "ex-order-of-ab-equals-ba",
+			"question": "Do ab and ba always have the same order?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "order-divides-exponent",
+			"to": "order-of-a-power",
+			"question": "What is the order of g^k?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "order-divides-exponent",
+			"to": "ex-order-disjoint-cycles",
+			"question": "What is the order of a product of disjoint cycles?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "order-of-a-power",
+			"to": "ex-prove-order-of-power",
+			"question": "Can I prove the order-of-a-power formula?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "subgroup-definition",
+			"to": "subgroup-test",
+			"question": "Is there a shortcut for checking whether a subset is a subgroup?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "subgroup-definition",
+			"to": "ex-center-is-subgroup",
+			"question": "Is the set of elements that commute with everything a subgroup?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "subgroup-definition",
+			"to": "ex-centralizer-is-subgroup",
+			"question": "Is the set of elements commuting with a subgroup also a subgroup?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "subgroup-definition",
+			"to": "ex-alternative-subgroup-test",
+			"question": "Is there an alternative set of conditions for being a subgroup?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "subgroup-test",
+			"to": "subgroup-test-example",
+			"question": "What does a subgroup test proof look like in practice?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "subgroup-test",
+			"to": "ex-squares-subgroup-abelian",
+			"question": "Can I apply the subgroup test to a concrete example?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "subgroup-test",
+			"to": "ex-units-of-zn",
+			"question": "Do the units of Z_n form a subgroup under multiplication?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "subgroup-test-example",
+			"to": "cyclic-group-definition",
+			"question": "Is there a particularly simple kind of subgroup?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "cyclic-group-definition",
+			"to": "cyclic-subgroup-is-subgroup",
+			"question": "Is ⟨g⟩ always a subgroup?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "cyclic-group-definition",
+			"to": "ex-cyclic-implies-abelian",
+			"question": "Is every cyclic group abelian?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "cyclic-group-definition",
+			"to": "ex-integers-cyclic",
+			"question": "Is Z cyclic? What does ⟨n⟩ look like?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "cyclic-group-definition",
+			"to": "ex-z8-not-cyclic-z10-cyclic",
+			"question": "Are the unit groups Z_n* always cyclic?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "cyclic-subgroup-is-subgroup",
+			"to": "ex-cyclic-subgroup-order",
+			"question": "What is the order of the cyclic subgroup ⟨g⟩?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "cyclic-subgroup-is-subgroup",
+			"to": "ex-generated-by-power-equals-gcd",
+			"question": "How does ⟨a^k⟩ relate to ⟨a^{gcd(k,n)}⟩?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "cyclic-subgroup-is-subgroup",
+			"to": "ex-element-order-divides-group-order",
+			"question": "Does the order of an element divide the order of a cyclic group?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "cyclic-subgroup-is-subgroup",
+			"to": "ex-subgroup-of-cyclic-is-cyclic",
+			"question": "Is every subgroup of a cyclic group also cyclic?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "cyclic-subgroup-is-subgroup",
+			"to": "group-homomorphism-definition",
+			"question": "Can functions between groups preserve the group structure?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "group-homomorphism-definition",
+			"to": "homomorphism-well-definedness",
+			"question": "How do I check a homomorphism is well-defined on equivalence classes?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "group-homomorphism-definition",
+			"to": "kernel-and-image",
+			"question": "What elements does a homomorphism send to the identity?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "group-homomorphism-definition",
+			"to": "ex-check-homomorphisms",
+			"question": "Can I determine which functions are homomorphisms?",
+			"edge_type": "related"
+		},
+		{
+			"from": "kernel-and-image",
+			"to": "kernel-and-image-example",
+			"question": "What do the kernel and image look like for a concrete homomorphism?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "kernel-and-image-example",
+			"to": "homomorphism-properties",
+			"question": "What general properties do homomorphisms have?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "homomorphism-properties",
+			"to": "isomorphism-definition",
+			"question": "What if a homomorphism is also a bijection?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "homomorphism-properties",
+			"to": "ex-prove-homomorphism-properties",
+			"question": "Can I prove these properties?",
+			"edge_type": "related"
+		},
+		{
+			"from": "homomorphism-properties",
+			"to": "ex-compute-kernels",
+			"question": "Can I compute the kernel of specific homomorphisms?",
+			"edge_type": "related"
+		},
+		{
+			"from": "homomorphism-properties",
+			"to": "ex-trivial-kernel-isomorphism",
+			"question": "If the kernel is trivial, is G isomorphic to the image?",
+			"edge_type": "related"
+		},
+		{
+			"from": "homomorphism-properties",
+			"to": "ex-inversion-homomorphism-iff-abelian",
+			"question": "When is the inversion map a homomorphism?",
+			"edge_type": "related"
+		},
+		{
+			"from": "isomorphism-definition",
+			"to": "isomorphism-example",
+			"question": "What does an isomorphism look like concretely?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "isomorphism-definition",
+			"to": "ex-isomorphic-is-equivalence",
+			"question": "Is being isomorphic an equivalence relation?",
+			"edge_type": "related"
+		},
+		{
+			"from": "isomorphism-example",
+			"to": "isomorphism-properties",
+			"question": "What properties are preserved by isomorphisms?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "isomorphism-example",
+			"to": "ex-complete-isomorphism-example",
+			"question": "Can I finish verifying the remaining isomorphism?",
+			"edge_type": "related"
+		},
+		{
+			"from": "isomorphism-example",
+			"to": "ex-rotation-subgroup-isomorphic-z3",
+			"question": "Is the rotation subgroup of D_3 isomorphic to Z_3?",
+			"edge_type": "related"
+		},
+		{
+			"from": "isomorphism-properties",
+			"to": "cyclic-groups-classification",
+			"question": "Are all cyclic groups of the same order isomorphic?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "isomorphism-properties",
+			"to": "ex-r-not-isomorphic-q",
+			"question": "Can I show two specific groups are NOT isomorphic?",
+			"edge_type": "related"
+		},
+		{
+			"from": "isomorphism-properties",
+			"to": "ex-automorphism-group",
+			"question": "Is the set of isomorphisms from G to itself a group?",
+			"edge_type": "related"
+		},
+		{
+			"from": "cyclic-groups-classification",
+			"to": "ex-prove-finite-cyclic-classification",
+			"question": "Can I prove the finite case of the classification?",
+			"edge_type": "related"
+		},
+		{
+			"from": "ex-automorphism-group",
+			"to": "ex-conjugation-and-inner-automorphisms",
+			"question": "Are conjugation maps automorphisms?",
+			"edge_type": "prerequisite"
+		},
+		{
+			"from": "ex-automorphism-group",
+			"to": "ex-rational-multiplication-automorphism",
+			"question": "Can I find a family of automorphisms for a specific group?",
+			"edge_type": "related"
+		}
+	]
+}

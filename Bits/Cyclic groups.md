@@ -10,13 +10,13 @@ children:
     question: "Is ⟨g⟩ always a subgroup?"
     edge_type: prerequisite
   - id: ex-cyclic-implies-abelian
-    question: ""
+    question: "Is every cyclic group abelian?"
     edge_type: prerequisite
   - id: ex-integers-cyclic
-    question: ""
+    question: "Is Z cyclic? What does ⟨n⟩ look like?"
     edge_type: prerequisite
   - id: ex-z8-not-cyclic-z10-cyclic
-    question: ""
+    question: "Are the unit groups Z_n* always cyclic?"
     edge_type: prerequisite
 parents:
   - subgroup-test-example

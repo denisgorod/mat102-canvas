@@ -5,7 +5,16 @@ role: bit
 group: quantifiers-and-implications
 curriculum_path: null
 learning_objectives: []
-children: []
+children:
+  - id: ex-birthday-quantifiers
+    question: "Can I see the difference in a concrete example?"
+    edge_type: prerequisite
+  - id: ex-find-predicate-quantifier-swap
+    question: "Can I find my own example where swapping quantifiers changes truth?"
+    edge_type: prerequisite
+  - id: ex-translate-to-english
+    question: "Can I turn formal quantified statements into plain English?"
+    edge_type: prerequisite
 parents:
   - doubly-quantified-statements
 ---

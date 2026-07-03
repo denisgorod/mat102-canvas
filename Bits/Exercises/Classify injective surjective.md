@@ -5,7 +5,10 @@ role: exercise
 group: functions-i
 curriculum_path: null
 learning_objectives: []
-children: []
+children:
+  - id: ex-inj-surj-neither-hw
+    question: "Can I handle more challenging injectivity/surjectivity questions?"
+    edge_type: prerequisite
 parents:
   - proving-injectivity
   - proving-surjectivity

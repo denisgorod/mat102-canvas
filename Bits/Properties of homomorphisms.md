@@ -10,16 +10,16 @@ children:
     question: "What if a homomorphism is also a bijection?"
     edge_type: prerequisite
   - id: ex-prove-homomorphism-properties
-    question: ""
+    question: "Can I prove these properties?"
     edge_type: related
   - id: ex-compute-kernels
-    question: ""
+    question: "Can I compute the kernel of specific homomorphisms?"
     edge_type: related
   - id: ex-trivial-kernel-isomorphism
-    question: ""
+    question: "If the kernel is trivial, is G isomorphic to the image?"
     edge_type: related
   - id: ex-inversion-homomorphism-iff-abelian
-    question: ""
+    question: "When is the inversion map a homomorphism?"
     edge_type: related
 parents:
   - kernel-and-image-example

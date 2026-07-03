@@ -9,6 +9,15 @@ children:
   - id: congruence-is-equivalence-relation
     question: "Can we build an equivalence relation from divisibility?"
     edge_type: analogy
+  - id: equivalence-classes
+    question: "What do the 'equal' elements look like as a group?"
+    edge_type: prerequisite
+  - id: ex-equivalence-relation-on-pairs
+    question: "Can I verify an equivalence relation on ordered pairs?"
+    edge_type: prerequisite
+  - id: ex-sign-equivalence-relation
+    question: "Can I build an equivalence relation from a function?"
+    edge_type: prerequisite
 parents:
   - relation-properties-reflexive-symmetric
   - relation-properties-transitive-total

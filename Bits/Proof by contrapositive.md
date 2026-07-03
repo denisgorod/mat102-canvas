@@ -9,6 +9,9 @@ children:
   - id: proof-by-contradiction
     question: "Is there a proof technique even stronger than contrapositive?"
     edge_type: prerequisite
+  - id: ex-even-iff-square-even
+    question: "Can I prove 'n even iff n² even' using contrapositive?"
+    edge_type: prerequisite
 parents:
   - contrapositive-of-an-implication
 ---

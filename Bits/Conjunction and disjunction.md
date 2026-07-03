@@ -15,6 +15,9 @@ children:
   - id: ex-conjunction-disjunction-practice
     question: "Can I evaluate AND/OR/NOT for concrete sets and predicates?"
     edge_type: prerequisite
+  - id: math-vs-english-or
+    question: "Does 'or' in math mean the same as in everyday English?"
+    edge_type: prerequisite
 parents:
   - what-is-a-proposition
 ---

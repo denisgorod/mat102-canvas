@@ -9,6 +9,12 @@ children:
   - id: proof-by-contrapositive
     question: "Can I use the contrapositive to prove theorems?"
     edge_type: prerequisite
+  - id: ex-contrapositive-truth-table
+    question: "Can I verify the equivalence with a truth table?"
+    edge_type: prerequisite
+  - id: ex-contrapositive-and-converse
+    question: "Can I practice finding contrapositives?"
+    edge_type: prerequisite
 parents:
   - what-is-an-implication
 ---

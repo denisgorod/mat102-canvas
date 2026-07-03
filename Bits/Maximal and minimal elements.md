@@ -9,6 +9,12 @@ children:
   - id: maximum-vs-maximal
     question: "Is a maximal element the same as the maximum?"
     edge_type: prerequisite
+  - id: ex-maximal-elements
+    question: "Can I find the maximal elements in a concrete poset?"
+    edge_type: prerequisite
+  - id: ex-minimal-elements
+    question: "What about the bottom — what are the minimal elements?"
+    edge_type: prerequisite
 parents:
   - posets
 ---

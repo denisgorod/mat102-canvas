@@ -5,7 +5,13 @@ role: bit
 group: functions-i
 curriculum_path: null
 learning_objectives: []
-children: []
+children:
+  - id: function-notation
+    question: "How do mathematicians actually write functions?"
+    edge_type: prerequisite
+  - id: ex-relation-defines-function
+    question: "Does every subset of A × B define a function?"
+    edge_type: prerequisite
 parents:
   - relation-properties-transitive-total
   - what-is-a-binary-relation

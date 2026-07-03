@@ -5,7 +5,13 @@ role: bit
 group: functions-ii
 curriculum_path: null
 learning_objectives: []
-children: []
+children:
+  - id: no-set-of-all-sets
+    question: "Can I keep taking power sets forever -- is there a set of all sets?"
+    edge_type: prerequisite
+  - id: ex-advanced-cardinality
+    question: "Can I apply these cardinality tools to harder problems?"
+    edge_type: prerequisite
 parents:
   - power-set
 ---

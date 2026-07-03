@@ -7,16 +7,16 @@ curriculum_path: null
 learning_objectives: []
 children:
   - id: ex-cyclic-subgroup-order
-    question: ""
+    question: "What is the order of the cyclic subgroup ⟨g⟩?"
     edge_type: prerequisite
   - id: ex-generated-by-power-equals-gcd
-    question: ""
+    question: "How does ⟨a^k⟩ relate to ⟨a^{gcd(k,n)}⟩?"
     edge_type: prerequisite
   - id: ex-element-order-divides-group-order
-    question: ""
+    question: "Does the order of an element divide the order of a cyclic group?"
     edge_type: prerequisite
   - id: ex-subgroup-of-cyclic-is-cyclic
-    question: ""
+    question: "Is every subgroup of a cyclic group also cyclic?"
     edge_type: prerequisite
   - id: group-homomorphism-definition
     question: "Can functions between groups preserve the group structure?"

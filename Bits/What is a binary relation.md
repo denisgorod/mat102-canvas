@@ -9,6 +9,9 @@ children:
   - id: relations-on-a-set
     question: "What if the two sets are the same?"
     edge_type: prerequisite
+  - id: function-as-relation
+    question: "Can a relation do more than compare — can it assign?"
+    edge_type: prerequisite
 parents:
   - cartesian-product
 ---

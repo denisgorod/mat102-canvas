@@ -7,7 +7,7 @@ curriculum_path: null
 learning_objectives: []
 children:
   - id: ex-count-divisors
-    question: "How many divisors does n have?"
+    question: "How many divisors does n have given its prime factorization?"
     edge_type: prerequisite
 parents:
   - fta-uniqueness

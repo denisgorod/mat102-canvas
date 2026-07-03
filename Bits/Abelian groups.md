@@ -10,13 +10,13 @@ children:
     question: "What is the simplest example of a non-abelian group?"
     edge_type: prerequisite
   - id: ex-abelian-iff-inverse-commutes
-    question: ""
+    question: "Is there an equivalent condition for being abelian?"
     edge_type: prerequisite
   - id: ex-squares-subgroup-abelian
-    question: ""
+    question: "Does the set of square-identity elements form a subgroup?"
     edge_type: prerequisite
   - id: ex-inversion-homomorphism-iff-abelian
-    question: ""
+    question: "Does abelianness interact with the inversion map?"
     edge_type: prerequisite
 parents:
   - group-definition

@@ -13,7 +13,7 @@ children:
     question: "Can a subset of a group be a group in its own right?"
     edge_type: prerequisite
   - id: ex-order-of-ab-equals-ba
-    question: ""
+    question: "Do ab and ba always have the same order?"
     edge_type: prerequisite
 parents:
   - basic-group-properties

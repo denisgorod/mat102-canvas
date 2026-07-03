@@ -5,7 +5,10 @@ role: bit
 group: functions-i
 curriculum_path: null
 learning_objectives: []
-children: []
+children:
+  - id: ex-classify-inj-surj
+    question: "Can I classify concrete functions?"
+    edge_type: prerequisite
 parents:
   - surjective-functions
 ---

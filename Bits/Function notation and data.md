@@ -5,7 +5,13 @@ role: bit
 group: functions-i
 curriculum_path: null
 learning_objectives: []
-children: []
+children:
+  - id: domain-codomain-range
+    question: "What are all the parts of a function's description?"
+    edge_type: prerequisite
+  - id: when-are-functions-equal
+    question: "When are two functions the same?"
+    edge_type: prerequisite
 parents:
   - function-as-relation
 ---

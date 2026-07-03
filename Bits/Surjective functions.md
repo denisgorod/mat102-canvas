@@ -5,7 +5,22 @@ role: bit
 group: functions-i
 curriculum_path: null
 learning_objectives: []
-children: []
+children:
+  - id: proving-surjectivity
+    question: "How do I prove a function is surjective?"
+    edge_type: prerequisite
+  - id: bijective-functions
+    question: "Can I combine injectivity and surjectivity?"
+    edge_type: prerequisite
+  - id: composition-preserves-surjectivity
+    question: "If I compose two surjective functions, is the result surjective?"
+    edge_type: prerequisite
+  - id: cardinality-definition
+    question: "What does surjectivity say about relative size?"
+    edge_type: prerequisite
+  - id: ex-left-right-invertible
+    question: "Is there an inverse characterization of surjectivity?"
+    edge_type: prerequisite
 parents:
   - domain-codomain-range
 ---

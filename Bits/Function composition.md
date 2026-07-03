@@ -9,6 +9,9 @@ children:
   - id: symmetric-group
     question: "Does the set of all bijections under composition have special structure?"
     edge_type: prerequisite
+  - id: inverse-functions
+    question: "What undoes a function composition?"
+    edge_type: prerequisite
 parents:
   - inverse-with-respect-to-operator
 ---

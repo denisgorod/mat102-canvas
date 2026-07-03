@@ -5,7 +5,10 @@ role: bit
 group: quantifiers-and-implications
 curriculum_path: null
 learning_objectives: []
-children: []
+children:
+  - id: ex-negate-quantified-sentences
+    question: "Can I negate quantified sentences in practice?"
+    edge_type: prerequisite
 parents:
   - negating-universal-quantifier
 ---

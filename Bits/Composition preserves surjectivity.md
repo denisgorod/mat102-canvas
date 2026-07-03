@@ -5,7 +5,10 @@ role: bit
 group: functions-i
 curriculum_path: null
 learning_objectives: []
-children: []
+children:
+  - id: ex-composition-surjectivity
+    question: "If the composition is surjective, must the parts be?"
+    edge_type: prerequisite
 parents:
   - surjective-functions
 ---

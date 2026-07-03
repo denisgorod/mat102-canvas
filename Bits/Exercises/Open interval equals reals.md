@@ -5,7 +5,10 @@ role: exercise
 group: functions-ii
 curriculum_path: null
 learning_objectives: []
-children: []
+children:
+  - id: ex-interval-cardinality
+    question: "Does this generalize to any interval?"
+    edge_type: prerequisite
 parents:
   - infinite-sets-surprise
 ---

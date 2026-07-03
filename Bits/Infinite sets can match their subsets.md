@@ -5,7 +5,10 @@ role: bit
 group: functions-ii
 curriculum_path: null
 learning_objectives: []
-children: []
+children:
+  - id: ex-open-interval-equals-reals
+    question: "Can I show (0,1) has the same cardinality as all of R?"
+    edge_type: prerequisite
 parents:
   - cardinality-via-bijection
 ---

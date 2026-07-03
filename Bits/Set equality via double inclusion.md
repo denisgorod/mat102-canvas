@@ -12,6 +12,9 @@ children:
   - id: ex-subset-implies-union
     question: "If A ⊆ B, what happens to A ∪ B?"
     edge_type: prerequisite
+  - id: what-is-an-equivalence-relation
+    question: "Double inclusion feels like equality — can we generalize equality itself?"
+    edge_type: prerequisite
 parents:
   - subsets
 ---

@@ -3622,7 +3622,8 @@
 			"fromSide": "right",
 			"toNode": "bfde68c64c634b3d",
 			"toSide": "left",
-			"label": "What are these labeled blocks in a math textbook?"
+			"label": "What are these labeled blocks in a math textbook?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "2e69437e99644930",
@@ -3630,7 +3631,8 @@
 			"fromSide": "right",
 			"toNode": "23fa44801cfa4ed5",
 			"toSide": "left",
-			"label": "Why can't I just use my intuition for what a word means?"
+			"label": "Why can't I just use my intuition for what a word means?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "a8302a813fc3495c",
@@ -3638,7 +3640,8 @@
 			"fromSide": "right",
 			"toNode": "b797ff4e25e54977",
 			"toSide": "left",
-			"label": "What should I do right after I read a new definition?"
+			"label": "What should I do right after I read a new definition?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "9e7d6274c31e4c87",
@@ -3646,7 +3649,8 @@
 			"fromSide": "right",
 			"toNode": "54e53989c02d421b",
 			"toSide": "left",
-			"label": "Once we have definitions, what do we do with them?"
+			"label": "Once we have definitions, what do we do with them?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "0628e2b259ef4e45",
@@ -3654,7 +3658,8 @@
 			"fromSide": "right",
 			"toNode": "aaac96932a964ac5",
 			"toSide": "left",
-			"label": "What can I say about quirky numbers using only the definition?"
+			"label": "What can I say about quirky numbers using only the definition?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "8d6348902cf24766",
@@ -3662,7 +3667,8 @@
 			"fromSide": "right",
 			"toNode": "a0d960e83a354174",
 			"toSide": "left",
-			"label": "How do mathematicians organize the objects they define?"
+			"label": "How do mathematicians organize the objects they define?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "1443c544b03f466a",
@@ -3670,7 +3676,8 @@
 			"fromSide": "right",
 			"toNode": "43e12b3e74534598",
 			"toSide": "left",
-			"label": "Can I write my own precise definition?"
+			"label": "Can I write my own precise definition?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "ce25152f376e47f6",
@@ -3678,7 +3685,8 @@
 			"fromSide": "right",
 			"toNode": "239f1b5f16f448d3",
 			"toSide": "left",
-			"label": "Can I generate examples for a definition I haven't seen before?"
+			"label": "Can I generate examples for a definition I haven't seen before?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "f74d4e8189c3409d",
@@ -3686,7 +3694,8 @@
 			"fromSide": "right",
 			"toNode": "c71e2d1f6f8040e4",
 			"toSide": "left",
-			"label": "How reliable are these results?"
+			"label": "How reliable are these results?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "d58380e954e14d33",
@@ -3694,7 +3703,8 @@
 			"fromSide": "right",
 			"toNode": "e388629a77af490a",
 			"toSide": "left",
-			"label": "How do I use a theorem — can I always apply it?"
+			"label": "How do I use a theorem — can I always apply it?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "20d90fe983d14a6a",
@@ -3702,7 +3712,8 @@
 			"fromSide": "right",
 			"toNode": "9fe7b770ff734fec",
 			"toSide": "left",
-			"label": "How can anything be absolutely certain?"
+			"label": "How can anything be absolutely certain?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "6e9597ca88ee41d2",
@@ -3710,7 +3721,8 @@
 			"fromSide": "right",
 			"toNode": "29597a90e14c42e1",
 			"toSide": "left",
-			"label": "Can I identify hypothesis and conclusion in practice?"
+			"label": "Can I identify hypothesis and conclusion in practice?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "c11708f8e7aa44bf",
@@ -3718,7 +3730,8 @@
 			"fromSide": "right",
 			"toNode": "aaac96932a964ac5",
 			"toSide": "left",
-			"label": "Can I state my own result and label its parts?"
+			"label": "Can I state my own result and label its parts?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "b7a88c40eb0545c5",
@@ -3726,7 +3739,8 @@
 			"fromSide": "right",
 			"toNode": "455c74b1ac154220",
 			"toSide": "left",
-			"label": "Can I dissect statements about an unfamiliar concept?"
+			"label": "Can I dissect statements about an unfamiliar concept?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "7b76a0151fc14671",
@@ -3734,7 +3748,8 @@
 			"fromSide": "right",
 			"toNode": "2a327e898910476a",
 			"toSide": "left",
-			"label": "Can I find the hypothesis and conclusion in a less obvious statement?"
+			"label": "Can I find the hypothesis and conclusion in a less obvious statement?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "ac9a4d20e4a6411f",
@@ -3742,7 +3757,8 @@
 			"fromSide": "right",
 			"toNode": "9394eda4bcf44e07",
 			"toSide": "left",
-			"label": "What exactly is a 'statement' in mathematics?"
+			"label": "What exactly is a 'statement' in mathematics?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "88d5da8bfba44ae0",
@@ -3750,7 +3766,8 @@
 			"fromSide": "right",
 			"toNode": "2f2845e8eb1f4e48",
 			"toSide": "left",
-			"label": "What does a proof actually look like?"
+			"label": "What does a proof actually look like?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "dae2a89f12f14dba",
@@ -3758,7 +3775,8 @@
 			"fromSide": "right",
 			"toNode": "bd14631fad5c4589",
 			"toSide": "left",
-			"label": "How should I read a proof to actually understand it?"
+			"label": "How should I read a proof to actually understand it?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "25e80714a75e4c17",
@@ -3766,7 +3784,8 @@
 			"fromSide": "right",
 			"toNode": "700c081165a84112",
 			"toSide": "left",
-			"label": "Is proving a theorem the same as applying it?"
+			"label": "Is proving a theorem the same as applying it?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "9d7f0ff8068841b1",
@@ -3774,7 +3793,8 @@
 			"fromSide": "right",
 			"toNode": "4cebc64494464294",
 			"toSide": "left",
-			"label": "How can one argument cover infinitely many cases?"
+			"label": "How can one argument cover infinitely many cases?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "c283346c059c46b9",
@@ -3782,7 +3802,8 @@
 			"fromSide": "right",
 			"toNode": "54f24c4d797445de",
 			"toSide": "left",
-			"label": "Can I strengthen a result by weakening its hypothesis?"
+			"label": "Can I strengthen a result by weakening its hypothesis?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "a9daa343583c4df1",
@@ -3790,7 +3811,8 @@
 			"fromSide": "right",
 			"toNode": "5077022577d24642",
 			"toSide": "left",
-			"label": "Is restating each line in my own words enough?"
+			"label": "Is restating each line in my own words enough?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "eaf882c02a46443b",
@@ -3798,7 +3820,8 @@
 			"fromSide": "right",
 			"toNode": "9d810d980f6a4a06",
 			"toSide": "left",
-			"label": "Can I practice self-explanation on a real proof?"
+			"label": "Can I practice self-explanation on a real proof?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "24502d100bb94c8b",
@@ -3806,7 +3829,8 @@
 			"fromSide": "right",
 			"toNode": "c27b070ded754d05",
 			"toSide": "left",
-			"label": "Can I self-explain a proof that uses a clever trick?"
+			"label": "Can I self-explain a proof that uses a clever trick?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "a3102f27708e45b2",
@@ -3814,7 +3838,8 @@
 			"fromSide": "right",
 			"toNode": "8be4130f0c394420",
 			"toSide": "left",
-			"label": "Can we prove general facts about divisibility?"
+			"label": "Can we prove general facts about divisibility?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "23f7c5e974d541e1",
@@ -3822,7 +3847,8 @@
 			"fromSide": "right",
 			"toNode": "3651ef96e57140e7",
 			"toSide": "left",
-			"label": "What happens when a definition combines two divisibility conditions?"
+			"label": "What happens when a definition combines two divisibility conditions?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "24c4a933c7a44491",
@@ -3830,7 +3856,8 @@
 			"fromSide": "right",
 			"toNode": "7a418b033fbb4cd3",
 			"toSide": "left",
-			"label": "Are those statements actually true?"
+			"label": "Are those statements actually true?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "a9568fc07d0342aa",
@@ -3838,7 +3865,8 @@
 			"fromSide": "right",
 			"toNode": "9d810d980f6a4a06",
 			"toSide": "left",
-			"label": "How does the proof resolve the hypothesis into the conclusion?"
+			"label": "How does the proof resolve the hypothesis into the conclusion?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "2226a9b6989b41ff",
@@ -3846,7 +3874,8 @@
 			"fromSide": "right",
 			"toNode": "3377edba788243c9",
 			"toSide": "left",
-			"label": "Does this hold for palindromes with more than 4 digits?"
+			"label": "Does this hold for palindromes with more than 4 digits?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "c277c9165e5443f5",
@@ -3854,7 +3883,8 @@
 			"fromSide": "right",
 			"toNode": "9d7b259a54ba45bd",
 			"toSide": "left",
-			"label": "How do we write down a set?"
+			"label": "How do we write down a set?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "2b827dfee6c14d31",
@@ -3862,7 +3892,8 @@
 			"fromSide": "right",
 			"toNode": "2f30f597332d42f0",
 			"toSide": "left",
-			"label": "What if a set has too many elements to list?"
+			"label": "What if a set has too many elements to list?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "8228a3f4886c4392",
@@ -3870,7 +3901,8 @@
 			"fromSide": "right",
 			"toNode": "a2a17a86991e49d3",
 			"toSide": "left",
-			"label": "Given two sets, what new sets can I build from them?"
+			"label": "Given two sets, what new sets can I build from them?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "abbeaa3d92b94158",
@@ -3878,7 +3910,8 @@
 			"fromSide": "right",
 			"toNode": "da2e9f4de7224f4e",
 			"toSide": "left",
-			"label": "Can I pair up elements from two different sets?"
+			"label": "Can I pair up elements from two different sets?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "76557675a0374c87",
@@ -3886,7 +3919,8 @@
 			"fromSide": "right",
 			"toNode": "78d06d62fd254c40",
 			"toSide": "left",
-			"label": "When is one set 'contained' in another?"
+			"label": "When is one set 'contained' in another?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "b2d3289225744508",
@@ -3894,7 +3928,8 @@
 			"fromSide": "right",
 			"toNode": "04dc3b59eeb74b6d",
 			"toSide": "left",
-			"label": "What kinds of things can be elements of a set?"
+			"label": "What kinds of things can be elements of a set?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "2e1c1b834fee4d8e",
@@ -3902,7 +3937,8 @@
 			"fromSide": "right",
 			"toNode": "6f410da308424086",
 			"toSide": "left",
-			"label": "Does the way I write a set change which set it is?"
+			"label": "Does the way I write a set change which set it is?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "38baf104a4f14382",
@@ -3910,7 +3946,8 @@
 			"fromSide": "right",
 			"toNode": "c3bc17db1b2f4174",
 			"toSide": "left",
-			"label": "What are the standard sets mathematicians work with?"
+			"label": "What are the standard sets mathematicians work with?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "91224033879047fc",
@@ -3918,7 +3955,8 @@
 			"fromSide": "right",
 			"toNode": "6c36df8e29a54560",
 			"toSide": "left",
-			"label": "Can I go backwards and list the elements from a set-builder description?"
+			"label": "Can I go backwards and list the elements from a set-builder description?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "4db5342c7e3145d3",
@@ -3926,7 +3964,8 @@
 			"fromSide": "right",
 			"toNode": "8a2f8a253c4a4ae6",
 			"toSide": "left",
-			"label": "Can I convert set-builder notation into explicit lists?"
+			"label": "Can I convert set-builder notation into explicit lists?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "7bff1349affa4ed6",
@@ -3934,7 +3973,8 @@
 			"fromSide": "right",
 			"toNode": "ab00482c9ab14165",
 			"toSide": "left",
-			"label": "What if I want the elements in one set but not the other?"
+			"label": "What if I want the elements in one set but not the other?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "d43acdd598ce4155",
@@ -3942,7 +3982,8 @@
 			"fromSide": "right",
 			"toNode": "318839518a6f421f",
 			"toSide": "left",
-			"label": "Can I compute union, intersection, and difference for specific sets?"
+			"label": "Can I compute union, intersection, and difference for specific sets?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "6473b0fbf20342bf",
@@ -3950,7 +3991,8 @@
 			"fromSide": "right",
 			"toNode": "5468544238514b5d",
 			"toSide": "left",
-			"label": "Are there algebraic laws for set operations, like distributivity?"
+			"label": "Are there algebraic laws for set operations, like distributivity?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "1b7bcc3656fb43b2",
@@ -3961,7 +4003,8 @@
 			"label": "Set operations use 'or' and 'and' — is there a logic behind that?",
 			"styleAttributes": {
 				"pathfindingMethod": "direct"
-			}
+			},
+			"edge_type": "analogy"
 		},
 		{
 			"id": "2a8bfbcbe1e4424a",
@@ -3969,7 +4012,8 @@
 			"fromSide": "right",
 			"toNode": "246bf25976794172",
 			"toSide": "left",
-			"label": "What if I want everything that's NOT in a set?"
+			"label": "What if I want everything that's NOT in a set?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "2eb78b0dcd2d4fa9",
@@ -3977,7 +4021,8 @@
 			"fromSide": "right",
 			"toNode": "b7075c2cbb4646c6",
 			"toSide": "left",
-			"label": "What does the complement look like for a concrete set?"
+			"label": "What does the complement look like for a concrete set?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "95fde42bc4bf4391",
@@ -3985,7 +4030,8 @@
 			"fromSide": "right",
 			"toNode": "5468544238514b5d",
 			"toSide": "left",
-			"label": "How does complement interact with union and intersection?"
+			"label": "How does complement interact with union and intersection?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "c519c3396ffd4810",
@@ -3993,7 +4039,8 @@
 			"fromSide": "right",
 			"toNode": "bd49c4ac565f4b08",
 			"toSide": "left",
-			"label": "Does order matter in Cartesian products?"
+			"label": "Does order matter in Cartesian products?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "88bbccf4064b480b",
@@ -4001,7 +4048,8 @@
 			"fromSide": "right",
 			"toNode": "e45778fdc40f47e4",
 			"toSide": "left",
-			"label": "Is a set always a subset of its intersection with another set, or the other way around?"
+			"label": "Is a set always a subset of its intersection with another set, or the other way around?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "fca1c960c2ce4234",
@@ -4009,7 +4057,8 @@
 			"fromSide": "right",
 			"toNode": "303cb032f3e44934",
 			"toSide": "left",
-			"label": "If two sets are subsets of each other, what does that tell us?"
+			"label": "If two sets are subsets of each other, what does that tell us?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "5a7f65587a4e4bab",
@@ -4017,7 +4066,8 @@
 			"fromSide": "right",
 			"toNode": "fef1ff6679d741d4",
 			"toSide": "left",
-			"label": "How do I prove one set is a subset of another?"
+			"label": "How do I prove one set is a subset of another?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "82d59e71bb1a474d",
@@ -4025,7 +4075,8 @@
 			"fromSide": "right",
 			"toNode": "5a8e1c23429d49ef",
 			"toSide": "left",
-			"label": "Can I prove two complicated-looking sets are actually the same?"
+			"label": "Can I prove two complicated-looking sets are actually the same?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "17a9520f324b4b07",
@@ -4033,7 +4084,8 @@
 			"fromSide": "right",
 			"toNode": "9c12de8c5c3e4ba0",
 			"toSide": "left",
-			"label": "If A ⊆ B, what happens to A ∪ B?"
+			"label": "If A ⊆ B, what happens to A ∪ B?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "3fb198ffad7b4bb9",
@@ -4041,7 +4093,8 @@
 			"fromSide": "right",
 			"toNode": "d8e73729f1704cf6",
 			"toSide": "left",
-			"label": "What if a statement's truth depends on a variable?"
+			"label": "What if a statement's truth depends on a variable?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "0f68af203442402b",
@@ -4049,7 +4102,8 @@
 			"fromSide": "right",
 			"toNode": "fe1c823dad774802",
 			"toSide": "left",
-			"label": "Can I combine two propositions into one?"
+			"label": "Can I combine two propositions into one?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "e4367e6f158d44d5",
@@ -4057,7 +4111,8 @@
 			"fromSide": "right",
 			"toNode": "5b425f8fc8cb415b",
 			"toSide": "left",
-			"label": "Can I tell which statements are propositions, predicates, or neither?"
+			"label": "Can I tell which statements are propositions, predicates, or neither?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "70a71f8463c3499d",
@@ -4065,7 +4120,8 @@
 			"fromSide": "right",
 			"toNode": "a4b9e92c1ef04000",
 			"toSide": "left",
-			"label": "Can I find all objects satisfying a compound predicate?"
+			"label": "Can I find all objects satisfying a compound predicate?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "9e67b9f497e94559",
@@ -4073,7 +4129,8 @@
 			"fromSide": "right",
 			"toNode": "7e629547f1ef40e3",
 			"toSide": "left",
-			"label": "What if I want the opposite of a statement?"
+			"label": "What if I want the opposite of a statement?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "858bfba331084765",
@@ -4081,7 +4138,8 @@
 			"fromSide": "right",
 			"toNode": "aca1683f391248b9",
 			"toSide": "left",
-			"label": "How do I systematically check all possible truth values?"
+			"label": "How do I systematically check all possible truth values?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "6c56563419f14619",
@@ -4089,7 +4147,8 @@
 			"fromSide": "right",
 			"toNode": "cafa10d662ce45b6",
 			"toSide": "left",
-			"label": "Can I evaluate AND/OR/NOT for concrete sets and predicates?"
+			"label": "Can I evaluate AND/OR/NOT for concrete sets and predicates?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "3bd318ca0f684542",
@@ -4097,7 +4156,8 @@
 			"fromSide": "right",
 			"toNode": "68966c6769b5457e",
 			"toSide": "left",
-			"label": "How does negation interact with conjunction and disjunction?"
+			"label": "How does negation interact with conjunction and disjunction?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "54c71f76cbfc42a0",
@@ -4105,7 +4165,8 @@
 			"fromSide": "right",
 			"toNode": "68966c6769b5457e",
 			"toSide": "left",
-			"label": "What happens when I negate an AND or an OR?"
+			"label": "What happens when I negate an AND or an OR?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "73c19713f54a4220",
@@ -4113,7 +4174,8 @@
 			"fromSide": "right",
 			"toNode": "9af4fb08e4574c62",
 			"toSide": "left",
-			"label": "Can I build a truth table for a compound expression?"
+			"label": "Can I build a truth table for a compound expression?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "a7b81b49afd2481e",
@@ -4121,7 +4183,8 @@
 			"fromSide": "right",
 			"toNode": "7a45800e18c8489a",
 			"toSide": "left",
-			"label": "Can I handle more complex truth tables?"
+			"label": "Can I handle more complex truth tables?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "d15ebff084934354",
@@ -4129,7 +4192,8 @@
 			"fromSide": "right",
 			"toNode": "6dd0b0500b754259",
 			"toSide": "left",
-			"label": "When do two different-looking statements say the same thing?"
+			"label": "When do two different-looking statements say the same thing?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "35641fee4f1f4de0",
@@ -4137,7 +4201,8 @@
 			"fromSide": "right",
 			"toNode": "71abb0ee87244392",
 			"toSide": "left",
-			"label": "Can I discover the negation rule for OR myself?"
+			"label": "Can I discover the negation rule for OR myself?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "1e9b8fd9489048e5",
@@ -4145,7 +4210,8 @@
 			"fromSide": "right",
 			"toNode": "6dd0b0500b754259",
 			"toSide": "left",
-			"label": "Do any of these statements have the same truth table?"
+			"label": "Do any of these statements have the same truth table?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "3dc5b11bf8ff4778",
@@ -4153,7 +4219,8 @@
 			"fromSide": "right",
 			"toNode": "77975c7d06d64d9b",
 			"toSide": "left",
-			"label": "How do I say 'this is true for everything'?"
+			"label": "How do I say 'this is true for everything'?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "70493343a3bf4578",
@@ -4161,7 +4228,8 @@
 			"fromSide": "right",
 			"toNode": "d64b17b3fce44f96",
 			"toSide": "left",
-			"label": "How do I say 'there is at least one thing like this'?"
+			"label": "How do I say 'there is at least one thing like this'?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "600fb96532874c2d",
@@ -4169,7 +4237,8 @@
 			"fromSide": "right",
 			"toNode": "88883293364d4d07",
 			"toSide": "left",
-			"label": "How do I actually prove a 'for all' statement?"
+			"label": "How do I actually prove a 'for all' statement?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "91f77cfb6991462f",
@@ -4177,7 +4246,8 @@
 			"fromSide": "right",
 			"toNode": "88883293364d4d07",
 			"toSide": "left",
-			"label": "How do I prove that something exists?"
+			"label": "How do I prove that something exists?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "28036edf1d94496c",
@@ -4185,7 +4255,8 @@
 			"fromSide": "right",
 			"toNode": "0c9719ae7d414615",
 			"toSide": "left",
-			"label": "Why does adding ∀ suddenly give me a true/false statement?"
+			"label": "Why does adding ∀ suddenly give me a true/false statement?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "42d72ae7e73d4fe4",
@@ -4193,7 +4264,8 @@
 			"fromSide": "right",
 			"toNode": "0c9719ae7d414615",
 			"toSide": "left",
-			"label": "Does ∃ also turn a predicate into a proposition?"
+			"label": "Does ∃ also turn a predicate into a proposition?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "e6cab6d1f1ae4963",
@@ -4201,7 +4273,8 @@
 			"fromSide": "right",
 			"toNode": "471ae24694464a54",
 			"toSide": "left",
-			"label": "What if I need two quantifiers in the same statement?"
+			"label": "What if I need two quantifiers in the same statement?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "06ebe2c3b5314e80",
@@ -4209,7 +4282,8 @@
 			"fromSide": "right",
 			"toNode": "471ae24694464a54",
 			"toSide": "left",
-			"label": "Can I have multiple ∃ in one statement?"
+			"label": "Can I have multiple ∃ in one statement?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "df9ebb912ed246d2",
@@ -4217,7 +4291,8 @@
 			"fromSide": "right",
 			"toNode": "e32c25e748714cc3",
 			"toSide": "left",
-			"label": "Does the order of different quantifiers matter?"
+			"label": "Does the order of different quantifiers matter?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "b443b31cce5c433f",
@@ -4225,7 +4300,8 @@
 			"fromSide": "right",
 			"toNode": "aa3df50efaaa416a",
 			"toSide": "left",
-			"label": "What is the opposite of 'everything satisfies P'?"
+			"label": "What is the opposite of 'everything satisfies P'?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "fda4eeb3e918462c",
@@ -4233,7 +4309,8 @@
 			"fromSide": "right",
 			"toNode": "aa3df50efaaa416a",
 			"toSide": "left",
-			"label": "How do I disprove a ∀ statement?"
+			"label": "How do I disprove a ∀ statement?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "a205a0f957ca4d8b",
@@ -4241,7 +4318,8 @@
 			"fromSide": "right",
 			"toNode": "6fdfa163b3354bb9",
 			"toSide": "left",
-			"label": "What about negating 'there exists'?"
+			"label": "What about negating 'there exists'?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "04c669aae68c4c68",
@@ -4249,7 +4327,8 @@
 			"fromSide": "right",
 			"toNode": "5b54807826f74cac",
 			"toSide": "left",
-			"label": "How is the hypothesis-conclusion structure expressed formally?"
+			"label": "How is the hypothesis-conclusion structure expressed formally?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "6e51206994484a87",
@@ -4257,7 +4336,8 @@
 			"fromSide": "right",
 			"toNode": "5b54807826f74cac",
 			"toSide": "left",
-			"label": "What is the truth table for 'if P then Q'?"
+			"label": "What is the truth table for 'if P then Q'?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "5bd9ac686e094ac1",
@@ -4265,7 +4345,8 @@
 			"fromSide": "right",
 			"toNode": "9d5b1d77ae7042cd",
 			"toSide": "left",
-			"label": "How can a chain of implications prove something for all integers?"
+			"label": "How can a chain of implications prove something for all integers?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "7e8dc17928034eeb",
@@ -4273,7 +4354,8 @@
 			"fromSide": "right",
 			"toNode": "dc7a1f49e8b14e9a",
 			"toSide": "left",
-			"label": "Why is 'if pigs fly then the sky is black' true?"
+			"label": "Why is 'if pigs fly then the sky is black' true?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "2372f976de9b4752",
@@ -4281,7 +4363,8 @@
 			"fromSide": "right",
 			"toNode": "9b5dafdbc9ab43a3",
 			"toSide": "left",
-			"label": "If P implies Q, does Q imply P?"
+			"label": "If P implies Q, does Q imply P?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "4c5996afb6c84fe9",
@@ -4289,7 +4372,8 @@
 			"fromSide": "right",
 			"toNode": "a1adedbfaa714062",
 			"toSide": "left",
-			"label": "Is there another statement always equivalent to P ⟹ Q?"
+			"label": "Is there another statement always equivalent to P ⟹ Q?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "04fcd9523595449e",
@@ -4297,7 +4381,8 @@
 			"fromSide": "right",
 			"toNode": "7fc34b7ae73042cd",
 			"toSide": "left",
-			"label": "Can I use the contrapositive to prove theorems?"
+			"label": "Can I use the contrapositive to prove theorems?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "0aedc86975c44e05",
@@ -4305,7 +4390,8 @@
 			"fromSide": "right",
 			"toNode": "8f3f830bf718451e",
 			"toSide": "left",
-			"label": "When IS the converse also true?"
+			"label": "When IS the converse also true?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "9936e8728705426c",
@@ -4313,7 +4399,8 @@
 			"fromSide": "right",
 			"toNode": "8f3f830bf718451e",
 			"toSide": "left",
-			"label": "What does it mean for two statements to imply each other?"
+			"label": "What does it mean for two statements to imply each other?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "60335963a4254222",
@@ -4321,7 +4408,8 @@
 			"fromSide": "right",
 			"toNode": "51263b35e5d24411",
 			"toSide": "left",
-			"label": "What do 'necessary' and 'sufficient' mean precisely?"
+			"label": "What do 'necessary' and 'sufficient' mean precisely?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "4f0aa8396a154b2c",
@@ -4329,7 +4417,8 @@
 			"fromSide": "right",
 			"toNode": "6c4ca3b581124c57",
 			"toSide": "left",
-			"label": "What is the negation of 'if P then Q'?"
+			"label": "What is the negation of 'if P then Q'?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "f828b6a3d3a748ff",
@@ -4337,7 +4426,8 @@
 			"fromSide": "right",
 			"toNode": "df8fffc247fa41c6",
 			"toSide": "left",
-			"label": "Does 'or' in math mean the same as in everyday English?"
+			"label": "Does 'or' in math mean the same as in everyday English?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "d3b5ee0fb4ff43a7",
@@ -4345,7 +4435,8 @@
 			"fromSide": "right",
 			"toNode": "d7b618b08dce4300",
 			"toSide": "left",
-			"label": "Does 'not' work the same way in math as in English?"
+			"label": "Does 'not' work the same way in math as in English?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "5fad6c0e018b41c2",
@@ -4353,7 +4444,8 @@
 			"fromSide": "right",
 			"toNode": "e94902b936ef4aff",
 			"toSide": "left",
-			"label": "Does 'if-then' in English work the same as in math?"
+			"label": "Does 'if-then' in English work the same as in math?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "260cd17d907d4504",
@@ -4361,7 +4453,8 @@
 			"fromSide": "right",
 			"toNode": "e94902b936ef4aff",
 			"toSide": "left",
-			"label": "Why does my mom's 'if you do the dishes...' feel like an iff?"
+			"label": "Why does my mom's 'if you do the dishes...' feel like an iff?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "644158a34ff24308",
@@ -4369,7 +4462,8 @@
 			"fromSide": "right",
 			"toNode": "bc769fee0a574256",
 			"toSide": "left",
-			"label": "Can I convert English sentences into quantifier notation?"
+			"label": "Can I convert English sentences into quantifier notation?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "1c1a45a3d46a43c5",
@@ -4377,7 +4471,8 @@
 			"fromSide": "right",
 			"toNode": "d000d99c2ba04dd7",
 			"toSide": "left",
-			"label": "Can I evaluate whether a quantified statement is true?"
+			"label": "Can I evaluate whether a quantified statement is true?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "1480064eeb6a43f6",
@@ -4385,7 +4480,8 @@
 			"fromSide": "right",
 			"toNode": "23bac3f884ca4352",
 			"toSide": "left",
-			"label": "Can I see the difference in a concrete example?"
+			"label": "Can I see the difference in a concrete example?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "32908b4c16864d5b",
@@ -4393,7 +4489,8 @@
 			"fromSide": "right",
 			"toNode": "eb3c46f4199c43ea",
 			"toSide": "left",
-			"label": "Can I find my own example where swapping quantifiers changes truth?"
+			"label": "Can I find my own example where swapping quantifiers changes truth?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "0207e6c52ba74145",
@@ -4401,7 +4498,8 @@
 			"fromSide": "right",
 			"toNode": "aac212e4b48f4178",
 			"toSide": "left",
-			"label": "Can I negate quantified sentences in practice?"
+			"label": "Can I negate quantified sentences in practice?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "a40571349d064c0e",
@@ -4409,7 +4507,8 @@
 			"fromSide": "right",
 			"toNode": "1fb33a2588364d40",
 			"toSide": "left",
-			"label": "Can I verify the equivalence with a truth table?"
+			"label": "Can I verify the equivalence with a truth table?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "104a02665bef4dbb",
@@ -4417,7 +4516,8 @@
 			"fromSide": "right",
 			"toNode": "9f4efa2710ae48b6",
 			"toSide": "left",
-			"label": "Can I prove 'n even iff n² even' using contrapositive?"
+			"label": "Can I prove 'n even iff n² even' using contrapositive?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "f8f0790b90804281",
@@ -4425,7 +4525,8 @@
 			"fromSide": "right",
 			"toNode": "35b742b8515c43d0",
 			"toSide": "left",
-			"label": "Can I verify the negation formula with a truth table?"
+			"label": "Can I verify the negation formula with a truth table?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "93a9e3663b324735",
@@ -4433,7 +4534,8 @@
 			"fromSide": "right",
 			"toNode": "fbd71eed7d3347a4",
 			"toSide": "left",
-			"label": "What happens when I negate a statement with many quantifiers and implications?"
+			"label": "What happens when I negate a statement with many quantifiers and implications?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "871ff307bb6944a9",
@@ -4441,7 +4543,8 @@
 			"fromSide": "right",
 			"toNode": "fbd71eed7d3347a4",
 			"toSide": "left",
-			"label": "How do I negate alternating quantifiers?"
+			"label": "How do I negate alternating quantifiers?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "b380f5721fd14ab0",
@@ -4449,7 +4552,8 @@
 			"fromSide": "right",
 			"toNode": "67760cc8d9db452a",
 			"toSide": "left",
-			"label": "Can I turn formal quantified statements into plain English?"
+			"label": "Can I turn formal quantified statements into plain English?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "40fe3713556940de",
@@ -4457,7 +4561,8 @@
 			"fromSide": "right",
 			"toNode": "08a7f860c719421d",
 			"toSide": "left",
-			"label": "Can I evaluate quantified statements about polynomials?"
+			"label": "Can I evaluate quantified statements about polynomials?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "375a51012ce14eca",
@@ -4465,7 +4570,8 @@
 			"fromSide": "right",
 			"toNode": "051149f6dd804b5c",
 			"toSide": "left",
-			"label": "Can I build truth tables for implications?"
+			"label": "Can I build truth tables for implications?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "696087858b3c4159",
@@ -4473,7 +4579,8 @@
 			"fromSide": "right",
 			"toNode": "051149f6dd804b5c",
 			"toSide": "left",
-			"label": "What does the iff truth table look like?"
+			"label": "What does the iff truth table look like?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "94318b31191a4a57",
@@ -4481,7 +4588,8 @@
 			"fromSide": "right",
 			"toNode": "9ac730666db744ce",
 			"toSide": "left",
-			"label": "Is P ⟹ (Q ⟹ R) the same as (P ⟹ Q) ⟹ R?"
+			"label": "Is P ⟹ (Q ⟹ R) the same as (P ⟹ Q) ⟹ R?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "9b895e52ea334265",
@@ -4489,7 +4597,8 @@
 			"fromSide": "right",
 			"toNode": "a965cf7f243a46fb",
 			"toSide": "left",
-			"label": "Can I negate statements with multiple quantifiers and implications?"
+			"label": "Can I negate statements with multiple quantifiers and implications?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "aa5b3cee906e409a",
@@ -4497,7 +4606,8 @@
 			"fromSide": "right",
 			"toNode": "a965cf7f243a46fb",
 			"toSide": "left",
-			"label": "How does quantifier negation chain with implication negation?"
+			"label": "How does quantifier negation chain with implication negation?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "e5d49e49787d42d0",
@@ -4505,7 +4615,8 @@
 			"fromSide": "right",
 			"toNode": "dc72e419c4e84cf6",
 			"toSide": "left",
-			"label": "Does 'for all P implies for all Q' mean the same as 'for all, P implies Q'?"
+			"label": "Does 'for all P implies for all Q' mean the same as 'for all, P implies Q'?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "8b0a39046dd94d23",
@@ -4513,7 +4624,8 @@
 			"fromSide": "right",
 			"toNode": "9abc50dd91a246bc",
 			"toSide": "left",
-			"label": "Can I negate a deeply nested formal statement?"
+			"label": "Can I negate a deeply nested formal statement?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "564d0ef2083a496b",
@@ -4521,7 +4633,8 @@
 			"fromSide": "right",
 			"toNode": "eac3628a4d8f44f4",
 			"toSide": "left",
-			"label": "Can I write the contrapositive and converse of English statements?"
+			"label": "Can I write the contrapositive and converse of English statements?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "832c0b758ad04113",
@@ -4529,7 +4642,8 @@
 			"fromSide": "right",
 			"toNode": "eac3628a4d8f44f4",
 			"toSide": "left",
-			"label": "Can I practice finding contrapositives?"
+			"label": "Can I practice finding contrapositives?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "f4cd7231085f4fe9",
@@ -4537,7 +4651,8 @@
 			"fromSide": "right",
 			"toNode": "124b6f0ae91b46f8",
 			"toSide": "left",
-			"label": "What if I can't build a direct chain from hypothesis to conclusion?"
+			"label": "What if I can't build a direct chain from hypothesis to conclusion?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "26c4a50dd5fd4e8e",
@@ -4545,7 +4660,8 @@
 			"fromSide": "right",
 			"toNode": "124b6f0ae91b46f8",
 			"toSide": "left",
-			"label": "Can I use negation to prove a statement is true?"
+			"label": "Can I use negation to prove a statement is true?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "e29af536e7894ffc",
@@ -4553,7 +4669,8 @@
 			"fromSide": "right",
 			"toNode": "124b6f0ae91b46f8",
 			"toSide": "left",
-			"label": "Is there a proof technique even stronger than contrapositive?"
+			"label": "Is there a proof technique even stronger than contrapositive?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "082d241ff8aa4ada",
@@ -4561,7 +4678,8 @@
 			"fromSide": "right",
 			"toNode": "24943a914fbf44a8",
 			"toSide": "left",
-			"label": "Does a contradiction proof tell me which case is true?"
+			"label": "Does a contradiction proof tell me which case is true?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "395726caf75449e3",
@@ -4569,7 +4687,8 @@
 			"fromSide": "right",
 			"toNode": "85c4d132da8a485b",
 			"toSide": "left",
-			"label": "Can I see contradiction in action on a famous result?"
+			"label": "Can I see contradiction in action on a famous result?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "5055af5eafef49a6",
@@ -4577,7 +4696,8 @@
 			"fromSide": "right",
 			"toNode": "85c4d132da8a485b",
 			"toSide": "left",
-			"label": "What can we do with 'n² even implies n even'?"
+			"label": "What can we do with 'n² even implies n even'?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "fea8a5cfc91f42c4",
@@ -4585,7 +4705,8 @@
 			"fromSide": "right",
 			"toNode": "85c4d132da8a485b",
 			"toSide": "left",
-			"label": "Are there numbers that aren't rational?"
+			"label": "Are there numbers that aren't rational?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "cfe73f8eb0054868",
@@ -4593,7 +4714,8 @@
 			"fromSide": "right",
 			"toNode": "cff214605c2041f1",
 			"toSide": "left",
-			"label": "What mathematical structure uses pairs from A × B?"
+			"label": "What mathematical structure uses pairs from A × B?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "d2a3f17127164161",
@@ -4601,7 +4723,8 @@
 			"fromSide": "right",
 			"toNode": "882ff94377e647d8",
 			"toSide": "left",
-			"label": "What if the two sets are the same?"
+			"label": "What if the two sets are the same?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "d869bd1a18a24076",
@@ -4609,7 +4732,8 @@
 			"fromSide": "right",
 			"toNode": "21c760740eaa4d09",
 			"toSide": "left",
-			"label": "How do I tell different types of relations apart?"
+			"label": "How do I tell different types of relations apart?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "ead9b7f72bf245d3",
@@ -4617,7 +4741,8 @@
 			"fromSide": "right",
 			"toNode": "b512b82aeefe400f",
 			"toSide": "left",
-			"label": "Are there more properties a relation can have?"
+			"label": "Are there more properties a relation can have?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "b55910b0b9424e11",
@@ -4625,7 +4750,8 @@
 			"fromSide": "right",
 			"toNode": "97b92a3d58814cf2",
 			"toSide": "left",
-			"label": "How do I check these properties in practice?"
+			"label": "How do I check these properties in practice?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "74e7ebc1ae15473b",
@@ -4633,7 +4759,8 @@
 			"fromSide": "right",
 			"toNode": "9bee55875d2941f3",
 			"toSide": "left",
-			"label": "Which combination of properties captures 'sameness'?"
+			"label": "Which combination of properties captures 'sameness'?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "cafc293a78f74c15",
@@ -4641,7 +4768,8 @@
 			"fromSide": "right",
 			"toNode": "9bee55875d2941f3",
 			"toSide": "left",
-			"label": "What combination makes a relation behave like equality?"
+			"label": "What combination makes a relation behave like equality?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "99c49fdad0b24251",
@@ -4652,7 +4780,8 @@
 			"label": "Double inclusion feels like equality — can we generalize equality itself?",
 			"styleAttributes": {
 				"pathfindingMethod": "direct"
-			}
+			},
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "6392554c667b4cea",
@@ -4663,7 +4792,8 @@
 			"label": "Can we build an equivalence relation from divisibility?",
 			"styleAttributes": {
 				"pathfindingMethod": "direct"
-			}
+			},
+			"edge_type": "analogy"
 		},
 		{
 			"id": "ee3ec49ee8e64232",
@@ -4671,7 +4801,8 @@
 			"fromSide": "right",
 			"toNode": "5cb53881ccef4e39",
 			"toSide": "left",
-			"label": "What do the 'equal' elements look like as a group?"
+			"label": "What do the 'equal' elements look like as a group?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "cb7ec4afad5041f1",
@@ -4682,7 +4813,8 @@
 			"label": "What do the equivalence classes look like for modular congruence?",
 			"styleAttributes": {
 				"pathfindingMethod": "direct"
-			}
+			},
+			"edge_type": "analogy"
 		},
 		{
 			"id": "a2629cfc42bc4641",
@@ -4690,7 +4822,8 @@
 			"fromSide": "right",
 			"toNode": "f42adf01af05497b",
 			"toSide": "left",
-			"label": "Can two different equivalence classes overlap?"
+			"label": "Can two different equivalence classes overlap?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "1fbcf88c413d4a52",
@@ -4698,7 +4831,8 @@
 			"fromSide": "right",
 			"toNode": "feb1358c66264018",
 			"toSide": "left",
-			"label": "Which combination of properties captures 'ordering'?"
+			"label": "Which combination of properties captures 'ordering'?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "eea6dab3066f4115",
@@ -4706,7 +4840,8 @@
 			"fromSide": "right",
 			"toNode": "feb1358c66264018",
 			"toSide": "left",
-			"label": "What distinguishes a total order from a partial one?"
+			"label": "What distinguishes a total order from a partial one?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "dc0dbbbcaf304466",
@@ -4714,7 +4849,8 @@
 			"fromSide": "right",
 			"toNode": "e575ad37de164b92",
 			"toSide": "left",
-			"label": "What is a set equipped with a partial order called?"
+			"label": "What is a set equipped with a partial order called?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "949da20da25c4e54",
@@ -4725,7 +4861,8 @@
 			"label": "Is '⊆' itself a kind of ordering?",
 			"styleAttributes": {
 				"pathfindingMethod": "direct"
-			}
+			},
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "7f6a96a206704307",
@@ -4733,7 +4870,8 @@
 			"fromSide": "right",
 			"toNode": "4e66fd0710a747ad",
 			"toSide": "left",
-			"label": "Which elements are 'at the top' of a partial order?"
+			"label": "Which elements are 'at the top' of a partial order?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "6e03ed19c18749aa",
@@ -4741,7 +4879,8 @@
 			"fromSide": "right",
 			"toNode": "e7984ce1439b418d",
 			"toSide": "left",
-			"label": "Is a maximal element the same as the maximum?"
+			"label": "Is a maximal element the same as the maximum?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "9e63bbdbe25045fc",
@@ -4749,7 +4888,8 @@
 			"fromSide": "right",
 			"toNode": "1a9913f23c09415c",
 			"toSide": "left",
-			"label": "What if I want to bound a subset, not just find extremes?"
+			"label": "What if I want to bound a subset, not just find extremes?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "22fed41bd4324327",
@@ -4757,7 +4897,8 @@
 			"fromSide": "right",
 			"toNode": "6615b84a816b4b67",
 			"toSide": "left",
-			"label": "Is there a 'best' upper or lower bound?"
+			"label": "Is there a 'best' upper or lower bound?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "decc7d7161c140d3",
@@ -4768,7 +4909,8 @@
 			"label": "Does every subset of Z⁺ have a least element?",
 			"styleAttributes": {
 				"pathfindingMethod": "direct"
-			}
+			},
+			"edge_type": "analogy"
 		},
 		{
 			"id": "d8b3b6ddefd94a5d",
@@ -4776,7 +4918,8 @@
 			"fromSide": "right",
 			"toNode": "da3a4fc9bfc441d3",
 			"toSide": "left",
-			"label": "Can I prove something doesn't exist using contradiction?"
+			"label": "Can I prove something doesn't exist using contradiction?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "a4d6755c8ea84bfa",
@@ -4784,7 +4927,8 @@
 			"fromSide": "right",
 			"toNode": "a48a8cf96cb34b46",
 			"toSide": "left",
-			"label": "Can I use contradiction to prove a set identity?"
+			"label": "Can I use contradiction to prove a set identity?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "c8a044c0cd244d20",
@@ -4792,7 +4936,8 @@
 			"fromSide": "right",
 			"toNode": "e3775c4c77ba4c83",
 			"toSide": "left",
-			"label": "Can I show other equations have no rational solutions?"
+			"label": "Can I show other equations have no rational solutions?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "5c4c287c5ca3445d",
@@ -4800,7 +4945,8 @@
 			"fromSide": "right",
 			"toNode": "8860fafed25742d0",
 			"toSide": "left",
-			"label": "What subset of A × A represents equality?"
+			"label": "What subset of A × A represents equality?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "2252423fb8904d83",
@@ -4808,7 +4954,8 @@
 			"fromSide": "right",
 			"toNode": "20b63a05c8c44e0c",
 			"toSide": "left",
-			"label": "Can a relation between different sets be left-total and functional?"
+			"label": "Can a relation between different sets be left-total and functional?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "b0649854b0514b1a",
@@ -4816,7 +4963,8 @@
 			"fromSide": "right",
 			"toNode": "289ea4c5b77946e1",
 			"toSide": "left",
-			"label": "Which properties does divisibility satisfy?"
+			"label": "Which properties does divisibility satisfy?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "a42eb50459394906",
@@ -4824,7 +4972,8 @@
 			"fromSide": "right",
 			"toNode": "b5d1f6d53ee043f1",
 			"toSide": "left",
-			"label": "Can I verify an equivalence relation on ordered pairs?"
+			"label": "Can I verify an equivalence relation on ordered pairs?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "78473a2db9204e41",
@@ -4832,7 +4981,8 @@
 			"fromSide": "right",
 			"toNode": "88088cc9279443b1",
 			"toSide": "left",
-			"label": "What basic properties do equivalence classes always have?"
+			"label": "What basic properties do equivalence classes always have?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "d91d16c4a7dd421e",
@@ -4840,7 +4990,8 @@
 			"fromSide": "right",
 			"toNode": "e8fd50d828f44735",
 			"toSide": "left",
-			"label": "Can I find the maximal elements in a concrete poset?"
+			"label": "Can I find the maximal elements in a concrete poset?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "fb3557e9df314f6d",
@@ -4848,7 +4999,8 @@
 			"fromSide": "right",
 			"toNode": "5f35d0336de448a7",
 			"toSide": "left",
-			"label": "What about the bottom — what are the minimal elements?"
+			"label": "What about the bottom — what are the minimal elements?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "d831cd50287b48ce",
@@ -4856,7 +5008,8 @@
 			"fromSide": "right",
 			"toNode": "8c832d2f929d4ae8",
 			"toSide": "left",
-			"label": "Can a poset have maximal elements but no maximum?"
+			"label": "Can a poset have maximal elements but no maximum?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "292bcab5ae59496c",
@@ -4864,7 +5017,8 @@
 			"fromSide": "right",
 			"toNode": "5721c534625d4118",
 			"toSide": "left",
-			"label": "Can I find bounds for a concrete set?"
+			"label": "Can I find bounds for a concrete set?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "2a8e0db06c7d416a",
@@ -4872,7 +5026,8 @@
 			"fromSide": "right",
 			"toNode": "e024987425474215",
 			"toSide": "left",
-			"label": "Can I apply contradiction to several different problems?"
+			"label": "Can I apply contradiction to several different problems?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "c1f91616c49a4458",
@@ -4880,7 +5035,8 @@
 			"fromSide": "right",
 			"toNode": "e024987425474215",
 			"toSide": "left",
-			"label": "Can I generalize the √2 argument to other primes?"
+			"label": "Can I generalize the √2 argument to other primes?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "6b09c5e11f874eae",
@@ -4888,7 +5044,8 @@
 			"fromSide": "right",
 			"toNode": "e9ba4db5bed94733",
 			"toSide": "left",
-			"label": "Can I classify many relations at once?"
+			"label": "Can I classify many relations at once?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "da91db9ac8b14f6e",
@@ -4896,7 +5053,8 @@
 			"fromSide": "right",
 			"toNode": "b248926ba1d94a55",
 			"toSide": "left",
-			"label": "Which of these relations are equivalence relations?"
+			"label": "Which of these relations are equivalence relations?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "f8eb67f50f774357",
@@ -4904,7 +5062,8 @@
 			"fromSide": "right",
 			"toNode": "bff5a650c50c4229",
 			"toSide": "left",
-			"label": "Which of these relations are order relations?"
+			"label": "Which of these relations are order relations?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "5955c5380bb44215",
@@ -4912,7 +5071,8 @@
 			"fromSide": "right",
 			"toNode": "f455fdcad0b74152",
 			"toSide": "left",
-			"label": "Can I build an equivalence relation from a function?"
+			"label": "Can I build an equivalence relation from a function?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "6be31a5aeba742dc",
@@ -4920,7 +5080,8 @@
 			"fromSide": "right",
 			"toNode": "6113ae3c9d684fdf",
 			"toSide": "left",
-			"label": "Can equivalence classes construct new number systems?"
+			"label": "Can equivalence classes construct new number systems?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "0d5dfdddbcc84ed9",
@@ -4928,7 +5089,8 @@
 			"fromSide": "right",
 			"toNode": "4b754afcb4f04478",
 			"toSide": "left",
-			"label": "Can I find sup and inf in a non-numeric poset?"
+			"label": "Can I find sup and inf in a non-numeric poset?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "273be5b959fc4059",
@@ -4936,7 +5098,8 @@
 			"fromSide": "right",
 			"toNode": "34b83abcb41444be",
 			"toSide": "left",
-			"label": "What kind of relation is both left-total and functional?"
+			"label": "What kind of relation is both left-total and functional?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "5c7a3fd9abc04102",
@@ -4944,7 +5107,8 @@
 			"fromSide": "right",
 			"toNode": "34b83abcb41444be",
 			"toSide": "left",
-			"label": "Can a relation do more than compare — can it assign?"
+			"label": "Can a relation do more than compare — can it assign?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "fd644445a2f94d9a",
@@ -4952,7 +5116,8 @@
 			"fromSide": "right",
 			"toNode": "9fda468bff75448b",
 			"toSide": "left",
-			"label": "How do mathematicians actually write functions?"
+			"label": "How do mathematicians actually write functions?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "cb4a434ac44a42a8",
@@ -4960,7 +5125,8 @@
 			"fromSide": "right",
 			"toNode": "035b95e87ae44d69",
 			"toSide": "left",
-			"label": "What are all the parts of a function's description?"
+			"label": "What are all the parts of a function's description?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "2a6426e96b7a457e",
@@ -4968,7 +5134,8 @@
 			"fromSide": "right",
 			"toNode": "a72e7e26f2554e8d",
 			"toSide": "left",
-			"label": "When are two functions the same?"
+			"label": "When are two functions the same?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "7c023b64de15440a",
@@ -4976,7 +5143,8 @@
 			"fromSide": "right",
 			"toNode": "6fd26cf062474094",
 			"toSide": "left",
-			"label": "What outputs does a function actually produce from a given input set?"
+			"label": "What outputs does a function actually produce from a given input set?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "acca1f66e7e8466a",
@@ -4984,7 +5152,8 @@
 			"fromSide": "right",
 			"toNode": "6fd26cf062474094",
 			"toSide": "left",
-			"label": "Can I describe the output set of a function using set-builder?"
+			"label": "Can I describe the output set of a function using set-builder?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "2289c8f44fda41ee",
@@ -4992,7 +5161,8 @@
 			"fromSide": "right",
 			"toNode": "4ee899024cb04171",
 			"toSide": "left",
-			"label": "Can I go backwards — which inputs land in a given output set?"
+			"label": "Can I go backwards — which inputs land in a given output set?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "f9bd33add31a45a6",
@@ -5000,7 +5170,8 @@
 			"fromSide": "right",
 			"toNode": "17942a969bcc4a28",
 			"toSide": "left",
-			"label": "When does each output come from a unique input?"
+			"label": "When does each output come from a unique input?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "62466bcaf9da4b7c",
@@ -5008,7 +5179,8 @@
 			"fromSide": "right",
 			"toNode": "ee8683ba138a49f7",
 			"toSide": "left",
-			"label": "How do I prove a function is injective?"
+			"label": "How do I prove a function is injective?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "4c14e29f52a648de",
@@ -5016,7 +5188,8 @@
 			"fromSide": "right",
 			"toNode": "1843847a45044610",
 			"toSide": "left",
-			"label": "When does a function hit every element of its codomain?"
+			"label": "When does a function hit every element of its codomain?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "b772f5a02f00430f",
@@ -5024,7 +5197,8 @@
 			"fromSide": "right",
 			"toNode": "a39f108097274d90",
 			"toSide": "left",
-			"label": "How do I prove a function is surjective?"
+			"label": "How do I prove a function is surjective?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "e104ac1d0a444e90",
@@ -5032,7 +5206,8 @@
 			"fromSide": "right",
 			"toNode": "d3e8aee36fc44aba",
 			"toSide": "left",
-			"label": "What if a function is both injective and surjective?"
+			"label": "What if a function is both injective and surjective?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "ab74ce162ab14d8b",
@@ -5040,7 +5215,8 @@
 			"fromSide": "right",
 			"toNode": "d3e8aee36fc44aba",
 			"toSide": "left",
-			"label": "Can I combine injectivity and surjectivity?"
+			"label": "Can I combine injectivity and surjectivity?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "c31516e947034e68",
@@ -5048,7 +5224,8 @@
 			"fromSide": "right",
 			"toNode": "6de08b2f210f48b8",
 			"toSide": "left",
-			"label": "Do the bijections on a set form a group under composition?"
+			"label": "Do the bijections on a set form a group under composition?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "df3eb8632bd04765",
@@ -5056,7 +5233,8 @@
 			"fromSide": "right",
 			"toNode": "a5e521d3d63d41d4",
 			"toSide": "left",
-			"label": "If I compose two injective functions, is the result injective?"
+			"label": "If I compose two injective functions, is the result injective?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "46cef2b19113460a",
@@ -5064,7 +5242,8 @@
 			"fromSide": "right",
 			"toNode": "096dd1ac870b49e2",
 			"toSide": "left",
-			"label": "If I compose two surjective functions, is the result surjective?"
+			"label": "If I compose two surjective functions, is the result surjective?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "d91bc5030adc47d0",
@@ -5072,7 +5251,8 @@
 			"fromSide": "right",
 			"toNode": "389db88ec8f24209",
 			"toSide": "left",
-			"label": "Does every subset of A × B define a function?"
+			"label": "Does every subset of A × B define a function?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "ffb503f37d0045fb",
@@ -5080,7 +5260,8 @@
 			"fromSide": "right",
 			"toNode": "016d29dccefb4a22",
 			"toSide": "left",
-			"label": "What happens at the extremes — can a domain or codomain be empty?"
+			"label": "What happens at the extremes — can a domain or codomain be empty?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "2f567cf75c38441d",
@@ -5088,7 +5269,8 @@
 			"fromSide": "right",
 			"toNode": "589d78ac01fc4ca5",
 			"toSide": "left",
-			"label": "Can two functions with the same rule but different data be equal?"
+			"label": "Can two functions with the same rule but different data be equal?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "11678940d19b46bd",
@@ -5096,7 +5278,8 @@
 			"fromSide": "right",
 			"toNode": "1ea52bc745874ab0",
 			"toSide": "left",
-			"label": "Can I compute a preimage for a specific function?"
+			"label": "Can I compute a preimage for a specific function?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "2505b11348bd4c0d",
@@ -5104,7 +5287,8 @@
 			"fromSide": "right",
 			"toNode": "b1f9f8a20b61416c",
 			"toSide": "left",
-			"label": "Can I compute the image of a geometric object?"
+			"label": "Can I compute the image of a geometric object?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "cc1ce530d505462c",
@@ -5112,7 +5296,8 @@
 			"fromSide": "right",
 			"toNode": "7d00a3c5b9734f09",
 			"toSide": "left",
-			"label": "Can I determine injectivity/surjectivity for specific functions?"
+			"label": "Can I determine injectivity/surjectivity for specific functions?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "75418a19a86d4e6f",
@@ -5120,7 +5305,8 @@
 			"fromSide": "right",
 			"toNode": "7d00a3c5b9734f09",
 			"toSide": "left",
-			"label": "Can I classify concrete functions?"
+			"label": "Can I classify concrete functions?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "2fffa25b1c6e4146",
@@ -5128,7 +5314,8 @@
 			"fromSide": "right",
 			"toNode": "60f3cb3b5f3042c6",
 			"toSide": "left",
-			"label": "If the composition is injective, must the parts be?"
+			"label": "If the composition is injective, must the parts be?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "ae5d45a4874d4df9",
@@ -5136,7 +5323,8 @@
 			"fromSide": "right",
 			"toNode": "60af0165f47341d6",
 			"toSide": "left",
-			"label": "If the composition is surjective, must the parts be?"
+			"label": "If the composition is surjective, must the parts be?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "a0393d7ec53f43e4",
@@ -5144,7 +5332,8 @@
 			"fromSide": "right",
 			"toNode": "dfbd75dda1e84e83",
 			"toSide": "left",
-			"label": "Which of the functions we've seen are bijective?"
+			"label": "Which of the functions we've seen are bijective?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "a58fea137147407f",
@@ -5152,7 +5341,8 @@
 			"fromSide": "right",
 			"toNode": "fb689f7b136e4502",
 			"toSide": "left",
-			"label": "Can I compute images for different functions?"
+			"label": "Can I compute images for different functions?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "4f61b437ced0407a",
@@ -5160,7 +5350,8 @@
 			"fromSide": "right",
 			"toNode": "fb689f7b136e4502",
 			"toSide": "left",
-			"label": "Can I compute preimages in higher dimensions?"
+			"label": "Can I compute preimages in higher dimensions?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "8c2640f0df694d36",
@@ -5168,7 +5359,8 @@
 			"fromSide": "right",
 			"toNode": "283e285a3d694f82",
 			"toSide": "left",
-			"label": "Does the image respect set intersection?"
+			"label": "Does the image respect set intersection?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "4265450d04434f98",
@@ -5176,7 +5368,8 @@
 			"fromSide": "right",
 			"toNode": "0c7afdde0e2a4923",
 			"toSide": "left",
-			"label": "Does the image respect set union?"
+			"label": "Does the image respect set union?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "bd38f4bb14454efa",
@@ -5184,7 +5377,8 @@
 			"fromSide": "right",
 			"toNode": "3de4d0ceb54f4b6b",
 			"toSide": "left",
-			"label": "Can I handle more challenging injectivity/surjectivity questions?"
+			"label": "Can I handle more challenging injectivity/surjectivity questions?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "bc6c2872aebb4d55",
@@ -5192,7 +5386,8 @@
 			"fromSide": "right",
 			"toNode": "56438bf1ab614cf6",
 			"toSide": "left",
-			"label": "Does forming a product of functions preserve injectivity?"
+			"label": "Does forming a product of functions preserve injectivity?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "4f690147cec149d4",
@@ -5200,7 +5395,8 @@
 			"fromSide": "right",
 			"toNode": "04fac8d798fb4d6f",
 			"toSide": "left",
-			"label": "Does strictly increasing imply injective?"
+			"label": "Does strictly increasing imply injective?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "8e0e3dff66f04447",
@@ -5208,7 +5404,8 @@
 			"fromSide": "right",
 			"toNode": "15a6dfde03274aac",
 			"toSide": "left",
-			"label": "Can I build a bijection between two abstract infinite sets?"
+			"label": "Can I build a bijection between two abstract infinite sets?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "3473ea32236c4cd1",
@@ -5216,7 +5413,8 @@
 			"fromSide": "right",
 			"toNode": "57e644f7df434394",
 			"toSide": "left",
-			"label": "Before inverses, what is an identity element?"
+			"label": "Before inverses, what is an identity element?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "6642b34246204298",
@@ -5224,7 +5422,8 @@
 			"fromSide": "right",
 			"toNode": "d99bc1e8b9e940d7",
 			"toSide": "left",
-			"label": "What if we require associativity, identity, and inverses all at once?"
+			"label": "What if we require associativity, identity, and inverses all at once?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "b8a5c722f8a64bdb",
@@ -5232,7 +5431,8 @@
 			"fromSide": "right",
 			"toNode": "6cd583b11f3b4989",
 			"toSide": "left",
-			"label": "Given an identity, what undoes an operation?"
+			"label": "Given an identity, what undoes an operation?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "c5a5ccff65d44548",
@@ -5240,7 +5440,8 @@
 			"fromSide": "right",
 			"toNode": "d99bc1e8b9e940d7",
 			"toSide": "left",
-			"label": "What structure do we get when every element has an inverse?"
+			"label": "What structure do we get when every element has an inverse?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "4372e1ec80ff425c",
@@ -5248,7 +5449,8 @@
 			"fromSide": "right",
 			"toNode": "381d74a6bc2a43b3",
 			"toSide": "left",
-			"label": "What is the 'operation' for functions?"
+			"label": "What is the 'operation' for functions?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "d67533d705974be0",
@@ -5256,7 +5458,8 @@
 			"fromSide": "right",
 			"toNode": "6de08b2f210f48b8",
 			"toSide": "left",
-			"label": "Does the set of all bijections under composition have special structure?"
+			"label": "Does the set of all bijections under composition have special structure?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "1e2038dee2ba47d9",
@@ -5264,7 +5467,8 @@
 			"fromSide": "right",
 			"toNode": "1791f36b27bd4358",
 			"toSide": "left",
-			"label": "What undoes a function composition?"
+			"label": "What undoes a function composition?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "5e106b9b111a4c24",
@@ -5272,7 +5476,8 @@
 			"fromSide": "right",
 			"toNode": "9a288ba2ef0f4d10",
 			"toSide": "left",
-			"label": "When does an inverse actually exist?"
+			"label": "When does an inverse actually exist?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "1745c3f219cc4c84",
@@ -5280,7 +5485,8 @@
 			"fromSide": "right",
 			"toNode": "9a288ba2ef0f4d10",
 			"toSide": "left",
-			"label": "Is bijectivity related to reversing a function?"
+			"label": "Is bijectivity related to reversing a function?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "5df77ee3c41f4e64",
@@ -5288,7 +5494,8 @@
 			"fromSide": "right",
 			"toNode": "1a836a7dae99433e",
 			"toSide": "left",
-			"label": "Can bijections measure size?"
+			"label": "Can bijections measure size?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "a7b53203928f45a6",
@@ -5296,7 +5503,8 @@
 			"fromSide": "right",
 			"toNode": "1a836a7dae99433e",
 			"toSide": "left",
-			"label": "Can injectivity tell us about the sizes of sets?"
+			"label": "Can injectivity tell us about the sizes of sets?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "6a139dec7fed4e67",
@@ -5304,7 +5512,8 @@
 			"fromSide": "right",
 			"toNode": "1a836a7dae99433e",
 			"toSide": "left",
-			"label": "What does surjectivity say about relative size?"
+			"label": "What does surjectivity say about relative size?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "2b1875d36bdc4ce9",
@@ -5312,7 +5521,8 @@
 			"fromSide": "right",
 			"toNode": "77f8db9db521404c",
 			"toSide": "left",
-			"label": "When do two sets have the same cardinality?"
+			"label": "When do two sets have the same cardinality?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "e5fc545b9c5045e9",
@@ -5320,7 +5530,8 @@
 			"fromSide": "right",
 			"toNode": "d9972113948d404f",
 			"toSide": "left",
-			"label": "Can an infinite set have the same cardinality as a proper subset?"
+			"label": "Can an infinite set have the same cardinality as a proper subset?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "055d1cbf88434b75",
@@ -5328,7 +5539,8 @@
 			"fromSide": "right",
 			"toNode": "159c28a5dfec478b",
 			"toSide": "left",
-			"label": "Is there a name for sets with |S| <= |N|?"
+			"label": "Is there a name for sets with |S| <= |N|?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "2c7e2f6cb8344857",
@@ -5336,7 +5548,8 @@
 			"fromSide": "right",
 			"toNode": "eab10d2d1e374308",
 			"toSide": "left",
-			"label": "Is Z countable?"
+			"label": "Is Z countable?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "994778e952c14cf1",
@@ -5344,7 +5557,8 @@
 			"fromSide": "right",
 			"toNode": "eab10d2d1e374308",
 			"toSide": "left",
-			"label": "Do Z, Q, R all have the same size?"
+			"label": "Do Z, Q, R all have the same size?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "253ed8f084864863",
@@ -5352,7 +5566,8 @@
 			"fromSide": "right",
 			"toNode": "a1dd2c6cc79e4a38",
 			"toSide": "left",
-			"label": "What about Q -- is it countable too?"
+			"label": "What about Q -- is it countable too?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "93ecbc12235143b0",
@@ -5360,7 +5575,8 @@
 			"fromSide": "right",
 			"toNode": "edfa68110aa541c6",
 			"toSide": "left",
-			"label": "Does this pattern continue -- are all infinite sets countable?"
+			"label": "Does this pattern continue -- are all infinite sets countable?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "68c46dfb48794306",
@@ -5368,7 +5584,8 @@
 			"fromSide": "right",
 			"toNode": "edfa68110aa541c6",
 			"toSide": "left",
-			"label": "The diagonal argument is a contradiction proof -- what does it show?"
+			"label": "The diagonal argument is a contradiction proof -- what does it show?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "74b90e462ab0436a",
@@ -5376,7 +5593,8 @@
 			"fromSide": "right",
 			"toNode": "14a6d32a71a94826",
 			"toSide": "left",
-			"label": "Why can't I diagonalize the rationals the same way?"
+			"label": "Why can't I diagonalize the rationals the same way?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "92aeb4941ef84b17",
@@ -5384,7 +5602,8 @@
 			"fromSide": "right",
 			"toNode": "617159e4f253463c",
 			"toSide": "left",
-			"label": "If I have injections both ways, do I get a bijection?"
+			"label": "If I have injections both ways, do I get a bijection?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "134aeda183144e53",
@@ -5392,7 +5611,8 @@
 			"fromSide": "right",
 			"toNode": "6e2f53ca946b4893",
 			"toSide": "left",
-			"label": "Is there always a bigger set?"
+			"label": "Is there always a bigger set?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "36226241a9a644f3",
@@ -5400,7 +5620,8 @@
 			"fromSide": "right",
 			"toNode": "6e2f53ca946b4893",
 			"toSide": "left",
-			"label": "Can I build a set whose elements are themselves sets?"
+			"label": "Can I build a set whose elements are themselves sets?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "f5c779c0671a47b8",
@@ -5408,7 +5629,8 @@
 			"fromSide": "right",
 			"toNode": "18cd98fae500491c",
 			"toSide": "left",
-			"label": "Is the power set always strictly larger?"
+			"label": "Is the power set always strictly larger?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "6236f9b1feb84f0c",
@@ -5416,7 +5638,8 @@
 			"fromSide": "right",
 			"toNode": "53ba92aa14354ef7",
 			"toSide": "left",
-			"label": "Can I keep taking power sets forever -- is there a set of all sets?"
+			"label": "Can I keep taking power sets forever -- is there a set of all sets?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "26e64c53c3534689",
@@ -5424,7 +5647,8 @@
 			"fromSide": "right",
 			"toNode": "3413f7947f704fac",
 			"toSide": "left",
-			"label": "Can I find inverses for specific functions?"
+			"label": "Can I find inverses for specific functions?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "bfa895ba21e04489",
@@ -5432,7 +5656,8 @@
 			"fromSide": "right",
 			"toNode": "cc703acb9f9b400b",
 			"toSide": "left",
-			"label": "What if only one direction of composition gives the identity?"
+			"label": "What if only one direction of composition gives the identity?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "734218c3c83e40d2",
@@ -5440,7 +5665,8 @@
 			"fromSide": "right",
 			"toNode": "dbb3c27a38b64354",
 			"toSide": "left",
-			"label": "Can I prove the forward direction myself?"
+			"label": "Can I prove the forward direction myself?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "628bc56700dd4262",
@@ -5448,7 +5674,8 @@
 			"fromSide": "right",
 			"toNode": "cef7162b71af4a87",
 			"toSide": "left",
-			"label": "Does S subset T imply |S| <= |T|?"
+			"label": "Does S subset T imply |S| <= |T|?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "4bc2dcf3bcb34557",
@@ -5456,7 +5683,8 @@
 			"fromSide": "right",
 			"toNode": "ef5b248bf6fd403b",
 			"toSide": "left",
-			"label": "Can I show (0,1) has the same cardinality as all of R?"
+			"label": "Can I show (0,1) has the same cardinality as all of R?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "9290d493b2784781",
@@ -5464,7 +5692,8 @@
 			"fromSide": "right",
 			"toNode": "b166f27c64ad414d",
 			"toSide": "left",
-			"label": "Does this generalize to any interval?"
+			"label": "Does this generalize to any interval?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "15d71e884b8444a7",
@@ -5472,7 +5701,8 @@
 			"fromSide": "right",
 			"toNode": "b166f27c64ad414d",
 			"toSide": "left",
-			"label": "Can CSB simplify cardinality proofs?"
+			"label": "Can CSB simplify cardinality proofs?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "ed983273cce74285",
@@ -5480,7 +5710,8 @@
 			"fromSide": "right",
 			"toNode": "c77be9e61b3240e3",
 			"toSide": "left",
-			"label": "Is N x N countable?"
+			"label": "Is N x N countable?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "9ec7cb18ec5c425e",
@@ -5488,7 +5719,8 @@
 			"fromSide": "right",
 			"toNode": "faf087bbc0e54f51",
 			"toSide": "left",
-			"label": "Can I determine invertibility for more complex functions?"
+			"label": "Can I determine invertibility for more complex functions?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "80f74d4b81a14886",
@@ -5496,7 +5728,8 @@
 			"fromSide": "right",
 			"toNode": "faf087bbc0e54f51",
 			"toSide": "left",
-			"label": "Can I use the bijectivity criterion?"
+			"label": "Can I use the bijectivity criterion?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "dfd1ab53ccfc42ea",
@@ -5504,7 +5737,8 @@
 			"fromSide": "right",
 			"toNode": "752d69b5ece9449e",
 			"toSide": "left",
-			"label": "Can one-sided inverses characterize injectivity/surjectivity?"
+			"label": "Can one-sided inverses characterize injectivity/surjectivity?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "254a04102cf3430f",
@@ -5512,7 +5746,8 @@
 			"fromSide": "right",
 			"toNode": "752d69b5ece9449e",
 			"toSide": "left",
-			"label": "Is there an inverse characterization of injectivity?"
+			"label": "Is there an inverse characterization of injectivity?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "ac1a8c6dc6d34b1f",
@@ -5520,7 +5755,8 @@
 			"fromSide": "right",
 			"toNode": "752d69b5ece9449e",
 			"toSide": "left",
-			"label": "Is there an inverse characterization of surjectivity?"
+			"label": "Is there an inverse characterization of surjectivity?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "1c08519b647c4503",
@@ -5528,7 +5764,8 @@
 			"fromSide": "right",
 			"toNode": "12eb63719dfb443a",
 			"toSide": "left",
-			"label": "Can I construct bijections between specific sets?"
+			"label": "Can I construct bijections between specific sets?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "60914da42e794c7e",
@@ -5536,7 +5773,8 @@
 			"fromSide": "right",
 			"toNode": "6a9d8d0314494e1d",
 			"toSide": "left",
-			"label": "Can I apply these cardinality tools to harder problems?"
+			"label": "Can I apply these cardinality tools to harder problems?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "359afdc471924eb5",
@@ -5544,7 +5782,8 @@
 			"fromSide": "right",
 			"toNode": "6a9d8d0314494e1d",
 			"toSide": "left",
-			"label": "Can I relate binary strings to real numbers?"
+			"label": "Can I relate binary strings to real numbers?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "66cd18792b474e02",
@@ -5552,7 +5791,8 @@
 			"fromSide": "right",
 			"toNode": "10e22b2a6d324f3d",
 			"toSide": "left",
-			"label": "Are the algebraic numbers countable?"
+			"label": "Are the algebraic numbers countable?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "2cde0b47ae314964",
@@ -5560,7 +5800,8 @@
 			"fromSide": "right",
 			"toNode": "75ce1ff7ce764396",
 			"toSide": "left",
-			"label": "What can we deduce from divisibility alone?"
+			"label": "What can we deduce from divisibility alone?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "ed090f06fbd14f70",
@@ -5568,7 +5809,8 @@
 			"fromSide": "right",
 			"toNode": "ce95e909cb804fe2",
 			"toSide": "left",
-			"label": "What happens when zero is involved?"
+			"label": "What happens when zero is involved?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "14984b1bf23d43b0",
@@ -5576,7 +5818,8 @@
 			"fromSide": "right",
 			"toNode": "931b1ff58a9e4e7f",
 			"toSide": "left",
-			"label": "What if we only care about remainders, not exact divisibility?"
+			"label": "What if we only care about remainders, not exact divisibility?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "752bc88bb2104f4c",
@@ -5584,7 +5827,8 @@
 			"fromSide": "right",
 			"toNode": "86033518c38e47e4",
 			"toSide": "left",
-			"label": "What foundational property of Z⁺ helps prove deeper results?"
+			"label": "What foundational property of Z⁺ helps prove deeper results?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "31a1a1ace8cf4342",
@@ -5592,7 +5836,8 @@
 			"fromSide": "right",
 			"toNode": "4d0da0befd464678",
 			"toSide": "left",
-			"label": "Can I prove the remaining properties myself?"
+			"label": "Can I prove the remaining properties myself?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "f305345eb5b74f51",
@@ -5600,7 +5845,8 @@
 			"fromSide": "right",
 			"toNode": "adefc22d281a49c7",
 			"toSide": "left",
-			"label": "Can I prove divisibility identities involving products and cancellation?"
+			"label": "Can I prove divisibility identities involving products and cancellation?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "039975713144404c",
@@ -5608,7 +5854,8 @@
 			"fromSide": "right",
 			"toNode": "3e6845c41d74423a",
 			"toSide": "left",
-			"label": "Can I apply divisibility properties to simplify a gcd expression?"
+			"label": "Can I apply divisibility properties to simplify a gcd expression?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "0328ab59677a4596",
@@ -5616,7 +5863,8 @@
 			"fromSide": "right",
 			"toNode": "302fb18538554a91",
 			"toSide": "left",
-			"label": "Can we formalize remainders using the least element property?"
+			"label": "Can we formalize remainders using the least element property?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "fd8a195e447a4062",
@@ -5624,7 +5872,8 @@
 			"fromSide": "right",
 			"toNode": "4ac2831dc87540f2",
 			"toSide": "left",
-			"label": "Can WOP prove that prime factorizations exist?"
+			"label": "Can WOP prove that prime factorizations exist?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "35b7a41aad2d407b",
@@ -5632,7 +5881,8 @@
 			"fromSide": "right",
 			"toNode": "9d5b1d77ae7042cd",
 			"toSide": "left",
-			"label": "Can the Well-Ordering Principle justify a chain-of-implications proof strategy?"
+			"label": "Can the Well-Ordering Principle justify a chain-of-implications proof strategy?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "2c6182767c0744ce",
@@ -5640,7 +5890,8 @@
 			"fromSide": "right",
 			"toNode": "06b638289ea746e4",
 			"toSide": "left",
-			"label": "How can remainders help prove divisibility results?"
+			"label": "How can remainders help prove divisibility results?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "03fa5d9a2f984b73",
@@ -5648,7 +5899,8 @@
 			"fromSide": "right",
 			"toNode": "ba79268350a8424c",
 			"toSide": "left",
-			"label": "Is there a way to measure the common structure between two numbers?"
+			"label": "Is there a way to measure the common structure between two numbers?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "e1f8e957f5cb4498",
@@ -5656,7 +5908,8 @@
 			"fromSide": "right",
 			"toNode": "931b1ff58a9e4e7f",
 			"toSide": "left",
-			"label": "Can we formalize the idea that two numbers give the same remainder?"
+			"label": "Can we formalize the idea that two numbers give the same remainder?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "0bf1230818cf46b4",
@@ -5664,7 +5917,8 @@
 			"fromSide": "right",
 			"toNode": "b8dfd48c1760475a",
 			"toSide": "left",
-			"label": "Is there a faster proof using factoring?"
+			"label": "Is there a faster proof using factoring?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "86af93a266244b3b",
@@ -5672,7 +5926,8 @@
 			"fromSide": "right",
 			"toNode": "4da5706d02f247e7",
 			"toSide": "left",
-			"label": "Can I use remainders for other divisibility problems?"
+			"label": "Can I use remainders for other divisibility problems?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "2aac58f8725e411e",
@@ -5680,7 +5935,8 @@
 			"fromSide": "right",
 			"toNode": "6ebbc8133dfe47cc",
 			"toSide": "left",
-			"label": "Can the Division Algorithm simplify computing gcds?"
+			"label": "Can the Division Algorithm simplify computing gcds?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "d92c043c9e0e4542",
@@ -5688,7 +5944,8 @@
 			"fromSide": "right",
 			"toNode": "97f60471dc6d4e5e",
 			"toSide": "left",
-			"label": "What special role do numbers with no nontrivial divisors play?"
+			"label": "What special role do numbers with no nontrivial divisors play?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "7cc0f3697bd84001",
@@ -5696,7 +5953,8 @@
 			"fromSide": "right",
 			"toNode": "2047d53d74b74d19",
 			"toSide": "left",
-			"label": "Can I compute a gcd by hand?"
+			"label": "Can I compute a gcd by hand?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "b391a077af2445b3",
@@ -5704,7 +5962,8 @@
 			"fromSide": "right",
 			"toNode": "49e3cce9781548bf",
 			"toSide": "left",
-			"label": "What if I apply the gcd-remainder trick repeatedly?"
+			"label": "What if I apply the gcd-remainder trick repeatedly?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "da80d328f3b34a20",
@@ -5712,7 +5971,8 @@
 			"fromSide": "right",
 			"toNode": "3e6845c41d74423a",
 			"toSide": "left",
-			"label": "Can I apply the gcd-invariance principle to more general linear combinations?"
+			"label": "Can I apply the gcd-invariance principle to more general linear combinations?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "d2b16658c3be48f8",
@@ -5720,7 +5980,8 @@
 			"fromSide": "right",
 			"toNode": "1d6881babb234975",
 			"toSide": "left",
-			"label": "Can I unwind the algorithm to express gcd as a combination of a and b?"
+			"label": "Can I unwind the algorithm to express gcd as a combination of a and b?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "7a13e46b57ac4e1e",
@@ -5728,7 +5989,8 @@
 			"fromSide": "right",
 			"toNode": "27221d8bbd8e4d54",
 			"toSide": "left",
-			"label": "Can I practice computing gcds with the Euclidean Algorithm?"
+			"label": "Can I practice computing gcds with the Euclidean Algorithm?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "d48e5455fe804b98",
@@ -5736,7 +5998,8 @@
 			"fromSide": "right",
 			"toNode": "878132fde0e64b77",
 			"toSide": "left",
-			"label": "What else follows from Bézout's identity?"
+			"label": "What else follows from Bézout's identity?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "d92da31645414e7e",
@@ -5744,7 +6007,8 @@
 			"fromSide": "right",
 			"toNode": "81b95b703a014f78",
 			"toSide": "left",
-			"label": "How do I actually find the coefficients m and n?"
+			"label": "How do I actually find the coefficients m and n?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "801dabbecbc349a9",
@@ -5752,7 +6016,8 @@
 			"fromSide": "right",
 			"toNode": "80c4d6fa6a4f49e2",
 			"toSide": "left",
-			"label": "What can Bézout tell us about coprime divisors?"
+			"label": "What can Bézout tell us about coprime divisors?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "1d519d8a9f884a19",
@@ -5760,7 +6025,8 @@
 			"fromSide": "right",
 			"toNode": "c7c8b0e7bf61496c",
 			"toSide": "left",
-			"label": "Can I prove these corollaries myself?"
+			"label": "Can I prove these corollaries myself?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "1105ab8542094fac",
@@ -5768,7 +6034,8 @@
 			"fromSide": "right",
 			"toNode": "f2cc8b2c651a458a",
 			"toSide": "left",
-			"label": "What happens to the gcd after dividing out common factors?"
+			"label": "What happens to the gcd after dividing out common factors?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "7abb7539157648bf",
@@ -5776,7 +6043,8 @@
 			"fromSide": "right",
 			"toNode": "87b6d6120c5f4c96",
 			"toSide": "left",
-			"label": "Can Bézout guarantee the existence of a modular inverse?"
+			"label": "Can Bézout guarantee the existence of a modular inverse?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "011549c0c67043be",
@@ -5784,7 +6052,8 @@
 			"fromSide": "right",
 			"toNode": "09ec516ce7c84c89",
 			"toSide": "left",
-			"label": "Can I apply back-substitution to another example?"
+			"label": "Can I apply back-substitution to another example?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "68e5326159af4389",
@@ -5792,7 +6061,8 @@
 			"fromSide": "right",
 			"toNode": "b3e6eaeabf9e47fb",
 			"toSide": "left",
-			"label": "Can I use back-substitution to solve Diophantine equations?"
+			"label": "Can I use back-substitution to solve Diophantine equations?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "fe46208cb1c742c7",
@@ -5800,7 +6070,8 @@
 			"fromSide": "right",
 			"toNode": "6bb609c1557f4264",
 			"toSide": "left",
-			"label": "When does every nonzero element have a modular inverse?"
+			"label": "When does every nonzero element have a modular inverse?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "ab8da0b6f08f4905",
@@ -5808,7 +6079,8 @@
 			"fromSide": "right",
 			"toNode": "0984308369684496",
 			"toSide": "left",
-			"label": "When does an integer equation ax+by=d have integer solutions?"
+			"label": "When does an integer equation ax+by=d have integer solutions?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "9323bb9086744e39",
@@ -5816,7 +6088,8 @@
 			"fromSide": "right",
 			"toNode": "ed01af8c304d476c",
 			"toSide": "left",
-			"label": "How does coprimality relate to primes?"
+			"label": "How does coprimality relate to primes?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "a53b8677c5d94eb5",
@@ -5824,7 +6097,8 @@
 			"fromSide": "right",
 			"toNode": "b6e49d2b42534907",
 			"toSide": "left",
-			"label": "How does coprimality help parametrize solutions?"
+			"label": "How does coprimality help parametrize solutions?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "784f294e1e474a1a",
@@ -5832,7 +6106,8 @@
 			"fromSide": "right",
 			"toNode": "eeb0ba1fa3f94647",
 			"toSide": "left",
-			"label": "Can I prove this myself using Bézout?"
+			"label": "Can I prove this myself using Bézout?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "5421e1117ad549b4",
@@ -5840,7 +6115,8 @@
 			"fromSide": "right",
 			"toNode": "073cbb933b2a4c11",
 			"toSide": "left",
-			"label": "Can coprimality let us cancel in modular equations?"
+			"label": "Can coprimality let us cancel in modular equations?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "39d749cbb8bc4d76",
@@ -5848,7 +6124,8 @@
 			"fromSide": "right",
 			"toNode": "021f714ab5e34780",
 			"toSide": "left",
-			"label": "Which linear Diophantine equations are solvable?"
+			"label": "Which linear Diophantine equations are solvable?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "9d9e63ceb1dc4c36",
@@ -5856,7 +6133,8 @@
 			"fromSide": "right",
 			"toNode": "b3e6eaeabf9e47fb",
 			"toSide": "left",
-			"label": "How do I actually find a solution?"
+			"label": "How do I actually find a solution?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "1bf13ba73a744d21",
@@ -5864,7 +6142,8 @@
 			"fromSide": "right",
 			"toNode": "53f16ef42a2f49d7",
 			"toSide": "left",
-			"label": "Can I prove the solvability criterion?"
+			"label": "Can I prove the solvability criterion?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "44e680d56d724cb2",
@@ -5872,7 +6151,8 @@
 			"fromSide": "right",
 			"toNode": "b6e49d2b42534907",
 			"toSide": "left",
-			"label": "Is there more than one solution?"
+			"label": "Is there more than one solution?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "e22d345fef074e85",
@@ -5880,7 +6160,8 @@
 			"fromSide": "right",
 			"toNode": "7b2e288789ce4717",
 			"toSide": "left",
-			"label": "Can I solve another LDE?"
+			"label": "Can I solve another LDE?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "cf1833d5651d4292",
@@ -5888,7 +6169,8 @@
 			"fromSide": "right",
 			"toNode": "bbb7b9878e8e438b",
 			"toSide": "left",
-			"label": "Can I find non-negative solutions?"
+			"label": "Can I find non-negative solutions?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "a4720f19fe3f46b0",
@@ -5896,7 +6178,8 @@
 			"fromSide": "right",
 			"toNode": "4533f25e5f0d40af",
 			"toSide": "left",
-			"label": "Can I find all solutions to a specific LDE?"
+			"label": "Can I find all solutions to a specific LDE?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "b51319f329114022",
@@ -5904,7 +6187,8 @@
 			"fromSide": "right",
 			"toNode": "293cb41babc2417a",
 			"toSide": "left",
-			"label": "Can I apply the full LDE solution technique to new equations?"
+			"label": "Can I apply the full LDE solution technique to new equations?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "0aea44382ec4433e",
@@ -5912,7 +6196,8 @@
 			"fromSide": "right",
 			"toNode": "ed01af8c304d476c",
 			"toSide": "left",
-			"label": "Can we characterize primes in terms of divisibility?"
+			"label": "Can we characterize primes in terms of divisibility?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "b9308f12d62343f1",
@@ -5920,7 +6205,8 @@
 			"fromSide": "right",
 			"toNode": "4ac2831dc87540f2",
 			"toSide": "left",
-			"label": "Can every number be built from primes?"
+			"label": "Can every number be built from primes?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "74781a8894c140fb",
@@ -5928,7 +6214,8 @@
 			"fromSide": "right",
 			"toNode": "fb8e69d90ded4b5d",
 			"toSide": "left",
-			"label": "How does the prime divisibility property ensure uniqueness?"
+			"label": "How does the prime divisibility property ensure uniqueness?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "d5bb177a21de4480",
@@ -5936,7 +6223,8 @@
 			"fromSide": "right",
 			"toNode": "492205f563ea4301",
 			"toSide": "left",
-			"label": "Can I express the prime property in formal logic?"
+			"label": "Can I express the prime property in formal logic?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "422dd56912044d66",
@@ -5944,7 +6232,8 @@
 			"fromSide": "right",
 			"toNode": "20d7788cc7ff4ea7",
 			"toSide": "left",
-			"label": "Does the divisibility property fail for composite numbers?"
+			"label": "Does the divisibility property fail for composite numbers?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "85c033dd2cb149b6",
@@ -5952,7 +6241,8 @@
 			"fromSide": "right",
 			"toNode": "5879d56e6e074227",
 			"toSide": "left",
-			"label": "What does prime divisibility say about squares?"
+			"label": "What does prime divisibility say about squares?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "b501eb43ccd44e4e",
@@ -5960,7 +6250,8 @@
 			"fromSide": "right",
 			"toNode": "6691f704e7164e09",
 			"toSide": "left",
-			"label": "How does the prime divisibility property apply to modular squares?"
+			"label": "How does the prime divisibility property apply to modular squares?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "33858d6e783147ae",
@@ -5968,7 +6259,8 @@
 			"fromSide": "right",
 			"toNode": "fb8e69d90ded4b5d",
 			"toSide": "left",
-			"label": "Is the prime factorization unique?"
+			"label": "Is the prime factorization unique?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "454ca35473f94d44",
@@ -5976,7 +6268,8 @@
 			"fromSide": "right",
 			"toNode": "ca1ddf194fb44416",
 			"toSide": "left",
-			"label": "Can unique factorization prove irrationality?"
+			"label": "Can unique factorization prove irrationality?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "c1c377ab59364e56",
@@ -5984,7 +6277,8 @@
 			"fromSide": "right",
 			"toNode": "2a5647025ae543fe",
 			"toSide": "left",
-			"label": "Are there finitely or infinitely many primes?"
+			"label": "Are there finitely or infinitely many primes?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "57b26ca5bf994056",
@@ -5992,7 +6286,8 @@
 			"fromSide": "right",
 			"toNode": "94b9357d6fc84c11",
 			"toSide": "left",
-			"label": "Can unique factorization tell me how many times a prime divides n!?"
+			"label": "Can unique factorization tell me how many times a prime divides n!?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "71aa487a08404207",
@@ -6000,7 +6295,8 @@
 			"fromSide": "right",
 			"toNode": "0f749ef4006f42ff",
 			"toSide": "left",
-			"label": "Does unique factorization give a complete description of all divisors?"
+			"label": "Does unique factorization give a complete description of all divisors?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "21679a75f55b45f4",
@@ -6008,7 +6304,8 @@
 			"fromSide": "right",
 			"toNode": "706de953eca743c6",
 			"toSide": "left",
-			"label": "How many divisors does n have in terms of its prime factorization?"
+			"label": "How many divisors does n have in terms of its prime factorization?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "607e7f4269e54c87",
@@ -6016,7 +6313,8 @@
 			"fromSide": "right",
 			"toNode": "30a0b39ba5c24828",
 			"toSide": "left",
-			"label": "Can Euclid's proof be adapted to show infinitely many primes of a specific form?"
+			"label": "Can Euclid's proof be adapted to show infinitely many primes of a specific form?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "908e6dd35ece499d",
@@ -6024,7 +6322,8 @@
 			"fromSide": "right",
 			"toNode": "706de953eca743c6",
 			"toSide": "left",
-			"label": "How many divisors does n have given its prime factorization?"
+			"label": "How many divisors does n have given its prime factorization?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "296142164c144e06",
@@ -6032,7 +6331,8 @@
 			"fromSide": "right",
 			"toNode": "dceea2c445aa49f5",
 			"toSide": "left",
-			"label": "Is congruence mod n reflexive, symmetric, and transitive?"
+			"label": "Is congruence mod n reflexive, symmetric, and transitive?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "8c69531196434ede",
@@ -6040,7 +6340,8 @@
 			"fromSide": "right",
 			"toNode": "2545902f90d44e68",
 			"toSide": "left",
-			"label": "Can congruence help prove a divisibility statement by checking all cases?"
+			"label": "Can congruence help prove a divisibility statement by checking all cases?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "e2a64c4267ae4c76",
@@ -6048,7 +6349,8 @@
 			"fromSide": "right",
 			"toNode": "eb3680e8c5a343c3",
 			"toSide": "left",
-			"label": "Can we add and multiply congruences?"
+			"label": "Can we add and multiply congruences?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "0c60d6a7e6fd4397",
@@ -6056,7 +6358,8 @@
 			"fromSide": "right",
 			"toNode": "22b61cc9091a497e",
 			"toSide": "left",
-			"label": "What are the equivalence classes of congruence mod n?"
+			"label": "What are the equivalence classes of congruence mod n?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "7c3019543e374aee",
@@ -6064,7 +6367,8 @@
 			"fromSide": "right",
 			"toNode": "192172a5bb984df4",
 			"toSide": "left",
-			"label": "Can I use modular arithmetic to find the last digit of a huge number?"
+			"label": "Can I use modular arithmetic to find the last digit of a huge number?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "9e67af7b28d84e9f",
@@ -6072,7 +6376,8 @@
 			"fromSide": "right",
 			"toNode": "43087fce28d94674",
 			"toSide": "left",
-			"label": "Is exponentiation also well-defined in modular arithmetic?"
+			"label": "Is exponentiation also well-defined in modular arithmetic?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "133ff6ea2b4e43c6",
@@ -6080,7 +6385,8 @@
 			"fromSide": "right",
 			"toNode": "073cbb933b2a4c11",
 			"toSide": "left",
-			"label": "Can we cancel common factors in a modular equation?"
+			"label": "Can we cancel common factors in a modular equation?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "6e6595c251f94c5b",
@@ -6088,7 +6394,8 @@
 			"fromSide": "right",
 			"toNode": "f8facbe911c34b30",
 			"toSide": "left",
-			"label": "Can I compute last digits of large powers using Z_10?"
+			"label": "Can I compute last digits of large powers using Z_10?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "02f167da8aea41e5",
@@ -6096,7 +6403,8 @@
 			"fromSide": "right",
 			"toNode": "c382570d25aa4bd5",
 			"toSide": "left",
-			"label": "Can modular arithmetic explain the digit-sum trick?"
+			"label": "Can modular arithmetic explain the digit-sum trick?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "f26ead0ce84d4b5b",
@@ -6104,7 +6412,8 @@
 			"fromSide": "right",
 			"toNode": "8a87889006634dce",
 			"toSide": "left",
-			"label": "Does 9 always divide 10^n − 1?"
+			"label": "Does 9 always divide 10^n − 1?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "c85e9ff2067549b2",
@@ -6112,7 +6421,8 @@
 			"fromSide": "right",
 			"toNode": "f1093eecb4154c29",
 			"toSide": "left",
-			"label": "What are the possible remainders of n² when divided by 4?"
+			"label": "What are the possible remainders of n² when divided by 4?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "6e663c90ce514d14",
@@ -6120,7 +6430,8 @@
 			"fromSide": "right",
 			"toNode": "f5067a57bddf42a7",
 			"toSide": "left",
-			"label": "Does Z_n with its addition form a group?"
+			"label": "Does Z_n with its addition form a group?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "229241436ef84251",
@@ -6128,7 +6439,8 @@
 			"fromSide": "right",
 			"toNode": "06ddfc4857e24944",
 			"toSide": "left",
-			"label": "What deeper properties does Z_p have when p is prime?"
+			"label": "What deeper properties does Z_p have when p is prime?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "4f713e67f181445f",
@@ -6136,7 +6448,8 @@
 			"fromSide": "right",
 			"toNode": "6691f704e7164e09",
 			"toSide": "left",
-			"label": "Can cancellation help us factor congruences mod a prime?"
+			"label": "Can cancellation help us factor congruences mod a prime?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "e581bd3c8f3d4db8",
@@ -6144,7 +6457,8 @@
 			"fromSide": "right",
 			"toNode": "6b11c479f69f4048",
 			"toSide": "left",
-			"label": "What if p does divide a?"
+			"label": "What if p does divide a?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "ec598d5866a5429c",
@@ -6152,7 +6466,8 @@
 			"fromSide": "right",
 			"toNode": "2cb5a8f02cee4110",
 			"toSide": "left",
-			"label": "Can I prove the corollary that a^p ≡ a (mod p)?"
+			"label": "Can I prove the corollary that a^p ≡ a (mod p)?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "a8c91389b3f445f6",
@@ -6160,7 +6475,8 @@
 			"fromSide": "right",
 			"toNode": "e3d3b0bb7b52468a",
 			"toSide": "left",
-			"label": "Can Fermat's Little Theorem determine divisibility of large sums?"
+			"label": "Can Fermat's Little Theorem determine divisibility of large sums?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "932d9f4ca4fd490e",
@@ -6168,7 +6484,8 @@
 			"fromSide": "right",
 			"toNode": "6bb609c1557f4264",
 			"toSide": "left",
-			"label": "Can Fermat's theorem produce multiplicative inverses?"
+			"label": "Can Fermat's theorem produce multiplicative inverses?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "381d1cc7dcf84ceb",
@@ -6176,7 +6493,8 @@
 			"fromSide": "right",
 			"toNode": "bb4310006dc847f0",
 			"toSide": "left",
-			"label": "Can I compute a specific inverse in Z_p?"
+			"label": "Can I compute a specific inverse in Z_p?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "be18dabdda114752",
@@ -6184,7 +6502,8 @@
 			"fromSide": "right",
 			"toNode": "aa3107990fa54546",
 			"toSide": "left",
-			"label": "What does an induction proof look like in practice?"
+			"label": "What does an induction proof look like in practice?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "1c684339329f444a",
@@ -6192,7 +6511,8 @@
 			"fromSide": "right",
 			"toNode": "9e6f8b71955d40de",
 			"toSide": "left",
-			"label": "Are induction and the Well-Ordering Principle equivalent?"
+			"label": "Are induction and the Well-Ordering Principle equivalent?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "e0e3ec1a3528453e",
@@ -6200,7 +6520,8 @@
 			"fromSide": "right",
 			"toNode": "c27f249ac4724bec",
 			"toSide": "left",
-			"label": "Can I try a simple induction proof myself?"
+			"label": "Can I try a simple induction proof myself?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "62878f0ea58b426e",
@@ -6208,7 +6529,8 @@
 			"fromSide": "right",
 			"toNode": "5fb8f6a06faf43c9",
 			"toSide": "left",
-			"label": "Can induction prove divisibility results too?"
+			"label": "Can induction prove divisibility results too?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "1b8cacca23ea48e6",
@@ -6216,7 +6538,8 @@
 			"fromSide": "right",
 			"toNode": "9f9b1b7e8fe44931",
 			"toSide": "left",
-			"label": "Can I prove a more general inequality by induction?"
+			"label": "Can I prove a more general inequality by induction?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "7b98c70e64cc461a",
@@ -6224,7 +6547,8 @@
 			"fromSide": "right",
 			"toNode": "cf0a6fc131c344b8",
 			"toSide": "left",
-			"label": "Can induction prove bounds involving roots or powers?"
+			"label": "Can induction prove bounds involving roots or powers?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "214a611b6d97436b",
@@ -6232,7 +6556,8 @@
 			"fromSide": "right",
 			"toNode": "20689ba9e4a94ea4",
 			"toSide": "left",
-			"label": "Can induction prove geometric or combinatorial facts?"
+			"label": "Can induction prove geometric or combinatorial facts?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "983f661ec2b7472c",
@@ -6240,7 +6565,8 @@
 			"fromSide": "right",
 			"toNode": "06d0e24713ea4a03",
 			"toSide": "left",
-			"label": "Is there a compact way to write down long sums for induction?"
+			"label": "Is there a compact way to write down long sums for induction?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "a133ad07488e4866",
@@ -6248,7 +6574,8 @@
 			"fromSide": "right",
 			"toNode": "645eb471155743e2",
 			"toSide": "left",
-			"label": "How many ways can you tile a 2×n grid with dominoes?"
+			"label": "How many ways can you tile a 2×n grid with dominoes?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "f10790dfd92c40f2",
@@ -6256,7 +6583,8 @@
 			"fromSide": "right",
 			"toNode": "54212e35208244b1",
 			"toSide": "left",
-			"label": "How do I prove a summation identity by induction?"
+			"label": "How do I prove a summation identity by induction?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "f281b0a1db4944de",
@@ -6264,7 +6592,8 @@
 			"fromSide": "right",
 			"toNode": "f1b5b6bb3ba14370",
 			"toSide": "left",
-			"label": "Can I prove the sum-of-squares formula by induction?"
+			"label": "Can I prove the sum-of-squares formula by induction?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "f5a7edf7637240d4",
@@ -6272,7 +6601,8 @@
 			"fromSide": "right",
 			"toNode": "7d23c1c276664681",
 			"toSide": "left",
-			"label": "Can I prove the formula for 1+2+⋯+n?"
+			"label": "Can I prove the formula for 1+2+⋯+n?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "dbc132c1817b4579",
@@ -6280,7 +6610,8 @@
 			"fromSide": "right",
 			"toNode": "f02e47d7a01e467a",
 			"toSide": "left",
-			"label": "Can I discover and prove a formula for an alternating sum?"
+			"label": "Can I discover and prove a formula for an alternating sum?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "ee4d897c1f294431",
@@ -6288,7 +6619,8 @@
 			"fromSide": "right",
 			"toNode": "84b19574b8614fc9",
 			"toSide": "left",
-			"label": "Can I find a formula for the sum of a row in the odd-number pyramid?"
+			"label": "Can I find a formula for the sum of a row in the odd-number pyramid?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "6a256dd8979a4396",
@@ -6296,7 +6628,8 @@
 			"fromSide": "right",
 			"toNode": "b542a400172649d9",
 			"toSide": "left",
-			"label": "What if the base case isn't n=1?"
+			"label": "What if the base case isn't n=1?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "68d6c810695f466f",
@@ -6304,7 +6637,8 @@
 			"fromSide": "right",
 			"toNode": "f21f26700e544a13",
 			"toSide": "left",
-			"label": "What if the induction step needs more than just P(k)?"
+			"label": "What if the induction step needs more than just P(k)?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "e0a710d0298a4afd",
@@ -6312,7 +6646,8 @@
 			"fromSide": "right",
 			"toNode": "7a4d95a939454d1e",
 			"toSide": "left",
-			"label": "Is strong induction actually stronger than regular induction?"
+			"label": "Is strong induction actually stronger than regular induction?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "3cff1ef1336e464f",
@@ -6320,7 +6655,8 @@
 			"fromSide": "right",
 			"toNode": "65b0ff93935e4cd7",
 			"toSide": "left",
-			"label": "What does a strong induction proof look like?"
+			"label": "What does a strong induction proof look like?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "ca5f701f3ff94435",
@@ -6328,7 +6664,8 @@
 			"fromSide": "right",
 			"toNode": "e7b3a22300a2429c",
 			"toSide": "left",
-			"label": "Can strong induction prove a closed-form identity for a recursion?"
+			"label": "Can strong induction prove a closed-form identity for a recursion?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "406650e9237a4aaa",
@@ -6336,7 +6673,8 @@
 			"fromSide": "right",
 			"toNode": "601d6deaef824e9e",
 			"toSide": "left",
-			"label": "Can strong induction verify a closed-form for a two-term recurrence?"
+			"label": "Can strong induction verify a closed-form for a two-term recurrence?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "8798371bf7d04f3e",
@@ -6344,7 +6682,8 @@
 			"fromSide": "right",
 			"toNode": "4854542367734759",
 			"toSide": "left",
-			"label": "Can strong induction prove a game-theoretic result?"
+			"label": "Can strong induction prove a game-theoretic result?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "5da4a247b2524302",
@@ -6352,7 +6691,8 @@
 			"fromSide": "right",
 			"toNode": "206e36d605fa41cf",
 			"toSide": "left",
-			"label": "Can strong induction show every integer has a binary representation?"
+			"label": "Can strong induction show every integer has a binary representation?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "60a15c2ff7994f35",
@@ -6360,7 +6700,8 @@
 			"fromSide": "right",
 			"toNode": "85c1e5cfebc04601",
 			"toSide": "left",
-			"label": "Can we define mathematical objects using a base case and a building rule?"
+			"label": "Can we define mathematical objects using a base case and a building rule?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "e47bc692f6c046b7",
@@ -6368,7 +6709,8 @@
 			"fromSide": "right",
 			"toNode": "5b629058a8a84a23",
 			"toSide": "left",
-			"label": "What is a famous example of a recursively defined sequence?"
+			"label": "What is a famous example of a recursively defined sequence?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "cb6b87b1e3ce437a",
@@ -6376,7 +6718,8 @@
 			"fromSide": "right",
 			"toNode": "2aa79cd519b9422a",
 			"toSide": "left",
-			"label": "How do we prove things about recursively defined objects?"
+			"label": "How do we prove things about recursively defined objects?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "fe37cf82a5c7487e",
@@ -6384,7 +6727,8 @@
 			"fromSide": "right",
 			"toNode": "601d6deaef824e9e",
 			"toSide": "left",
-			"label": "Is there a non-recursive formula for the Fibonacci numbers?"
+			"label": "Is there a non-recursive formula for the Fibonacci numbers?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "ee06aaf65dd24d5f",
@@ -6392,7 +6736,8 @@
 			"fromSide": "right",
 			"toNode": "e7b3a22300a2429c",
 			"toSide": "left",
-			"label": "Can I find a closed form for a different recursive sequence?"
+			"label": "Can I find a closed form for a different recursive sequence?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "f4b5dee2c8e64baf",
@@ -6400,7 +6745,8 @@
 			"fromSide": "right",
 			"toNode": "794c959a14d64426",
 			"toSide": "left",
-			"label": "What does a structural induction proof look like?"
+			"label": "What does a structural induction proof look like?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "c816b06579d9493d",
@@ -6408,7 +6754,8 @@
 			"fromSide": "right",
 			"toNode": "bcb757fbf7d14959",
 			"toSide": "left",
-			"label": "Can I apply structural induction to pairs of integers?"
+			"label": "Can I apply structural induction to pairs of integers?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "3201535047d047fd",
@@ -6416,7 +6763,8 @@
 			"fromSide": "right",
 			"toNode": "eca782eba0d84bdc",
 			"toSide": "left",
-			"label": "Can structural induction prove a property of formal strings?"
+			"label": "Can structural induction prove a property of formal strings?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "405460025e224d56",
@@ -6424,7 +6772,8 @@
 			"fromSide": "right",
 			"toNode": "d9be9f3b6a674d76",
 			"toSide": "left",
-			"label": "Can structural induction prove a property about string operations?"
+			"label": "Can structural induction prove a property about string operations?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "29f0fd524266405c",
@@ -6432,7 +6781,8 @@
 			"fromSide": "right",
 			"toNode": "f5067a57bddf42a7",
 			"toSide": "left",
-			"label": "Is Z_n a group?"
+			"label": "Is Z_n a group?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "b02a77b6ba844c9e",
@@ -6440,7 +6790,8 @@
 			"fromSide": "right",
 			"toNode": "7a25cb7b31d949dc",
 			"toSide": "left",
-			"label": "Are the nonzero rationals a group under multiplication?"
+			"label": "Are the nonzero rationals a group under multiplication?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "e3455e9e1db64b23",
@@ -6448,7 +6799,8 @@
 			"fromSide": "right",
 			"toNode": "ffe1d72c1ccd4af1",
 			"toSide": "left",
-			"label": "What if the group operation is also commutative?"
+			"label": "What if the group operation is also commutative?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "a7dd5d70cea54d7f",
@@ -6456,7 +6808,8 @@
 			"fromSide": "right",
 			"toNode": "eb0f28b1b2a44f17",
 			"toSide": "left",
-			"label": "What can we deduce from the group axioms alone?"
+			"label": "What can we deduce from the group axioms alone?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "6fd09db6de7248ad",
@@ -6464,7 +6817,8 @@
 			"fromSide": "right",
 			"toNode": "19eed5ae16d24c7c",
 			"toSide": "left",
-			"label": "Is (a^{−1})^n the same as (a^n)^{−1}?"
+			"label": "Is (a^{−1})^n the same as (a^n)^{−1}?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "c852fe0994c443e1",
@@ -6472,7 +6826,8 @@
 			"fromSide": "right",
 			"toNode": "1d79c5151c7f4d59",
 			"toSide": "left",
-			"label": "Do the odd integers form a group under addition?"
+			"label": "Do the odd integers form a group under addition?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "810d6bc7dd794bcc",
@@ -6480,7 +6835,8 @@
 			"fromSide": "right",
 			"toNode": "91b9a0152ea24f74",
 			"toSide": "left",
-			"label": "Can I check whether various structures are groups?"
+			"label": "Can I check whether various structures are groups?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "6f217479d2a44d26",
@@ -6488,7 +6844,8 @@
 			"fromSide": "right",
 			"toNode": "1ba1ec48fa1c4633",
 			"toSide": "left",
-			"label": "Can a subset of Z_n be a group under multiplication instead?"
+			"label": "Can a subset of Z_n be a group under multiplication instead?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "531cdcc109c24774",
@@ -6496,7 +6853,8 @@
 			"fromSide": "right",
 			"toNode": "ccca9a4edf864252",
 			"toSide": "left",
-			"label": "What goes wrong if we include zero?"
+			"label": "What goes wrong if we include zero?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "672c3e55b007494e",
@@ -6504,7 +6862,8 @@
 			"fromSide": "right",
 			"toNode": "6de08b2f210f48b8",
 			"toSide": "left",
-			"label": "What is the simplest example of a non-abelian group?"
+			"label": "What is the simplest example of a non-abelian group?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "11d577723a6649f2",
@@ -6512,7 +6871,8 @@
 			"fromSide": "right",
 			"toNode": "f6bd8572adf24b0d",
 			"toSide": "left",
-			"label": "Is there an equivalent condition for being abelian?"
+			"label": "Is there an equivalent condition for being abelian?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "ac57859b6d154971",
@@ -6520,7 +6880,8 @@
 			"fromSide": "right",
 			"toNode": "d7ec889637bd4442",
 			"toSide": "left",
-			"label": "Does the set of square-identity elements form a subgroup?"
+			"label": "Does the set of square-identity elements form a subgroup?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "e03add3887974235",
@@ -6528,7 +6889,8 @@
 			"fromSide": "right",
 			"toNode": "44e08d970ecd44aa",
 			"toSide": "left",
-			"label": "Does abelianness interact with the inversion map?"
+			"label": "Does abelianness interact with the inversion map?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "e1c0adedc1cd4ebc",
@@ -6536,7 +6898,8 @@
 			"fromSide": "right",
 			"toNode": "54e4c6855e1b430f",
 			"toSide": "left",
-			"label": "Are there other natural non-abelian groups?"
+			"label": "Are there other natural non-abelian groups?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "e4db3f6893aa4622",
@@ -6544,7 +6907,8 @@
 			"fromSide": "right",
 			"toNode": "c2feb4d800894fa8",
 			"toSide": "left",
-			"label": "How do we compute with permutations using cycle notation?"
+			"label": "How do we compute with permutations using cycle notation?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "fde41be035cf4c28",
@@ -6552,7 +6916,8 @@
 			"fromSide": "right",
 			"toNode": "424072ba1ab84365",
 			"toSide": "left",
-			"label": "For which n is S_n abelian?"
+			"label": "For which n is S_n abelian?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "3f0f15f422bf4250",
@@ -6560,7 +6925,8 @@
 			"fromSide": "right",
 			"toNode": "1bbd9ea274e74ae2",
 			"toSide": "left",
-			"label": "Can I prove that sr ≠ rs in D_n?"
+			"label": "Can I prove that sr ≠ rs in D_n?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "bd713afe1650493b",
@@ -6568,7 +6934,8 @@
 			"fromSide": "right",
 			"toNode": "fdffed834ceb4264",
 			"toSide": "left",
-			"label": "How many elements does D_n have?"
+			"label": "How many elements does D_n have?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "7130833cb94c499a",
@@ -6576,7 +6943,8 @@
 			"fromSide": "right",
 			"toNode": "0703899db23945f2",
 			"toSide": "left",
-			"label": "What is the relation between s, r, and r^{−1} in D_n?"
+			"label": "What is the relation between s, r, and r^{−1} in D_n?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "cd87099114674bbb",
@@ -6584,7 +6952,8 @@
 			"fromSide": "right",
 			"toNode": "75be5ba2a2734a41",
 			"toSide": "left",
-			"label": "Can we measure the 'size' of a group or an element?"
+			"label": "Can we measure the 'size' of a group or an element?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "a6a99a88c3a4497d",
@@ -6592,7 +6961,8 @@
 			"fromSide": "right",
 			"toNode": "3a41f13777e24557",
 			"toSide": "left",
-			"label": "Can I prove the remaining parts of this proposition?"
+			"label": "Can I prove the remaining parts of this proposition?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "6c3361c9ac8345f7",
@@ -6600,7 +6970,8 @@
 			"fromSide": "right",
 			"toNode": "efc4add847604d99",
 			"toSide": "left",
-			"label": "Does the shoe-sock property extend to products of n elements?"
+			"label": "Does the shoe-sock property extend to products of n elements?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "2b19deed12b24192",
@@ -6608,7 +6979,8 @@
 			"fromSide": "right",
 			"toNode": "7c3c30aa88cb4d10",
 			"toSide": "left",
-			"label": "When does g^k equal the identity?"
+			"label": "When does g^k equal the identity?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "b72733dfd6de485e",
@@ -6616,7 +6988,8 @@
 			"fromSide": "right",
 			"toNode": "e597113fb7354c93",
 			"toSide": "left",
-			"label": "Can a subset of a group be a group in its own right?"
+			"label": "Can a subset of a group be a group in its own right?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "1c085dabc9e7464a",
@@ -6624,7 +6997,8 @@
 			"fromSide": "right",
 			"toNode": "c21bd4e96a464f4b",
 			"toSide": "left",
-			"label": "Do ab and ba always have the same order?"
+			"label": "Do ab and ba always have the same order?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "89613e2045184f14",
@@ -6632,7 +7006,8 @@
 			"fromSide": "right",
 			"toNode": "71e1d8958b544815",
 			"toSide": "left",
-			"label": "What is the order of g^k?"
+			"label": "What is the order of g^k?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "5af443d4abd840de",
@@ -6640,7 +7015,8 @@
 			"fromSide": "right",
 			"toNode": "c27b095fcf904f91",
 			"toSide": "left",
-			"label": "What is the order of a product of disjoint cycles?"
+			"label": "What is the order of a product of disjoint cycles?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "02bd48f10c5e4579",
@@ -6648,7 +7024,8 @@
 			"fromSide": "right",
 			"toNode": "c59019e5df16458e",
 			"toSide": "left",
-			"label": "Can I prove the order-of-a-power formula?"
+			"label": "Can I prove the order-of-a-power formula?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "e7b04d1dcb8c48c2",
@@ -6656,7 +7033,8 @@
 			"fromSide": "right",
 			"toNode": "a69878b99c574fdb",
 			"toSide": "left",
-			"label": "Is there a shortcut for checking whether a subset is a subgroup?"
+			"label": "Is there a shortcut for checking whether a subset is a subgroup?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "7cc80001fd7245c8",
@@ -6664,7 +7042,8 @@
 			"fromSide": "right",
 			"toNode": "3659394875944bff",
 			"toSide": "left",
-			"label": "Is the set of elements that commute with everything a subgroup?"
+			"label": "Is the set of elements that commute with everything a subgroup?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "31770713ac7647be",
@@ -6672,7 +7051,8 @@
 			"fromSide": "right",
 			"toNode": "741ff9c8a57d4cc6",
 			"toSide": "left",
-			"label": "Is the set of elements commuting with a subgroup also a subgroup?"
+			"label": "Is the set of elements commuting with a subgroup also a subgroup?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "f1fdec5dab154295",
@@ -6680,7 +7060,8 @@
 			"fromSide": "right",
 			"toNode": "bf1dd6494be94783",
 			"toSide": "left",
-			"label": "Is there an alternative set of conditions for being a subgroup?"
+			"label": "Is there an alternative set of conditions for being a subgroup?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "9ba5d32cfbc24c5f",
@@ -6688,7 +7069,8 @@
 			"fromSide": "right",
 			"toNode": "ac4371c8f1c54c95",
 			"toSide": "left",
-			"label": "What does a subgroup test proof look like in practice?"
+			"label": "What does a subgroup test proof look like in practice?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "cfb20545306c467e",
@@ -6696,7 +7078,8 @@
 			"fromSide": "right",
 			"toNode": "d7ec889637bd4442",
 			"toSide": "left",
-			"label": "Can I apply the subgroup test to a concrete example?"
+			"label": "Can I apply the subgroup test to a concrete example?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "5a2a663292ad4951",
@@ -6704,7 +7087,8 @@
 			"fromSide": "right",
 			"toNode": "d25532d1ec524579",
 			"toSide": "left",
-			"label": "Do the units of Z_n form a subgroup under multiplication?"
+			"label": "Do the units of Z_n form a subgroup under multiplication?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "473428241ca64276",
@@ -6712,7 +7096,8 @@
 			"fromSide": "right",
 			"toNode": "a4ef26abcb474379",
 			"toSide": "left",
-			"label": "Is there a particularly simple kind of subgroup?"
+			"label": "Is there a particularly simple kind of subgroup?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "119a8b4bf9134eb3",
@@ -6720,7 +7105,8 @@
 			"fromSide": "right",
 			"toNode": "b97444cc08dc472f",
 			"toSide": "left",
-			"label": "Is ⟨g⟩ always a subgroup?"
+			"label": "Is ⟨g⟩ always a subgroup?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "34a729da956b42c3",
@@ -6728,7 +7114,8 @@
 			"fromSide": "right",
 			"toNode": "78a6e377df074991",
 			"toSide": "left",
-			"label": "Is every cyclic group abelian?"
+			"label": "Is every cyclic group abelian?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "f87d9fda59374cc3",
@@ -6736,7 +7123,8 @@
 			"fromSide": "right",
 			"toNode": "c275f469bc7443e4",
 			"toSide": "left",
-			"label": "Is Z cyclic? What does ⟨n⟩ look like?"
+			"label": "Is Z cyclic? What does ⟨n⟩ look like?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "72eb7a91656c4ac7",
@@ -6744,7 +7132,8 @@
 			"fromSide": "right",
 			"toNode": "065f5a280e5c43be",
 			"toSide": "left",
-			"label": "Are the unit groups Z_n* always cyclic?"
+			"label": "Are the unit groups Z_n* always cyclic?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "342ae27a11a247e5",
@@ -6752,7 +7141,8 @@
 			"fromSide": "right",
 			"toNode": "b4b84197e0d74653",
 			"toSide": "left",
-			"label": "What is the order of the cyclic subgroup ⟨g⟩?"
+			"label": "What is the order of the cyclic subgroup ⟨g⟩?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "89ead45a931843db",
@@ -6760,7 +7150,8 @@
 			"fromSide": "right",
 			"toNode": "b2e8a8ca2d264748",
 			"toSide": "left",
-			"label": "How does ⟨a^k⟩ relate to ⟨a^{gcd(k,n)}⟩?"
+			"label": "How does ⟨a^k⟩ relate to ⟨a^{gcd(k,n)}⟩?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "7fb32688cc4c4940",
@@ -6768,7 +7159,8 @@
 			"fromSide": "right",
 			"toNode": "66f30e9975174416",
 			"toSide": "left",
-			"label": "Does the order of an element divide the order of a cyclic group?"
+			"label": "Does the order of an element divide the order of a cyclic group?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "2f524be431724ff0",
@@ -6776,7 +7168,8 @@
 			"fromSide": "right",
 			"toNode": "03b7e606634541d7",
 			"toSide": "left",
-			"label": "Is every subgroup of a cyclic group also cyclic?"
+			"label": "Is every subgroup of a cyclic group also cyclic?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "aabd6ac89a0d4c3e",
@@ -6784,7 +7177,8 @@
 			"fromSide": "right",
 			"toNode": "282ec195e6034341",
 			"toSide": "left",
-			"label": "Can functions between groups preserve the group structure?"
+			"label": "Can functions between groups preserve the group structure?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "2be4aa28d0fb44ca",
@@ -6792,7 +7186,8 @@
 			"fromSide": "right",
 			"toNode": "7152108be6d84ba5",
 			"toSide": "left",
-			"label": "How do I check a homomorphism is well-defined on equivalence classes?"
+			"label": "How do I check a homomorphism is well-defined on equivalence classes?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "b9b84db18d5a43fd",
@@ -6800,7 +7195,8 @@
 			"fromSide": "right",
 			"toNode": "757a9b10f5ee4016",
 			"toSide": "left",
-			"label": "What elements does a homomorphism send to the identity?"
+			"label": "What elements does a homomorphism send to the identity?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "691a2618d0e7452c",
@@ -6808,7 +7204,8 @@
 			"fromSide": "right",
 			"toNode": "abccb8829db9418d",
 			"toSide": "left",
-			"label": "Can I determine which functions are homomorphisms?"
+			"label": "Can I determine which functions are homomorphisms?",
+			"edge_type": "related"
 		},
 		{
 			"id": "d7b53a3f8b01495b",
@@ -6816,7 +7213,8 @@
 			"fromSide": "right",
 			"toNode": "674fcc5739b84826",
 			"toSide": "left",
-			"label": "What do the kernel and image look like for a concrete homomorphism?"
+			"label": "What do the kernel and image look like for a concrete homomorphism?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "ab9f5439ddc14fc7",
@@ -6824,7 +7222,8 @@
 			"fromSide": "right",
 			"toNode": "fc198fc31fbc4dca",
 			"toSide": "left",
-			"label": "What general properties do homomorphisms have?"
+			"label": "What general properties do homomorphisms have?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "03760aaf43174a63",
@@ -6832,7 +7231,8 @@
 			"fromSide": "right",
 			"toNode": "7d9499bae8b14442",
 			"toSide": "left",
-			"label": "What if a homomorphism is also a bijection?"
+			"label": "What if a homomorphism is also a bijection?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "90cb6ff9a0454efa",
@@ -6840,7 +7240,8 @@
 			"fromSide": "right",
 			"toNode": "02186f5150c94908",
 			"toSide": "left",
-			"label": "Can I prove these properties?"
+			"label": "Can I prove these properties?",
+			"edge_type": "related"
 		},
 		{
 			"id": "be9041864fb94c37",
@@ -6848,7 +7249,8 @@
 			"fromSide": "right",
 			"toNode": "ffd4ca5f9c5741a4",
 			"toSide": "left",
-			"label": "Can I compute the kernel of specific homomorphisms?"
+			"label": "Can I compute the kernel of specific homomorphisms?",
+			"edge_type": "related"
 		},
 		{
 			"id": "f728759fbf364ebb",
@@ -6856,7 +7258,8 @@
 			"fromSide": "right",
 			"toNode": "a64a1c5d65c64549",
 			"toSide": "left",
-			"label": "If the kernel is trivial, is G isomorphic to the image?"
+			"label": "If the kernel is trivial, is G isomorphic to the image?",
+			"edge_type": "related"
 		},
 		{
 			"id": "8eac4fad968349a2",
@@ -6864,7 +7267,8 @@
 			"fromSide": "right",
 			"toNode": "44e08d970ecd44aa",
 			"toSide": "left",
-			"label": "When is the inversion map a homomorphism?"
+			"label": "When is the inversion map a homomorphism?",
+			"edge_type": "related"
 		},
 		{
 			"id": "e4a9d18529114def",
@@ -6872,7 +7276,8 @@
 			"fromSide": "right",
 			"toNode": "35b0158c34214a3f",
 			"toSide": "left",
-			"label": "What does an isomorphism look like concretely?"
+			"label": "What does an isomorphism look like concretely?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "b726fedd5a5647b5",
@@ -6880,7 +7285,8 @@
 			"fromSide": "right",
 			"toNode": "e6f351c261e040f0",
 			"toSide": "left",
-			"label": "Is being isomorphic an equivalence relation?"
+			"label": "Is being isomorphic an equivalence relation?",
+			"edge_type": "related"
 		},
 		{
 			"id": "17567256019443fb",
@@ -6888,7 +7294,8 @@
 			"fromSide": "right",
 			"toNode": "e40afcb5fc9c49e3",
 			"toSide": "left",
-			"label": "What properties are preserved by isomorphisms?"
+			"label": "What properties are preserved by isomorphisms?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "7b27f8eef4eb4816",
@@ -6896,7 +7303,8 @@
 			"fromSide": "right",
 			"toNode": "321947ced9214ab0",
 			"toSide": "left",
-			"label": "Can I finish verifying the remaining isomorphism?"
+			"label": "Can I finish verifying the remaining isomorphism?",
+			"edge_type": "related"
 		},
 		{
 			"id": "c6aa3c867cb44724",
@@ -6904,7 +7312,8 @@
 			"fromSide": "right",
 			"toNode": "0883b3f0a482411c",
 			"toSide": "left",
-			"label": "Is the rotation subgroup of D_3 isomorphic to Z_3?"
+			"label": "Is the rotation subgroup of D_3 isomorphic to Z_3?",
+			"edge_type": "related"
 		},
 		{
 			"id": "7a49449446b44c4c",
@@ -6912,7 +7321,8 @@
 			"fromSide": "right",
 			"toNode": "2077327cdf1646d1",
 			"toSide": "left",
-			"label": "Are all cyclic groups of the same order isomorphic?"
+			"label": "Are all cyclic groups of the same order isomorphic?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "0b029fbf146c4a76",
@@ -6920,7 +7330,8 @@
 			"fromSide": "right",
 			"toNode": "76e9fda2a83844b3",
 			"toSide": "left",
-			"label": "Can I show two specific groups are NOT isomorphic?"
+			"label": "Can I show two specific groups are NOT isomorphic?",
+			"edge_type": "related"
 		},
 		{
 			"id": "e0dfc128bbdf4d17",
@@ -6928,7 +7339,8 @@
 			"fromSide": "right",
 			"toNode": "6b7dc0fdea9f4059",
 			"toSide": "left",
-			"label": "Is the set of isomorphisms from G to itself a group?"
+			"label": "Is the set of isomorphisms from G to itself a group?",
+			"edge_type": "related"
 		},
 		{
 			"id": "d136f2f6a43049f7",
@@ -6936,7 +7348,8 @@
 			"fromSide": "right",
 			"toNode": "b0d699d75d6b49c2",
 			"toSide": "left",
-			"label": "Can I prove the finite case of the classification?"
+			"label": "Can I prove the finite case of the classification?",
+			"edge_type": "related"
 		},
 		{
 			"id": "367348e721954c52",
@@ -6944,7 +7357,8 @@
 			"fromSide": "right",
 			"toNode": "e6744e04740d4410",
 			"toSide": "left",
-			"label": "Are conjugation maps automorphisms?"
+			"label": "Are conjugation maps automorphisms?",
+			"edge_type": "prerequisite"
 		},
 		{
 			"id": "430e9a7734b0477b",
@@ -6952,7 +7366,8 @@
 			"fromSide": "right",
 			"toNode": "b8e76c9d1ce3457d",
 			"toSide": "left",
-			"label": "Can I find a family of automorphisms for a specific group?"
+			"label": "Can I find a family of automorphisms for a specific group?",
+			"edge_type": "related"
 		}
 	]
 }

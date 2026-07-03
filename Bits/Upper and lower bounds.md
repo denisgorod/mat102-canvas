@@ -9,6 +9,9 @@ children:
   - id: supremum-and-infimum
     question: "Is there a 'best' upper or lower bound?"
     edge_type: prerequisite
+  - id: ex-upper-bound-properties
+    question: "Can I find bounds for a concrete set?"
+    edge_type: prerequisite
 parents:
   - posets
 ---

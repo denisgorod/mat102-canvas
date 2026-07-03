@@ -5,7 +5,16 @@ role: bit
 group: functions-ii
 curriculum_path: null
 learning_objectives: []
-children: []
+children:
+  - id: cardinality-definition
+    question: "Can bijections measure size?"
+    edge_type: prerequisite
+  - id: ex-invertible-iff-bijective-proof
+    question: "Can I prove the forward direction myself?"
+    edge_type: prerequisite
+  - id: ex-invertibility-hw
+    question: "Can I use the bijectivity criterion?"
+    edge_type: prerequisite
 parents:
   - inverse-functions
   - bijective-functions

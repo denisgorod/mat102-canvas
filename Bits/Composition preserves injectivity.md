@@ -5,7 +5,13 @@ role: bit
 group: functions-i
 curriculum_path: null
 learning_objectives: []
-children: []
+children:
+  - id: ex-composition-injectivity
+    question: "If the composition is injective, must the parts be?"
+    edge_type: prerequisite
+  - id: ex-product-injection
+    question: "Does forming a product of functions preserve injectivity?"
+    edge_type: prerequisite
 parents:
   - injective-functions
 ---

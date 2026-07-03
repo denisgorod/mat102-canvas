@@ -9,6 +9,9 @@ children:
   - id: necessary-and-sufficient-conditions
     question: "What do 'necessary' and 'sufficient' mean precisely?"
     edge_type: prerequisite
+  - id: ex-implication-truth-tables
+    question: "What does the iff truth table look like?"
+    edge_type: prerequisite
 parents:
   - converse-of-an-implication
   - what-is-an-implication

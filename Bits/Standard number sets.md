@@ -5,7 +5,13 @@ role: bit
 group: sets
 curriculum_path: null
 learning_objectives: []
-children: []
+children:
+  - id: irrationality-of-sqrt-2
+    question: "Are there numbers that aren't rational?"
+    edge_type: prerequisite
+  - id: integers-are-countable
+    question: "Do Z, Q, R all have the same size?"
+    edge_type: prerequisite
 parents:
   - set-builder-notation
 ---

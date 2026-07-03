@@ -12,6 +12,9 @@ children:
   - id: countable-sets
     question: "Is there a name for sets with |S| <= |N|?"
     edge_type: prerequisite
+  - id: ex-cardinality-bijections
+    question: "Can I construct bijections between specific sets?"
+    edge_type: prerequisite
 parents:
   - cardinality-definition
 ---

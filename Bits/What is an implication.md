@@ -27,6 +27,12 @@ children:
   - id: principle-of-induction
     question: "How can a chain of implications prove something for all integers?"
     edge_type: prerequisite
+  - id: ex-implication-truth-tables
+    question: "Can I build truth tables for implications?"
+    edge_type: prerequisite
+  - id: ex-implication-associativity
+    question: "Is P ⟹ (Q ⟹ R) the same as (P ⟹ Q) ⟹ R?"
+    edge_type: prerequisite
 parents:
   - hypothesis-and-conclusion
   - truth-tables

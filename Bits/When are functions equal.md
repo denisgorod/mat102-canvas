@@ -5,7 +5,10 @@ role: bit
 group: functions-i
 curriculum_path: null
 learning_objectives: []
-children: []
+children:
+  - id: ex-which-functions-equal
+    question: "Can two functions with the same rule but different data be equal?"
+    edge_type: prerequisite
 parents:
   - function-notation
 ---

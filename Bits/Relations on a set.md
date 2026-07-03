@@ -9,6 +9,9 @@ children:
   - id: relation-properties-reflexive-symmetric
     question: "How do I tell different types of relations apart?"
     edge_type: prerequisite
+  - id: ex-equality-relation-subset
+    question: "What subset of A × A represents equality?"
+    edge_type: prerequisite
 parents:
   - what-is-a-binary-relation
 ---

@@ -5,7 +5,22 @@ role: bit
 group: functions-i
 curriculum_path: null
 learning_objectives: []
-children: []
+children:
+  - id: preimage-of-a-set
+    question: "Can I go backwards — which inputs land in a given output set?"
+    edge_type: prerequisite
+  - id: ex-compute-image-sphere
+    question: "Can I compute the image of a geometric object?"
+    edge_type: prerequisite
+  - id: ex-image-preimage-hw
+    question: "Can I compute images for different functions?"
+    edge_type: prerequisite
+  - id: ex-image-intersection-subset
+    question: "Does the image respect set intersection?"
+    edge_type: prerequisite
+  - id: ex-image-union-equality
+    question: "Does the image respect set union?"
+    edge_type: prerequisite
 parents:
   - domain-codomain-range
   - set-builder-notation

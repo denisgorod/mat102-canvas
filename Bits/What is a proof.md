@@ -12,6 +12,9 @@ children:
   - id: self-explanation-training
     question: "How should I read a proof to actually understand it?"
     edge_type: prerequisite
+  - id: proof-by-contradiction
+    question: "What if I can't build a direct chain from hypothesis to conclusion?"
+    edge_type: prerequisite
 parents:
   - mathematical-results-are-infallible
 ---

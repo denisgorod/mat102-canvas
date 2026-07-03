@@ -5,7 +5,10 @@ role: bit
 group: functions-ii
 curriculum_path: null
 learning_objectives: []
-children: []
+children:
+  - id: ex-interval-cardinality
+    question: "Can CSB simplify cardinality proofs?"
+    edge_type: prerequisite
 parents:
   - reals-are-uncountable
 ---

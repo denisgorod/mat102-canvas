@@ -18,6 +18,9 @@ children:
   - id: function-as-relation
     question: "What kind of relation is both left-total and functional?"
     edge_type: prerequisite
+  - id: ex-left-total-functional
+    question: "Can a relation between different sets be left-total and functional?"
+    edge_type: prerequisite
 parents:
   - relation-properties-reflexive-symmetric
 ---

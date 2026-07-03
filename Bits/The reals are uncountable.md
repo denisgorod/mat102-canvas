@@ -5,7 +5,13 @@ role: bit
 group: functions-ii
 curriculum_path: null
 learning_objectives: []
-children: []
+children:
+  - id: why-diagonalization-fails-for-rationals
+    question: "Why can't I diagonalize the rationals the same way?"
+    edge_type: prerequisite
+  - id: cantor-schroder-bernstein
+    question: "If I have injections both ways, do I get a bijection?"
+    edge_type: prerequisite
 parents:
   - rationals-are-countable
   - proof-by-contradiction

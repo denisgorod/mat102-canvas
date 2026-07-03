@@ -528,7 +528,12 @@
   };
 </script>
 <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
-<script type="module" src="./viewer.js"></script>
+<script type="module">
+  // Route by mode: ?mode=reader loads the reader-first prototype; default is the canvas viewer.
+  const mode = new URLSearchParams(window.location.search).get("mode");
+  if (mode === "reader") import("./reader.js");
+  else import("./viewer.js");
+</script>
 
 </body>
 </html>

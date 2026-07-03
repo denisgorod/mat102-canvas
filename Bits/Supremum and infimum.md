@@ -9,6 +9,9 @@ children:
   - id: well-ordering-principle
     question: "Does every subset of Z⁺ have a least element?"
     edge_type: analogy
+  - id: ex-divisor-closed-poset
+    question: "Can I find sup and inf in a non-numeric poset?"
+    edge_type: prerequisite
 parents:
   - upper-and-lower-bounds
 ---

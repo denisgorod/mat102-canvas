@@ -7,7 +7,7 @@ curriculum_path: null
 learning_objectives: []
 children:
   - id: ex-prove-order-of-power
-    question: ""
+    question: "Can I prove the order-of-a-power formula?"
     edge_type: prerequisite
 parents:
   - order-divides-exponent

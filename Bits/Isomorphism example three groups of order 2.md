@@ -10,10 +10,10 @@ children:
     question: "What properties are preserved by isomorphisms?"
     edge_type: prerequisite
   - id: ex-complete-isomorphism-example
-    question: ""
+    question: "Can I finish verifying the remaining isomorphism?"
     edge_type: related
   - id: ex-rotation-subgroup-isomorphic-z3
-    question: ""
+    question: "Is the rotation subgroup of D_3 isomorphic to Z_3?"
     edge_type: related
 parents:
   - isomorphism-definition

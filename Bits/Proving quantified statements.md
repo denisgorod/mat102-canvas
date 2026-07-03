@@ -5,7 +5,13 @@ role: bit
 group: quantifiers-and-implications
 curriculum_path: null
 learning_objectives: []
-children: []
+children:
+  - id: ex-polynomial-quantifiers
+    question: "Can I evaluate quantified statements about polynomials?"
+    edge_type: prerequisite
+  - id: ex-quantifier-implication-equivalence
+    question: "Does 'for all P implies for all Q' mean the same as 'for all, P implies Q'?"
+    edge_type: prerequisite
 parents:
   - universal-quantifier
   - existential-quantifier

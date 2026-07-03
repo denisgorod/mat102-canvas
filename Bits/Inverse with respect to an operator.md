@@ -9,6 +9,9 @@ children:
   - id: group-definition
     question: "What structure do we get when every element has an inverse?"
     edge_type: prerequisite
+  - id: function-composition
+    question: "What is the 'operation' for functions?"
+    edge_type: prerequisite
 parents:
   - binary-operator-identity
 ---
