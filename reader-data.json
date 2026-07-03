@@ -908,7 +908,61 @@
 			"role": "bit",
 			"group": "modular-arithmetic",
 			"curriculum_path": null,
-			"file": "Bits/Arithmetic of congruences.md"
+			"file": "Bits/Arithmetic of congruences.md",
+			"drills": [
+				{
+					"id": "modsum",
+					"prompt": "Compute $(%a% + %b%) \\bmod %n%$.",
+					"vars": {
+						"a": {
+							"int": [
+								10,
+								99
+							]
+						},
+						"b": {
+							"int": [
+								10,
+								99
+							]
+						},
+						"n": {
+							"int": [
+								3,
+								12
+							]
+						}
+					},
+					"answer": "mod(a+b,n)",
+					"type": "integer"
+				},
+				{
+					"id": "modprod",
+					"prompt": "Compute $(%a% \\cdot %b%) \\bmod %n%$.",
+					"vars": {
+						"a": {
+							"int": [
+								3,
+								40
+							]
+						},
+						"b": {
+							"int": [
+								3,
+								40
+							]
+						},
+						"n": {
+							"int": [
+								3,
+								12
+							]
+						}
+					},
+					"answer": "mod(a*b,n)",
+					"type": "integer"
+				}
+			]
 		},
 		"set-notation": {
 			"title": "Set notation",
@@ -978,7 +1032,29 @@
 			"role": "bit",
 			"group": "modular-arithmetic",
 			"curriculum_path": null,
-			"file": "Bits/Last-digit computation.md"
+			"file": "Bits/Last-digit computation.md",
+			"drills": [
+				{
+					"id": "lastdigit",
+					"prompt": "What is the last digit of $%a%^{%k%}$?",
+					"vars": {
+						"a": {
+							"int": [
+								2,
+								39
+							]
+						},
+						"k": {
+							"int": [
+								2,
+								60
+							]
+						}
+					},
+					"answer": "modpow(a,k,10)",
+					"type": "integer"
+				}
+			]
 		},
 		"irrationality-via-fta": {
 			"title": "Irrationality via FTA",
@@ -1125,7 +1201,55 @@
 			"role": "bit",
 			"group": "modular-arithmetic",
 			"curriculum_path": null,
-			"file": "Bits/Congruence modulo n.md"
+			"file": "Bits/Congruence modulo n.md",
+			"drills": [
+				{
+					"id": "reduce",
+					"prompt": "Compute $%a% \\bmod %n%$.",
+					"vars": {
+						"a": {
+							"int": [
+								17,
+								200
+							]
+						},
+						"n": {
+							"int": [
+								2,
+								15
+							]
+						}
+					},
+					"answer": "mod(a,n)",
+					"type": "integer"
+				},
+				{
+					"id": "congruent",
+					"prompt": "True or false: $%a% \\equiv %b% \\pmod{%n%}$?",
+					"vars": {
+						"a": {
+							"int": [
+								10,
+								99
+							]
+						},
+						"b": {
+							"int": [
+								10,
+								99
+							]
+						},
+						"n": {
+							"int": [
+								2,
+								9
+							]
+						}
+					},
+					"answer": "mod(a-b,n)==0",
+					"type": "boolean"
+				}
+			]
 		},
 		"cyclic-subgroup-is-subgroup": {
 			"title": "Cyclic subgroup is a subgroup",

@@ -5,6 +5,14 @@ role: bit
 group: modular-arithmetic
 curriculum_path: null
 learning_objectives: []
+drills:
+  - id: lastdigit
+    prompt: 'What is the last digit of $%a%^{%k%}$?'
+    vars:
+      a: {int: [2, 39]}
+      k: {int: [2, 60]}
+    answer: 'modpow(a,k,10)'
+    type: integer
 children: []
 parents:
   - arithmetic-of-congruences

@@ -5,6 +5,23 @@ role: bit
 group: modular-arithmetic
 curriculum_path: null
 learning_objectives: []
+drills:
+  - id: modsum
+    prompt: 'Compute $(%a% + %b%) \bmod %n%$.'
+    vars:
+      a: {int: [10, 99]}
+      b: {int: [10, 99]}
+      n: {int: [3, 12]}
+    answer: 'mod(a+b,n)'
+    type: integer
+  - id: modprod
+    prompt: 'Compute $(%a% \cdot %b%) \bmod %n%$.'
+    vars:
+      a: {int: [3, 40]}
+      b: {int: [3, 40]}
+      n: {int: [3, 12]}
+    answer: 'mod(a*b,n)'
+    type: integer
 children:
   - id: congruence-classes-and-zn
     question: "What are the equivalence classes of congruence mod n?"
