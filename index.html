@@ -283,6 +283,74 @@
       display: none !important;
     }
 
+    /* ---------------------------------------------------------------------
+       Semantic zoom (level-of-detail). Chips + topic tiles are hidden by
+       default; the data-lod attribute on #canvas-root (set in viewer.js from
+       the live zoom) reveals the right layer for each band. Both live in world
+       coordinates inside .JCV-overlays, so they pan/zoom with the map.
+       --------------------------------------------------------------------- */
+    .lod-chip, .lod-topic-label { display: none; }
+
+    /* Band 1: a node body collapses to this single title card. */
+    .lod-chip {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6% 8%;
+      box-sizing: border-box;
+      font-family: var(--obs-font-text);
+      font-weight: 600;
+      color: #1f2937;
+      font-size: 54px;
+      line-height: 1.15;
+      background: #eef2f7;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    /* Band 0: one big tile per topic (leaf group) — the table of contents. */
+    .lod-topic-label {
+      position: absolute;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 6%;
+      box-sizing: border-box;
+      font-family: var(--obs-font-text);
+      font-weight: 700;
+      color: #1e293b;
+      line-height: 1.12;
+      background: rgba(238, 242, 247, 0.97);
+      border: 2px solid #c8d2e1;
+      border-radius: 20px;
+      box-shadow: 0 8px 26px rgba(15, 23, 42, 0.12);
+      cursor: pointer;
+      overflow: hidden;
+    }
+    .lod-topic-label:hover { background: #ffffff; border-color: var(--obs-accent); }
+
+    /* Band 1 (mid zoom): swap node bodies for title chips. */
+    #canvas-root[data-lod="1"] .JCV-overlay-container:not(.node-type-group) .JCV-content {
+      display: none;
+    }
+    #canvas-root[data-lod="1"] .JCV-overlay-container:not(.is-collapsed-hidden):not(.node-type-group) .lod-chip {
+      display: flex;
+    }
+
+    /* Band 0 (far zoom): nodes and group chrome vanish; topic tiles appear. */
+    #canvas-root[data-lod="0"] .JCV-overlay-container { display: none; }
+    #canvas-root[data-lod="0"] .group-overlay-layer { display: none; }
+    #canvas-root[data-lod="0"] .lod-topic-label { display: flex; }
+
+    /* Edge-question labels are noise when zoomed out — only show at full zoom. */
+    #canvas-root[data-lod="0"] .edge-label-layer,
+    #canvas-root[data-lod="1"] .edge-label-layer { display: none; }
+
     /* Reading progress reflected on the map (state shared with the reader via
        localStorage). Inset rings/badges only, so content-visibility's paint
        containment never clips them. */

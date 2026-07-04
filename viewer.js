@@ -566,6 +566,7 @@ const edgeById = new Map(canvasJSON.edges.map((edge) => [edge.id, edge]));
 const slugByNodeId = new Map();
 const nodeIdBySlug = new Map();
 let readerStateApply = null; // set once reader-data.json + localStorage state load
+let lodKick = null; // set by the LOD controller; wakes the band loop on programmatic zoom
 const overlayNodeTypeClasses = ["node-type-text", "node-type-file", "node-type-group", "node-type-link"];
 const groupNodes = canvasJSON.nodes.filter((node) => node.type === "group");
 const collapsedGroupIds = new Set();
@@ -630,6 +631,7 @@ const setOverlayNodeTypeClass = (overlay) => {
   if (!(overlay instanceof Element) || !overlay.id) return;
 
   if (readerStateApply) readerStateApply(overlay);
+  ensureLodChip(overlay);
 
   overlayNodeTypeClasses.forEach((className) => {
     overlay.classList.remove(className);
@@ -851,6 +853,7 @@ const smoothPanToNode = (nodeId, options = {}) => {
 
   activateFocusedNode(nodeId, { recordHistory: options.recordHistory !== false });
   cancelPanAnimation();
+  lodKick?.(); // the pan animates the scale each frame — keep the LOD loop awake for it
 
   const durationMs = options.durationMs ?? 520;
   const startScale = dataManager.data.scale;
@@ -1236,6 +1239,7 @@ window.addEventListener("resize", () => {
     renderEdgeLabels();
     renderOutgoingPanel();
     renderGroupControls();
+    lodKick?.(); // a resize can refit the view and cross a LOD threshold
   });
 });
 
@@ -1494,6 +1498,7 @@ function focusNode(nodeId, options = {}) {
     if (typeof viewer.refresh === "function") {
       viewer.refresh();
     }
+    lodKick?.(); // this jump can cross a LOD threshold — refresh the band
     return;
   }
 
@@ -1588,4 +1593,163 @@ function focusNode(nodeId, options = {}) {
     }, 350);
   }
 })();
+
+// ---------------------------------------------------------------------------
+// Semantic zoom (level-of-detail). The map is far too large to read all at once,
+// so what each node shows is keyed to the live zoom (`dataManager.data.scale`):
+//
+//   band 0 (far):  every node hidden; one big "topic tile" per leaf group — a
+//                  scarce, table-of-contents view of the whole curriculum.
+//   band 1 (mid):  node bodies collapse to a single title chip — a scannable
+//                  grid of labelled cards, no reading required.
+//   band 2 (near): full node content, and edge-question labels become visible.
+//
+// The actual show/hide is pure CSS driven by #canvas-root[data-lod]; this code
+// only (a) computes the band with hysteresis so a scale hovering on a threshold
+// doesn't strobe, and (b) injects the chip / tile elements once.
+// ---------------------------------------------------------------------------
+const LOD_T1 = 0.13; // below this scale: topic tiles only (band 0)
+const LOD_T2 = 0.42; // at/above this scale: full node content (band 2)
+const LOD_HYS = 0.08; // ±8% dead-band around each threshold, kills flicker
+let lodBand = -1;
+
+// Chips live inside each overlay; created lazily so we never pay for a node
+// that never scrolls into view. Called from setOverlayNodeTypeClass (hoisted so
+// it's defined before that first runs).
+function ensureLodChip(overlay) {
+  if (!(overlay instanceof Element) || !overlay.id) return;
+  if (nodeTypeById.get(overlay.id) === "group") return; // groups get tiles, not chips
+  if (overlay.querySelector(":scope > .lod-chip")) return;
+  const chip = document.createElement("div");
+  chip.className = "lod-chip";
+  chip.textContent = getNodeLabel(overlay.id);
+  overlay.appendChild(chip);
+}
+
+// Only switch bands once the scale is clearly past a threshold (start from the
+// current band, then step at most one band per side). Handles the initial -1
+// state and fast multi-band zooms via the sequential comparisons.
+const lodBandForScale = (scale) => {
+  let band = lodBand < 0 ? (scale < LOD_T1 ? 0 : scale < LOD_T2 ? 1 : 2) : lodBand;
+  if (band === 0 && scale > LOD_T1 * (1 + LOD_HYS)) band = 1;
+  if (band === 1 && scale < LOD_T1 * (1 - LOD_HYS)) band = 0;
+  if (band === 1 && scale > LOD_T2 * (1 + LOD_HYS)) band = 2;
+  if (band === 2 && scale < LOD_T2 * (1 - LOD_HYS)) band = 1;
+  return band;
+};
+
+const updateLod = () => {
+  const scale = dataManager?.data?.scale;
+  if (typeof scale !== "number") return;
+  const band = lodBandForScale(scale);
+  if (band === lodBand) return;
+  lodBand = band;
+  canvasRoot.dataset.lod = String(band);
+  if (band === 0) ensureLodTopicLabels();
+};
+
+// Leaf topic groups (a group containing no other group) are the tiles — the
+// 24 innermost topics, not the 6 parent subject lanes.
+const bboxContainsGroup = (outer, inner) => (
+  inner !== outer
+  && inner.x >= outer.x && inner.y >= outer.y
+  && inner.x + inner.width <= outer.x + outer.width
+  && inner.y + inner.height <= outer.y + outer.height
+);
+const leafTopicGroups = groupNodes.filter(
+  (group) => !groupNodes.some((other) => bboxContainsGroup(group, other))
+);
+
+// One tile per leaf group, positioned in world coordinates inside .JCV-overlays
+// so it pans/zooms with the map. Clicking a tile drills into that topic.
+const renderLodTopicLabels = () => {
+  const overlaysRoot = canvasRoot.querySelector(".JCV-overlays");
+  if (!overlaysRoot) return false;
+
+  let layer = overlaysRoot.querySelector(".lod-topic-layer");
+  if (!layer) {
+    layer = document.createElement("div");
+    layer.className = "lod-topic-layer";
+    layer.style.position = "absolute";
+    layer.style.left = "0";
+    layer.style.top = "0";
+    layer.style.width = "0";
+    layer.style.height = "0";
+    layer.style.overflow = "visible";
+    layer.style.zIndex = "30";
+    layer.style.pointerEvents = "none";
+    overlaysRoot.appendChild(layer);
+  }
+
+  if (layer.childElementCount > 0) return true; // built once; geometry is static
+
+  leafTopicGroups.forEach((group) => {
+    const tile = document.createElement("button");
+    tile.type = "button";
+    tile.className = "lod-topic-label";
+    tile.dataset.groupId = group.id;
+    tile.textContent = group.label || "Topic";
+    tile.style.left = `${group.x}px`;
+    tile.style.top = `${group.y}px`;
+    tile.style.width = `${group.width}px`;
+    tile.style.height = `${group.height}px`;
+    // Font scales with the tile so labels read at any zoom, but a floor + cap
+    // keep the 24 topics reading as peers instead of a few giants shouting over
+    // the rest (width-bound so long titles don't overflow, height-bound so short
+    // wide tiles don't blow up).
+    tile.style.fontSize = `${Math.max(150, Math.min(group.width * 0.11, group.height * 0.22, 430))}px`;
+    tile.style.pointerEvents = "auto";
+    tile.addEventListener("click", (event) => {
+      event.stopPropagation();
+      focusNodeFromInteraction(group.id);
+    });
+    layer.appendChild(tile);
+  });
+
+  return true;
+};
+
+const ensureLodTopicLabels = (attempt = 0) => {
+  const done = renderLodTopicLabels();
+  if (done || attempt >= 30) return;
+  window.setTimeout(() => ensureLodTopicLabels(attempt + 1), 120);
+};
+
+// Drive the band off the live scale, but only while the scale is actually
+// moving. A perpetual rAF would keep the page ticking (and burning battery) at
+// idle; instead the loop self-stops once the zoom holds steady for a few frames
+// and `kickLod` re-arms it on any interaction that can change scale (wheel,
+// pinch, resize, or a programmatic focus/pan via `lodKick`).
+if (dataManager?.data) {
+  let lodRafId = null;
+  let lodStableFrames = 0;
+  let lodPrevScale = NaN;
+
+  const lodTick = () => {
+    const scale = dataManager.data.scale;
+    updateLod();
+    if (scale === lodPrevScale) {
+      lodStableFrames += 1;
+    } else {
+      lodStableFrames = 0;
+      lodPrevScale = scale;
+    }
+    // ~20 frames (~0.3s) of a steady scale covers zoom inertia; then go idle.
+    if (lodStableFrames >= 20) { lodRafId = null; return; }
+    lodRafId = window.requestAnimationFrame(lodTick);
+  };
+
+  const kickLod = () => {
+    lodStableFrames = 0;
+    if (lodRafId === null) lodRafId = window.requestAnimationFrame(lodTick);
+  };
+  lodKick = kickLod;
+
+  // Direct user zoom: wheel, and pinch/drag (which begins with a pointerdown).
+  canvasRoot.addEventListener("wheel", kickLod, { passive: true });
+  canvasRoot.addEventListener("pointerdown", kickLod, true);
+
+  updateLod(); // set the initial band…
+  kickLod();   // …then settle to the load-time scale and stop.
+}
 
