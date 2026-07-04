@@ -566,6 +566,7 @@ const edgeById = new Map(canvasJSON.edges.map((edge) => [edge.id, edge]));
 const slugByNodeId = new Map();
 const nodeIdBySlug = new Map();
 let readerStateApply = null; // set once reader-data.json + localStorage state load
+let lodKick = null; // set by the LOD controller; wakes the band loop on programmatic zoom
 const overlayNodeTypeClasses = ["node-type-text", "node-type-file", "node-type-group", "node-type-link"];
 const groupNodes = canvasJSON.nodes.filter((node) => node.type === "group");
 const collapsedGroupIds = new Set();
@@ -852,6 +853,7 @@ const smoothPanToNode = (nodeId, options = {}) => {
 
   activateFocusedNode(nodeId, { recordHistory: options.recordHistory !== false });
   cancelPanAnimation();
+  lodKick?.(); // the pan animates the scale each frame — keep the LOD loop awake for it
 
   const durationMs = options.durationMs ?? 520;
   const startScale = dataManager.data.scale;
@@ -1237,6 +1239,7 @@ window.addEventListener("resize", () => {
     renderEdgeLabels();
     renderOutgoingPanel();
     renderGroupControls();
+    lodKick?.(); // a resize can refit the view and cross a LOD threshold
   });
 });
 
@@ -1495,6 +1498,7 @@ function focusNode(nodeId, options = {}) {
     if (typeof viewer.refresh === "function") {
       viewer.refresh();
     }
+    lodKick?.(); // this jump can cross a LOD threshold — refresh the band
     return;
   }
 
@@ -1711,15 +1715,41 @@ const ensureLodTopicLabels = (attempt = 0) => {
   window.setTimeout(() => ensureLodTopicLabels(attempt + 1), 120);
 };
 
-// The library repaints on its own rAF loop while the user zooms; we piggyback a
-// per-frame band check (just a number compare) and only touch the DOM when the
-// band actually changes.
+// Drive the band off the live scale, but only while the scale is actually
+// moving. A perpetual rAF would keep the page ticking (and burning battery) at
+// idle; instead the loop self-stops once the zoom holds steady for a few frames
+// and `kickLod` re-arms it on any interaction that can change scale (wheel,
+// pinch, resize, or a programmatic focus/pan via `lodKick`).
 if (dataManager?.data) {
+  let lodRafId = null;
+  let lodStableFrames = 0;
+  let lodPrevScale = NaN;
+
   const lodTick = () => {
+    const scale = dataManager.data.scale;
     updateLod();
-    window.requestAnimationFrame(lodTick);
+    if (scale === lodPrevScale) {
+      lodStableFrames += 1;
+    } else {
+      lodStableFrames = 0;
+      lodPrevScale = scale;
+    }
+    // ~20 frames (~0.3s) of a steady scale covers zoom inertia; then go idle.
+    if (lodStableFrames >= 20) { lodRafId = null; return; }
+    lodRafId = window.requestAnimationFrame(lodTick);
   };
-  updateLod();
-  window.requestAnimationFrame(lodTick);
+
+  const kickLod = () => {
+    lodStableFrames = 0;
+    if (lodRafId === null) lodRafId = window.requestAnimationFrame(lodTick);
+  };
+  lodKick = kickLod;
+
+  // Direct user zoom: wheel, and pinch/drag (which begins with a pointerdown).
+  canvasRoot.addEventListener("wheel", kickLod, { passive: true });
+  canvasRoot.addEventListener("pointerdown", kickLod, true);
+
+  updateLod(); // set the initial band…
+  kickLod();   // …then settle to the load-time scale and stop.
 }
 
