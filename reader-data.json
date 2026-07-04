@@ -96,7 +96,8 @@
 			"role": "bit",
 			"group": "modular-arithmetic",
 			"curriculum_path": null,
-			"file": "Bits/Congruence classes and Zn.md"
+			"file": "Bits/Congruence classes and Zn.md",
+			"concludes": "mod-zn"
 		},
 		"converse-of-an-implication": {
 			"title": "Converse of an implication",
@@ -334,7 +335,8 @@
 			"role": "bit",
 			"group": "modular-arithmetic",
 			"curriculum_path": null,
-			"file": "Bits/Congruence is an equivalence relation.md"
+			"file": "Bits/Congruence is an equivalence relation.md",
+			"concludes": "mod-equivalence"
 		},
 		"math-vs-english-implication": {
 			"title": "Math vs English: implication",
@@ -747,7 +749,37 @@
 			"role": "bit",
 			"group": "modular-arithmetic",
 			"curriculum_path": null,
-			"file": "Bits/Multiplicative inverses in Zp.md"
+			"file": "Bits/Multiplicative inverses in Zp.md",
+			"concludes": "mod-inverses",
+			"drills": [
+				{
+					"id": "inverse",
+					"prompt": "Find $x$ with $0 \\le x < %n%$ and $%a%\\,x \\equiv 1 \\pmod{%n%}$.",
+					"vars": {
+						"a": {
+							"int": [
+								2,
+								20
+							]
+						},
+						"n": {
+							"int": [
+								3,
+								21
+							]
+						}
+					},
+					"where": "gcd(a,n)==1",
+					"inputs": [
+						"x"
+					],
+					"answer": "mod(a*x, n) == 1",
+					"witness": {
+						"x": "inverse(a, n)"
+					},
+					"type": "predicate"
+				}
+			]
 		},
 		"zn-is-a-group": {
 			"title": "Z_n is a group under addition",
@@ -909,6 +941,7 @@
 			"group": "modular-arithmetic",
 			"curriculum_path": null,
 			"file": "Bits/Arithmetic of congruences.md",
+			"concludes": "mod-arithmetic",
 			"drills": [
 				{
 					"id": "modsum",
@@ -961,33 +994,6 @@
 					},
 					"answer": "mod(a*b,n)",
 					"type": "integer"
-				},
-				{
-					"id": "inverse",
-					"prompt": "Find $x$ with $0 \\le x < %n%$ and $%a%\\,x \\equiv 1 \\pmod{%n%}$.",
-					"vars": {
-						"a": {
-							"int": [
-								2,
-								20
-							]
-						},
-						"n": {
-							"int": [
-								3,
-								21
-							]
-						}
-					},
-					"where": "gcd(a,n)==1",
-					"inputs": [
-						"x"
-					],
-					"answer": "mod(a*x, n) == 1",
-					"witness": {
-						"x": "inverse(a, n)"
-					},
-					"type": "predicate"
 				}
 			]
 		},
@@ -1060,6 +1066,7 @@
 			"group": "modular-arithmetic",
 			"curriculum_path": null,
 			"file": "Bits/Last-digit computation.md",
+			"concludes": "mod-lastdigit",
 			"drills": [
 				{
 					"id": "lastdigit",
@@ -1229,6 +1236,7 @@
 			"group": "modular-arithmetic",
 			"curriculum_path": null,
 			"file": "Bits/Congruence modulo n.md",
+			"concludes": "mod-congruence-def",
 			"drills": [
 				{
 					"id": "reduce",

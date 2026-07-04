@@ -5,6 +5,7 @@ role: bit
 group: modular-arithmetic
 curriculum_path: null
 learning_objectives: []
+concludes: mod-inverses
 children:
   - id: ex-find-inverse-in-z41
     question: "Can I compute a specific inverse in Z_p?"

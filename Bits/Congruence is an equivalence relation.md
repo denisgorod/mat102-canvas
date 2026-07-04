@@ -5,6 +5,7 @@ role: bit
 group: modular-arithmetic
 curriculum_path: null
 learning_objectives: []
+concludes: mod-equivalence
 children:
   - id: arithmetic-of-congruences
     question: "Can we add and multiply congruences?"

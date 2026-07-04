@@ -16,7 +16,20 @@ import yaml
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CANVAS = os.path.join(ROOT, "MAT102.canvas")
 BITS = os.path.join(ROOT, "Bits")
+HIER = os.path.join(ROOT, "Hierarchy")
 OUT = os.path.join(ROOT, "reader-data.json")
+
+# Drills now live on the hierarchy (review) nodes; an inquiry bit surfaces its
+# objective's drills through the `concludes:` map (f). Load hierarchy id -> drills
+# once so mapped bits can inherit them (single source of truth = Hierarchy/).
+hier_drills = {}
+for f in glob.glob(os.path.join(HIER, "*.md")):
+    t = open(f, encoding="utf-8").read()
+    if not t.startswith("---\n"):
+        continue
+    hd = yaml.safe_load(t[4:t.index(chr(10) + "---", 4)]) or {}
+    if hd.get("drills"):
+        hier_drills[str(hd.get("id")).strip()] = hd["drills"]
 
 canvas = json.loads(open(CANVAS, encoding="utf-8").read())
 nodes = {}
@@ -35,8 +48,12 @@ for f in glob.glob(os.path.join(BITS, "**", "*.md"), recursive=True):
         "curriculum_path": d.get("curriculum_path"),  # null today; reader falls back to role==bit
         "file": rel,
     }
-    if d.get("drills"):  # parametric spaced-repetition drills (see drill-engine.js)
-        nodes[slug]["drills"] = d["drills"]
+    if d.get("concludes"):  # f: this inquiry branch concludes in a hierarchy node
+        nodes[slug]["concludes"] = d["concludes"]
+    # Own drills win; otherwise inherit the concluded objective's drills.
+    drills = d.get("drills") or hier_drills.get(d.get("concludes"))
+    if drills:  # parametric spaced-repetition drills (see drill-engine.js)
+        nodes[slug]["drills"] = drills
     base2slug[os.path.basename(f)] = slug
 
 hex2slug = {n["id"]: base2slug.get(os.path.basename(n["file"]))
