@@ -36,6 +36,17 @@ const titleCase = (slug) => String(slug || "").split("-").map((w) => w ? w[0].to
   const ids = Object.keys(data.nodes);
   if (!ids.length) { console.error("no hierarchy nodes; run build-hierarchy.py first"); process.exit(1); }
 
+  // This generator lays out ONE topic within ONE subject. Fail fast rather than
+  // silently lump multiple topics into a single mislabeled group box. Per-topic
+  // grouping (a box per topic, subjects around their topics — which needs
+  // per-topic ELK sub-layouts arranged in lanes) is the next generator step.
+  const topics = [...new Set(ids.map((id) => data.nodes[id].topic))];
+  const subjects = [...new Set(ids.map((id) => data.nodes[id].subject))];
+  if (topics.length > 1 || subjects.length > 1) {
+    console.error(`layout-hierarchy: handles one topic/subject, but found topics [${topics.join(", ")}] subjects [${subjects.join(", ")}]. Implement multi-topic grouping before authoring a second topic.`);
+    process.exit(1);
+  }
+
   const res = await elk.layout({
     id: "root",
     layoutOptions: {

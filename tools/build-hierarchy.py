@@ -55,8 +55,10 @@ for f in sorted(glob.glob(os.path.join(HIER, "*.md"))):
     }
 
 # --- f : inquiry bit --> hierarchy node (the `concludes:` field) -----------
+# Sorted so inquiry_sources (and the review→inquiry jump target) is deterministic
+# across filesystems when a node has more than one source.
 f_map = {}
-for f in glob.glob(os.path.join(BITS, "**", "*.md"), recursive=True):
+for f in sorted(glob.glob(os.path.join(BITS, "**", "*.md"), recursive=True)):
     d = frontmatter(f)
     if not d:
         continue

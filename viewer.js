@@ -616,8 +616,10 @@ const getNodeLabel = (nodeId) => {
   if (node.type === "group") return node.label || "Group";
 
   if (node.type === "file" && typeof node.file === "string") {
-    // Prefer an explicit title (review-map nodes carry one) over the filename.
-    return node.title || getDisplayFileName(node.file) || node.id;
+    // Prefer an explicit title (review-map nodes carry one) over the filename,
+    // but only when it's a non-empty string — a blank title must not blank the label.
+    const title = typeof node.title === "string" ? node.title.trim() : "";
+    return title || getDisplayFileName(node.file) || node.id;
   }
 
   if (typeof node.text !== "string" || node.text.trim().length === 0) return node.id;

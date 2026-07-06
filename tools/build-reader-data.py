@@ -23,13 +23,15 @@ OUT = os.path.join(ROOT, "reader-data.json")
 # objective's drills through the `concludes:` map (f). Load hierarchy id -> drills
 # once so mapped bits can inherit them (single source of truth = Hierarchy/).
 hier_drills = {}
-for f in glob.glob(os.path.join(HIER, "*.md")):
+for f in sorted(glob.glob(os.path.join(HIER, "*.md"))):
     t = open(f, encoding="utf-8").read()
-    if not t.startswith("---\n"):
-        continue
-    hd = yaml.safe_load(t[4:t.index(chr(10) + "---", 4)]) or {}
-    if hd.get("drills"):
-        hier_drills[str(hd.get("id")).strip()] = hd["drills"]
+    end = t.find(chr(10) + "---", 4)
+    if not t.startswith("---\n") or end < 0:
+        continue  # no well-formed frontmatter block
+    hd = yaml.safe_load(t[4:end]) or {}
+    hid = hd.get("id")
+    if hid and hd.get("drills"):  # skip drills authored without an id
+        hier_drills[str(hid).strip()] = hd["drills"]
 
 canvas = json.loads(open(CANVAS, encoding="utf-8").read())
 nodes = {}
