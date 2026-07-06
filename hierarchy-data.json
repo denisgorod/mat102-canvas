@@ -1,0 +1,275 @@
+{
+	"nodes": {
+		"mod-arithmetic": {
+			"title": "Arithmetic of congruences",
+			"role": "objective",
+			"subject": "number-theory",
+			"topic": "modular-arithmetic",
+			"statement": "State and prove that congruence is compatible with + and ×, so a ≡ r, b ≡ s (mod n) ⟹ a+b ≡ r+s and ab ≡ rs (mod n).",
+			"file": "Hierarchy/mod-arithmetic.md",
+			"depends_on": [
+				"mod-equivalence"
+			],
+			"drills": [
+				{
+					"id": "modsum",
+					"prompt": "Compute $(%a% + %b%) \\bmod %n%$.",
+					"vars": {
+						"a": {
+							"int": [
+								10,
+								99
+							]
+						},
+						"b": {
+							"int": [
+								10,
+								99
+							]
+						},
+						"n": {
+							"int": [
+								3,
+								12
+							]
+						}
+					},
+					"answer": "mod(a+b,n)",
+					"type": "integer"
+				},
+				{
+					"id": "modprod",
+					"prompt": "Compute $(%a% \\cdot %b%) \\bmod %n%$.",
+					"vars": {
+						"a": {
+							"int": [
+								3,
+								40
+							]
+						},
+						"b": {
+							"int": [
+								3,
+								40
+							]
+						},
+						"n": {
+							"int": [
+								3,
+								12
+							]
+						}
+					},
+					"answer": "mod(a*b,n)",
+					"type": "integer"
+				}
+			],
+			"inquiry_sources": [
+				"arithmetic-of-congruences"
+			]
+		},
+		"mod-congruence-def": {
+			"title": "Congruence modulo n",
+			"role": "definition",
+			"subject": "number-theory",
+			"topic": "modular-arithmetic",
+			"statement": "a ≡ b (mod n) means n ∣ (b − a); equivalently, a and b leave the same remainder on division by n.",
+			"file": "Hierarchy/mod-congruence-def.md",
+			"depends_on": [],
+			"drills": [
+				{
+					"id": "reduce",
+					"prompt": "Compute $%a% \\bmod %n%$.",
+					"vars": {
+						"a": {
+							"int": [
+								17,
+								200
+							]
+						},
+						"n": {
+							"int": [
+								2,
+								15
+							]
+						}
+					},
+					"answer": "mod(a,n)",
+					"type": "integer"
+				},
+				{
+					"id": "congruent",
+					"prompt": "True or false: $%a% \\equiv %b% \\pmod{%n%}$?",
+					"vars": {
+						"a": {
+							"int": [
+								10,
+								99
+							]
+						},
+						"b": {
+							"int": [
+								10,
+								99
+							]
+						},
+						"n": {
+							"int": [
+								2,
+								9
+							]
+						}
+					},
+					"answer": "mod(a-b,n)==0",
+					"type": "boolean"
+				},
+				{
+					"id": "def",
+					"prompt": "What does $a \\equiv b \\pmod{n}$ mean?",
+					"options": [
+						"$n$ divides $a - b$",
+						"$a$ divides $b - n$",
+						"$a$ and $b$ have the same sign",
+						"$ab$ is a multiple of $n$"
+					],
+					"answer": 0,
+					"type": "mc"
+				}
+			],
+			"inquiry_sources": [
+				"congruence-mod-n"
+			]
+		},
+		"mod-equivalence": {
+			"title": "Congruence is an equivalence relation",
+			"role": "theorem",
+			"subject": "number-theory",
+			"topic": "modular-arithmetic",
+			"statement": "For fixed n, ≡ (mod n) is reflexive, symmetric, and transitive, so it partitions ℤ into n congruence classes.",
+			"file": "Hierarchy/mod-equivalence.md",
+			"depends_on": [
+				"mod-congruence-def"
+			],
+			"drills": [],
+			"inquiry_sources": [
+				"congruence-is-equivalence-relation"
+			]
+		},
+		"mod-inverses": {
+			"title": "Multiplicative inverses in ℤₙ",
+			"role": "theorem",
+			"subject": "number-theory",
+			"topic": "modular-arithmetic",
+			"statement": "[a] is invertible in ℤₙ iff gcd(a,n)=1; the inverse is computed from a Bézout identity au+nv=1.",
+			"file": "Hierarchy/mod-inverses.md",
+			"depends_on": [
+				"mod-zn"
+			],
+			"drills": [
+				{
+					"id": "inverse",
+					"prompt": "Find $x$ with $0 \\le x < %n%$ and $%a%\\,x \\equiv 1 \\pmod{%n%}$.",
+					"vars": {
+						"a": {
+							"int": [
+								2,
+								20
+							]
+						},
+						"n": {
+							"int": [
+								3,
+								21
+							]
+						}
+					},
+					"where": "gcd(a,n)==1",
+					"inputs": [
+						"x"
+					],
+					"answer": "mod(a*x, n) == 1",
+					"witness": {
+						"x": "inverse(a, n)"
+					},
+					"type": "predicate"
+				}
+			],
+			"inquiry_sources": [
+				"multiplicative-inverses-in-zp"
+			]
+		},
+		"mod-lastdigit": {
+			"title": "Last-digit computation",
+			"role": "application",
+			"subject": "number-theory",
+			"topic": "modular-arithmetic",
+			"statement": "The last digit of an integer m is m mod 10; combined with compatibility, aᵏ mod 10 is found by reducing at each step.",
+			"file": "Hierarchy/mod-lastdigit.md",
+			"depends_on": [
+				"mod-arithmetic"
+			],
+			"drills": [
+				{
+					"id": "lastdigit",
+					"prompt": "What is the last digit of $%a%^{%k%}$?",
+					"vars": {
+						"a": {
+							"int": [
+								2,
+								39
+							]
+						},
+						"k": {
+							"int": [
+								2,
+								60
+							]
+						}
+					},
+					"answer": "modpow(a,k,10)",
+					"type": "integer"
+				}
+			],
+			"inquiry_sources": [
+				"last-digit-computation"
+			]
+		},
+		"mod-zn": {
+			"title": "The integers modulo n (ℤₙ)",
+			"role": "object",
+			"subject": "number-theory",
+			"topic": "modular-arithmetic",
+			"statement": "ℤₙ = {[0],…,[n−1]} with well-defined +, × inherited from ℤ; it is a commutative ring with identity.",
+			"file": "Hierarchy/mod-zn.md",
+			"depends_on": [
+				"mod-arithmetic"
+			],
+			"drills": [],
+			"inquiry_sources": [
+				"congruence-classes-and-zn"
+			]
+		}
+	},
+	"edges": [
+		{
+			"from": "mod-equivalence",
+			"to": "mod-arithmetic"
+		},
+		{
+			"from": "mod-congruence-def",
+			"to": "mod-equivalence"
+		},
+		{
+			"from": "mod-zn",
+			"to": "mod-inverses"
+		},
+		{
+			"from": "mod-arithmetic",
+			"to": "mod-lastdigit"
+		},
+		{
+			"from": "mod-arithmetic",
+			"to": "mod-zn"
+		}
+	]
+}

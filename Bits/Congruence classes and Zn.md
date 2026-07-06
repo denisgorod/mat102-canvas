@@ -5,6 +5,7 @@ role: bit
 group: modular-arithmetic
 curriculum_path: null
 learning_objectives: []
+concludes: mod-zn
 children:
   - id: modular-cancellation-lemma
     question: "Can we cancel common factors in a modular equation?"

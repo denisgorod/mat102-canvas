@@ -567,6 +567,7 @@ const slugByNodeId = new Map();
 const nodeIdBySlug = new Map();
 let readerStateApply = null; // set once reader-data.json + localStorage state load
 let lodKick = null; // set by the LOD controller; wakes the band loop on programmatic zoom
+let crossMapOnFocus = null; // set by the cross-map bridge; retargets the jump button on focus
 const overlayNodeTypeClasses = ["node-type-text", "node-type-file", "node-type-group", "node-type-link"];
 const groupNodes = canvasJSON.nodes.filter((node) => node.type === "group");
 const collapsedGroupIds = new Set();
@@ -615,7 +616,10 @@ const getNodeLabel = (nodeId) => {
   if (node.type === "group") return node.label || "Group";
 
   if (node.type === "file" && typeof node.file === "string") {
-    return getDisplayFileName(node.file) || node.id;
+    // Prefer an explicit title (review-map nodes carry one) over the filename,
+    // but only when it's a non-empty string — a blank title must not blank the label.
+    const title = typeof node.title === "string" ? node.title.trim() : "";
+    return title || getDisplayFileName(node.file) || node.id;
   }
 
   if (typeof node.text !== "string" || node.text.trim().length === 0) return node.id;
@@ -834,6 +838,7 @@ const renderOutgoingPanel = () => {
 const setFocusedNode = (nodeId) => {
   focusState.nodeId = nodeId;
   renderOutgoingPanel();
+  crossMapOnFocus?.(nodeId);
 };
 
 const cancelPanAnimation = () => {
@@ -1525,35 +1530,57 @@ function focusNode(nodeId, options = {}) {
 }
 
 // ---------------------------------------------------------------------------
-// Reader bridge: a Reader/Map toggle, deep-linking (?focus=<slug>), and painting
-// the reader's progress (answered ✓ / open-question glow) onto the map. All of
-// it degrades gracefully — if reader-data.json or saved state is missing, the
-// canvas is unchanged.
+// Map bridge: the toggle bar, the cross-map jump between the inquiry and review
+// maps, deep-linking (?focus=<id-or-slug>), and painting the reader's progress
+// (answered ✓ / open-question glow) onto the inquiry map. All of it degrades
+// gracefully — missing data leaves the canvas unchanged.
+//
+// The two maps are one viewer with different ?canvas=. The bridge between them
+// is the function f (a bit's `concludes:` field): an inquiry branch concludes in
+// a hierarchy node. Inquiry→review follows f (reader-data `concludes`);
+// review→inquiry follows f⁻¹ (hierarchy-data `inquiry_sources`).
 // ---------------------------------------------------------------------------
 (async () => {
-  // Toggle is always available (even before data loads).
+  const isReviewMap = /review/i.test(requestedCanvasPath);
+
+  // Toggle bar (always present). A primary button switches maps; a second,
+  // contextual button offers the focused node's cross-map jump.
   const toggle = document.createElement("div");
   toggle.className = "mode-toggle";
-  const readerBtn = document.createElement("button");
-  readerBtn.type = "button";
-  readerBtn.textContent = "📖 Reader";
-  readerBtn.title = "Open the reading view (starting at the focused bit, if any)";
-  readerBtn.addEventListener("click", () => {
-    const url = new URL("./", location.href);
-    url.searchParams.set("mode", "reader");
-    const slug = focusState.nodeId ? slugByNodeId.get(focusState.nodeId) : null;
-    if (slug) url.searchParams.set("start", slug);
-    location.href = url.toString();
-  });
-  toggle.appendChild(readerBtn);
+
+  const primaryBtn = document.createElement("button");
+  primaryBtn.type = "button";
+  if (isReviewMap) {
+    primaryBtn.textContent = "🗺 Inquiry map";
+    primaryBtn.title = "Back to the inquiry map";
+    primaryBtn.addEventListener("click", () => { location.href = new URL("./", location.href).toString(); });
+  } else {
+    primaryBtn.textContent = "📖 Reader";
+    primaryBtn.title = "Open the reading view (starting at the focused bit, if any)";
+    primaryBtn.addEventListener("click", () => {
+      const url = new URL("./", location.href);
+      url.searchParams.set("mode", "reader");
+      const slug = focusState.nodeId ? slugByNodeId.get(focusState.nodeId) : null;
+      if (slug) url.searchParams.set("start", slug);
+      location.href = url.toString();
+    });
+  }
+  toggle.appendChild(primaryBtn);
+
+  const jumpBtn = document.createElement("button");
+  jumpBtn.type = "button";
+  jumpBtn.className = "cross-map-jump";
+  jumpBtn.style.display = "none";
+  let jumpTarget = null;
+  jumpBtn.addEventListener("click", () => { if (jumpTarget) location.href = jumpTarget; });
+  toggle.appendChild(jumpBtn);
+
   canvasRoot.appendChild(toggle);
 
-  let readerData;
-  try {
-    readerData = await (await fetch("./reader-data.json")).json();
-  } catch {
-    return; // no reader data → toggle still works, no progress overlay
-  }
+  let readerData = { nodes: {}, edges: [] };
+  try { readerData = await (await fetch("./reader-data.json")).json(); } catch {}
+  let hierData = { nodes: {} };
+  try { hierData = await (await fetch("./hierarchy-data.json")).json(); } catch {}
 
   const base2slug = {};
   Object.entries(readerData.nodes).forEach(([slug, n]) => {
@@ -1564,6 +1591,37 @@ function focusNode(nodeId, options = {}) {
     const slug = base2slug[n.file.split("/").pop()];
     if (slug) { slugByNodeId.set(n.id, slug); nodeIdBySlug.set(slug, n.id); }
   });
+
+  // Recompute the contextual jump button whenever the focused node changes.
+  crossMapOnFocus = (nodeId) => {
+    jumpTarget = null;
+    jumpBtn.style.display = "none";
+    if (!nodeId) return;
+
+    if (isReviewMap) {
+      // A review node's id IS its hierarchy id → jump to how it was discovered.
+      const src = hierData.nodes?.[nodeId]?.inquiry_sources?.[0];
+      if (!src) return;
+      const url = new URL("./", location.href);
+      url.searchParams.set("focus", src);
+      jumpTarget = url.toString();
+      jumpBtn.textContent = "🔎 How it's discovered";
+      jumpBtn.title = "Jump to the inquiry branch that concludes in this node";
+    } else {
+      // An inquiry bit → its objective in the review map (via `concludes`).
+      const slug = slugByNodeId.get(nodeId);
+      const hid = slug && readerData.nodes?.[slug]?.concludes;
+      if (!hid) return;
+      const title = hierData.nodes?.[hid]?.title;
+      const url = new URL("./", location.href);
+      url.searchParams.set("canvas", "./MAT102-review.canvas");
+      url.searchParams.set("focus", hid);
+      jumpTarget = url.toString();
+      jumpBtn.textContent = title ? `📚 Review: ${title}` : "📚 Review this";
+      jumpBtn.title = "Jump to this idea's objective in the review map";
+    }
+    jumpBtn.style.display = "";
+  };
 
   let state = {};
   try { state = JSON.parse(localStorage.getItem("reader.v1")) || {}; } catch { state = {}; }
@@ -1583,9 +1641,10 @@ function focusNode(nodeId, options = {}) {
   };
   applyOverlayNodeTypeClasses(); // re-run now that progress is known
 
-  // ?focus=<slug>: pan to that bit on load (e.g. arriving from the reader).
-  const focusSlug = new URLSearchParams(location.search).get("focus");
-  const focusHex = focusSlug && nodeIdBySlug.get(focusSlug);
+  // ?focus=<id-or-slug>: focus a canvas node id directly (review map, where the
+  // id is the hierarchy id), else map a reader slug → node id (inquiry map).
+  const focusParam = new URLSearchParams(location.search).get("focus");
+  const focusHex = focusParam && (nodeById.has(focusParam) ? focusParam : nodeIdBySlug.get(focusParam));
   if (focusHex) {
     window.setTimeout(() => {
       try { smoothPanToNode(focusHex, { durationMs: 650 }); }

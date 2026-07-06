@@ -1,0 +1,130 @@
+{
+	"nodes": [
+		{
+			"id": "subject-number-theory",
+			"type": "group",
+			"label": "Number Theory",
+			"x": 12,
+			"y": 132,
+			"width": 1520,
+			"height": 2538
+		},
+		{
+			"id": "topic-modular-arithmetic",
+			"type": "group",
+			"label": "Modular Arithmetic",
+			"x": 132,
+			"y": 192,
+			"width": 1280,
+			"height": 2358
+		},
+		{
+			"id": "mod-arithmetic",
+			"type": "file",
+			"file": "Hierarchy/mod-arithmetic.md",
+			"title": "Arithmetic of congruences",
+			"x": 502,
+			"y": 1180,
+			"width": 540,
+			"height": 360,
+			"color": "4"
+		},
+		{
+			"id": "mod-congruence-def",
+			"type": "file",
+			"file": "Hierarchy/mod-congruence-def.md",
+			"title": "Congruence modulo n",
+			"x": 502,
+			"y": 240,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "mod-equivalence",
+			"type": "file",
+			"file": "Hierarchy/mod-equivalence.md",
+			"title": "Congruence is an equivalence relation",
+			"x": 502,
+			"y": 710,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "mod-inverses",
+			"type": "file",
+			"file": "Hierarchy/mod-inverses.md",
+			"title": "Multiplicative inverses in ℤₙ",
+			"x": 802,
+			"y": 2120,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "mod-lastdigit",
+			"type": "file",
+			"file": "Hierarchy/mod-lastdigit.md",
+			"title": "Last-digit computation",
+			"x": 202,
+			"y": 1650,
+			"width": 540,
+			"height": 360,
+			"color": "2"
+		},
+		{
+			"id": "mod-zn",
+			"type": "file",
+			"file": "Hierarchy/mod-zn.md",
+			"title": "The integers modulo n (ℤₙ)",
+			"x": 802,
+			"y": 1650,
+			"width": 540,
+			"height": 360,
+			"color": "6"
+		}
+	],
+	"edges": [
+		{
+			"id": "dep-0",
+			"fromNode": "mod-equivalence",
+			"fromSide": "bottom",
+			"toNode": "mod-arithmetic",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-1",
+			"fromNode": "mod-congruence-def",
+			"fromSide": "bottom",
+			"toNode": "mod-equivalence",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-2",
+			"fromNode": "mod-zn",
+			"fromSide": "bottom",
+			"toNode": "mod-inverses",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-3",
+			"fromNode": "mod-arithmetic",
+			"fromSide": "bottom",
+			"toNode": "mod-lastdigit",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-4",
+			"fromNode": "mod-arithmetic",
+			"fromSide": "bottom",
+			"toNode": "mod-zn",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		}
+	]
+}
