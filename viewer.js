@@ -745,18 +745,6 @@ const goBackToPreviousFocus = () => {
   focusNode(previousNodeId, { recordHistory: false });
 };
 
-const computeCenterOffsetForNode = (node, scale) => {
-  const viewportWidth = canvasRoot.clientWidth || window.innerWidth;
-  const viewportHeight = canvasRoot.clientHeight || window.innerHeight;
-  const centerX = node.x + (node.width / 2);
-  const centerY = node.y + (node.height / 2);
-
-  return {
-    x: (viewportWidth / 2) - (centerX * scale),
-    y: (viewportHeight / 2) - (centerY * scale)
-  };
-};
-
 const getFocusViewportForNode = (node) => {
   const viewportWidth = canvasRoot.clientWidth || window.innerWidth;
   const viewportHeight = canvasRoot.clientHeight || window.innerHeight;
@@ -783,6 +771,37 @@ const getFocusViewportForNode = (node) => {
   const offsetY = viewportCenter.y - (centerY * scale);
 
   return { scale, offsetX, offsetY };
+};
+
+// Lower bound of the "comfort" zoom band for a bit click: the node must end up
+// at least this fraction of its fit size, so a click from far out zooms in until
+// the node is visible.
+const NODE_VISIBLE_FRACTION = 0.5;
+
+// Where a focus action sends the viewport, by how it was triggered:
+//   mode "fit"     → frame the whole node (groups, and ?focus deep-link arrivals)
+//   mode "comfort" → a bit click: ALWAYS re-centre the node, but only change zoom
+//                    when it isn't comfortably visible — zoom OUT to fit if it
+//                    would overflow, zoom IN to at least visible if it'd be too
+//                    small, otherwise keep the user's current zoom.
+const focusViewportForNode = (node, { mode = "comfort" } = {}) => {
+  const fitVp = getFocusViewportForNode(node); // fit-to-node, centred (incl. title band)
+  if (mode === "fit" || node.type === "group" || !dataManager?.data) return fitVp;
+
+  const current = dataManager.data.scale;
+  const scale = Math.min(fitVp.scale, Math.max(fitVp.scale * NODE_VISIBLE_FRACTION, current));
+  if (scale === fitVp.scale) return fitVp; // already at/above fit → fit + centre
+
+  // Re-centre on the same point as the fit viewport, at the comfort-clamped scale.
+  const viewportWidth = canvasRoot.clientWidth || window.innerWidth;
+  const viewportHeight = canvasRoot.clientHeight || window.innerHeight;
+  const centerX = ((viewportWidth / 2) - fitVp.offsetX) / fitVp.scale;
+  const centerY = ((viewportHeight / 2) - fitVp.offsetY) / fitVp.scale;
+  return {
+    scale,
+    offsetX: (viewportWidth / 2) - (centerX * scale),
+    offsetY: (viewportHeight / 2) - (centerY * scale),
+  };
 };
 
 const snapViewportForCrispText = (viewport) => ({
@@ -864,7 +883,7 @@ const smoothPanToNode = (nodeId, options = {}) => {
   const startScale = dataManager.data.scale;
   const startOffsetX = dataManager.data.offsetX;
   const startOffsetY = dataManager.data.offsetY;
-  const targetViewport = getFocusViewportForNode(targetNode);
+  const targetViewport = focusViewportForNode(targetNode, { mode: options.mode });
   const finalViewport = snapViewportForCrispText(targetViewport);
   const startedAt = performance.now();
 
@@ -1493,7 +1512,7 @@ function focusNode(nodeId, options = {}) {
   if (!node) return;
   activateFocusedNode(nodeId, { recordHistory: options.recordHistory !== false });
   cancelPanAnimation();
-  const targetViewport = snapViewportForCrispText(getFocusViewportForNode(node));
+  const targetViewport = snapViewportForCrispText(focusViewportForNode(node, { mode: options.mode }));
 
   if (dataManager?.data) {
     dataManager.data.scale = targetViewport.scale;
@@ -1647,8 +1666,8 @@ function focusNode(nodeId, options = {}) {
   const focusHex = focusParam && (nodeById.has(focusParam) ? focusParam : nodeIdBySlug.get(focusParam));
   if (focusHex) {
     window.setTimeout(() => {
-      try { smoothPanToNode(focusHex, { durationMs: 650 }); }
-      catch { focusNode(focusHex); }
+      try { smoothPanToNode(focusHex, { durationMs: 650, mode: "fit" }); }
+      catch { focusNode(focusHex, { mode: "fit" }); }
     }, 350);
   }
 })();
