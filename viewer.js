@@ -465,12 +465,73 @@ const findDataManagerModule = (root) => {
   return null;
 };
 
-const dataManager = findDataManagerModule(viewer);
+// ---------------------------------------------------------------------------
+// Camera: the single seam that touches the library's viewport transform.
+//
+// json-canvas-viewer keeps the live transform on a private DataManager module
+// (data.scale/offsetX/offsetY) with no public getter, so we still locate that
+// module once by structural probe — but ONLY here. Every other part of the app
+// reads and writes the viewport through this object, so a library change (or a
+// future switch to an owned renderer) is a one-place edit instead of a scatter
+// of dataManager.data.* accesses. When the probe fails it degrades to the
+// library's public zoom/pan API (and `available` is false, which disables the
+// LOD loop and smooth-pan just as before).
+// ---------------------------------------------------------------------------
+const camera = (() => {
+  const dm = findDataManagerModule(viewer);
+  const available = Boolean(dm && dm.data && typeof dm.data.scale === "number");
+
+  const viewportCenter = () => ({
+    x: (canvasRoot.clientWidth || window.innerWidth) / 2,
+    y: (canvasRoot.clientHeight || window.innerHeight) / 2
+  });
+
+  return {
+    available,
+    // Current transform, or null if the private handle wasn't found.
+    get() {
+      if (!available) return null;
+      return { scale: dm.data.scale, offsetX: dm.data.offsetX, offsetY: dm.data.offsetY };
+    },
+    getScale() {
+      return available ? dm.data.scale : null;
+    },
+    // Move the camera. Direct assignment when the handle is present (the
+    // library's rAF repaints on change; `refresh` forces it synchronously);
+    // otherwise best-effort via the public zoom/pan API.
+    set({ scale, offsetX, offsetY }, { refresh = true } = {}) {
+      if (available) {
+        if (typeof scale === "number") dm.data.scale = scale;
+        if (typeof offsetX === "number") dm.data.offsetX = offsetX;
+        if (typeof offsetY === "number") dm.data.offsetY = offsetY;
+        if (refresh && typeof viewer.refresh === "function") viewer.refresh();
+        return true;
+      }
+      if (typeof scale === "number" && typeof viewer.zoomToScale === "function") {
+        try {
+          viewer.zoomToScale(scale, viewportCenter());
+          if (typeof offsetX === "number" && typeof offsetY === "number" && typeof viewer.panToCoords === "function") {
+            window.requestAnimationFrame(() => {
+              try { viewer.panToCoords({ x: offsetX, y: offsetY }); } catch { /* best-effort */ }
+            });
+          }
+          return true;
+        } catch { /* fall through */ }
+      }
+      return false;
+    },
+    // The library's per-node render entries (id → {ref, box, fileName, …}).
+    nodeMap() {
+      return available ? dm.data.nodeMap : null;
+    }
+  };
+})();
 
 const applyFileNodeDisplayNames = () => {
-  if (!dataManager?.data?.nodeMap) return;
+  const nodeMap = camera.nodeMap();
+  if (!nodeMap) return;
 
-  Object.values(dataManager.data.nodeMap).forEach((nodeEntry) => {
+  Object.values(nodeMap).forEach((nodeEntry) => {
     if (!nodeEntry?.ref || nodeEntry.ref.type !== "file" || typeof nodeEntry.ref.file !== "string") {
       return;
     }
@@ -804,7 +865,8 @@ const cancelPanAnimation = () => {
 const smoothPanToNode = (nodeId, options = {}) => {
   const targetNode = getNodeById(nodeId);
   if (!targetNode) return;
-  if (!dataManager?.data) {
+  const start = camera.get();
+  if (!start) {
     focusNode(nodeId, { recordHistory: options.recordHistory !== false });
     return;
   }
@@ -814,9 +876,7 @@ const smoothPanToNode = (nodeId, options = {}) => {
   lodKick?.(); // the pan animates the scale each frame — keep the LOD loop awake for it
 
   const durationMs = options.durationMs ?? 520;
-  const startScale = dataManager.data.scale;
-  const startOffsetX = dataManager.data.offsetX;
-  const startOffsetY = dataManager.data.offsetY;
+  const { scale: startScale, offsetX: startOffsetX, offsetY: startOffsetY } = start;
   const targetViewport = getFocusViewportForNode(targetNode);
   const finalViewport = snapViewportForCrispText(targetViewport);
   const startedAt = performance.now();
@@ -827,24 +887,21 @@ const smoothPanToNode = (nodeId, options = {}) => {
     const t = Math.max(0, Math.min(1, rawT));
     const eased = easeInOutCubic(t);
 
-    dataManager.data.scale = startScale + ((targetViewport.scale - startScale) * eased);
-    dataManager.data.offsetX = startOffsetX + ((targetViewport.offsetX - startOffsetX) * eased);
-    dataManager.data.offsetY = startOffsetY + ((targetViewport.offsetY - startOffsetY) * eased);
-
     // The library's Controller runs its own rAF loop that calls refresh()
-    // whenever scale/offset change, so refreshing per frame here just doubled
-    // the redraw work. The final-frame refresh below still runs.
+    // whenever scale/offset change, so we mutate without a per-frame refresh
+    // (that just doubled the redraw work); the final frame refreshes once.
+    camera.set({
+      scale: startScale + ((targetViewport.scale - startScale) * eased),
+      offsetX: startOffsetX + ((targetViewport.offsetX - startOffsetX) * eased),
+      offsetY: startOffsetY + ((targetViewport.offsetY - startOffsetY) * eased)
+    }, { refresh: false });
+
     if (t < 1) {
       focusState.panAnimationFrame = window.requestAnimationFrame(step);
       return;
     }
 
-    dataManager.data.scale = finalViewport.scale;
-    dataManager.data.offsetX = finalViewport.offsetX;
-    dataManager.data.offsetY = finalViewport.offsetY;
-    if (typeof viewer.refresh === "function") {
-      viewer.refresh();
-    }
+    camera.set(finalViewport, { refresh: true });
     scheduleMathFlush();
     focusState.panAnimationFrame = null;
   };
@@ -1304,8 +1361,8 @@ canvasRoot.addEventListener("click", (event) => {
   let prevSig = "";
   const labelTick = () => {
     repositionActiveLabels();
-    const d = dataManager?.data;
-    const sig = d ? `${d.scale},${d.offsetX},${d.offsetY}` : String(stable);
+    const v = camera.get();
+    const sig = v ? `${v.scale},${v.offsetX},${v.offsetY}` : String(stable);
     if (sig === prevSig) stable += 1; else { stable = 0; prevSig = sig; }
     if (activeLabelEls.size === 0 || stable >= 20) { rafId = null; return; }
     rafId = window.requestAnimationFrame(labelTick);
@@ -1466,38 +1523,10 @@ function focusNode(nodeId, options = {}) {
   cancelPanAnimation();
   const targetViewport = snapViewportForCrispText(getFocusViewportForNode(node));
 
-  if (dataManager?.data) {
-    dataManager.data.scale = targetViewport.scale;
-    dataManager.data.offsetX = targetViewport.offsetX;
-    dataManager.data.offsetY = targetViewport.offsetY;
-
-    if (typeof viewer.refresh === "function") {
-      viewer.refresh();
-    }
-    lodKick?.(); // this jump can cross a LOD threshold — refresh the band
-    return;
-  }
-
-  // Fallback: public interaction APIs if internal module lookup fails.
-  if (typeof viewer.zoomToScale === "function" && typeof viewer.panToCoords === "function") {
-    const viewportWidth = canvasRoot.clientWidth || window.innerWidth;
-    const viewportHeight = canvasRoot.clientHeight || window.innerHeight;
-    const viewportCenter = {
-      x: viewportWidth / 2,
-      y: viewportHeight / 2
-    };
-    viewer.zoomToScale(targetViewport.scale, viewportCenter);
-    window.requestAnimationFrame(() => {
-      viewer.panToCoords({ x: targetViewport.offsetX, y: targetViewport.offsetY });
-    });
-    return;
-  }
-
-  if (typeof viewer.setViewport === "function") {
-    const centerX = node.x + (node.width / 2);
-    const centerY = node.y + (node.height / 2);
-    viewer.setViewport({ x: centerX, y: centerY, zoom: targetViewport.scale });
-  }
+  // camera.set snaps directly when the private handle is present, else falls
+  // back to the library's public zoom/pan API.
+  camera.set(targetViewport);
+  lodKick?.(); // this jump can cross a LOD threshold — refresh the band
 }
 
 // ---------------------------------------------------------------------------
@@ -1642,7 +1671,7 @@ function focusNode(nodeId, options = {}) {
 
 // ---------------------------------------------------------------------------
 // Semantic zoom (level-of-detail). The map is far too large to read all at once,
-// so what each node shows is keyed to the live zoom (`dataManager.data.scale`):
+// so what each node shows is keyed to the live zoom (`camera.getScale()`):
 //
 //   band 0 (far):  every node hidden; one big "topic tile" per leaf group — a
 //                  scarce, table-of-contents view of the whole curriculum.
@@ -1685,7 +1714,7 @@ const lodBandForScale = (scale) => {
 };
 
 const updateLod = () => {
-  const scale = dataManager?.data?.scale;
+  const scale = camera.getScale();
   if (typeof scale !== "number") return;
   const band = lodBandForScale(scale);
   if (band === lodBand) return;
@@ -1767,13 +1796,13 @@ const ensureLodTopicLabels = (attempt = 0) => {
 // idle; instead the loop self-stops once the zoom holds steady for a few frames
 // and `kickLod` re-arms it on any interaction that can change scale (wheel,
 // pinch, resize, or a programmatic focus/pan via `lodKick`).
-if (dataManager?.data) {
+if (camera.available) {
   let lodRafId = null;
   let lodStableFrames = 0;
   let lodPrevScale = NaN;
 
   const lodTick = () => {
-    const scale = dataManager.data.scale;
+    const scale = camera.getScale();
     updateLod();
     if (scale === lodPrevScale) {
       lodStableFrames += 1;
