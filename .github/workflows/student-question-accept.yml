@@ -1,0 +1,81 @@
+name: Student question → map update
+
+# When the instructor adds the `approved` label to a student-question issue, fold
+# the question into the target node's frontmatter, regenerate the derived artifacts
+# exactly as CI expects, and open a PR. The PR is the human-in-the-loop step: the
+# instructor reviews/edits the one-entry diff and merges. Merging redeploys Pages.
+#
+# Only users with write access can add labels, so the label gate doubles as the
+# authorization check — no command parsing, no elevated trust in issue text.
+#
+# NOTE: requires repo setting "Allow GitHub Actions to create and approve pull
+# requests" (Settings → Actions → General) for create-pull-request to work.
+
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  apply:
+    if: github.event.label.name == 'approved'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Parse the issue form
+        id: parse
+        uses: stefanbuck/github-issue-parser@v3
+        with:
+          template-path: .github/ISSUE_TEMPLATE/student-question.yml
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Apply the question to the target bit's frontmatter
+        env:
+          ISSUE_JSON: ${{ steps.parse.outputs.jsonString }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: python3 tools/apply-student-question.py
+
+      - name: Regenerate derived artifacts (must match CI)
+        run: |
+          python3 tools/build-reader-data.py
+          python3 tools/build-hierarchy.py
+          node tools/build-content-bundle.mjs
+
+      - name: Open a pull request for review
+        id: cpr
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: student-question/issue-${{ github.event.issue.number }}
+          commit-message: "Add student question from issue #${{ github.event.issue.number }}"
+          title: "Student question → map: issue #${{ github.event.issue.number }}"
+          body: |
+            Automated draft from student-question issue #${{ github.event.issue.number }}.
+
+            This adds one `student_questions` entry (status: `pending`) to the target
+            node and regenerates the derived artifacts. **Review the diff, edit the
+            wording if needed, optionally bump `status: accepted`, then merge.**
+
+            Closes nothing automatically — the issue stays open until you decide.
+          labels: student-question
+          delete-branch: true
+
+      - name: Link the PR back on the issue
+        if: steps.cpr.outputs.pull-request-number
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue comment "${{ github.event.issue.number }}" \
+            --body "📝 Drafted a map update in ${{ steps.cpr.outputs.pull-request-url }} — review and merge to publish."
