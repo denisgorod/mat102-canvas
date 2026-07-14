@@ -1548,7 +1548,17 @@ canvasRoot.addEventListener("click", (event) => {
     el.style.pointerEvents = "auto";
     el.addEventListener("click", (event) => {
       event.stopPropagation();
-      focusNode(edge.toNode);
+      // Navigate to the OTHER end of the edge relative to the node these labels
+      // are anchored to. Labels are shown for a node's edges in both directions,
+      // so on an incoming edge (current node is `toNode`) we must go to the
+      // source, not refocus the current node into a no-op.
+      const ref = (edge.fromNode === focusNodeId || edge.toNode === focusNodeId) ? focusNodeId
+                : (edge.fromNode === hoverNodeId || edge.toNode === hoverNodeId) ? hoverNodeId
+                : null;
+      const target = ref === edge.fromNode ? edge.toNode
+                   : ref === edge.toNode ? edge.fromNode
+                   : edge.toNode;
+      focusNode(target);
     });
     return el;
   };
