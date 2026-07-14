@@ -582,6 +582,11 @@ let readerStateApply = null; // set once reader-data.json + localStorage state l
 // by recomputeReaderState in the map-bridge IIFE and on cross-tab storage events.
 let readerAnsweredSlugs = new Set();
 let readerFrontierSlugs = new Set();
+// Contextual edge-label controller hooks (assigned near the interaction code):
+// setFocus retargets the persistent label set; refresh re-evaluates it (band /
+// collapse / resize changes).
+let edgeLabelsSetFocus = null;
+let edgeLabelsRefresh = null;
 let lodKick = null; // set by the LOD controller; wakes the band loop on programmatic zoom
 let crossMapOnFocus = null; // set by the cross-map bridge; retargets the jump button on focus
 const overlayNodeTypeClasses = ["node-type-text", "node-type-file", "node-type-group", "node-type-link"];
@@ -865,6 +870,7 @@ const setFocusedNode = (nodeId) => {
   focusState.nodeId = nodeId;
   renderOutgoingPanel();
   crossMapOnFocus?.(nodeId);
+  edgeLabelsSetFocus?.(nodeId); // reveal this node's question-edges on the map
 };
 
 const cancelPanAnimation = () => {
@@ -1057,7 +1063,7 @@ const renderGroupControls = () => {
       recomputeCollapsedHiddenNodes();
       applyCollapsedNodeVisibility();
       renderGroupControls();
-      renderEdgeLabels();
+      edgeLabelsRefresh?.(); // drop labels for edges whose endpoint just collapsed
 
       if (typeof viewer.refresh === "function") {
         viewer.refresh();
@@ -1257,7 +1263,8 @@ const ensureOverlayNodeTypeClasses = (attempt = 0) => {
   }, 120);
 };
 
-ensureEdgeLabels();
+// Edge labels are no longer rendered en masse; the contextual edge-label
+// controller (below) reveals them per focused/hovered node.
 ensureGroupControls();
 ensureOverlayNodeTypeClasses();
 // Coalesce bursts of resize events (which fire continuously while dragging a
@@ -1269,7 +1276,7 @@ window.addEventListener("resize", () => {
     resizeRafId = null;
     applyFileNodeDisplayNames();
     applyOverlayNodeTypeClasses();
-    renderEdgeLabels();
+    edgeLabelsRefresh?.(); // reposition active labels for the new viewport
     renderOutgoingPanel();
     renderGroupControls();
     lodKick?.(); // a resize can refit the view and cross a LOD threshold
@@ -1396,6 +1403,197 @@ canvasRoot.addEventListener("click", (event) => {
 
   focusNodeFromInteraction(nodeId);
 }, true);
+
+// ---------------------------------------------------------------------------
+// Contextual edge labels (the map's ~415 question-edges).
+//
+// Rendering every label at once is noise, and on a long edge the mid-edge label
+// sits off-screen whenever both endpoints aren't in view. Instead we reveal only
+// the questions on edges touching the *focused* node (persistent) or the
+// *hovered* node (a transient preview), and place each label in SCREEN space,
+// clamped to the visible portion of its edge — so it stays on screen and near
+// the node even when the far endpoint is scrolled away. Labels live only at LOD
+// band 2 (near); at lower zoom the map is a table of contents and labels are
+// noise. This replaces the old render-all-415 collision pass.
+// ---------------------------------------------------------------------------
+{
+  // Incident labelled edges per node id (both directions), built once.
+  const edgesByNodeId = new Map();
+  canvasJSON.edges.forEach((edge) => {
+    if (typeof edge.label !== "string" || edge.label.trim().length === 0) return;
+    for (const nid of [edge.fromNode, edge.toNode]) {
+      if (!edgesByNodeId.has(nid)) edgesByNodeId.set(nid, []);
+      edgesByNodeId.get(nid).push(edge);
+    }
+  });
+
+  const layer = document.createElement("div");
+  layer.className = "edge-label-screen-layer";
+  canvasRoot.appendChild(layer);
+
+  let focusNodeId = null;
+  let hoverNodeId = null;
+  const activeLabelEls = new Map(); // edgeId -> button element
+  const LABEL_PAD = 44;             // keep labels off the very viewport edge
+
+  const sideAnchor = (rect, side) => {
+    switch (side) {
+      case "top":    return { x: rect.left + rect.width / 2, y: rect.top };
+      case "bottom": return { x: rect.left + rect.width / 2, y: rect.bottom };
+      case "left":   return { x: rect.left, y: rect.top + rect.height / 2 };
+      case "right":  return { x: rect.right, y: rect.top + rect.height / 2 };
+      default:       return { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
+    }
+  };
+
+  // Liang–Barsky: midpoint of the part of segment a→b inside the padded viewport,
+  // or null if the segment misses it entirely.
+  const visibleMidpoint = (a, b) => {
+    const xmin = LABEL_PAD, ymin = LABEL_PAD;
+    const xmax = window.innerWidth - LABEL_PAD, ymax = window.innerHeight - LABEL_PAD;
+    const dx = b.x - a.x, dy = b.y - a.y;
+    const p = [-dx, dx, -dy, dy];
+    const q = [a.x - xmin, xmax - a.x, a.y - ymin, ymax - a.y];
+    let t0 = 0, t1 = 1;
+    for (let i = 0; i < 4; i += 1) {
+      if (p[i] === 0) {
+        if (q[i] < 0) return null; // parallel and outside this edge
+      } else {
+        const r = q[i] / p[i];
+        if (p[i] < 0) { if (r > t1) return null; if (r > t0) t0 = r; }
+        else { if (r < t0) return null; if (r < t1) t1 = r; }
+      }
+    }
+    const tm = (t0 + t1) / 2;
+    return { x: a.x + tm * dx, y: a.y + tm * dy };
+  };
+
+  const positionLabel = (el, edge) => {
+    const aEl = document.getElementById(edge.fromNode);
+    const bEl = document.getElementById(edge.toNode);
+    if (!aEl || !bEl) { el.style.display = "none"; return; }
+    const a = sideAnchor(aEl.getBoundingClientRect(), edge.fromSide);
+    const b = sideAnchor(bEl.getBoundingClientRect(), edge.toSide);
+    const mid = visibleMidpoint(a, b);
+    if (!mid) { el.style.display = "none"; return; }
+    el.style.display = "";
+    el.style.left = `${Math.round(mid.x)}px`;
+    el.style.top = `${Math.round(mid.y)}px`;
+  };
+
+  const repositionActiveLabels = () => {
+    const placed = [];
+    activeLabelEls.forEach((el, edgeId) => {
+      const edge = edgeById.get(edgeId);
+      if (edge) positionLabel(el, edge);
+      if (el.style.display !== "none") placed.push(el);
+    });
+    // Vertical de-overlap: when several edges clamp to the same side (e.g. a node
+    // whose parents are all off-screen left), their labels would stack on top of
+    // each other. Nudge each down until it clears the ones already placed.
+    placed.sort((a, b) => parseFloat(a.style.top) - parseFloat(b.style.top));
+    const boxes = [];
+    const GAP = 4;
+    for (const el of placed) {
+      const r = el.getBoundingClientRect();
+      const w = r.width, h = r.height;
+      const cx = parseFloat(el.style.left);
+      let cy = parseFloat(el.style.top);
+      let guard = 0;
+      const overlaps = () => boxes.some((b) =>
+        Math.abs(b.cx - cx) * 2 < (b.w + w) && Math.abs(b.cy - cy) * 2 < (b.h + h + GAP));
+      while (overlaps() && guard < 24) { cy += (h / 2 + GAP); guard += 1; }
+      el.style.top = `${Math.round(cy)}px`;
+      boxes.push({ cx, cy, w, h });
+    }
+  };
+
+  const createLabelEl = (edge) => {
+    const el = document.createElement("button");
+    el.type = "button";
+    el.className = "edge-label-box";
+    el.dataset.edgeId = edge.id;
+    el.textContent = edge.label.trim();
+    el.style.maxWidth = "240px";
+    const colors = getEdgeLabelColors(edgeTypeColorKey[edge.edge_type]);
+    el.style.backgroundColor = colors.bg;
+    el.style.color = colors.text;
+    el.style.pointerEvents = "auto";
+    el.addEventListener("click", (event) => {
+      event.stopPropagation();
+      focusNode(edge.toNode);
+    });
+    return el;
+  };
+
+  const refreshActiveSet = () => {
+    const wanted = new Set();
+    if (lodBand === 2) {
+      for (const nid of [focusNodeId, hoverNodeId]) {
+        if (!nid || isNodeCollapsed(nid)) continue;
+        for (const edge of edgesByNodeId.get(nid) || []) {
+          if (isNodeCollapsed(edge.fromNode) || isNodeCollapsed(edge.toNode)) continue;
+          wanted.add(edge.id);
+        }
+      }
+    }
+    for (const [edgeId, el] of activeLabelEls) {
+      if (!wanted.has(edgeId)) { el.remove(); activeLabelEls.delete(edgeId); }
+    }
+    for (const edgeId of wanted) {
+      if (!activeLabelEls.has(edgeId)) {
+        const el = createLabelEl(edgeById.get(edgeId));
+        layer.appendChild(el);
+        activeLabelEls.set(edgeId, el);
+      }
+    }
+    repositionActiveLabels();
+    kickLabels();
+  };
+
+  // Reposition while the camera is moving (labels are screen-space, so a pan
+  // that leaves scale untouched still moves them). Self-stops when the view
+  // holds steady, and re-arms on any interaction that can move it.
+  let rafId = null;
+  let stable = 0;
+  let prevSig = "";
+  const labelTick = () => {
+    repositionActiveLabels();
+    const d = dataManager?.data;
+    const sig = d ? `${d.scale},${d.offsetX},${d.offsetY}` : String(stable);
+    if (sig === prevSig) stable += 1; else { stable = 0; prevSig = sig; }
+    if (activeLabelEls.size === 0 || stable >= 20) { rafId = null; return; }
+    rafId = window.requestAnimationFrame(labelTick);
+  };
+  function kickLabels() {
+    stable = 0;
+    if (rafId === null && activeLabelEls.size > 0) rafId = window.requestAnimationFrame(labelTick);
+  }
+
+  // Hover preview (mouse/pen only; touch has no hover and drives labels by tap).
+  let hoverRaf = null;
+  let pendingTarget = null;
+  canvasRoot.addEventListener("pointermove", (event) => {
+    if (event.pointerType === "touch") return;
+    pendingTarget = event.target;
+    if (hoverRaf !== null) return;
+    hoverRaf = window.requestAnimationFrame(() => {
+      hoverRaf = null;
+      // Moving onto a label must not drop the hover that produced it.
+      if (pendingTarget instanceof Element && pendingTarget.closest(".edge-label-screen-layer")) return;
+      const id = getOverlayNodeIdFromTarget(pendingTarget);
+      if (id !== hoverNodeId) { hoverNodeId = id; refreshActiveSet(); }
+    });
+    kickLabels(); // a moving pointer often means a drag-pan; keep labels tracking
+  });
+  canvasRoot.addEventListener("pointerleave", () => {
+    if (hoverNodeId !== null) { hoverNodeId = null; refreshActiveSet(); }
+  });
+  canvasRoot.addEventListener("wheel", kickLabels, { passive: true });
+
+  edgeLabelsSetFocus = (nodeId) => { focusNodeId = nodeId; refreshActiveSet(); };
+  edgeLabelsRefresh = () => refreshActiveSet();
+}
 
 let mathObserver = null;
 
@@ -1749,6 +1947,7 @@ const updateLod = () => {
   lodBand = band;
   canvasRoot.dataset.lod = String(band);
   if (band === 0) ensureLodTopicLabels();
+  edgeLabelsRefresh?.(); // labels live only at band 2; clear/restore on band change
 };
 
 // Leaf topic groups (a group containing no other group) are the tiles — the

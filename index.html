@@ -269,6 +269,22 @@
       cursor: pointer;
     }
 
+    /* Contextual edge labels live in this screen-space layer (not the world
+       transform) so they can be clamped to the visible part of their edge. Only
+       shown at band 2; the controller also clears them, this is belt-and-braces. */
+    .edge-label-screen-layer {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .edge-label-screen-layer .edge-label-box {
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.25);
+    }
+    #canvas-root[data-lod="0"] .edge-label-screen-layer,
+    #canvas-root[data-lod="1"] .edge-label-screen-layer { display: none; }
+
     /* Perf: let the browser skip layout, paint, and hit-testing for overlays
        that are scrolled outside the viewport. Every overlay carries an explicit
        inline width/height (set by the library in createOverlay), and size
