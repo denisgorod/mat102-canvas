@@ -577,6 +577,11 @@ const edgeById = new Map(canvasJSON.edges.map((edge) => [edge.id, edge]));
 const slugByNodeId = new Map();
 const nodeIdBySlug = new Map();
 let readerStateApply = null; // set once reader-data.json + localStorage state load
+// Reader progress as slug sets, shared by the overlay painter (readerStateApply)
+// and the outgoing panel (so answered questions can be marked covered). Reassigned
+// by recomputeReaderState in the map-bridge IIFE and on cross-tab storage events.
+let readerAnsweredSlugs = new Set();
+let readerFrontierSlugs = new Set();
 let lodKick = null; // set by the LOD controller; wakes the band loop on programmatic zoom
 let crossMapOnFocus = null; // set by the cross-map bridge; retargets the jump button on focus
 const overlayNodeTypeClasses = ["node-type-text", "node-type-file", "node-type-group", "node-type-link"];
@@ -820,11 +825,19 @@ const renderOutgoingPanel = () => {
 
   const outgoingEdges = canvasJSON.edges
     .filter((edge) => edge.fromNode === focusState.nodeId && !isNodeCollapsed(edge.toNode))
-    .map((edge) => ({
-      id: edge.id,
-      toNode: edge.toNode,
-      label: (edge.label && edge.label.trim().length > 0) ? edge.label.trim() : `Go to: ${getNodeLabel(edge.toNode)}`
-    }));
+    .map((edge) => {
+      const toSlug = slugByNodeId.get(edge.toNode);
+      return {
+        id: edge.id,
+        toNode: edge.toNode,
+        label: (edge.label && edge.label.trim().length > 0) ? edge.label.trim() : `Go to: ${getNodeLabel(edge.toNode)}`,
+        // Covered = the question's target bit was answered in the reader; pending =
+        // it's sitting on the frontier. Lets the panel show progress per question,
+        // not just per node (the map already shows a ✓ on answered nodes).
+        covered: !!(toSlug && readerAnsweredSlugs.has(toSlug)),
+        pending: !!(toSlug && readerFrontierSlugs.has(toSlug))
+      };
+    });
 
   if (outgoingEdges.length === 0 && !canGoBackInFocus()) {
     panel.classList.remove("is-visible");
@@ -837,9 +850,11 @@ const renderOutgoingPanel = () => {
   outgoingEdges.forEach((edge) => {
     const button = document.createElement("button");
     button.type = "button";
-    button.className = "outgoing-link";
+    button.className = "outgoing-link" + (edge.covered ? " is-covered" : edge.pending ? " is-pending" : "");
     button.dataset.toNodeId = edge.toNode;
     button.textContent = edge.label;
+    if (edge.covered) button.title = "You've already answered this question";
+    else if (edge.pending) button.title = "This question is on your frontier";
     list.appendChild(button);
   });
 
@@ -1636,20 +1651,16 @@ function focusNode(nodeId, options = {}) {
     jumpBtn.style.display = "";
   };
 
-  // Reader progress, recomputed from localStorage. `answered`/`frontier` are
-  // reassigned (not rebuilt in place) so the storage listener below can refresh
-  // them and readerStateApply — which closes over these bindings — sees the new
-  // sets on the next repaint.
-  let answered = new Set();
-  let frontier = new Set();
+  // Reader progress, recomputed from localStorage into the module-level slug
+  // sets so both the overlay painter and the outgoing panel see the same state.
   const recomputeReaderState = () => {
     let state = {};
     try { state = JSON.parse(localStorage.getItem("reader.v1")) || {}; } catch { state = {}; }
-    answered = new Set(
+    readerAnsweredSlugs = new Set(
       Object.entries(state.visited || {}).filter(([, v]) => v && v.answered).map(([slug]) => slug)
     );
-    frontier = new Set(
-      (state.frontier || []).map((f) => f.toSlug).filter((slug) => !answered.has(slug))
+    readerFrontierSlugs = new Set(
+      (state.frontier || []).map((f) => f.toSlug).filter((slug) => !readerAnsweredSlugs.has(slug))
     );
   };
   recomputeReaderState();
@@ -1658,18 +1669,20 @@ function focusNode(nodeId, options = {}) {
     overlay.classList.remove("rd-answered", "rd-frontier");
     const slug = slugByNodeId.get(overlay.id);
     if (!slug) return;
-    if (answered.has(slug)) overlay.classList.add("rd-answered");
-    else if (frontier.has(slug)) overlay.classList.add("rd-frontier");
+    if (readerAnsweredSlugs.has(slug)) overlay.classList.add("rd-answered");
+    else if (readerFrontierSlugs.has(slug)) overlay.classList.add("rd-frontier");
   };
   applyOverlayNodeTypeClasses(); // re-run now that progress is known
 
   // Live cross-tab sync: `storage` fires in *other* tabs when the reader writes
   // reader.v1, so answering a bit in a reader tab repaints an open map tab
-  // without a reload. (No-op for same-tab writes, which the map never makes.)
+  // (and refreshes an open outgoing panel) without a reload. No-op for same-tab
+  // writes, which the map never makes.
   window.addEventListener("storage", (event) => {
     if (event.key && event.key !== "reader.v1") return;
     recomputeReaderState();
     applyOverlayNodeTypeClasses();
+    renderOutgoingPanel();
   });
 
   // ?focus=<id-or-slug>: focus a canvas node id directly (review map, where the
