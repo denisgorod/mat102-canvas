@@ -177,12 +177,39 @@ const preloadFileContents = async (canvasData, canvasPath, onProgress) => {
     return true;
   });
 
-  let completed = 0;
   const total = uniqueFiles.length;
 
+  // Fast path: a build-time bundle (tools/build-content-bundle.mjs) of every
+  // file keyed by basename, so first paint costs ONE fetch instead of ~351.
+  // Anything the bundle doesn't cover (or the whole thing, if it's absent) falls
+  // back to the per-file fetches below — the bundle is an optimisation, never a
+  // requirement.
+  let bundle = null;
+  try {
+    const res = await fetch("./content-bundle.json");
+    if (res.ok && !((res.headers.get("content-type") ?? "").includes("text/html"))) {
+      bundle = await res.json();
+    }
+  } catch {
+    // no bundle — fall back to per-file fetches
+  }
+
+  const misses = [];
+  for (const node of uniqueFiles) {
+    const baseName = getBasename(node.file);
+    if (bundle && typeof bundle[baseName] === "string") {
+      contentMap[baseName] = stripFrontmatter(bundle[baseName]);
+    } else {
+      misses.push(node);
+    }
+  }
+
+  let completed = total - misses.length;
+  onProgress?.(completed, total);
+
   // Use a concurrency limit (8) so we don't hammer GitHub Pages CDN with
-  // 351 simultaneous requests, which triggers rate limiting.
-  await withConcurrency(8, uniqueFiles.map((fileNode) => async () => {
+  // hundreds of simultaneous requests, which triggers rate limiting.
+  await withConcurrency(8, misses.map((fileNode) => async () => {
     const baseName = getBasename(fileNode.file);
     const normalizedOriginal = ensureRelativePath(fileNode.file);
     const candidates = [
