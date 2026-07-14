@@ -371,10 +371,6 @@ if (loadingOverlay) {
   loadingOverlay.style.opacity = "0";
   loadingOverlay.addEventListener("transitionend", () => loadingOverlay.remove(), { once: true });
 }
-const edgeLabels = canvasForViewer.edges
-  .filter((edge) => typeof edge.label === "string" && edge.label.trim().length > 0)
-  .map((edge) => ({ ...edge, label: edge.label.trim() }));
-
 // Edge relationship → canvas colour key. `prerequisite` (≈96% of edges — the
 // backbone) is left uncoloured so it stays neutral; the rarer `related` /
 // `analogy` links get a colour so the map's actual cross-connections read as
@@ -391,82 +387,6 @@ canvasForViewer.edges.forEach((edge) => {
   edge.label = "";
 });
 
-const getAnchorCoord = (node, side) => {
-  const centerX = node.x + node.width / 2;
-  const centerY = node.y + node.height / 2;
-
-  switch (side) {
-    case "top":
-      return { x: centerX, y: node.y };
-    case "bottom":
-      return { x: centerX, y: node.y + node.height };
-    case "left":
-      return { x: node.x, y: centerY };
-    case "right":
-      return { x: node.x + node.width, y: centerY };
-    default:
-      return { x: centerX, y: centerY };
-  }
-};
-
-const getEdgeControlPoints = (from, to, fromSide, toSide) => {
-  const dx = to.x - from.x;
-  const dy = to.y - from.y;
-  const magnitude = Math.min(Math.abs(dx), Math.abs(dy)) + 0.3 * Math.max(Math.abs(dx), Math.abs(dy));
-  const pull = Math.max(60, Math.min(300, 0.5 * magnitude));
-
-  let cp1x = from.x;
-  let cp1y = from.y;
-  let cp2x = to.x;
-  let cp2y = to.y;
-
-  switch (fromSide) {
-    case "top":
-      cp1y -= pull;
-      break;
-    case "bottom":
-      cp1y += pull;
-      break;
-    case "left":
-      cp1x -= pull;
-      break;
-    case "right":
-      cp1x += pull;
-      break;
-    default:
-      break;
-  }
-
-  switch (toSide) {
-    case "top":
-      cp2y -= pull;
-      break;
-    case "bottom":
-      cp2y += pull;
-      break;
-    case "left":
-      cp2x -= pull;
-      break;
-    case "right":
-      cp2x += pull;
-      break;
-    default:
-      break;
-  }
-
-  return { cp1x, cp1y, cp2x, cp2y };
-};
-
-const cubicBezierPoint = (p0, p1, p2, p3, t = 0.5) => {
-  const u = 1 - t;
-  return (
-    (u ** 3) * p0 +
-    3 * (u ** 2) * t * p1 +
-    3 * u * (t ** 2) * p2 +
-    (t ** 3) * p3
-  );
-};
-
 const edgeLabelColorMap = {
   "0": { bg: "#6b7280", text: "#ffffff" },
   "1": { bg: "#ef4444", text: "#ffffff" },
@@ -480,32 +400,6 @@ const edgeLabelColorMap = {
 const getEdgeLabelColors = (colorKey) => edgeLabelColorMap[String(colorKey ?? "0")] ?? {
   bg: "rgba(17, 24, 39, 0.86)",
   text: "#ffffff"
-};
-
-const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
-
-const wrapTextLines = (ctx, text, maxContentWidth) => {
-  const words = text.trim().split(/\s+/).filter(Boolean);
-  if (words.length === 0) return [text];
-
-  const lines = [];
-  let currentLine = words[0];
-
-  for (let i = 1; i < words.length; i += 1) {
-    const word = words[i];
-    const candidate = `${currentLine} ${word}`;
-
-    if (ctx.measureText(candidate).width <= maxContentWidth) {
-      currentLine = candidate;
-      continue;
-    }
-
-    lines.push(currentLine);
-    currentLine = word;
-  }
-
-  lines.push(currentLine);
-  return lines;
 };
 
 const canvasRoot = document.getElementById("canvas-root");
@@ -958,40 +852,6 @@ const smoothPanToNode = (nodeId, options = {}) => {
   focusState.panAnimationFrame = window.requestAnimationFrame(step);
 };
 
-const intersects = (a, b, margin = 0) => !(
-  a.right < (b.left - margin) ||
-  a.left > (b.right + margin) ||
-  a.bottom < (b.top - margin) ||
-  a.top > (b.bottom + margin)
-);
-
-const overlapArea = (a, b) => {
-  const left = Math.max(a.left, b.left);
-  const right = Math.min(a.right, b.right);
-  const top = Math.max(a.top, b.top);
-  const bottom = Math.min(a.bottom, b.bottom);
-  const width = right - left;
-  const height = bottom - top;
-
-  if (width <= 0 || height <= 0) return 0;
-  return width * height;
-};
-
-const edgeLabelCandidates = [
-  [0, -16],
-  [0, 16],
-  [-18, 0],
-  [18, 0],
-  [-28, -12],
-  [28, -12],
-  [-28, 12],
-  [28, 12],
-  [0, -30],
-  [0, 30],
-  [-40, 0],
-  [40, 0]
-];
-
 const setOverlayCollapsedClass = (overlay) => {
   if (!(overlay instanceof Element) || !overlay.id) return;
 
@@ -1114,158 +974,6 @@ const renderGroupControls = () => {
 
   applyCollapsedNodeVisibility();
   return true;
-};
-
-// Hoisted, static state for renderEdgeLabels. Rebuilding these on every call
-// (which fires on every resize frame and every group toggle) was pure waste:
-// node geometry never changes, so precompute all boxes once and only filter by
-// the collapsed set per call; reuse a single measuring canvas context.
-const allNodeBoxes = canvasJSON.nodes.map((node) => ({
-  id: node.id,
-  left: node.x,
-  top: node.y,
-  right: node.x + node.width,
-  bottom: node.y + node.height
-}));
-const edgeLabelMeasureCtx = (() => {
-  const measureCanvas = document.createElement("canvas");
-  const ctx = measureCanvas.getContext("2d");
-  // Match the rendered .edge-label-box font (index.html) so wrap width is measured
-  // at the size labels actually display, not wider (which wrapped text early).
-  if (ctx) ctx.font = "14px sans-serif";
-  return ctx;
-})();
-
-const renderEdgeLabels = () => {
-  const overlaysRoot = canvasRoot.querySelector(".JCV-overlays");
-  if (!overlaysRoot) return false;
-
-  let layer = overlaysRoot.querySelector(".edge-label-layer");
-  if (!layer) {
-    layer = document.createElement("div");
-    layer.className = "edge-label-layer";
-    layer.style.position = "absolute";
-    layer.style.left = "0";
-    layer.style.top = "0";
-    layer.style.width = "0";
-    layer.style.height = "0";
-    layer.style.overflow = "visible";
-    layer.style.zIndex = "0";
-    layer.style.pointerEvents = "none";
-    overlaysRoot.prepend(layer);
-
-    layer.addEventListener("click", (event) => {
-      const target = event.target instanceof Element ? event.target.closest(".edge-label-box") : null;
-      if (!target) return;
-
-      const edgeId = target.dataset.edgeId;
-      const edge = edgeById.get(edgeId);
-      if (!edge) return;
-
-      focusNode(edge.toNode);
-    });
-  }
-
-  layer.innerHTML = "";
-
-  const nodeMap = nodeById;
-  const visibleNodeBoxes = allNodeBoxes.filter((box) => !isNodeCollapsed(box.id));
-  const placedLabelBoxes = [];
-
-  const measureCtx = edgeLabelMeasureCtx;
-  if (!measureCtx) return false;
-
-  edgeLabels.forEach((edge) => {
-    if (isNodeCollapsed(edge.fromNode) || isNodeCollapsed(edge.toNode)) return;
-
-    const fromNode = nodeMap.get(edge.fromNode);
-    const toNode = nodeMap.get(edge.toNode);
-    if (!fromNode || !toNode || !edge.label) return;
-
-    const fromAnchor = getAnchorCoord(fromNode, edge.fromSide);
-    const toAnchor = getAnchorCoord(toNode, edge.toSide);
-    const cps = getEdgeControlPoints(fromAnchor, toAnchor, edge.fromSide, edge.toSide);
-
-    const centerX = cubicBezierPoint(fromAnchor.x, cps.cp1x, cps.cp2x, toAnchor.x, 0.5);
-    const centerY = cubicBezierPoint(fromAnchor.y, cps.cp1y, cps.cp2y, toAnchor.y, 0.5);
-
-    const edgeLength = Math.hypot(toAnchor.x - fromAnchor.x, toAnchor.y - fromAnchor.y);
-    const maxLabelWidth = clamp(edgeLength * 0.52, 140, 260);
-    const horizontalPadding = 8;
-    const verticalPadding = 4;
-    const lineHeight = 17; // 14px font × ~1.2 line-height, matching the rendered box
-    const lines = wrapTextLines(measureCtx, edge.label, Math.max(60, maxLabelWidth - (horizontalPadding * 2)));
-    const textWidth = lines.reduce((max, line) => Math.max(max, measureCtx.measureText(line).width), 0);
-    const width = Math.min(maxLabelWidth, textWidth + (horizontalPadding * 2));
-    const height = (lines.length * lineHeight) + (verticalPadding * 2);
-
-    let bestNonOverlap = null;
-    let bestFallback = null;
-
-    edgeLabelCandidates.forEach(([dx, dy]) => {
-      const rect = {
-        left: centerX + dx - width / 2,
-        top: centerY + dy - height / 2 - 2,
-        right: centerX + dx + width / 2,
-        bottom: centerY + dy + height / 2 - 2
-      };
-
-      const overlapsNode = visibleNodeBoxes.some((box) => intersects(rect, box, 2));
-      const overlapsLabel = placedLabelBoxes.some((box) => intersects(rect, box, 2));
-      const overlapScore = visibleNodeBoxes.reduce((sum, box) => sum + overlapArea(rect, box), 0);
-      const distanceScore = (dx * dx) + (dy * dy);
-
-      if (!overlapsNode && !overlapsLabel) {
-        if (!bestNonOverlap || distanceScore < bestNonOverlap.distanceScore) {
-          bestNonOverlap = { rect, distanceScore };
-        }
-        return;
-      }
-
-      const penalty = overlapScore + (overlapsNode ? 100000 : 0) + (overlapsLabel ? 20000 : 0) + (distanceScore * 0.02);
-
-      if (!bestFallback || penalty < bestFallback.penalty) {
-        bestFallback = { rect, penalty };
-      }
-    });
-
-    const finalRect = bestNonOverlap?.rect ?? bestFallback?.rect ?? {
-      left: centerX - width / 2,
-      top: centerY - height / 2 - 2,
-      right: centerX + width / 2,
-      bottom: centerY + height / 2 - 2
-    };
-
-    placedLabelBoxes.push(finalRect);
-
-    const box = document.createElement("button");
-    box.type = "button";
-    box.className = "edge-label-box";
-    box.dataset.edgeId = edge.id;
-    box.textContent = edge.label;
-    box.style.left = `${(finalRect.left + finalRect.right) / 2}px`;
-    box.style.top = `${(finalRect.top + finalRect.bottom) / 2}px`;
-    box.style.maxWidth = `${Math.round(maxLabelWidth)}px`;
-    box.style.width = `${Math.round(width)}px`;
-
-    const colors = getEdgeLabelColors(edgeTypeColorKey[edge.edge_type]);
-    box.style.backgroundColor = colors.bg;
-    box.style.color = colors.text;
-    box.style.pointerEvents = "auto";
-
-    layer.appendChild(box);
-  });
-
-  return true;
-};
-
-const ensureEdgeLabels = (attempt = 0) => {
-  const done = renderEdgeLabels();
-  if (done || attempt >= 30) return;
-
-  window.setTimeout(() => {
-    ensureEdgeLabels(attempt + 1);
-  }, 120);
 };
 
 const ensureGroupControls = (attempt = 0) => {

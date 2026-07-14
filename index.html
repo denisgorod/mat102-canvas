@@ -377,10 +377,6 @@
     #canvas-root[data-lod="0"] .group-overlay-layer { display: none; }
     #canvas-root[data-lod="0"] .lod-topic-label { display: flex; }
 
-    /* Edge-question labels are noise when zoomed out — only show at full zoom. */
-    #canvas-root[data-lod="0"] .edge-label-layer,
-    #canvas-root[data-lod="1"] .edge-label-layer { display: none; }
-
     /* Reading progress reflected on the map (state shared with the reader via
        localStorage). Inset rings/badges only, so content-visibility's paint
        containment never clips them. */
