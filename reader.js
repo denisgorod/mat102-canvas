@@ -3,7 +3,7 @@
 // Tests the inquiry loop on one self-contained topic (default: Modular Arithmetic)
 // with Frontier + localStorage coverage/resume. SRS layer is a separate step.
 
-import { parser } from "https://unpkg.com/json-canvas-viewer/dist/chimp.js";
+import { parser } from "./vendor/json-canvas-viewer-4.3.2/chimp.js";
 import { makeInstance, checkAnswer, formatAnswer } from "./drill-engine.js";
 
 const params = new URLSearchParams(location.search);

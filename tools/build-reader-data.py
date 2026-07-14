@@ -36,7 +36,7 @@ for f in sorted(glob.glob(os.path.join(HIER, "*.md"))):
 canvas = json.loads(open(CANVAS, encoding="utf-8").read())
 nodes = {}
 base2slug = {}
-for f in glob.glob(os.path.join(BITS, "**", "*.md"), recursive=True):
+for f in sorted(glob.glob(os.path.join(BITS, "**", "*.md"), recursive=True)):
     t = open(f, encoding="utf-8").read()
     if not t.startswith("---\n"):
         continue

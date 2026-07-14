@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+# Guards the content pipeline: the canvas and the Markdown frontmatter must stay
+# in sync, the generated artifacts (reader-data.json, hierarchy-data.json,
+# content-bundle.json) must be committed and up to date, and every drill must
+# grade correctly. None of this ships to the site; it just keeps the sources and
+# their generated data honest.
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Canvas ⇄ frontmatter edge sync
+        run: python3 tools/check-sync.py
+
+      - name: Regenerate all derived artifacts
+        run: |
+          python3 tools/build-reader-data.py
+          python3 tools/build-hierarchy.py
+          node tools/build-content-bundle.mjs
+
+      - name: Derived artifacts must be committed and current
+        run: |
+          if ! git diff --exit-code -- reader-data.json hierarchy-data.json content-bundle.json; then
+            echo "::error::Generated artifacts are stale. Run the build scripts in tools/ and commit the result."
+            exit 1
+          fi
+
+      - name: Validate parametric drills
+        run: node tools/validate-drills.mjs
