@@ -1,5 +1,5 @@
-import { JSONCanvasViewer, parser } 
-  from "https://unpkg.com/json-canvas-viewer/dist/chimp.js";
+import { JSONCanvasViewer, parser }
+  from "./vendor/json-canvas-viewer-4.3.2/chimp.js";
 
 
 const defaultCanvasPath = "./MAT102.canvas";
@@ -348,8 +348,19 @@ const edgeLabels = canvasForViewer.edges
   .filter((edge) => typeof edge.label === "string" && edge.label.trim().length > 0)
   .map((edge) => ({ ...edge, label: edge.label.trim() }));
 
-// Disable built-in canvas labels; we render collision-aware DOM labels instead.
+// Edge relationship → canvas colour key. `prerequisite` (≈96% of edges — the
+// backbone) is left uncoloured so it stays neutral; the rarer `related` /
+// `analogy` links get a colour so the map's actual cross-connections read as
+// highlights rather than drowning in the prerequisite lattice. The keys map
+// through edgeLabelColorMap below, so the library-drawn line and our DOM label
+// share one colour per relationship.
+const edgeTypeColorKey = { related: "5", analogy: "6" };
+
+// Colour the library-drawn edge line by relationship, then disable the built-in
+// canvas labels (we render collision-aware DOM labels instead).
 canvasForViewer.edges.forEach((edge) => {
+  const colorKey = edgeTypeColorKey[edge.edge_type];
+  if (colorKey) edge.color = colorKey;
   edge.label = "";
 });
 
@@ -1071,7 +1082,9 @@ const allNodeBoxes = canvasJSON.nodes.map((node) => ({
 const edgeLabelMeasureCtx = (() => {
   const measureCanvas = document.createElement("canvas");
   const ctx = measureCanvas.getContext("2d");
-  if (ctx) ctx.font = "18px sans-serif";
+  // Match the rendered .edge-label-box font (index.html) so wrap width is measured
+  // at the size labels actually display, not wider (which wrapped text early).
+  if (ctx) ctx.font = "14px sans-serif";
   return ctx;
 })();
 
@@ -1132,7 +1145,7 @@ const renderEdgeLabels = () => {
     const maxLabelWidth = clamp(edgeLength * 0.52, 140, 260);
     const horizontalPadding = 8;
     const verticalPadding = 4;
-    const lineHeight = 18;
+    const lineHeight = 17; // 14px font × ~1.2 line-height, matching the rendered box
     const lines = wrapTextLines(measureCtx, edge.label, Math.max(60, maxLabelWidth - (horizontalPadding * 2)));
     const textWidth = lines.reduce((max, line) => Math.max(max, measureCtx.measureText(line).width), 0);
     const width = Math.min(maxLabelWidth, textWidth + (horizontalPadding * 2));
@@ -1187,7 +1200,7 @@ const renderEdgeLabels = () => {
     box.style.maxWidth = `${Math.round(maxLabelWidth)}px`;
     box.style.width = `${Math.round(width)}px`;
 
-    const colors = getEdgeLabelColors(edge.color);
+    const colors = getEdgeLabelColors(edgeTypeColorKey[edge.edge_type]);
     box.style.backgroundColor = colors.bg;
     box.style.color = colors.text;
     box.style.pointerEvents = "auto";
@@ -1623,14 +1636,23 @@ function focusNode(nodeId, options = {}) {
     jumpBtn.style.display = "";
   };
 
-  let state = {};
-  try { state = JSON.parse(localStorage.getItem("reader.v1")) || {}; } catch { state = {}; }
-  const answered = new Set(
-    Object.entries(state.visited || {}).filter(([, v]) => v && v.answered).map(([slug]) => slug)
-  );
-  const frontier = new Set(
-    (state.frontier || []).map((f) => f.toSlug).filter((slug) => !answered.has(slug))
-  );
+  // Reader progress, recomputed from localStorage. `answered`/`frontier` are
+  // reassigned (not rebuilt in place) so the storage listener below can refresh
+  // them and readerStateApply — which closes over these bindings — sees the new
+  // sets on the next repaint.
+  let answered = new Set();
+  let frontier = new Set();
+  const recomputeReaderState = () => {
+    let state = {};
+    try { state = JSON.parse(localStorage.getItem("reader.v1")) || {}; } catch { state = {}; }
+    answered = new Set(
+      Object.entries(state.visited || {}).filter(([, v]) => v && v.answered).map(([slug]) => slug)
+    );
+    frontier = new Set(
+      (state.frontier || []).map((f) => f.toSlug).filter((slug) => !answered.has(slug))
+    );
+  };
+  recomputeReaderState();
 
   readerStateApply = (overlay) => {
     overlay.classList.remove("rd-answered", "rd-frontier");
@@ -1640,6 +1662,15 @@ function focusNode(nodeId, options = {}) {
     else if (frontier.has(slug)) overlay.classList.add("rd-frontier");
   };
   applyOverlayNodeTypeClasses(); // re-run now that progress is known
+
+  // Live cross-tab sync: `storage` fires in *other* tabs when the reader writes
+  // reader.v1, so answering a bit in a reader tab repaints an open map tab
+  // without a reload. (No-op for same-tab writes, which the map never makes.)
+  window.addEventListener("storage", (event) => {
+    if (event.key && event.key !== "reader.v1") return;
+    recomputeReaderState();
+    applyOverlayNodeTypeClasses();
+  });
 
   // ?focus=<id-or-slug>: focus a canvas node id directly (review map, where the
   // id is the hierarchy id), else map a reader slug → node id (inquiry map).
