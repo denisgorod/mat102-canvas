@@ -118,7 +118,8 @@ const load = () => { try { return JSON.parse(localStorage.getItem(STORE_KEY)) ||
 const store = load();
 store.visited ||= {};      // slug -> { firstSeen, answered }
 store.frontier ||= [];     // [{ fromSlug, toSlug, question }]
-store.history ||= [];      // slug stack (for Back)
+store.trail ||= [];        // [{ slug, q }] navigation trail (browser-history style)
+if (typeof store.trailPos !== "number") store.trailPos = store.trail.length - 1;
 store.srs ||= {};          // exerciseSlug -> { box, due, reps, lapses, last }
 const save = () => localStorage.setItem(STORE_KEY, JSON.stringify(store));
 
@@ -170,11 +171,10 @@ document.body.style.cssText += ";overflow:auto;background:#ffffff;color:var(--ob
 
 const style = document.createElement("style");
 style.textContent = `
-  #reader-root { max-width: 1100px; margin: 0 auto; padding: 0 20px 120px; color: var(--obs-text); font-family: var(--obs-font-text); display: grid; grid-template-columns: 1fr 260px; gap: 28px; }
-  #reader-main { min-width: 0; }
+  #reader-root { max-width: 1300px; margin: 0 auto; padding: 0 20px 120px; color: var(--obs-text); font-family: var(--obs-font-text); display: grid; grid-template-columns: 200px minmax(0,1fr) 304px; grid-template-areas: "trail main next"; gap: 26px; align-items: start; }
+  #reader-main { grid-area: main; min-width: 0; }
   .rd-topbar { position: sticky; top: 0; z-index: 5; background: #fff; display: flex; align-items: center; gap: 14px; padding: 14px 0 12px; border-bottom: 1px solid var(--obs-border); }
-  .rd-back, .rd-map { border: 1px solid var(--obs-border); background: var(--obs-bg-soft); border-radius: 7px; padding: 6px 12px; font: inherit; cursor: pointer; }
-  .rd-back:disabled { opacity: .4; cursor: default; }
+  .rd-map, .rd-openq-btn { border: 1px solid var(--obs-border); background: var(--obs-bg-soft); border-radius: 7px; padding: 6px 12px; font: inherit; cursor: pointer; color: var(--obs-text); }
   .rd-map { color: var(--obs-text); }
   .rd-map:hover { border-color: var(--obs-accent); }
   .rd-coverage { margin-left: auto; font-size: 13px; color: var(--obs-muted); display: flex; align-items: center; gap: 8px; }
@@ -199,8 +199,29 @@ style.textContent = `
   .rd-card.primary .rd-q { font-weight: 650; }
   .rd-card.practice { border-left: 4px solid #8b5cf6; }
   .rd-card.exit { opacity: .62; border-style: dashed; }
-  .rd-frontier { border-left: 1px solid var(--obs-border); padding-left: 20px; }
-  .rd-frontier h3 { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--obs-muted); margin: 16px 0 10px; }
+  /* Left rail: vertical history "trail" tabs + paging */
+  .rd-trail { grid-area: trail; position: sticky; top: 0; align-self: start; max-height: 100vh; overflow-y: auto; padding: 14px 0; }
+  .rd-trail-h { display:flex; align-items:center; gap:6px; font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--obs-muted); font-weight:700; margin-bottom:10px; }
+  .rd-trail-h span { flex:1; }
+  .rd-prev, .rd-fwd { border:1px solid var(--obs-border); background:#fff; border-radius:6px; width:26px; height:22px; line-height:1; cursor:pointer; color:var(--obs-text); font-size:13px; }
+  .rd-prev:disabled, .rd-fwd:disabled { opacity:.35; cursor:default; }
+  .rd-tab { display:flex; gap:8px; align-items:flex-start; width:100%; text-align:left; border:1px solid transparent; border-radius:8px; padding:7px 9px; margin:0 0 4px; background:none; cursor:pointer; font:inherit; }
+  .rd-tab:hover { background:#f8fafc; }
+  .rd-tab.current { background:#eef2f7; border-color:var(--obs-border); }
+  .rd-tab-n { flex:0 0 auto; width:18px; height:18px; border-radius:50%; background:var(--obs-bg-soft); color:var(--obs-muted); font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center; margin-top:1px; }
+  .rd-tab.current .rd-tab-n { background:var(--obs-accent); color:#fff; }
+  .rd-tab-t { font-size:13px; line-height:1.3; color:var(--obs-text); overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; }
+  /* Right rail: the prominent "ask next" column */
+  .rd-next { grid-area: next; position: sticky; top: 0; align-self: start; max-height: 100vh; overflow-y: auto; padding: 14px 0; }
+  .rd-next-h { font-size: 14px; font-weight: 700; color: #1f2937; margin: 0 0 12px; }
+  .rd-next .rd-card { margin-bottom: 10px; }
+  /* Open-questions dropdown (topbar) */
+  .rd-openq { position: relative; }
+  .rd-openq-btn:hover { border-color: var(--obs-accent); }
+  .rd-openq-n { color: var(--obs-muted); font-weight: 600; }
+  .rd-openq.open .rd-openq-panel { display: block; }
+  .rd-openq-panel { display: none; position: absolute; top: calc(100% + 6px); left: 0; z-index: 20; width: 340px; max-height: 62vh; overflow-y: auto; background:#fff; border:1px solid var(--obs-border); border-radius:10px; box-shadow:0 10px 28px rgba(15,23,42,.14); padding: 10px 12px; }
+  .rd-openq-panel h4 { margin: 2px 0 8px; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--obs-muted); }
   .rd-fitem { display:block; width:100%; text-align:left; border:1px solid var(--obs-border); background: var(--obs-bg-soft); border-radius:8px; padding:8px 10px; margin:0 0 8px; cursor:pointer; font:inherit; font-size:13px; line-height:1.3; }
   .rd-fitem:hover { border-color: var(--obs-accent); }
   .rd-fitem small { display:block; color: var(--obs-muted); margin-top:2px; }
@@ -234,16 +255,27 @@ style.textContent = `
   .rd-drill-feedback { flex-basis:100%; margin-top:8px; font-size:15px; }
   .rd-drill-feedback.ok { color:#047857; font-weight:600; }
   .rd-drill-feedback.no { color:#b91c1c; font-weight:600; }
-  @media (max-width: 820px) { #reader-root { grid-template-columns: 1fr; } .rd-frontier { border-left: none; border-top: 1px solid var(--obs-border); padding-left: 0; } }
+  @media (max-width: 1040px) { #reader-root { grid-template-columns: 1fr; grid-template-areas: "main" "next" "trail"; } .rd-trail, .rd-next { position: static; max-height: none; } .rd-trail { border-top: 1px solid var(--obs-border); margin-top: 8px; } }
 `;
 document.head.appendChild(style);
 
 const root = document.createElement("div");
 root.id = "reader-root";
 root.innerHTML = `
+  <aside class="rd-trail">
+    <div class="rd-trail-h">
+      <button class="rd-prev" type="button" title="Back — previous in your trail">↑</button>
+      <span>Trail</span>
+      <button class="rd-fwd" type="button" title="Forward — next in your trail">↓</button>
+    </div>
+    <div class="rd-traillist"></div>
+  </aside>
   <main id="reader-main">
     <div class="rd-topbar">
-      <button class="rd-back" type="button">← Back</button>
+      <div class="rd-openq">
+        <button class="rd-openq-btn" type="button" title="Questions you passed by — come back to them anytime">Open questions <span class="rd-openq-n"></span> ▾</button>
+        <div class="rd-openq-panel"><h4>Open questions</h4><div class="rd-flist"></div></div>
+      </div>
       <button class="rd-review" type="button" title="Review exercises that are due"></button>
       <div class="rd-coverage"><span class="rd-cov-text"></span><span class="rd-bar"><i></i></span></div>
       <button class="rd-map" type="button" title="See this bit on the map">🗺 Map</button>
@@ -253,17 +285,33 @@ root.innerHTML = `
     <div class="rd-content"></div>
     <div class="rd-cards"></div>
   </main>
-  <aside class="rd-frontier"><h3>Your open questions</h3><div class="rd-flist"></div></aside>`;
+  <aside class="rd-next">
+    <h3 class="rd-next-h">What do you want to ask next?</h3>
+    <div class="rd-nextlist"></div>
+  </aside>`;
 document.body.appendChild(root);
 
 const $ = (s) => root.querySelector(s);
-$(".rd-back").addEventListener("click", goBack);
+$(".rd-prev").addEventListener("click", goBack);
+$(".rd-fwd").addEventListener("click", goForward);
 $(".rd-map").addEventListener("click", () => {
   const u = new URL("./", location.href);
   u.searchParams.set("focus", current);
   location.href = u.toString();
 });
 $(".rd-review").addEventListener("click", startReview);
+
+// Open-questions dropdown: toggle on click, close on outside-click / Escape.
+const openq = $(".rd-openq");
+$(".rd-openq-btn").addEventListener("click", (e) => { e.stopPropagation(); openq.classList.toggle("open"); });
+document.addEventListener("click", (e) => { if (!openq.contains(e.target)) openq.classList.remove("open"); });
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") openq.classList.remove("open");
+  // page the trail with ← / → when not typing and not mid-session
+  if (session || /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+  if (e.key === "ArrowLeft") goBack();
+  else if (e.key === "ArrowRight") goForward();
+});
 
 // ---------------------------------------------------------------------------
 // Rendering
@@ -302,15 +350,33 @@ function renderCoverage() {
 function renderFrontier() {
   const list = $(".rd-flist");
   const items = store.frontier.filter((f) => !store.visited[f.toSlug]?.answered);
-  if (!items.length) { list.innerHTML = `<p class="rd-empty">Questions you skip will collect here.</p>`; return; }
+  $(".rd-openq-n").textContent = `(${items.length})`;
+  if (!items.length) { list.innerHTML = `<p class="rd-empty">Questions you pass by collect here.</p>`; return; }
   list.innerHTML = "";
   items.forEach((f) => {
     const b = document.createElement("button");
     b.className = "rd-fitem"; b.type = "button";
     b.innerHTML = `${f.question}<small>from “${NODES[f.fromSlug]?.title || f.fromSlug}”</small>`;
-    b.addEventListener("click", () => goTo(f.toSlug, f.question));
+    b.addEventListener("click", () => { openq.classList.remove("open"); goTo(f.toSlug, f.question); });
     list.appendChild(b);
   });
+}
+
+// Left rail: the navigation trail as vertical tabs (current highlighted, click to jump).
+function renderTrail() {
+  const rail = $(".rd-traillist"); rail.innerHTML = "";
+  store.trail.forEach((entry, i) => {
+    const b = document.createElement("button");
+    b.className = "rd-tab" + (i === store.trailPos ? " current" : ""); b.type = "button";
+    const num = document.createElement("span"); num.className = "rd-tab-n"; num.textContent = String(i + 1);
+    const t = document.createElement("span"); t.className = "rd-tab-t"; t.textContent = NODES[entry.slug]?.title || entry.slug;
+    b.append(num, t);
+    b.addEventListener("click", () => trailGo(i));
+    rail.appendChild(b);
+  });
+  $(".rd-prev").disabled = Boolean(session) || store.trailPos <= 0;
+  $(".rd-fwd").disabled = Boolean(session) || store.trailPos >= store.trail.length - 1;
+  rail.querySelector(".rd-tab.current")?.scrollIntoView({ block: "nearest" });
 }
 
 function makeCard(e) {
@@ -363,19 +429,19 @@ function appendEndSession(box) {
 
 // Bottom section for a normal bit/exercise (drill items use renderDrillScreen).
 function renderActions() {
-  const box = $(".rd-cards");
-  box.innerHTML = "";
-  if (session) { renderRating(box, true); appendEndSession(box); return; } // exercise item in a Review pass
+  const box = $(".rd-cards"); box.innerHTML = "";          // center: rating / practice
+  const next = $(".rd-nextlist"); next.innerHTML = "";     // right: "ask next" cards
+  const nextH = $(".rd-next-h");
+  if (session) { renderRating(box, true); appendEndSession(box); nextH.textContent = ""; return; } // exercise item in a Review pass
   if (isExercise(current)) renderRating(box, false);
   if (!isExercise(current) && bitDrillKeys(current).length) box.appendChild(makePracticeCard(current));
   const edges = (outEdges[current] || []).slice().sort((a, b) => KIND_ORDER[cardKind(a)] - KIND_ORDER[cardKind(b)]);
   if (edges.length) {
-    const h = document.createElement("div"); h.className = "rd-cards-h";
-    h.textContent = isExercise(current) ? "Where next?" : "What do you want to ask next?";
-    box.appendChild(h);
-    edges.forEach((e) => box.appendChild(makeCard(e)));
-  } else if (!isExercise(current)) {
-    box.insertAdjacentHTML("beforeend", `<div class="rd-cards-h">End of this thread</div><p class="rd-empty">No further questions branch from here — head back or pick one from your open questions.</p>`);
+    nextH.textContent = isExercise(current) ? "Where next?" : "What do you want to ask next?";
+    edges.forEach((e) => next.appendChild(makeCard(e)));
+  } else {
+    nextH.textContent = isExercise(current) ? "Where next?" : "End of this thread";
+    next.innerHTML = `<p class="rd-empty">No further questions branch from here — page back through your trail, or open your open-questions list.</p>`;
   }
 }
 
@@ -390,7 +456,6 @@ function renderDrillScreen() {
   const bit = NODES[DRILLS[it.key].bitSlug];
   $(".rd-asked").hidden = true;
   $(".rd-title").textContent = session.review ? "Review" : "Practice";
-  $(".rd-back").disabled = false;
   const content = $(".rd-content");
   content.style.opacity = "1";
   content.innerHTML = `<div class="rd-drill-progress">${session.review ? "Review" : "Practice"} — ${session.pos + 1} of ${session.items.length} · <span class="rd-muted">${bit?.title || ""}</span></div><div class="rd-drill-prompt"></div>`;
@@ -509,7 +574,8 @@ function endSession() {
 
 async function renderBit() {
   if (session && currentItem().kind === "drill") {
-    renderDrillScreen(); renderReviewBadge(); renderCoverage(); renderFrontier();
+    renderDrillScreen(); renderReviewBadge(); renderCoverage(); renderFrontier(); renderTrail();
+    $(".rd-nextlist").innerHTML = ""; $(".rd-next-h").textContent = "";
     window.scrollTo({ top: 0, behavior: "smooth" });
     return;
   }
@@ -521,7 +587,6 @@ async function renderBit() {
   if (arrivingQuestion) { asked.hidden = false; asked.innerHTML = `You asked: <b>${arrivingQuestion}</b> — here's the answer.`; }
   else asked.hidden = true;
   $(".rd-title").textContent = node?.title || current;
-  $(".rd-back").disabled = store.history.length === 0;
 
   const contentEl = $(".rd-content");
   contentEl.style.opacity = "0";
@@ -537,6 +602,7 @@ async function renderBit() {
   renderActions();
   renderCoverage();
   renderFrontier();
+  renderTrail();
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
@@ -556,25 +622,41 @@ function chooseCard(edge) {
   goTo(edge.to, edge.question);
 }
 
-// Navigate to a node, pushing the view we're leaving onto the history stack so
-// Back always returns to where you just were (card advance or Frontier jump alike).
+// The trail is browser-history style: an ordered list with a cursor (store.trailPos).
+// New navigation truncates any forward entries and appends; Back/Forward just move
+// the cursor, so you can page back and forth without losing where you were.
+function seedTrail() {
+  if (!store.trail.length || store.trailPos < 0 || store.trailPos >= store.trail.length) {
+    store.trail = [{ slug: current, q: null }]; store.trailPos = 0; save();
+  } else {
+    current = store.trail[store.trailPos].slug;       // resume at the cursor
+    arrivingQuestion = store.trail[store.trailPos].q;
+  }
+}
 function goTo(slug, question) {
   if (!NODES[slug] || slug === current) return;
-  store.history.push(current);
   store.frontier = store.frontier.filter((f) => f.toSlug !== slug);
+  store.trail = store.trail.slice(0, store.trailPos + 1);   // drop forward history
+  store.trail.push({ slug, q: question || null });
+  store.trailPos = store.trail.length - 1;
   current = slug;
   arrivingQuestion = question || null;
   save();
   renderBit();
 }
-
-function goBack() {
-  if (session) { endSession(); return; }
-  if (!store.history.length) return;
-  current = store.history.pop();
-  arrivingQuestion = null;
+function trailGo(pos) {
+  if (session) endSession();
+  if (pos < 0 || pos >= store.trail.length || pos === store.trailPos) return;
+  store.trailPos = pos;
+  const e = store.trail[pos];
+  current = e.slug;
+  arrivingQuestion = e.q;
   save();
   renderBit();
 }
+function goBack() { if (session) { endSession(); return; } trailGo(store.trailPos - 1); }
+function goForward() { if (session) return; trailGo(store.trailPos + 1); }
 
-renderBit();
+seedTrail();
+if (START && NODES[START] && START !== current) goTo(START, null);
+else renderBit();
