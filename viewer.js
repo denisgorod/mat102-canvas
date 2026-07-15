@@ -371,10 +371,6 @@ if (loadingOverlay) {
   loadingOverlay.style.opacity = "0";
   loadingOverlay.addEventListener("transitionend", () => loadingOverlay.remove(), { once: true });
 }
-const edgeLabels = canvasForViewer.edges
-  .filter((edge) => typeof edge.label === "string" && edge.label.trim().length > 0)
-  .map((edge) => ({ ...edge, label: edge.label.trim() }));
-
 // Edge relationship → canvas colour key. `prerequisite` (≈96% of edges — the
 // backbone) is left uncoloured so it stays neutral; the rarer `related` /
 // `analogy` links get a colour so the map's actual cross-connections read as
@@ -391,82 +387,6 @@ canvasForViewer.edges.forEach((edge) => {
   edge.label = "";
 });
 
-const getAnchorCoord = (node, side) => {
-  const centerX = node.x + node.width / 2;
-  const centerY = node.y + node.height / 2;
-
-  switch (side) {
-    case "top":
-      return { x: centerX, y: node.y };
-    case "bottom":
-      return { x: centerX, y: node.y + node.height };
-    case "left":
-      return { x: node.x, y: centerY };
-    case "right":
-      return { x: node.x + node.width, y: centerY };
-    default:
-      return { x: centerX, y: centerY };
-  }
-};
-
-const getEdgeControlPoints = (from, to, fromSide, toSide) => {
-  const dx = to.x - from.x;
-  const dy = to.y - from.y;
-  const magnitude = Math.min(Math.abs(dx), Math.abs(dy)) + 0.3 * Math.max(Math.abs(dx), Math.abs(dy));
-  const pull = Math.max(60, Math.min(300, 0.5 * magnitude));
-
-  let cp1x = from.x;
-  let cp1y = from.y;
-  let cp2x = to.x;
-  let cp2y = to.y;
-
-  switch (fromSide) {
-    case "top":
-      cp1y -= pull;
-      break;
-    case "bottom":
-      cp1y += pull;
-      break;
-    case "left":
-      cp1x -= pull;
-      break;
-    case "right":
-      cp1x += pull;
-      break;
-    default:
-      break;
-  }
-
-  switch (toSide) {
-    case "top":
-      cp2y -= pull;
-      break;
-    case "bottom":
-      cp2y += pull;
-      break;
-    case "left":
-      cp2x -= pull;
-      break;
-    case "right":
-      cp2x += pull;
-      break;
-    default:
-      break;
-  }
-
-  return { cp1x, cp1y, cp2x, cp2y };
-};
-
-const cubicBezierPoint = (p0, p1, p2, p3, t = 0.5) => {
-  const u = 1 - t;
-  return (
-    (u ** 3) * p0 +
-    3 * (u ** 2) * t * p1 +
-    3 * u * (t ** 2) * p2 +
-    (t ** 3) * p3
-  );
-};
-
 const edgeLabelColorMap = {
   "0": { bg: "#6b7280", text: "#ffffff" },
   "1": { bg: "#ef4444", text: "#ffffff" },
@@ -480,32 +400,6 @@ const edgeLabelColorMap = {
 const getEdgeLabelColors = (colorKey) => edgeLabelColorMap[String(colorKey ?? "0")] ?? {
   bg: "rgba(17, 24, 39, 0.86)",
   text: "#ffffff"
-};
-
-const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
-
-const wrapTextLines = (ctx, text, maxContentWidth) => {
-  const words = text.trim().split(/\s+/).filter(Boolean);
-  if (words.length === 0) return [text];
-
-  const lines = [];
-  let currentLine = words[0];
-
-  for (let i = 1; i < words.length; i += 1) {
-    const word = words[i];
-    const candidate = `${currentLine} ${word}`;
-
-    if (ctx.measureText(candidate).width <= maxContentWidth) {
-      currentLine = candidate;
-      continue;
-    }
-
-    lines.push(currentLine);
-    currentLine = word;
-  }
-
-  lines.push(currentLine);
-  return lines;
 };
 
 const canvasRoot = document.getElementById("canvas-root");
@@ -571,12 +465,73 @@ const findDataManagerModule = (root) => {
   return null;
 };
 
-const dataManager = findDataManagerModule(viewer);
+// ---------------------------------------------------------------------------
+// Camera: the single seam that touches the library's viewport transform.
+//
+// json-canvas-viewer keeps the live transform on a private DataManager module
+// (data.scale/offsetX/offsetY) with no public getter, so we still locate that
+// module once by structural probe — but ONLY here. Every other part of the app
+// reads and writes the viewport through this object, so a library change (or a
+// future switch to an owned renderer) is a one-place edit instead of a scatter
+// of dataManager.data.* accesses. When the probe fails it degrades to the
+// library's public zoom/pan API (and `available` is false, which disables the
+// LOD loop and smooth-pan just as before).
+// ---------------------------------------------------------------------------
+const camera = (() => {
+  const dm = findDataManagerModule(viewer);
+  const available = Boolean(dm && dm.data && typeof dm.data.scale === "number");
+
+  const viewportCenter = () => ({
+    x: (canvasRoot.clientWidth || window.innerWidth) / 2,
+    y: (canvasRoot.clientHeight || window.innerHeight) / 2
+  });
+
+  return {
+    available,
+    // Current transform, or null if the private handle wasn't found.
+    get() {
+      if (!available) return null;
+      return { scale: dm.data.scale, offsetX: dm.data.offsetX, offsetY: dm.data.offsetY };
+    },
+    getScale() {
+      return available ? dm.data.scale : null;
+    },
+    // Move the camera. Direct assignment when the handle is present (the
+    // library's rAF repaints on change; `refresh` forces it synchronously);
+    // otherwise best-effort via the public zoom/pan API.
+    set({ scale, offsetX, offsetY }, { refresh = true } = {}) {
+      if (available) {
+        if (typeof scale === "number") dm.data.scale = scale;
+        if (typeof offsetX === "number") dm.data.offsetX = offsetX;
+        if (typeof offsetY === "number") dm.data.offsetY = offsetY;
+        if (refresh && typeof viewer.refresh === "function") viewer.refresh();
+        return true;
+      }
+      if (typeof scale === "number" && typeof viewer.zoomToScale === "function") {
+        try {
+          viewer.zoomToScale(scale, viewportCenter());
+          if (typeof offsetX === "number" && typeof offsetY === "number" && typeof viewer.panToCoords === "function") {
+            window.requestAnimationFrame(() => {
+              try { viewer.panToCoords({ x: offsetX, y: offsetY }); } catch { /* best-effort */ }
+            });
+          }
+          return true;
+        } catch { /* fall through */ }
+      }
+      return false;
+    },
+    // The library's per-node render entries (id → {ref, box, fileName, …}).
+    nodeMap() {
+      return available ? dm.data.nodeMap : null;
+    }
+  };
+})();
 
 const applyFileNodeDisplayNames = () => {
-  if (!dataManager?.data?.nodeMap) return;
+  const nodeMap = camera.nodeMap();
+  if (!nodeMap) return;
 
-  Object.values(dataManager.data.nodeMap).forEach((nodeEntry) => {
+  Object.values(nodeMap).forEach((nodeEntry) => {
     if (!nodeEntry?.ref || nodeEntry.ref.type !== "file" || typeof nodeEntry.ref.file !== "string") {
       return;
     }
@@ -910,7 +865,8 @@ const cancelPanAnimation = () => {
 const smoothPanToNode = (nodeId, options = {}) => {
   const targetNode = getNodeById(nodeId);
   if (!targetNode) return;
-  if (!dataManager?.data) {
+  const start = camera.get();
+  if (!start) {
     focusNode(nodeId, { recordHistory: options.recordHistory !== false });
     return;
   }
@@ -920,9 +876,7 @@ const smoothPanToNode = (nodeId, options = {}) => {
   lodKick?.(); // the pan animates the scale each frame — keep the LOD loop awake for it
 
   const durationMs = options.durationMs ?? 520;
-  const startScale = dataManager.data.scale;
-  const startOffsetX = dataManager.data.offsetX;
-  const startOffsetY = dataManager.data.offsetY;
+  const { scale: startScale, offsetX: startOffsetX, offsetY: startOffsetY } = start;
   const targetViewport = getFocusViewportForNode(targetNode);
   const finalViewport = snapViewportForCrispText(targetViewport);
   const startedAt = performance.now();
@@ -933,64 +887,27 @@ const smoothPanToNode = (nodeId, options = {}) => {
     const t = Math.max(0, Math.min(1, rawT));
     const eased = easeInOutCubic(t);
 
-    dataManager.data.scale = startScale + ((targetViewport.scale - startScale) * eased);
-    dataManager.data.offsetX = startOffsetX + ((targetViewport.offsetX - startOffsetX) * eased);
-    dataManager.data.offsetY = startOffsetY + ((targetViewport.offsetY - startOffsetY) * eased);
-
     // The library's Controller runs its own rAF loop that calls refresh()
-    // whenever scale/offset change, so refreshing per frame here just doubled
-    // the redraw work. The final-frame refresh below still runs.
+    // whenever scale/offset change, so we mutate without a per-frame refresh
+    // (that just doubled the redraw work); the final frame refreshes once.
+    camera.set({
+      scale: startScale + ((targetViewport.scale - startScale) * eased),
+      offsetX: startOffsetX + ((targetViewport.offsetX - startOffsetX) * eased),
+      offsetY: startOffsetY + ((targetViewport.offsetY - startOffsetY) * eased)
+    }, { refresh: false });
+
     if (t < 1) {
       focusState.panAnimationFrame = window.requestAnimationFrame(step);
       return;
     }
 
-    dataManager.data.scale = finalViewport.scale;
-    dataManager.data.offsetX = finalViewport.offsetX;
-    dataManager.data.offsetY = finalViewport.offsetY;
-    if (typeof viewer.refresh === "function") {
-      viewer.refresh();
-    }
+    camera.set(finalViewport, { refresh: true });
     scheduleMathFlush();
     focusState.panAnimationFrame = null;
   };
 
   focusState.panAnimationFrame = window.requestAnimationFrame(step);
 };
-
-const intersects = (a, b, margin = 0) => !(
-  a.right < (b.left - margin) ||
-  a.left > (b.right + margin) ||
-  a.bottom < (b.top - margin) ||
-  a.top > (b.bottom + margin)
-);
-
-const overlapArea = (a, b) => {
-  const left = Math.max(a.left, b.left);
-  const right = Math.min(a.right, b.right);
-  const top = Math.max(a.top, b.top);
-  const bottom = Math.min(a.bottom, b.bottom);
-  const width = right - left;
-  const height = bottom - top;
-
-  if (width <= 0 || height <= 0) return 0;
-  return width * height;
-};
-
-const edgeLabelCandidates = [
-  [0, -16],
-  [0, 16],
-  [-18, 0],
-  [18, 0],
-  [-28, -12],
-  [28, -12],
-  [-28, 12],
-  [28, 12],
-  [0, -30],
-  [0, 30],
-  [-40, 0],
-  [40, 0]
-];
 
 const setOverlayCollapsedClass = (overlay) => {
   if (!(overlay instanceof Element) || !overlay.id) return;
@@ -1114,158 +1031,6 @@ const renderGroupControls = () => {
 
   applyCollapsedNodeVisibility();
   return true;
-};
-
-// Hoisted, static state for renderEdgeLabels. Rebuilding these on every call
-// (which fires on every resize frame and every group toggle) was pure waste:
-// node geometry never changes, so precompute all boxes once and only filter by
-// the collapsed set per call; reuse a single measuring canvas context.
-const allNodeBoxes = canvasJSON.nodes.map((node) => ({
-  id: node.id,
-  left: node.x,
-  top: node.y,
-  right: node.x + node.width,
-  bottom: node.y + node.height
-}));
-const edgeLabelMeasureCtx = (() => {
-  const measureCanvas = document.createElement("canvas");
-  const ctx = measureCanvas.getContext("2d");
-  // Match the rendered .edge-label-box font (index.html) so wrap width is measured
-  // at the size labels actually display, not wider (which wrapped text early).
-  if (ctx) ctx.font = "14px sans-serif";
-  return ctx;
-})();
-
-const renderEdgeLabels = () => {
-  const overlaysRoot = canvasRoot.querySelector(".JCV-overlays");
-  if (!overlaysRoot) return false;
-
-  let layer = overlaysRoot.querySelector(".edge-label-layer");
-  if (!layer) {
-    layer = document.createElement("div");
-    layer.className = "edge-label-layer";
-    layer.style.position = "absolute";
-    layer.style.left = "0";
-    layer.style.top = "0";
-    layer.style.width = "0";
-    layer.style.height = "0";
-    layer.style.overflow = "visible";
-    layer.style.zIndex = "0";
-    layer.style.pointerEvents = "none";
-    overlaysRoot.prepend(layer);
-
-    layer.addEventListener("click", (event) => {
-      const target = event.target instanceof Element ? event.target.closest(".edge-label-box") : null;
-      if (!target) return;
-
-      const edgeId = target.dataset.edgeId;
-      const edge = edgeById.get(edgeId);
-      if (!edge) return;
-
-      focusNode(edge.toNode);
-    });
-  }
-
-  layer.innerHTML = "";
-
-  const nodeMap = nodeById;
-  const visibleNodeBoxes = allNodeBoxes.filter((box) => !isNodeCollapsed(box.id));
-  const placedLabelBoxes = [];
-
-  const measureCtx = edgeLabelMeasureCtx;
-  if (!measureCtx) return false;
-
-  edgeLabels.forEach((edge) => {
-    if (isNodeCollapsed(edge.fromNode) || isNodeCollapsed(edge.toNode)) return;
-
-    const fromNode = nodeMap.get(edge.fromNode);
-    const toNode = nodeMap.get(edge.toNode);
-    if (!fromNode || !toNode || !edge.label) return;
-
-    const fromAnchor = getAnchorCoord(fromNode, edge.fromSide);
-    const toAnchor = getAnchorCoord(toNode, edge.toSide);
-    const cps = getEdgeControlPoints(fromAnchor, toAnchor, edge.fromSide, edge.toSide);
-
-    const centerX = cubicBezierPoint(fromAnchor.x, cps.cp1x, cps.cp2x, toAnchor.x, 0.5);
-    const centerY = cubicBezierPoint(fromAnchor.y, cps.cp1y, cps.cp2y, toAnchor.y, 0.5);
-
-    const edgeLength = Math.hypot(toAnchor.x - fromAnchor.x, toAnchor.y - fromAnchor.y);
-    const maxLabelWidth = clamp(edgeLength * 0.52, 140, 260);
-    const horizontalPadding = 8;
-    const verticalPadding = 4;
-    const lineHeight = 17; // 14px font × ~1.2 line-height, matching the rendered box
-    const lines = wrapTextLines(measureCtx, edge.label, Math.max(60, maxLabelWidth - (horizontalPadding * 2)));
-    const textWidth = lines.reduce((max, line) => Math.max(max, measureCtx.measureText(line).width), 0);
-    const width = Math.min(maxLabelWidth, textWidth + (horizontalPadding * 2));
-    const height = (lines.length * lineHeight) + (verticalPadding * 2);
-
-    let bestNonOverlap = null;
-    let bestFallback = null;
-
-    edgeLabelCandidates.forEach(([dx, dy]) => {
-      const rect = {
-        left: centerX + dx - width / 2,
-        top: centerY + dy - height / 2 - 2,
-        right: centerX + dx + width / 2,
-        bottom: centerY + dy + height / 2 - 2
-      };
-
-      const overlapsNode = visibleNodeBoxes.some((box) => intersects(rect, box, 2));
-      const overlapsLabel = placedLabelBoxes.some((box) => intersects(rect, box, 2));
-      const overlapScore = visibleNodeBoxes.reduce((sum, box) => sum + overlapArea(rect, box), 0);
-      const distanceScore = (dx * dx) + (dy * dy);
-
-      if (!overlapsNode && !overlapsLabel) {
-        if (!bestNonOverlap || distanceScore < bestNonOverlap.distanceScore) {
-          bestNonOverlap = { rect, distanceScore };
-        }
-        return;
-      }
-
-      const penalty = overlapScore + (overlapsNode ? 100000 : 0) + (overlapsLabel ? 20000 : 0) + (distanceScore * 0.02);
-
-      if (!bestFallback || penalty < bestFallback.penalty) {
-        bestFallback = { rect, penalty };
-      }
-    });
-
-    const finalRect = bestNonOverlap?.rect ?? bestFallback?.rect ?? {
-      left: centerX - width / 2,
-      top: centerY - height / 2 - 2,
-      right: centerX + width / 2,
-      bottom: centerY + height / 2 - 2
-    };
-
-    placedLabelBoxes.push(finalRect);
-
-    const box = document.createElement("button");
-    box.type = "button";
-    box.className = "edge-label-box";
-    box.dataset.edgeId = edge.id;
-    box.textContent = edge.label;
-    box.style.left = `${(finalRect.left + finalRect.right) / 2}px`;
-    box.style.top = `${(finalRect.top + finalRect.bottom) / 2}px`;
-    box.style.maxWidth = `${Math.round(maxLabelWidth)}px`;
-    box.style.width = `${Math.round(width)}px`;
-
-    const colors = getEdgeLabelColors(edgeTypeColorKey[edge.edge_type]);
-    box.style.backgroundColor = colors.bg;
-    box.style.color = colors.text;
-    box.style.pointerEvents = "auto";
-
-    layer.appendChild(box);
-  });
-
-  return true;
-};
-
-const ensureEdgeLabels = (attempt = 0) => {
-  const done = renderEdgeLabels();
-  if (done || attempt >= 30) return;
-
-  window.setTimeout(() => {
-    ensureEdgeLabels(attempt + 1);
-  }, 120);
 };
 
 const ensureGroupControls = (attempt = 0) => {
@@ -1596,8 +1361,8 @@ canvasRoot.addEventListener("click", (event) => {
   let prevSig = "";
   const labelTick = () => {
     repositionActiveLabels();
-    const d = dataManager?.data;
-    const sig = d ? `${d.scale},${d.offsetX},${d.offsetY}` : String(stable);
+    const v = camera.get();
+    const sig = v ? `${v.scale},${v.offsetX},${v.offsetY}` : String(stable);
     if (sig === prevSig) stable += 1; else { stable = 0; prevSig = sig; }
     if (activeLabelEls.size === 0 || stable >= 20) { rafId = null; return; }
     rafId = window.requestAnimationFrame(labelTick);
@@ -1758,38 +1523,10 @@ function focusNode(nodeId, options = {}) {
   cancelPanAnimation();
   const targetViewport = snapViewportForCrispText(getFocusViewportForNode(node));
 
-  if (dataManager?.data) {
-    dataManager.data.scale = targetViewport.scale;
-    dataManager.data.offsetX = targetViewport.offsetX;
-    dataManager.data.offsetY = targetViewport.offsetY;
-
-    if (typeof viewer.refresh === "function") {
-      viewer.refresh();
-    }
-    lodKick?.(); // this jump can cross a LOD threshold — refresh the band
-    return;
-  }
-
-  // Fallback: public interaction APIs if internal module lookup fails.
-  if (typeof viewer.zoomToScale === "function" && typeof viewer.panToCoords === "function") {
-    const viewportWidth = canvasRoot.clientWidth || window.innerWidth;
-    const viewportHeight = canvasRoot.clientHeight || window.innerHeight;
-    const viewportCenter = {
-      x: viewportWidth / 2,
-      y: viewportHeight / 2
-    };
-    viewer.zoomToScale(targetViewport.scale, viewportCenter);
-    window.requestAnimationFrame(() => {
-      viewer.panToCoords({ x: targetViewport.offsetX, y: targetViewport.offsetY });
-    });
-    return;
-  }
-
-  if (typeof viewer.setViewport === "function") {
-    const centerX = node.x + (node.width / 2);
-    const centerY = node.y + (node.height / 2);
-    viewer.setViewport({ x: centerX, y: centerY, zoom: targetViewport.scale });
-  }
+  // camera.set snaps directly when the private handle is present, else falls
+  // back to the library's public zoom/pan API.
+  camera.set(targetViewport);
+  lodKick?.(); // this jump can cross a LOD threshold — refresh the band
 }
 
 // ---------------------------------------------------------------------------
@@ -1934,7 +1671,7 @@ function focusNode(nodeId, options = {}) {
 
 // ---------------------------------------------------------------------------
 // Semantic zoom (level-of-detail). The map is far too large to read all at once,
-// so what each node shows is keyed to the live zoom (`dataManager.data.scale`):
+// so what each node shows is keyed to the live zoom (`camera.getScale()`):
 //
 //   band 0 (far):  every node hidden; one big "topic tile" per leaf group — a
 //                  scarce, table-of-contents view of the whole curriculum.
@@ -1977,7 +1714,7 @@ const lodBandForScale = (scale) => {
 };
 
 const updateLod = () => {
-  const scale = dataManager?.data?.scale;
+  const scale = camera.getScale();
   if (typeof scale !== "number") return;
   const band = lodBandForScale(scale);
   if (band === lodBand) return;
@@ -2059,13 +1796,13 @@ const ensureLodTopicLabels = (attempt = 0) => {
 // idle; instead the loop self-stops once the zoom holds steady for a few frames
 // and `kickLod` re-arms it on any interaction that can change scale (wheel,
 // pinch, resize, or a programmatic focus/pan via `lodKick`).
-if (dataManager?.data) {
+if (camera.available) {
   let lodRafId = null;
   let lodStableFrames = 0;
   let lodPrevScale = NaN;
 
   const lodTick = () => {
-    const scale = dataManager.data.scale;
+    const scale = camera.getScale();
     updateLod();
     if (scale === lodPrevScale) {
       lodStableFrames += 1;
