@@ -1277,11 +1277,14 @@ canvasRoot.addEventListener("click", (event) => {
 
     // Keep the label OFF the anchoring node's body. In focus mode that node
     // fills the screen and you want to read it, so the mid-edge point lands on
-    // its text — push the label just past the node's edge on the side this edge
-    // exits (right for outgoing, left for incoming), then clamp into the viewport.
+    // its text — push the label past the node's edge toward whichever side the
+    // OTHER endpoint sits on (for this left→right map that is right for outgoing,
+    // left for incoming), then clamp its box fully into the viewport.
     const anchorId = el.dataset.anchorId;
     const rEl = anchorId ? document.getElementById(anchorId) : null;
-    const halfW = (el.getBoundingClientRect().width / 2) || 90;
+    const box = el.getBoundingClientRect();
+    const halfW = (box.width / 2) || 90;
+    const halfH = (box.height / 2) || 12;
     if (rEl) {
       const R = rEl.getBoundingClientRect();
       const other = anchorId === edge.fromNode ? b : a; // the OTHER endpoint's anchor
@@ -1290,9 +1293,13 @@ canvasRoot.addEventListener("click", (event) => {
       else x = Math.min(x, R.left - gap - halfW);
     }
 
+    // translate(-50%,-50%) centres the box on (x,y), so clamp by the half-extent
+    // on BOTH axes — otherwise a tall zoom-scaled label clips at the top/bottom
+    // even though its centre is inside the padding.
     x = Math.max(LABEL_PAD + halfW, Math.min(window.innerWidth - LABEL_PAD - halfW, x));
+    const yc = Math.max(LABEL_PAD + halfH, Math.min(window.innerHeight - LABEL_PAD - halfH, y));
     el.style.left = `${Math.round(x)}px`;
-    el.style.top = `${Math.round(Math.max(LABEL_PAD, Math.min(window.innerHeight - LABEL_PAD, y)))}px`;
+    el.style.top = `${Math.round(yc)}px`;
   };
 
   const repositionActiveLabels = () => {
@@ -1300,11 +1307,18 @@ canvasRoot.addEventListener("click", (event) => {
     // instead of floating at a fixed pixel size while everything else scales.
     const scale = camera.getScale() || 1;
     const fontPx = Math.max(12, Math.min(28, Math.round(scale * 11)));
+    const fontStr = `${fontPx}px`;
+    const maxWStr = `${Math.round(fontPx * 13)}px`;
 
     const placed = [];
     activeLabelEls.forEach((el, edgeId) => {
-      el.style.fontSize = `${fontPx}px`;
-      el.style.maxWidth = `${Math.round(fontPx * 13)}px`;
+      // Only touch the font styles when they actually change (zoom moved, or a
+      // freshly-created label has none yet) — this runs every rAF tick while the
+      // view moves, and rewriting identical values each frame is wasted style work.
+      if (el.style.fontSize !== fontStr) {
+        el.style.fontSize = fontStr;
+        el.style.maxWidth = maxWStr;
+      }
       const edge = edgeById.get(edgeId);
       if (edge) positionLabel(el, edge);
       if (el.style.display !== "none") placed.push(el);
