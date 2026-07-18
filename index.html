@@ -485,13 +485,16 @@
       backdrop-filter: blur(4px);
       padding: 10px;
       display: none;
+      flex-direction: column;
       z-index: 40;
-      overflow: auto;
+      /* Panel itself doesn't scroll; only the question list does, so the header
+         and the "Ask a question" footer stay pinned and always visible. */
+      overflow: hidden;
       pointer-events: auto;
     }
 
     .outgoing-panel.is-visible {
-      display: block;
+      display: flex;
     }
 
     .outgoing-title {
@@ -508,11 +511,17 @@
       align-items: center;
       gap: 8px;
       margin-bottom: 8px;
+      flex-shrink: 0;
     }
 
     .outgoing-list {
       display: grid;
       gap: 6px;
+      /* Take the space between the pinned header and Ask button, and scroll when
+         a node has many questions. min-height:0 lets a flex child actually shrink. */
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow-y: auto;
     }
 
     .outgoing-back {
@@ -573,6 +582,7 @@
     .outgoing-ask {
       margin-top: 8px;
       width: 100%;
+      flex-shrink: 0;
       border: 1px dashed rgba(148, 163, 184, 0.6);
       background: rgba(30, 41, 59, 0.55);
       color: #e5e7eb;
