@@ -1,0 +1,40 @@
+name: Student question
+description: Ask a question about a specific node in the MAT102 map.
+title: "Student question: "
+labels: ["student-question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for asking! This form is normally opened from the **“Ask a question about this node”**
+        button in the map, which fills in the three locator fields below for you. Please leave those as
+        they are and just write your question at the bottom.
+  - type: input
+    id: node-slug
+    attributes:
+      label: Node ID (do not edit)
+      description: Auto-filled from the map — leave this as-is. May be blank if the map was still loading; the file field below is then used to find the node.
+    validations:
+      required: false
+  - type: input
+    id: node-basename
+    attributes:
+      label: Node file (do not edit)
+      description: Auto-filled from the map.
+    validations:
+      required: false
+  - type: input
+    id: node-title
+    attributes:
+      label: Node title (do not edit)
+      description: Auto-filled from the map.
+    validations:
+      required: false
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question
+      description: What confuses you about this node? What would you like clarified, expanded, or added to the map?
+      placeholder: e.g. "Why does the definition allow negative divisors?"
+    validations:
+      required: true
