@@ -22,7 +22,10 @@ permissions:
 
 jobs:
   apply:
-    if: github.event.label.name == 'approved'
+    # Require BOTH labels: `approved` is the trigger + authorization, and
+    # `student-question` (auto-applied by the Issue Form) confirms this issue is
+    # actually a student question — so `approved` on an unrelated issue is a no-op.
+    if: github.event.label.name == 'approved' && contains(github.event.issue.labels.*.name, 'student-question')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

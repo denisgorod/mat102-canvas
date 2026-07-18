@@ -13,9 +13,9 @@ body:
     id: node-slug
     attributes:
       label: Node ID (do not edit)
-      description: Auto-filled from the map — leave this as-is so we know which node you mean.
+      description: Auto-filled from the map — leave this as-is. May be blank if the map was still loading; the file field below is then used to find the node.
     validations:
-      required: true
+      required: false
   - type: input
     id: node-basename
     attributes:
