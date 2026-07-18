@@ -52,6 +52,8 @@ for f in sorted(glob.glob(os.path.join(BITS, "**", "*.md"), recursive=True)):
     }
     if d.get("concludes"):  # f: this inquiry branch concludes in a hierarchy node
         nodes[slug]["concludes"] = d["concludes"]
+    if d.get("student_questions"):  # instructor-reviewed questions shown in the node panel
+        nodes[slug]["student_questions"] = d["student_questions"]
     # Own drills win; otherwise inherit the concluded objective's drills.
     drills = d.get("drills") or hier_drills.get(d.get("concludes"))
     if drills:  # parametric spaced-repetition drills (see drill-engine.js)
@@ -71,5 +73,7 @@ for e in canvas["edges"]:
                   "edge_type": e.get("edge_type") or "prerequisite"})
 
 data = {"nodes": nodes, "edges": edges}
-open(OUT, "w", encoding="utf-8").write(json.dumps(data, ensure_ascii=False, indent="\t"))
+# default=str keeps a hand-authored unquoted `submitted:` date (parsed by yaml as a
+# datetime.date) from crashing the dump; JSON-native values are unaffected.
+open(OUT, "w", encoding="utf-8").write(json.dumps(data, ensure_ascii=False, indent="\t", default=str))
 print(f"wrote {os.path.relpath(OUT, ROOT)}: {len(nodes)} nodes, {len(edges)} edges")

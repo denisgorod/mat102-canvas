@@ -558,6 +558,10 @@ const edgeById = new Map(canvasJSON.edges.map((edge) => [edge.id, edge]));
 // Reader bridge: hex nodeId <-> frontmatter slug, and a hook to paint reading progress.
 const slugByNodeId = new Map();
 const nodeIdBySlug = new Map();
+// The reader-data graph, populated once reader-data.json loads in the cross-map
+// bridge IIFE below. Module-level so the outgoing panel can read a node's
+// `student_questions` annotations without a second fetch.
+let readerData = { nodes: {}, edges: [] };
 let readerStateApply = null; // set once reader-data.json + localStorage state load
 // Reader progress as slug sets, shared by the overlay painter (readerStateApply)
 // and the outgoing panel (so answered questions can be marked covered). Reassigned
@@ -656,6 +660,33 @@ const applyOverlayNodeTypeClasses = () => {
   });
 };
 
+// Student questions are filed as GitHub issues against this repo via a prefilled
+// Issue Form (.github/ISSUE_TEMPLATE/student-question.yml). Change this if the
+// map is served from a fork. The intake is a plain deep link — no backend/secret;
+// a serverless proxy could later replace the link with a POST behind the same button.
+const STUDENT_QUESTION_REPO = "denisgorod/mat102-canvas";
+
+// Build the prefilled "new issue" URL for the focused node. The query keys must
+// match the Issue Form field ids so GitHub prefills them; the student only fills
+// in `question`. We pass the frontmatter slug as the machine key plus the basename
+// and title as redundant locators (the slug may be empty before reader-data loads,
+// in which case the workflow resolves the node by basename).
+const buildStudentQuestionUrl = (nodeId) => {
+  const node = getNodeById(nodeId);
+  const slug = slugByNodeId.get(nodeId) || "";
+  const basename = node && typeof node.file === "string" ? getBasename(node.file) : "";
+  const title = getNodeLabel(nodeId);
+  const params = new URLSearchParams({
+    template: "student-question.yml",
+    labels: "student-question",
+    title: `Student question: ${title}`,
+    "node-slug": slug,
+    "node-basename": basename,
+    "node-title": title
+  });
+  return `https://github.com/${STUDENT_QUESTION_REPO}/issues/new?${params.toString()}`;
+};
+
 const ensureOutgoingPanel = () => {
   if (focusState.panel) return focusState.panel;
 
@@ -667,6 +698,7 @@ const ensureOutgoingPanel = () => {
       <div class="outgoing-title">Outgoing Annotations</div>
     </div>
     <div class="outgoing-list"></div>
+    <button type="button" class="outgoing-ask" hidden>＋ Ask a question about this node</button>
   `;
   canvasRoot.appendChild(panel);
   focusState.panel = panel;
@@ -693,6 +725,14 @@ const ensureOutgoingPanel = () => {
     const backButton = event.target instanceof Element ? event.target.closest(".outgoing-back") : null;
     if (backButton) {
       goBackToPreviousFocus();
+      return;
+    }
+
+    const askButton = event.target instanceof Element ? event.target.closest(".outgoing-ask") : null;
+    if (askButton) {
+      if (focusState.nodeId) {
+        window.open(buildStudentQuestionUrl(focusState.nodeId), "_blank", "noopener");
+      }
       return;
     }
 
@@ -814,6 +854,7 @@ const renderOutgoingPanel = () => {
   const panel = ensureOutgoingPanel();
   const list = panel.querySelector(".outgoing-list");
   const backButton = panel.querySelector(".outgoing-back");
+  const askButton = panel.querySelector(".outgoing-ask");
   if (!list) return;
 
   if (backButton instanceof HTMLButtonElement) {
@@ -823,8 +864,14 @@ const renderOutgoingPanel = () => {
   if (!focusState.nodeId) {
     panel.classList.remove("is-visible");
     list.innerHTML = "";
+    if (askButton) askButton.hidden = true;
     return;
   }
+
+  // File nodes always expose the panel (for the Ask button + any student
+  // questions), even when they have no outgoing edges — e.g. exercises, which are
+  // exactly the nodes students most want to ask about.
+  const isFileNode = nodeTypeById.get(focusState.nodeId) === "file";
 
   const outgoingEdges = canvasJSON.edges
     .filter((edge) => edge.fromNode === focusState.nodeId && !isNodeCollapsed(edge.toNode))
@@ -842,9 +889,12 @@ const renderOutgoingPanel = () => {
       };
     });
 
-  if (outgoingEdges.length === 0 && !canGoBackInFocus()) {
+  // Non-file nodes (groups/text) keep the original behaviour: only shown when
+  // they actually have outgoing edges or back history.
+  if (!isFileNode && outgoingEdges.length === 0 && !canGoBackInFocus()) {
     panel.classList.remove("is-visible");
     list.innerHTML = "";
+    if (askButton) askButton.hidden = true;
     return;
   }
 
@@ -861,7 +911,41 @@ const renderOutgoingPanel = () => {
     list.appendChild(button);
   });
 
+  renderStudentQuestions(list, focusState.nodeId);
+
+  // The Ask affordance only makes sense for file nodes (a real bit/exercise).
+  if (askButton) askButton.hidden = !isFileNode;
+
   panel.classList.add("is-visible");
+};
+
+// Append a collapsed "Student questions (N)" section for the focused node's
+// annotations (from reader-data.json). Rendered as a native <details> so it costs
+// one line until expanded — accumulating questions never clutter the map, and they
+// are static text (not graph edges), so they don't navigate anywhere.
+const renderStudentQuestions = (list, nodeId) => {
+  const slug = slugByNodeId.get(nodeId);
+  const questions = (slug && readerData.nodes?.[slug]?.student_questions) || [];
+  const visible = questions.filter((q) => q && q.question && q.status !== "dismissed");
+  if (visible.length === 0) return;
+
+  const details = document.createElement("details");
+  details.className = "student-questions";
+
+  const summary = document.createElement("summary");
+  summary.textContent = `Student questions (${visible.length})`;
+  details.appendChild(summary);
+
+  const ul = document.createElement("ul");
+  visible.forEach((q) => {
+    const li = document.createElement("li");
+    li.textContent = q.question; // textContent, never innerHTML — no HTML injection
+    if (q.status === "accepted") li.classList.add("is-accepted");
+    ul.appendChild(li);
+  });
+  details.appendChild(ul);
+
+  list.appendChild(details);
 };
 
 const setFocusedNode = (nodeId) => {
@@ -1647,7 +1731,6 @@ function focusNode(nodeId, options = {}) {
 
   canvasRoot.appendChild(toggle);
 
-  let readerData = { nodes: {}, edges: [] };
   try { readerData = await (await fetch("./reader-data.json")).json(); } catch {}
   let hierData = { nodes: {} };
   try { hierData = await (await fetch("./hierarchy-data.json")).json(); } catch {}
