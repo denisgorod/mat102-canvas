@@ -273,8 +273,8 @@ root.innerHTML = `
   <main id="reader-main">
     <div class="rd-topbar">
       <div class="rd-openq">
-        <button class="rd-openq-btn" type="button" title="Questions you passed by — come back to them anytime">Open questions <span class="rd-openq-n"></span> ▾</button>
-        <div class="rd-openq-panel"><h4>Open questions</h4><div class="rd-flist"></div></div>
+        <button class="rd-openq-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="rd-openq-panel" title="Questions you passed by — come back to them anytime">Open questions <span class="rd-openq-n"></span> ▾</button>
+        <div class="rd-openq-panel" id="rd-openq-panel"><h4>Open questions</h4><div class="rd-flist"></div></div>
       </div>
       <button class="rd-review" type="button" title="Review exercises that are due"></button>
       <div class="rd-coverage"><span class="rd-cov-text"></span><span class="rd-bar"><i></i></span></div>
@@ -302,11 +302,15 @@ $(".rd-map").addEventListener("click", () => {
 $(".rd-review").addEventListener("click", startReview);
 
 // Open-questions dropdown: toggle on click, close on outside-click / Escape.
+// setOpenq is the single place the panel opens/closes, so aria-expanded on the
+// button always tracks the visible state for assistive tech.
 const openq = $(".rd-openq");
-$(".rd-openq-btn").addEventListener("click", (e) => { e.stopPropagation(); openq.classList.toggle("open"); });
-document.addEventListener("click", (e) => { if (!openq.contains(e.target)) openq.classList.remove("open"); });
+const openqBtn = $(".rd-openq-btn");
+const setOpenq = (open) => { openq.classList.toggle("open", open); openqBtn.setAttribute("aria-expanded", String(open)); };
+openqBtn.addEventListener("click", (e) => { e.stopPropagation(); setOpenq(!openq.classList.contains("open")); });
+document.addEventListener("click", (e) => { if (!openq.contains(e.target)) setOpenq(false); });
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") openq.classList.remove("open");
+  if (e.key === "Escape") setOpenq(false);
   // page the trail with ← / → when not typing and not mid-session
   if (session || /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
   if (e.key === "ArrowLeft") goBack();
@@ -357,7 +361,7 @@ function renderFrontier() {
     const b = document.createElement("button");
     b.className = "rd-fitem"; b.type = "button";
     b.innerHTML = `${f.question}<small>from “${NODES[f.fromSlug]?.title || f.fromSlug}”</small>`;
-    b.addEventListener("click", () => { openq.classList.remove("open"); goTo(f.toSlug, f.question); });
+    b.addEventListener("click", () => { setOpenq(false); goTo(f.toSlug, f.question); });
     list.appendChild(b);
   });
 }
@@ -371,6 +375,9 @@ function renderTrail() {
     const num = document.createElement("span"); num.className = "rd-tab-n"; num.textContent = String(i + 1);
     const t = document.createElement("span"); t.className = "rd-tab-t"; t.textContent = NODES[entry.slug]?.title || entry.slug;
     b.append(num, t);
+    // During a practice/review session the whole trail is locked, same as the
+    // Back/Forward buttons and arrow keys — you leave via "End practice/review".
+    b.disabled = Boolean(session);
     b.addEventListener("click", () => trailGo(i));
     rail.appendChild(b);
   });
@@ -565,11 +572,11 @@ function sessionAdvance() {
   if (session.pos < session.items.length) enterItem();
   else endSession();
 }
-function endSession() {
+function endSession(render = true) {
   session = null;
   if (preSession) current = preSession;
   arrivingQuestion = null;
-  renderBit();
+  if (render) renderBit();
 }
 
 async function renderBit() {
@@ -645,8 +652,8 @@ function goTo(slug, question) {
   renderBit();
 }
 function trailGo(pos) {
-  if (session) endSession();
   if (pos < 0 || pos >= store.trail.length || pos === store.trailPos) return;
+  if (session) endSession(false); // tear the session down, but let renderBit fire once below
   store.trailPos = pos;
   const e = store.trail[pos];
   current = e.slug;
