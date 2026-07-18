@@ -1280,18 +1280,61 @@ canvasRoot.addEventListener("click", (event) => {
     const aEl = document.getElementById(edge.fromNode);
     const bEl = document.getElementById(edge.toNode);
     if (!aEl || !bEl) { el.style.display = "none"; return; }
-    const a = sideAnchor(aEl.getBoundingClientRect(), edge.fromSide);
-    const b = sideAnchor(bEl.getBoundingClientRect(), edge.toSide);
+    const aRect = aEl.getBoundingClientRect();
+    const bRect = bEl.getBoundingClientRect();
+    const a = sideAnchor(aRect, edge.fromSide);
+    const b = sideAnchor(bRect, edge.toSide);
     const mid = visibleMidpoint(a, b);
     if (!mid) { el.style.display = "none"; return; }
     el.style.display = "";
-    el.style.left = `${Math.round(mid.x)}px`;
-    el.style.top = `${Math.round(mid.y)}px`;
+
+    let x = mid.x;
+    const y = mid.y;
+
+    // Keep the label OFF the anchoring node's body. In focus mode that node
+    // fills the screen and you want to read it, so the mid-edge point lands on
+    // its text — push the label past the node's edge toward whichever side the
+    // OTHER endpoint sits on (for this left→right map that is right for outgoing,
+    // left for incoming), then clamp its box fully into the viewport.
+    const anchorId = el.dataset.anchorId;
+    const rEl = anchorId ? document.getElementById(anchorId) : null;
+    const box = el.getBoundingClientRect();
+    const halfW = (box.width / 2) || 90;
+    const halfH = (box.height / 2) || 12;
+    if (rEl) {
+      const R = rEl.getBoundingClientRect();
+      const other = anchorId === edge.fromNode ? b : a; // the OTHER endpoint's anchor
+      const gap = 12;
+      if (other.x >= (R.left + R.right) / 2) x = Math.max(x, R.right + gap + halfW);
+      else x = Math.min(x, R.left - gap - halfW);
+    }
+
+    // translate(-50%,-50%) centres the box on (x,y), so clamp by the half-extent
+    // on BOTH axes — otherwise a tall zoom-scaled label clips at the top/bottom
+    // even though its centre is inside the padding.
+    x = Math.max(LABEL_PAD + halfW, Math.min(window.innerWidth - LABEL_PAD - halfW, x));
+    const yc = Math.max(LABEL_PAD + halfH, Math.min(window.innerHeight - LABEL_PAD - halfH, y));
+    el.style.left = `${Math.round(x)}px`;
+    el.style.top = `${Math.round(yc)}px`;
   };
 
   const repositionActiveLabels = () => {
+    // Size labels with the live zoom (clamped) so they feel attached to the map
+    // instead of floating at a fixed pixel size while everything else scales.
+    const scale = camera.getScale() || 1;
+    const fontPx = Math.max(12, Math.min(28, Math.round(scale * 11)));
+    const fontStr = `${fontPx}px`;
+    const maxWStr = `${Math.round(fontPx * 13)}px`;
+
     const placed = [];
     activeLabelEls.forEach((el, edgeId) => {
+      // Only touch the font styles when they actually change (zoom moved, or a
+      // freshly-created label has none yet) — this runs every rAF tick while the
+      // view moves, and rewriting identical values each frame is wasted style work.
+      if (el.style.fontSize !== fontStr) {
+        el.style.fontSize = fontStr;
+        el.style.maxWidth = maxWStr;
+      }
       const edge = edgeById.get(edgeId);
       if (edge) positionLabel(el, edge);
       if (el.style.display !== "none") placed.push(el);
@@ -1322,7 +1365,6 @@ canvasRoot.addEventListener("click", (event) => {
     el.className = "edge-label-box";
     el.dataset.edgeId = edge.id;
     el.textContent = edge.label.trim();
-    el.style.maxWidth = "240px";
     const colors = getEdgeLabelColors(edgeTypeColorKey[edge.edge_type]);
     el.style.backgroundColor = colors.bg;
     el.style.color = colors.text;
@@ -1345,25 +1387,35 @@ canvasRoot.addEventListener("click", (event) => {
   };
 
   const refreshActiveSet = () => {
-    const wanted = new Set();
+    // edgeId → the node these labels anchor to (positionLabel pushes the label
+    // off that node). Focus shows only INCOMING edges on the map — the outgoing
+    // questions are already in the side panel, so redrawing them just duplicates
+    // it and covers neighbouring nodes. Hover has no panel, so it shows both
+    // directions. Focus is added first, so it wins when a node is both.
+    const wanted = new Map();
     if (lodBand === 2) {
-      for (const nid of [focusNodeId, hoverNodeId]) {
-        if (!nid || isNodeCollapsed(nid)) continue;
+      const anchors = [];
+      if (focusNodeId && !isNodeCollapsed(focusNodeId)) anchors.push([focusNodeId, true]);
+      if (hoverNodeId && hoverNodeId !== focusNodeId && !isNodeCollapsed(hoverNodeId)) anchors.push([hoverNodeId, false]);
+      for (const [nid, isFocus] of anchors) {
         for (const edge of edgesByNodeId.get(nid) || []) {
           if (isNodeCollapsed(edge.fromNode) || isNodeCollapsed(edge.toNode)) continue;
-          wanted.add(edge.id);
+          if (isFocus && edge.fromNode === nid) continue; // outgoing → the panel handles it
+          if (!wanted.has(edge.id)) wanted.set(edge.id, nid);
         }
       }
     }
     for (const [edgeId, el] of activeLabelEls) {
       if (!wanted.has(edgeId)) { el.remove(); activeLabelEls.delete(edgeId); }
     }
-    for (const edgeId of wanted) {
-      if (!activeLabelEls.has(edgeId)) {
-        const el = createLabelEl(edgeById.get(edgeId));
+    for (const [edgeId, anchorId] of wanted) {
+      let el = activeLabelEls.get(edgeId);
+      if (!el) {
+        el = createLabelEl(edgeById.get(edgeId));
         layer.appendChild(el);
         activeLabelEls.set(edgeId, el);
       }
+      el.dataset.anchorId = anchorId;
     }
     repositionActiveLabels();
     kickLabels();
@@ -1378,7 +1430,9 @@ canvasRoot.addEventListener("click", (event) => {
   const labelTick = () => {
     repositionActiveLabels();
     const v = camera.get();
-    const sig = v ? `${v.scale},${v.offsetX},${v.offsetY}` : String(stable);
+    // Constant signature when the camera is unavailable so the loop can settle
+    // and stop (deriving it from `stable` would keep flipping and never idle).
+    const sig = v ? `${v.scale},${v.offsetX},${v.offsetY}` : "na";
     if (sig === prevSig) stable += 1; else { stable = 0; prevSig = sig; }
     if (activeLabelEls.size === 0 || stable >= 20) { rafId = null; return; }
     rafId = window.requestAnimationFrame(labelTick);
