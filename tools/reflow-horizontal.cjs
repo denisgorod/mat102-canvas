@@ -20,6 +20,12 @@
  *   node reflow-horizontal.cjs            # dry run -> ../MAT102.canvas.preview
  *   node reflow-horizontal.cjs --write    # overwrite ../MAT102.canvas
  *   node reflow-horizontal.cjs --canvas <path> [--write]
+ *   node reflow-horizontal.cjs --node-width 620 --layer-gap 230 --write
+ *
+ * Tunables (all optional, override the defaults below):
+ *   --node-width <px>   widen every file node to this width before layout
+ *                       (ELK then reserves the wider footprint; heights unchanged)
+ *   --layer-gap  <px>   horizontal gap between layers (the left→right axis)
  */
 const fs = require("fs");
 const path = require("path");
@@ -31,9 +37,10 @@ const getOpt = (n, d) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1
 const WRITE = argv.includes("--write");
 const CANVAS = path.resolve(getOpt("--canvas", path.join(__dirname, "..", "MAT102.canvas")));
 
-// spacing (canvas units)
+// spacing (canvas units) — LAYER_GAP and node width are CLI-overridable (above)
+const NODE_WIDTH = Number(getOpt("--node-width", "0")) || null; // widen file nodes if set
 const NODE_GAP = 55;            // siblings within a layer
-const LAYER_GAP = 130;          // between layers (the left→right progression axis)
+const LAYER_GAP = Number(getOpt("--layer-gap", "130")); // between layers (the left→right progression axis)
 const TOPIC_PAD = 55;           // padding inside a topic box, around its nodes
 const TOPIC_GAP = 320;          // horizontal gap between topics in a lane
 const SUBJECT_PAD_X = 140;      // left/right padding inside a subject lane
@@ -47,11 +54,20 @@ const nodes = canvas.nodes, edges = canvas.edges;
 const groups = nodes.filter((n) => n.type === "group");
 const files = nodes.filter((n) => n.type === "file");
 
+// Optionally widen every file node before layout, so ELK reserves the wider
+// footprint and the topic/subject boxes + gaps size to match. Heights are left
+// as-is (content simply reflows to fewer lines within the wider box).
+if (NODE_WIDTH) files.forEach((n) => { n.width = NODE_WIDTH; });
+
 const bboxContains = (o, g) =>
   o.id !== g.id && o.x <= g.x + 2 && o.y <= g.y + 2 &&
   o.x + o.width >= g.x + g.width - 2 && o.y + o.height >= g.y + g.height - 2;
+// Lane order = current top→bottom reading order. (The very first transpose read
+// this from x; the canvas is vertical-laned now, so re-runs must read it from y
+// to round-trip — otherwise the two childless subjects, whose x differs by ~12px,
+// sort out of place.)
 const subjects = groups.filter((g) => !groups.some((o) => bboxContains(o, g)))
-  .sort((a, b) => a.x - b.x); // course order, left→right → top→bottom lanes
+  .sort((a, b) => a.y - b.y || a.x - b.x);
 const subtopics = groups.filter((g) => groups.some((o) => bboxContains(o, g)));
 
 const centerIn = (n, g) => {
@@ -70,7 +86,7 @@ const filesOf = (gid) => files.filter((n) => node2group.get(n.id) === gid);
 function topicsOf(subject) {
   const subs = subtopics
     .filter((g) => bboxContains(subject, g) && filesOf(g.id).length > 0)
-    .sort((a, b) => a.y - b.y);
+    .sort((a, b) => a.x - b.x || a.y - b.y); // current left→right order within the lane
   return subs.length ? subs : [subject];
 }
 
