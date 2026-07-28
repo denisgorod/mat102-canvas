@@ -4,9 +4,9 @@
  *
  * Transposes the whole canvas into a consistent left→right reading model:
  *   - each SUBJECT becomes a horizontal lane, lanes stacked top→bottom in
- *     course order (their current left→right x order);
+ *     course order (read from their current top→bottom y order);
  *   - within a lane, the subject's TOPICS are placed left→right in reading
- *     order (their current top→bottom y order);
+ *     order (read from their current left→right x order);
  *   - within a topic, the concept graph is laid out left→right with ELK's
  *     layered (Sugiyama) algorithm, so edges run straight and each topic reads
  *     as a progression.
@@ -34,13 +34,25 @@ const elk = new ELK();
 
 const argv = process.argv.slice(2);
 const getOpt = (n, d) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : d; };
+// Parse a numeric CLI option, failing fast on a missing/non-numeric/negative value
+// (a trailing `--layer-gap` with no argument would otherwise yield NaN and be
+// forwarded to ELK as a spacing string).
+const numOpt = (n, d) => {
+  const raw = getOpt(n, d);
+  const v = Number(raw);
+  if (!Number.isFinite(v) || v < 0) {
+    console.error(`error: ${n} expects a non-negative number, got "${raw}"`);
+    process.exit(1);
+  }
+  return v;
+};
 const WRITE = argv.includes("--write");
 const CANVAS = path.resolve(getOpt("--canvas", path.join(__dirname, "..", "MAT102.canvas")));
 
 // spacing (canvas units) — LAYER_GAP and node width are CLI-overridable (above)
-const NODE_WIDTH = Number(getOpt("--node-width", "0")) || null; // widen file nodes if set
+const NODE_WIDTH = numOpt("--node-width", "0") || null; // widen file nodes if set (0 = keep as-is)
 const NODE_GAP = 55;            // siblings within a layer
-const LAYER_GAP = Number(getOpt("--layer-gap", "130")); // between layers (the left→right progression axis)
+const LAYER_GAP = numOpt("--layer-gap", "130"); // between layers (the left→right progression axis)
 const TOPIC_PAD = 55;           // padding inside a topic box, around its nodes
 const TOPIC_GAP = 320;          // horizontal gap between topics in a lane
 const SUBJECT_PAD_X = 140;      // left/right padding inside a subject lane
