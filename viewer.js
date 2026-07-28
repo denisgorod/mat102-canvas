@@ -288,7 +288,14 @@ const mathParser = async (text) => {
         continue;
       }
 
-      break;
+      // A bare blank line ends the blockquote (so a callout followed by a blank
+      // line then prose keeps that prose outside — the common case). But a
+      // non-blank line with no '>' is a lazy continuation: Obsidian folds it into
+      // the callout body (authors often drop the '>' on the line after the title),
+      // so keep it in the callout instead of breaking.
+      if (nextLine.trim() === "") break;
+      contentLines.push(nextLine);
+      i = j;
     }
 
     callouts.push({
