@@ -67,7 +67,8 @@ const mathParser = async (text) => {
       if (startRe.exec(lines[j])) break;
       const q = quotedRe.exec(lines[j]);
       if (q) { body.push(q[1]); i = j; continue; }
-      break;
+      if (lines[j].trim() === "") break;  // bare blank ends the callout blockquote
+      body.push(lines[j]); i = j;         // lazy continuation — Obsidian folds it in
     }
     callouts.push({ typeKey, title, content: body.join("\n") });
     outLines.push(`@@CALLOUT_${callouts.length - 1}@@`);
