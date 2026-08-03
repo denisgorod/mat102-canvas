@@ -1,0 +1,170 @@
+{
+	"nodes": [
+		{
+			"id": "incoherent",
+			"type": "file",
+			"file": "Talk/incoherent.md",
+			"title": "Why does the course feel incoherent?",
+			"x": 0,
+			"y": 1180,
+			"width": 620,
+			"height": 460
+		},
+		{
+			"id": "syllabus-is-a-list",
+			"type": "file",
+			"file": "Talk/syllabus-is-a-list.md",
+			"title": "A syllabus is a list; learning is a path",
+			"x": 940,
+			"y": 1180,
+			"width": 620,
+			"height": 460
+		},
+		{
+			"id": "questions-on-edges",
+			"type": "file",
+			"file": "Talk/questions-on-edges.md",
+			"title": "Put the questions on the edges",
+			"x": 1880,
+			"y": 1100,
+			"width": 620,
+			"height": 680,
+			"color": "4"
+		},
+		{
+			"id": "worked-example",
+			"type": "file",
+			"file": "Talk/worked-example.md",
+			"title": "A worked example: MAT102",
+			"x": 2820,
+			"y": 0,
+			"width": 620,
+			"height": 660
+		},
+		{
+			"id": "students-decide",
+			"type": "file",
+			"file": "Talk/students-decide.md",
+			"title": "The students decide which questions matter",
+			"x": 2820,
+			"y": 780,
+			"width": 620,
+			"height": 640
+		},
+		{
+			"id": "map-has-tests",
+			"type": "file",
+			"file": "Talk/map-has-tests.md",
+			"title": "The map has a test suite",
+			"x": 2820,
+			"y": 1540,
+			"width": 620,
+			"height": 460
+		},
+		{
+			"id": "whats-different",
+			"type": "file",
+			"file": "Talk/whats-different.md",
+			"title": "Isn't this just a concept map?",
+			"x": 2820,
+			"y": 2120,
+			"width": 620,
+			"height": 600
+		},
+		{
+			"id": "how-to-start",
+			"type": "file",
+			"file": "Talk/how-to-start.md",
+			"title": "How to start (small)",
+			"x": 3760,
+			"y": 2120,
+			"width": 620,
+			"height": 560
+		},
+		{
+			"id": "this-talk",
+			"type": "file",
+			"file": "Talk/this-talk.md",
+			"title": "You've been reading one this whole time",
+			"x": 4700,
+			"y": 1150,
+			"width": 620,
+			"height": 520,
+			"color": "5"
+		}
+	],
+	"edges": [
+		{
+			"id": "talk-e1",
+			"fromNode": "incoherent",
+			"fromSide": "right",
+			"toNode": "syllabus-is-a-list",
+			"toSide": "left",
+			"edge_type": "prerequisite",
+			"label": "What if the syllabus itself is the problem?"
+		},
+		{
+			"id": "talk-e2",
+			"fromNode": "syllabus-is-a-list",
+			"fromSide": "right",
+			"toNode": "questions-on-edges",
+			"toSide": "left",
+			"edge_type": "prerequisite",
+			"label": "So what should replace the list?"
+		},
+		{
+			"id": "talk-e3",
+			"fromNode": "questions-on-edges",
+			"fromSide": "right",
+			"toNode": "worked-example",
+			"toSide": "left",
+			"edge_type": "prerequisite",
+			"label": "What does that actually look like?"
+		},
+		{
+			"id": "talk-e4",
+			"fromNode": "questions-on-edges",
+			"fromSide": "right",
+			"toNode": "students-decide",
+			"toSide": "left",
+			"edge_type": "prerequisite",
+			"label": "Who decides which questions matter?"
+		},
+		{
+			"id": "talk-e5",
+			"fromNode": "questions-on-edges",
+			"fromSide": "right",
+			"toNode": "map-has-tests",
+			"toSide": "left",
+			"edge_type": "prerequisite",
+			"label": "How do you keep a map like this honest?"
+		},
+		{
+			"id": "talk-e6",
+			"fromNode": "questions-on-edges",
+			"fromSide": "right",
+			"toNode": "whats-different",
+			"toSide": "left",
+			"edge_type": "prerequisite",
+			"label": "Isn't this just a concept map with extra steps?"
+		},
+		{
+			"id": "talk-e7",
+			"fromNode": "whats-different",
+			"fromSide": "right",
+			"toNode": "how-to-start",
+			"toSide": "left",
+			"edge_type": "prerequisite",
+			"label": "What would it take for my course?"
+		},
+		{
+			"id": "talk-e8",
+			"fromNode": "how-to-start",
+			"fromSide": "right",
+			"toNode": "this-talk",
+			"toSide": "bottom",
+			"edge_type": "related",
+			"label": "Wait — what have we been looking at this whole time?"
+		}
+	]
+}
