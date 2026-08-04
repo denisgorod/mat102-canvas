@@ -1,156 +1,156 @@
 {
 	"nodes": [
 		{
-			"id": "incoherent",
+			"id": "reading-load",
 			"type": "file",
-			"file": "Talk/incoherent.md",
-			"title": "Why does the course feel incoherent?",
+			"file": "Talk/reading-load.md",
+			"title": "The student we're designing for",
 			"x": 0,
-			"y": 1180,
+			"y": 900,
 			"width": 620,
 			"height": 460
 		},
 		{
-			"id": "syllabus-is-a-list",
+			"id": "dont-simplify",
 			"type": "file",
-			"file": "Talk/syllabus-is-a-list.md",
-			"title": "A syllabus is a list; learning is a path",
+			"file": "Talk/dont-simplify.md",
+			"title": "Don't simplify the mathematics — shrink the unit",
 			"x": 940,
-			"y": 1180,
+			"y": 880,
 			"width": 620,
-			"height": 460
+			"height": 500
 		},
 		{
-			"id": "questions-on-edges",
+			"id": "forced-inquiry",
 			"type": "file",
-			"file": "Talk/questions-on-edges.md",
-			"title": "Put the questions on the edges",
+			"file": "Talk/forced-inquiry.md",
+			"title": "The map's restrictions do the teaching",
 			"x": 1880,
-			"y": 1100,
+			"y": 840,
 			"width": 620,
-			"height": 680,
+			"height": 580,
 			"color": "4"
 		},
 		{
-			"id": "worked-example",
+			"id": "student-method",
 			"type": "file",
-			"file": "Talk/worked-example.md",
-			"title": "A worked example: MAT102",
+			"file": "Talk/student-method.md",
+			"title": "It teaches a way to read",
 			"x": 2820,
-			"y": 0,
+			"y": 100,
 			"width": 620,
-			"height": 660
+			"height": 520
 		},
 		{
-			"id": "students-decide",
+			"id": "ai-alignment",
 			"type": "file",
-			"file": "Talk/students-decide.md",
-			"title": "The students decide which questions matter",
+			"file": "Talk/ai-alignment.md",
+			"title": "The course becomes legible to AI",
 			"x": 2820,
-			"y": 780,
+			"y": 740,
 			"width": 620,
-			"height": 640
+			"height": 560
 		},
 		{
-			"id": "map-has-tests",
+			"id": "question-reuse",
 			"type": "file",
-			"file": "Talk/map-has-tests.md",
-			"title": "The map has a test suite",
+			"file": "Talk/question-reuse.md",
+			"title": "Student questions stop being disposable",
 			"x": 2820,
-			"y": 1540,
+			"y": 1420,
 			"width": 620,
-			"height": 460
+			"height": 580
 		},
 		{
-			"id": "whats-different",
+			"id": "student-agency",
 			"type": "file",
-			"file": "Talk/whats-different.md",
-			"title": "Isn't this just a concept map?",
-			"x": 2820,
-			"y": 2120,
+			"file": "Talk/student-agency.md",
+			"title": "Students help build the curriculum",
+			"x": 3760,
+			"y": 1430,
 			"width": 620,
-			"height": 600
+			"height": 560
 		},
 		{
 			"id": "how-to-start",
 			"type": "file",
 			"file": "Talk/how-to-start.md",
 			"title": "How to start (small)",
-			"x": 3760,
-			"y": 2120,
+			"x": 4700,
+			"y": 1440,
 			"width": 620,
-			"height": 560
+			"height": 540
 		},
 		{
 			"id": "this-talk",
 			"type": "file",
 			"file": "Talk/this-talk.md",
 			"title": "You've been reading one this whole time",
-			"x": 4700,
-			"y": 1150,
+			"x": 5640,
+			"y": 880,
 			"width": 620,
-			"height": 520,
+			"height": 480,
 			"color": "5"
 		}
 	],
 	"edges": [
 		{
 			"id": "talk-e1",
-			"fromNode": "incoherent",
+			"fromNode": "reading-load",
 			"fromSide": "right",
-			"toNode": "syllabus-is-a-list",
+			"toNode": "dont-simplify",
 			"toSide": "left",
 			"edge_type": "prerequisite",
-			"label": "What if the syllabus itself is the problem?"
+			"label": "So do we simplify the material?"
 		},
 		{
 			"id": "talk-e2",
-			"fromNode": "syllabus-is-a-list",
+			"fromNode": "dont-simplify",
 			"fromSide": "right",
-			"toNode": "questions-on-edges",
+			"toNode": "forced-inquiry",
 			"toSide": "left",
 			"edge_type": "prerequisite",
-			"label": "So what should replace the list?"
+			"label": "Small pieces — what stops them from being confetti?"
 		},
 		{
 			"id": "talk-e3",
-			"fromNode": "questions-on-edges",
+			"fromNode": "forced-inquiry",
 			"fromSide": "right",
-			"toNode": "worked-example",
+			"toNode": "student-method",
 			"toSide": "left",
 			"edge_type": "prerequisite",
-			"label": "What does that actually look like?"
+			"label": "What does the student take away besides the content?"
 		},
 		{
 			"id": "talk-e4",
-			"fromNode": "questions-on-edges",
+			"fromNode": "forced-inquiry",
 			"fromSide": "right",
-			"toNode": "students-decide",
+			"toNode": "ai-alignment",
 			"toSide": "left",
 			"edge_type": "prerequisite",
-			"label": "Who decides which questions matter?"
+			"label": "Who else can read an explicit inquiry structure?"
 		},
 		{
 			"id": "talk-e5",
-			"fromNode": "questions-on-edges",
+			"fromNode": "forced-inquiry",
 			"fromSide": "right",
-			"toNode": "map-has-tests",
+			"toNode": "question-reuse",
 			"toSide": "left",
 			"edge_type": "prerequisite",
-			"label": "How do you keep a map like this honest?"
+			"label": "Where do student questions go today?"
 		},
 		{
 			"id": "talk-e6",
-			"fromNode": "questions-on-edges",
+			"fromNode": "question-reuse",
 			"fromSide": "right",
-			"toNode": "whats-different",
+			"toNode": "student-agency",
 			"toSide": "left",
 			"edge_type": "prerequisite",
-			"label": "Isn't this just a concept map with extra steps?"
+			"label": "And who gets to add to the map?"
 		},
 		{
 			"id": "talk-e7",
-			"fromNode": "whats-different",
+			"fromNode": "student-agency",
 			"fromSide": "right",
 			"toNode": "how-to-start",
 			"toSide": "left",
