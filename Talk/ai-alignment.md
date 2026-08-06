@@ -1,23 +1,16 @@
 ---
-title: "The course becomes legible to AI"
+title: "AI alignment: learning logic, not content"
 role: beat
 ---
 
-Point an AI tutor at a PDF and it knows the *content*. It does not know the **learning logic** —
-what has been established, what comes next, what a student is entitled to ask here.
+**Available to a model today.** The course content, as documents.
 
-So it answers at the wrong altitude: correct mathematics, wrong moment. It reaches for machinery
-the student hasn't met, or re-explains what they settled two nodes ago.
+**Not available.** The learning logic — what has been established at a given point, and what may legitimately be asked next.
 
-An explicit map gives it what the PDF never could:
+**Failure mode.** Correct mathematics delivered at the wrong point: machinery the student has not met, or re-derivation of what was settled two nodes earlier.
 
-- **where the student is** — a node, not a page
-- **what has been established** — everything upstream
-- **what comes next, and why** — the outgoing questions, in the student's own idiom
+**What the map supplies.** Position, as a node rather than a page; everything established upstream of it; the admissible next questions, in student phrasing.
 
->[!idea]
-The inquiry we wrote for students turns out to be the **alignment signal for the machine**. Same
-artifact, no extra work: make the learning logic explicit for a human and you have made it
-readable by a model.
+**Consequence.** Pacing can follow the order of ideas rather than the order of the document.
 
-The pacing problem was never that AI knows too little. It's that it couldn't tell **where you were**.
+**Additional authoring cost.** None. The structure written for students is the structure a model requires.

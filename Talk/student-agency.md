@@ -1,21 +1,12 @@
 ---
-title: "Students help build the curriculum"
+title: "Student contribution to the curriculum"
 role: beat
 ---
 
-Once a question has a home, the next step is small — and it changes who the course belongs to.
+**Mechanism.** Each node carries a submission control. The submission becomes an issue; the instructor applies a label; a pull request is generated that inserts the question into the target node; merging publishes it.
 
-Every node has an **Ask a question** button. The question becomes an issue; the instructor reviews
-it; approving it opens a pull request that folds the question into that node; merging publishes it.
-**One deliberate human gate, everything else automatic.**
+**Gate.** One human review point. Label permission is restricted to write access, so approval and authorization are the same act.
 
-We wrote the first 415 questions. We are the wrong authors for the next 415 — we've forgotten what
-was confusing. The students haven't.
+**Rationale.** The original authors know the material too well to identify reliably what is unclear in it. The current cohort is better placed to supply the next set of questions.
 
->[!idea]
-A student's question, reviewed, becomes part of the map the **next cohort** reads. They're not
-consumers of the course any more; they've left something in it. An un-course, built partly by the
-people taking it.
-
->[!question] Live now
-Someone give me a real question — we'll put it in and come back to it before the end.
+**Effect.** A reviewed question becomes part of the material the next cohort reads. Contribution is durable rather than conversational.

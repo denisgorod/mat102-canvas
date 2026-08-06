@@ -1,21 +1,15 @@
 ---
-title: "How to start (small)"
+title: "Adoption: the minimum version"
 role: beat
 ---
 
-None of this requires our machinery. The tooling came last, and only because the map got big.
+**Minimum version.** One week of a course. Write the 8–10 ideas as separate short units, then write the question that motivates each transition. No tooling.
 
->[!question] The whole recipe
-Take **one week** of your course. Write the 8–10 ideas as separate short pieces. Then write the
-**question** that gets you from each one to the next. Where you can't write an honest question,
-you've found a gap — and that discovery costs you an afternoon.
+**Diagnostic value.** Transitions for which no honest question can be written are gaps in the course's own account of its ordering.
 
-Add the rest only when it hurts not to: version control once a second person edits; a sync check
-once the diagram and the text can disagree (ours runs in CI on every push); student intake once
-they're asking better questions than you're inventing.
+**Cost.** An afternoon.
 
-**The honest costs**, so nobody is surprised:
+**Add only when required.** Version control once a second person edits; a consistency check once diagram and text can disagree; student intake once submitted questions are better than authored ones.
 
-- Writing 415 questions is real work. The forcing function is the value *and* the price.
-- Our student intake currently needs a GitHub account — a real barrier we're still solving.
-- Splitting prose into small units is easy; deciding the **order** is where the term goes.
+>[!warning] Costs, stated plainly
+> Authoring 415 questions is substantial work. Current intake requires a GitHub account, an unresolved barrier. Splitting prose is straightforward; deciding the ordering is where the effort goes.

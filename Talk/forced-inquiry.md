@@ -1,22 +1,16 @@
 ---
-title: "The map's restrictions do the teaching"
+title: "The map's two restrictions"
 role: beat
 ---
 
-Shrink the units and you create a new problem: 166 small pieces is confetti unless something says
-why one follows another.
+**Restriction 1 — size.** One idea per node; ≤ 400 words.
 
-The second restriction answers it: **an edge may only exist if it carries a question a student
-would actually ask at that moment.** No question, no edge.
+**Restriction 2 — motivation.** An edge exists only if it carries a question a student would ask at that point.
 
-That constraint is not decoration. It forces the inquiry on **both sides**:
+**Problem addressed.** Small units alone fragment the subject. The second restriction supplies the connective structure the first removes.
 
-- **The instructor can't dodge it.** You cannot author the map by feel. Where you can't write an
-  honest question, you have found a place where *you* don't know why the material is in that order.
-  Most curricula never surface those; here they block the build.
-- **The student can't skip it.** Moving through the course *is* choosing a question. Inquiry stops
-  being an activity the instructor stages on a good day and becomes the navigation itself.
+**Instructor-side effect.** An ordering that cannot be justified cannot be drawn. The gap surfaces at authoring time rather than mid-lecture.
 
->[!idea]
-We normally leave inquiry implicit and hope it happens. **The restriction makes it structural** —
-415 questions exist because 415 edges couldn't be drawn without them.
+**Student-side effect.** Navigation is question selection. Inquiry is not staged on a good day; it is the mechanism of movement.
+
+**Observed.** 415 edges, and therefore 415 explicit questions.

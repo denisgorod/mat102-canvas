@@ -1,22 +1,15 @@
 ---
-title: "It teaches a way to read"
+title: "Transfer: an explicit reading procedure"
 role: beat
 ---
 
-This is the part that outlives the course.
+**Existing content.** The course already teaches self-explanation, a strategy with empirical support for proof comprehension.
 
-MAT102 already teaches **self-explanation** — a research-backed strategy for proof comprehension.
-Its three prompts, after each line:
+**Its three prompts.** What are the main ideas here? How does this connect to what came before? *What question does this raise?*
 
-1. What are the main ideas here?
-2. How does this connect to what came before?
-3. ***What question does this raise?***
+**Correspondence.** The third prompt is precisely what an edge label states. The map is that strategy expressed as structure rather than as advice.
 
->[!idea]
-The third prompt is exactly what the map's edges are. **The map is that reading strategy turned
-into structure** — so the student practises it every time they navigate, whether or not they
-remember they were taught it.
+>[!note] Consequence
+> The procedure is exercised on every traversal, independent of whether the student recalls having been taught it.
 
-A student who has spent a term moving through material by asking "what does this force me to ask
-next?" has a method for the next textbook, and the one after that. **They don't get to keep our
-map. They get to keep the move.**
+**Transfer.** The procedure applies to material the course does not contain. It is the component of the design that survives the course.

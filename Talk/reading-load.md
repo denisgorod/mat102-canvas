@@ -1,17 +1,14 @@
 ---
-title: "The student we're designing for"
+title: "Reading load in the current cohort"
 role: beat
 ---
 
-Not the student in the textbook's imagination. The one actually enrolled.
+**Cohort.** Students arrive with less sustained-reading practice and less academic experience than the textbook format presumes.
 
-They arrive with **markedly less reading practice and less academic experience** than the format
-assumes. A dense multi-page section is a wall they hit *before* they reach the mathematics — the
-failure happens in the reading, not in the thinking.
+**Where it fails.** Comprehension breaks during the reading, before any mathematical difficulty is reached.
 
->[!question] Worth sitting with
-When a student says "I read it three times and got nothing," we usually hear a motivation problem.
-It's a **load** problem. Three pages of unbroken formal prose is a working-memory task before it is
-a mathematical one.
+**Common misattribution.** "I read it three times and got nothing" is treated as an effort or motivation problem.
 
-So the honest question isn't *how do we make them read better.* It's **what are we handing them.**
+**More likely account.** It is a load problem. Several pages of unbroken formal prose is a working-memory task before it is a mathematical one, and the two failures are indistinguishable from the outside.
+
+**Consequence.** The available intervention acts on what is handed to the student, not on the student.

@@ -1,23 +1,15 @@
 ---
-title: "Don't simplify the mathematics — shrink the unit"
+title: "Reducing load without reducing content"
 role: beat
 ---
 
-The tempting fix is to soften the content. **That one is off the table** — the rigour *is* the
-course, and watering it down teaches students they weren't trusted with the real thing.
+**Rejected lever.** Simplifying the mathematics. The rigour is the content; reducing it changes what the course certifies, and signals to students that they were not trusted with the subject.
 
-Which leaves exactly one honest lever: **size**.
+**Available lever.** The size of the unit in which the content is delivered.
 
-So every idea in MAT102 is its own file, and the size is a real constraint, not a style note:
+**Implementation.** One idea per file, with length treated as a constraint rather than a stylistic preference.
 
-| | |
-|---|---|
-| ideas (bits) | **166** |
-| median length | **248 words** |
-| longest in the whole course | **399 words** |
-| median reading time | **≈ 1 minute** |
+>[!note] Measured across the current course
+> 166 idea nodes. Median 248 words; longest 399. Median reading time ≈ 1 minute.
 
->[!idea]
-Same mathematics, same precision — delivered in units a struggling reader can actually finish.
-**Finishing something is the point.** It's the difference between three pages of defeat and eight
-small completions.
+**Effect.** The same mathematics at the same precision, in units a weak reader can finish. Completion rather than exposure becomes the unit of progress.

@@ -4,92 +4,92 @@
 			"id": "reading-load",
 			"type": "file",
 			"file": "Talk/reading-load.md",
-			"title": "The student we're designing for",
+			"title": "Reading load in the current cohort",
 			"x": 0,
-			"y": 900,
+			"y": 620,
 			"width": 620,
-			"height": 460
+			"height": 400
 		},
 		{
 			"id": "dont-simplify",
 			"type": "file",
 			"file": "Talk/dont-simplify.md",
-			"title": "Don't simplify the mathematics — shrink the unit",
+			"title": "Reducing load without reducing content",
 			"x": 940,
-			"y": 880,
+			"y": 600,
 			"width": 620,
-			"height": 500
+			"height": 440
 		},
 		{
 			"id": "forced-inquiry",
 			"type": "file",
 			"file": "Talk/forced-inquiry.md",
-			"title": "The map's restrictions do the teaching",
+			"title": "The map's two restrictions",
 			"x": 1880,
-			"y": 840,
+			"y": 620,
 			"width": 620,
-			"height": 580,
+			"height": 400,
 			"color": "4"
 		},
 		{
 			"id": "student-method",
 			"type": "file",
 			"file": "Talk/student-method.md",
-			"title": "It teaches a way to read",
+			"title": "Transfer: an explicit reading procedure",
 			"x": 2820,
-			"y": 100,
+			"y": 0,
 			"width": 620,
-			"height": 520
+			"height": 440
 		},
 		{
 			"id": "ai-alignment",
 			"type": "file",
 			"file": "Talk/ai-alignment.md",
-			"title": "The course becomes legible to AI",
+			"title": "AI alignment: learning logic, not content",
 			"x": 2820,
-			"y": 740,
+			"y": 560,
 			"width": 620,
-			"height": 560
+			"height": 440
 		},
 		{
 			"id": "question-reuse",
 			"type": "file",
 			"file": "Talk/question-reuse.md",
-			"title": "Student questions stop being disposable",
+			"title": "Question persistence and reuse",
 			"x": 2820,
-			"y": 1420,
+			"y": 1120,
 			"width": 620,
-			"height": 580
+			"height": 520
 		},
 		{
 			"id": "student-agency",
 			"type": "file",
 			"file": "Talk/student-agency.md",
-			"title": "Students help build the curriculum",
+			"title": "Student contribution to the curriculum",
 			"x": 3760,
-			"y": 1430,
+			"y": 1200,
 			"width": 620,
-			"height": 560
+			"height": 360
 		},
 		{
 			"id": "how-to-start",
 			"type": "file",
 			"file": "Talk/how-to-start.md",
-			"title": "How to start (small)",
+			"title": "Adoption: the minimum version",
 			"x": 4700,
-			"y": 1440,
+			"y": 1150,
 			"width": 620,
-			"height": 540
+			"height": 460
 		},
 		{
 			"id": "this-talk",
 			"type": "file",
 			"file": "Talk/this-talk.md",
-			"title": "You've been reading one this whole time",
+			"title": "This presentation",
 			"x": 5640,
-			"y": 880,
+			"y": 610,
 			"width": 620,
-			"height": 480,
+			"height": 420,
 			"color": "5"
 		}
 	],
@@ -101,7 +101,7 @@
 			"toNode": "dont-simplify",
 			"toSide": "left",
 			"edge_type": "prerequisite",
-			"label": "So do we simplify the material?"
+			"label": "Should the material be simplified?"
 		},
 		{
 			"id": "talk-e2",
@@ -110,7 +110,7 @@
 			"toNode": "forced-inquiry",
 			"toSide": "left",
 			"edge_type": "prerequisite",
-			"label": "Small pieces — what stops them from being confetti?"
+			"label": "What keeps small units from fragmenting the subject?"
 		},
 		{
 			"id": "talk-e3",
@@ -146,7 +146,7 @@
 			"toNode": "student-agency",
 			"toSide": "left",
 			"edge_type": "prerequisite",
-			"label": "And who gets to add to the map?"
+			"label": "Who is permitted to add to the map?"
 		},
 		{
 			"id": "talk-e7",
@@ -164,7 +164,7 @@
 			"toNode": "this-talk",
 			"toSide": "bottom",
 			"edge_type": "related",
-			"label": "Wait — what have we been looking at this whole time?"
+			"label": "What has this presentation been?"
 		}
 	]
 }

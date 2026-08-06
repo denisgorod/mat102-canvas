@@ -1,26 +1,20 @@
 ---
-title: "Student questions stop being disposable"
+title: "Question persistence and reuse"
 role: beat
 ---
 
-Where do good student questions go today? A discussion board.
+**Current channel.** Discussion boards.
 
-And a board is a **stream**: the question is attached to a *moment in time*, answered once, and
-scrolls away. Next term the same confusion arrives and gets answered again, from scratch. The
-duplication isn't a failure of the platform — a stream simply has nowhere to put a question
-*permanently*.
+**Structural property.** A board is a stream: a question is anchored to a point in time.
 
-Attach it to a **node** instead and everything changes:
+**Consequences.** Answered once; displaced by later posts; re-asked by the next cohort; duplicates accumulate without aggregating.
 
-| On a board | On the map |
+**Alternative anchor.** The node — a position in the learning sequence rather than a date.
+
+| Board | Map |
 |---|---|
-| anchored to a date | anchored to a **place in the learning** |
-| asked again every term | already there when the next student arrives |
-| duplicates pile up | duplicates **collapse into one better question** |
+| anchored to a date | anchored to a position |
+| re-asked each term | present when the next student arrives |
+| duplicates accumulate | duplicates aggregate |
 
->[!idea]
-Ten students confused at the same node isn't ten tickets — it's **one signal**, and a strong
-candidate for a question the course should have been asking all along.
-
-The accumulated questions become a map of where the course is actually hard. That's a diagnostic
-we've never had.
+**Secondary effect.** Question density per node is a direct measurement of where the course is difficult — a diagnostic not otherwise available.
