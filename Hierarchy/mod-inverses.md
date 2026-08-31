@@ -5,7 +5,7 @@ role: theorem
 subject: number-theory
 topic: modular-arithmetic
 statement: "[a] is invertible in ℤₙ iff gcd(a,n)=1; the inverse is computed from a Bézout identity au+nv=1."
-depends_on: [mod-zn]
+depends_on: [mod-zn, gcd-bezout]
 ---
 >[!t] Theorem
 > Let $n \in \mathbb{Z}^{+}$ and $a \in \mathbb{Z}$. The class $[a]$ has a multiplicative inverse in $\mathbb{Z}_n$ if and only if $\gcd(a, n) = 1$. When it exists, the inverse is unique.

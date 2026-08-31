@@ -5,6 +5,7 @@ role: bit
 group: diophantine-equations
 curriculum_path: null
 learning_objectives: []
+concludes: lde-nonneg
 children:
   - id: ex-lde-four-equations
     question: "Can I apply the full LDE solution technique to new equations?"

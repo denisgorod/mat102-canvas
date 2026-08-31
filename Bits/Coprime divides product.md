@@ -5,6 +5,7 @@ role: bit
 group: diophantine-equations
 curriculum_path: null
 learning_objectives: []
+concludes: gcd-bezout-cor
 children:
   - id: linear-diophantine-equation
     question: "When does an integer equation ax+by=d have integer solutions?"

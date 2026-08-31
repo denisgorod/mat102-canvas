@@ -5,6 +5,7 @@ role: bit
 group: primes
 curriculum_path: null
 learning_objectives: []
+concludes: prime-euclid-lemma
 children:
   - id: fta-uniqueness
     question: "How does the prime divisibility property ensure uniqueness?"

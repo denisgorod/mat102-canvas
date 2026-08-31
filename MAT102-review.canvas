@@ -4,27 +4,151 @@
 			"id": "subject-number-theory",
 			"type": "group",
 			"label": "Number Theory",
-			"x": 12,
-			"y": 132,
-			"width": 1520,
-			"height": 2538
+			"x": 200,
+			"y": 200,
+			"width": 13640,
+			"height": 1243
+		},
+		{
+			"id": "topic-divisibility",
+			"type": "group",
+			"label": "Divisibility",
+			"x": 340,
+			"y": 290,
+			"width": 1344,
+			"height": 487
+		},
+		{
+			"id": "topic-gcd-and-euclidean-algorithm",
+			"type": "group",
+			"label": "GCD and Euclidean Algorithm",
+			"x": 2004,
+			"y": 290,
+			"width": 2014,
+			"height": 1063
 		},
 		{
 			"id": "topic-modular-arithmetic",
 			"type": "group",
 			"label": "Modular Arithmetic",
-			"x": 132,
-			"y": 192,
-			"width": 1280,
-			"height": 2358
+			"x": 4338,
+			"y": 290,
+			"width": 3354,
+			"height": 902
+		},
+		{
+			"id": "topic-primes",
+			"type": "group",
+			"label": "Primes",
+			"x": 8012,
+			"y": 290,
+			"width": 2684,
+			"height": 487
+		},
+		{
+			"id": "topic-diophantine-equations",
+			"type": "group",
+			"label": "Diophantine Equations",
+			"x": 11016,
+			"y": 290,
+			"width": 2684,
+			"height": 487
+		},
+		{
+			"id": "div-def",
+			"type": "file",
+			"file": "Hierarchy/div-def.md",
+			"title": "Divisibility",
+			"x": 407,
+			"y": 350,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "div-properties",
+			"type": "file",
+			"file": "Hierarchy/div-properties.md",
+			"title": "Basic properties of divisibility",
+			"x": 1077,
+			"y": 350,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "gcd-bezout-cor",
+			"type": "file",
+			"file": "Hierarchy/gcd-bezout-cor.md",
+			"title": "Consequences of Bézout",
+			"x": 3411,
+			"y": 350,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "gcd-bezout",
+			"type": "file",
+			"file": "Hierarchy/gcd-bezout.md",
+			"title": "Bézout's Identity",
+			"x": 2741,
+			"y": 350,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "gcd-def",
+			"type": "file",
+			"file": "Hierarchy/gcd-def.md",
+			"title": "Greatest common divisor and coprimality",
+			"x": 2071,
+			"y": 415,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "gcd-division-algorithm",
+			"type": "file",
+			"file": "Hierarchy/gcd-division-algorithm.md",
+			"title": "Division Algorithm",
+			"x": 2741,
+			"y": 926,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "gcd-euclidean",
+			"type": "file",
+			"file": "Hierarchy/gcd-euclidean.md",
+			"title": "Euclidean Algorithm",
+			"x": 3411,
+			"y": 830,
+			"width": 540,
+			"height": 360,
+			"color": "2"
+		},
+		{
+			"id": "gcd-wop",
+			"type": "file",
+			"file": "Hierarchy/gcd-wop.md",
+			"title": "Well-Ordering Principle",
+			"x": 2071,
+			"y": 866,
+			"width": 540,
+			"height": 360,
+			"color": "1"
 		},
 		{
 			"id": "mod-arithmetic",
 			"type": "file",
 			"file": "Hierarchy/mod-arithmetic.md",
 			"title": "Arithmetic of congruences",
-			"x": 502,
-			"y": 1180,
+			"x": 5745,
+			"y": 558,
 			"width": 540,
 			"height": 360,
 			"color": "4"
@@ -34,8 +158,8 @@
 			"type": "file",
 			"file": "Hierarchy/mod-congruence-def.md",
 			"title": "Congruence modulo n",
-			"x": 502,
-			"y": 240,
+			"x": 4405,
+			"y": 558,
 			"width": 540,
 			"height": 360,
 			"color": "5"
@@ -45,8 +169,8 @@
 			"type": "file",
 			"file": "Hierarchy/mod-equivalence.md",
 			"title": "Congruence is an equivalence relation",
-			"x": 502,
-			"y": 710,
+			"x": 5075,
+			"y": 558,
 			"width": 540,
 			"height": 360,
 			"color": "1"
@@ -56,8 +180,8 @@
 			"type": "file",
 			"file": "Hierarchy/mod-inverses.md",
 			"title": "Multiplicative inverses in ℤₙ",
-			"x": 802,
-			"y": 2120,
+			"x": 7085,
+			"y": 765,
 			"width": 540,
 			"height": 360,
 			"color": "1"
@@ -67,8 +191,8 @@
 			"type": "file",
 			"file": "Hierarchy/mod-lastdigit.md",
 			"title": "Last-digit computation",
-			"x": 202,
-			"y": 1650,
+			"x": 6415,
+			"y": 350,
 			"width": 540,
 			"height": 360,
 			"color": "2"
@@ -78,52 +202,324 @@
 			"type": "file",
 			"file": "Hierarchy/mod-zn.md",
 			"title": "The integers modulo n (ℤₙ)",
-			"x": 802,
-			"y": 1650,
+			"x": 6415,
+			"y": 765,
 			"width": 540,
 			"height": 360,
 			"color": "6"
+		},
+		{
+			"id": "prime-def",
+			"type": "file",
+			"file": "Hierarchy/prime-def.md",
+			"title": "Prime and composite integers",
+			"x": 8079,
+			"y": 350,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "prime-euclid-lemma",
+			"type": "file",
+			"file": "Hierarchy/prime-euclid-lemma.md",
+			"title": "Euclid's Lemma",
+			"x": 8749,
+			"y": 350,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "prime-fta",
+			"type": "file",
+			"file": "Hierarchy/prime-fta.md",
+			"title": "Fundamental Theorem of Arithmetic",
+			"x": 9419,
+			"y": 350,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "prime-infinitude",
+			"type": "file",
+			"file": "Hierarchy/prime-infinitude.md",
+			"title": "Infinitude of the primes",
+			"x": 10089,
+			"y": 350,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "lde-def",
+			"type": "file",
+			"file": "Hierarchy/lde-def.md",
+			"title": "Linear Diophantine equations",
+			"x": 11083,
+			"y": 350,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "lde-general",
+			"type": "file",
+			"file": "Hierarchy/lde-general.md",
+			"title": "General solution",
+			"x": 12423,
+			"y": 350,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "lde-nonneg",
+			"type": "file",
+			"file": "Hierarchy/lde-nonneg.md",
+			"title": "Non-negative solutions",
+			"x": 13093,
+			"y": 350,
+			"width": 540,
+			"height": 360,
+			"color": "2"
+		},
+		{
+			"id": "lde-solvable",
+			"type": "file",
+			"file": "Hierarchy/lde-solvable.md",
+			"title": "Solvability criterion",
+			"x": 11753,
+			"y": 350,
+			"width": 540,
+			"height": 360,
+			"color": "1"
 		}
 	],
 	"edges": [
 		{
 			"id": "dep-0",
-			"fromNode": "mod-equivalence",
-			"fromSide": "bottom",
-			"toNode": "mod-arithmetic",
-			"toSide": "top",
+			"fromNode": "div-def",
+			"fromSide": "right",
+			"toNode": "div-properties",
+			"toSide": "left",
 			"edge_type": "depends_on"
 		},
 		{
 			"id": "dep-1",
-			"fromNode": "mod-congruence-def",
-			"fromSide": "bottom",
-			"toNode": "mod-equivalence",
-			"toSide": "top",
+			"fromNode": "gcd-bezout",
+			"fromSide": "right",
+			"toNode": "gcd-bezout-cor",
+			"toSide": "left",
 			"edge_type": "depends_on"
 		},
 		{
 			"id": "dep-2",
+			"fromNode": "div-properties",
+			"fromSide": "bottom",
+			"toNode": "gcd-bezout-cor",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-3",
+			"fromNode": "gcd-wop",
+			"fromSide": "right",
+			"toNode": "gcd-bezout",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-4",
+			"fromNode": "gcd-def",
+			"fromSide": "right",
+			"toNode": "gcd-bezout",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-5",
+			"fromNode": "div-def",
+			"fromSide": "bottom",
+			"toNode": "gcd-def",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-6",
+			"fromNode": "gcd-wop",
+			"fromSide": "right",
+			"toNode": "gcd-division-algorithm",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-7",
+			"fromNode": "gcd-division-algorithm",
+			"fromSide": "right",
+			"toNode": "gcd-euclidean",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-8",
+			"fromNode": "gcd-def",
+			"fromSide": "right",
+			"toNode": "gcd-euclidean",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-9",
+			"fromNode": "div-def",
+			"fromSide": "bottom",
+			"toNode": "lde-def",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-10",
+			"fromNode": "lde-solvable",
+			"fromSide": "right",
+			"toNode": "lde-general",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-11",
+			"fromNode": "lde-general",
+			"fromSide": "right",
+			"toNode": "lde-nonneg",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-12",
+			"fromNode": "lde-def",
+			"fromSide": "right",
+			"toNode": "lde-solvable",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-13",
+			"fromNode": "gcd-bezout-cor",
+			"fromSide": "bottom",
+			"toNode": "lde-solvable",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-14",
+			"fromNode": "mod-equivalence",
+			"fromSide": "right",
+			"toNode": "mod-arithmetic",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-15",
+			"fromNode": "div-def",
+			"fromSide": "bottom",
+			"toNode": "mod-congruence-def",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-16",
+			"fromNode": "gcd-division-algorithm",
+			"fromSide": "bottom",
+			"toNode": "mod-congruence-def",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-17",
+			"fromNode": "mod-congruence-def",
+			"fromSide": "right",
+			"toNode": "mod-equivalence",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-18",
 			"fromNode": "mod-zn",
+			"fromSide": "right",
+			"toNode": "mod-inverses",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-19",
+			"fromNode": "gcd-bezout",
 			"fromSide": "bottom",
 			"toNode": "mod-inverses",
 			"toSide": "top",
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-3",
+			"id": "dep-20",
 			"fromNode": "mod-arithmetic",
-			"fromSide": "bottom",
+			"fromSide": "right",
 			"toNode": "mod-lastdigit",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-21",
+			"fromNode": "mod-arithmetic",
+			"fromSide": "right",
+			"toNode": "mod-zn",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-22",
+			"fromNode": "div-def",
+			"fromSide": "bottom",
+			"toNode": "prime-def",
 			"toSide": "top",
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-4",
-			"fromNode": "mod-arithmetic",
+			"id": "dep-23",
+			"fromNode": "prime-def",
+			"fromSide": "right",
+			"toNode": "prime-euclid-lemma",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-24",
+			"fromNode": "gcd-bezout-cor",
 			"fromSide": "bottom",
-			"toNode": "mod-zn",
+			"toNode": "prime-euclid-lemma",
 			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-25",
+			"fromNode": "prime-euclid-lemma",
+			"fromSide": "right",
+			"toNode": "prime-fta",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-26",
+			"fromNode": "gcd-wop",
+			"fromSide": "bottom",
+			"toNode": "prime-fta",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-27",
+			"fromNode": "prime-fta",
+			"fromSide": "right",
+			"toNode": "prime-infinitude",
+			"toSide": "left",
 			"edge_type": "depends_on"
 		}
 	]

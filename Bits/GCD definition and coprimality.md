@@ -5,6 +5,7 @@ role: bit
 group: gcd-and-euclidean-algorithm
 curriculum_path: null
 learning_objectives: []
+concludes: gcd-def
 children:
   - id: gcd-respects-remainders
     question: "Can the Division Algorithm simplify computing gcds?"

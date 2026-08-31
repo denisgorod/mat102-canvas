@@ -5,6 +5,7 @@ role: bit
 group: diophantine-equations
 curriculum_path: null
 learning_objectives: []
+concludes: lde-def
 children:
   - id: lde-solvability
     question: "Which linear Diophantine equations are solvable?"

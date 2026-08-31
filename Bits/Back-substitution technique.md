@@ -5,6 +5,7 @@ role: bit
 group: gcd-and-euclidean-algorithm
 curriculum_path: null
 learning_objectives: []
+concludes: gcd-bezout
 children:
   - id: ex-solve-bezout-equation
     question: "Can I apply back-substitution to another example?"

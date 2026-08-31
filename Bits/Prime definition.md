@@ -5,6 +5,7 @@ role: bit
 group: primes
 curriculum_path: null
 learning_objectives: []
+concludes: prime-def
 children:
   - id: prime-divisibility-property
     question: "Can we characterize primes in terms of divisibility?"

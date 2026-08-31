@@ -5,6 +5,7 @@ role: bit
 group: gcd-and-euclidean-algorithm
 curriculum_path: null
 learning_objectives: []
+concludes: gcd-euclidean
 children:
   - id: bezouts-identity
     question: "Can I unwind the algorithm to express gcd as a combination of a and b?"

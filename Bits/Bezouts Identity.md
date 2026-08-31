@@ -5,6 +5,7 @@ role: bit
 group: gcd-and-euclidean-algorithm
 curriculum_path: null
 learning_objectives: []
+concludes: gcd-bezout
 children:
   - id: bezout-corollaries
     question: "What else follows from Bézout's identity?"

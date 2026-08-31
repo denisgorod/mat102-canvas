@@ -5,6 +5,7 @@ role: bit
 group: gcd-and-euclidean-algorithm
 curriculum_path: null
 learning_objectives: []
+concludes: gcd-wop
 children:
   - id: division-algorithm
     question: "Can we formalize remainders using the least element property?"

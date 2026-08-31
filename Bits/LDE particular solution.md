@@ -5,6 +5,7 @@ role: bit
 group: diophantine-equations
 curriculum_path: null
 learning_objectives: []
+concludes: lde-solvable
 children:
   - id: lde-general-solution
     question: "Is there more than one solution?"
