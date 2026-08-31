@@ -6,23 +6,6 @@ subject: number-theory
 topic: modular-arithmetic
 statement: "State and prove that congruence is compatible with + and ×, so a ≡ r, b ≡ s (mod n) ⟹ a+b ≡ r+s and ab ≡ rs (mod n)."
 depends_on: [mod-equivalence]
-drills:
-  - id: modsum
-    prompt: 'Compute $(%a% + %b%) \bmod %n%$.'
-    vars:
-      a: {int: [10, 99]}
-      b: {int: [10, 99]}
-      n: {int: [3, 12]}
-    answer: 'mod(a+b,n)'
-    type: integer
-  - id: modprod
-    prompt: 'Compute $(%a% \cdot %b%) \bmod %n%$.'
-    vars:
-      a: {int: [3, 40]}
-      b: {int: [3, 40]}
-      n: {int: [3, 12]}
-    answer: 'mod(a*b,n)'
-    type: integer
 ---
 >[!t] Theorem (compatibility with $+$ and $\times$)
 > If $a \equiv r \pmod{n}$ and $b \equiv s \pmod{n}$, then

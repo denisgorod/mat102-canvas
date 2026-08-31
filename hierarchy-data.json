@@ -10,60 +10,6 @@
 			"depends_on": [
 				"mod-equivalence"
 			],
-			"drills": [
-				{
-					"id": "modsum",
-					"prompt": "Compute $(%a% + %b%) \\bmod %n%$.",
-					"vars": {
-						"a": {
-							"int": [
-								10,
-								99
-							]
-						},
-						"b": {
-							"int": [
-								10,
-								99
-							]
-						},
-						"n": {
-							"int": [
-								3,
-								12
-							]
-						}
-					},
-					"answer": "mod(a+b,n)",
-					"type": "integer"
-				},
-				{
-					"id": "modprod",
-					"prompt": "Compute $(%a% \\cdot %b%) \\bmod %n%$.",
-					"vars": {
-						"a": {
-							"int": [
-								3,
-								40
-							]
-						},
-						"b": {
-							"int": [
-								3,
-								40
-							]
-						},
-						"n": {
-							"int": [
-								3,
-								12
-							]
-						}
-					},
-					"answer": "mod(a*b,n)",
-					"type": "integer"
-				}
-			],
 			"inquiry_sources": [
 				"arithmetic-of-congruences"
 			]
@@ -76,66 +22,6 @@
 			"statement": "a ≡ b (mod n) means n ∣ (b − a); equivalently, a and b leave the same remainder on division by n.",
 			"file": "Hierarchy/mod-congruence-def.md",
 			"depends_on": [],
-			"drills": [
-				{
-					"id": "reduce",
-					"prompt": "Compute $%a% \\bmod %n%$.",
-					"vars": {
-						"a": {
-							"int": [
-								17,
-								200
-							]
-						},
-						"n": {
-							"int": [
-								2,
-								15
-							]
-						}
-					},
-					"answer": "mod(a,n)",
-					"type": "integer"
-				},
-				{
-					"id": "congruent",
-					"prompt": "True or false: $%a% \\equiv %b% \\pmod{%n%}$?",
-					"vars": {
-						"a": {
-							"int": [
-								10,
-								99
-							]
-						},
-						"b": {
-							"int": [
-								10,
-								99
-							]
-						},
-						"n": {
-							"int": [
-								2,
-								9
-							]
-						}
-					},
-					"answer": "mod(a-b,n)==0",
-					"type": "boolean"
-				},
-				{
-					"id": "def",
-					"prompt": "What does $a \\equiv b \\pmod{n}$ mean?",
-					"options": [
-						"$n$ divides $a - b$",
-						"$a$ divides $b - n$",
-						"$a$ and $b$ have the same sign",
-						"$ab$ is a multiple of $n$"
-					],
-					"answer": 0,
-					"type": "mc"
-				}
-			],
 			"inquiry_sources": [
 				"congruence-mod-n"
 			]
@@ -150,7 +36,6 @@
 			"depends_on": [
 				"mod-congruence-def"
 			],
-			"drills": [],
 			"inquiry_sources": [
 				"congruence-is-equivalence-relation"
 			]
@@ -164,35 +49,6 @@
 			"file": "Hierarchy/mod-inverses.md",
 			"depends_on": [
 				"mod-zn"
-			],
-			"drills": [
-				{
-					"id": "inverse",
-					"prompt": "Find $x$ with $0 \\le x < %n%$ and $%a%\\,x \\equiv 1 \\pmod{%n%}$.",
-					"vars": {
-						"a": {
-							"int": [
-								2,
-								20
-							]
-						},
-						"n": {
-							"int": [
-								3,
-								21
-							]
-						}
-					},
-					"where": "gcd(a,n)==1",
-					"inputs": [
-						"x"
-					],
-					"answer": "mod(a*x, n) == 1",
-					"witness": {
-						"x": "inverse(a, n)"
-					},
-					"type": "predicate"
-				}
 			],
 			"inquiry_sources": [
 				"multiplicative-inverses-in-zp"
@@ -208,28 +64,6 @@
 			"depends_on": [
 				"mod-arithmetic"
 			],
-			"drills": [
-				{
-					"id": "lastdigit",
-					"prompt": "What is the last digit of $%a%^{%k%}$?",
-					"vars": {
-						"a": {
-							"int": [
-								2,
-								39
-							]
-						},
-						"k": {
-							"int": [
-								2,
-								60
-							]
-						}
-					},
-					"answer": "modpow(a,k,10)",
-					"type": "integer"
-				}
-			],
 			"inquiry_sources": [
 				"last-digit-computation"
 			]
@@ -244,7 +78,6 @@
 			"depends_on": [
 				"mod-arithmetic"
 			],
-			"drills": [],
 			"inquiry_sources": [
 				"congruence-classes-and-zn"
 			]

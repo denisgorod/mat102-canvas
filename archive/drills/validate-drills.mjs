@@ -1,18 +1,18 @@
 #!/usr/bin/env node
-// Build-time validation for parametric drills, using the SAME engine the reader
-// uses (drill-engine.js). For every authored drill (from reader-data.json) plus
+// Validation for the archived parametric drills, using the same engine the reader
+// used (drill-engine.js). For every archived drill (from specs.json) plus
 // a set of built-in self-tests covering each answer type, it samples many
 // instances and asserts: constraints are satisfiable, nothing throws, the
 // correct answer grades as correct, and a deliberately wrong answer is rejected.
 //
-//   node tools/validate-drills.mjs        # exits non-zero on any failure
+//   node archive/drills/validate-drills.mjs   # exits non-zero on any failure
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
-import { makeInstance, checkAnswer, formatAnswer, evalExpr } from "../drill-engine.js";
+import { makeInstance, checkAnswer, formatAnswer, evalExpr } from "./drill-engine.js";
 
-const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
-const data = JSON.parse(readFileSync(join(ROOT, "reader-data.json"), "utf8"));
+const HERE = dirname(fileURLToPath(import.meta.url));
+const specs = JSON.parse(readFileSync(join(HERE, "specs.json"), "utf8"));
 const N = 400;
 
 // Built-in specs so every answer type is exercised even when not yet authored.
@@ -24,7 +24,7 @@ const BUILTIN = [
 ];
 
 const drills = [
-  ...Object.entries(data.nodes).flatMap(([slug, node]) => (node.drills || []).map((spec) => ({ label: `${slug}/${spec.id}`, spec }))),
+  ...Object.entries(specs).flatMap(([id, node]) => (node.drills || []).map((spec) => ({ label: `${id}/${spec.id}`, spec }))),
   ...BUILTIN,
 ];
 

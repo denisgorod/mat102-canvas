@@ -5,8 +5,7 @@ build-hierarchy.py — emit hierarchy-data.json for the review map.
 The review map is a SECOND graph, structured by the mathematical hierarchy
 (subject → topic → node) rather than by inquiry. Its nodes live in Hierarchy/
 and are canonical, reference-grade statements — authored separately from the
-question-driven bits in Bits/. Objectives, definitions, theorems and their
-drills live here.
+question-driven bits in Bits/. Objectives, definitions and theorems live here.
 
 The bridge between the two graphs is a function  f : bits → hierarchy  encoded
 by a `concludes:` field on each inquiry bit (an inquiry branch *concludes* in a
@@ -50,7 +49,6 @@ for f in sorted(glob.glob(os.path.join(HIER, "*.md"))):
         "statement": d.get("statement"),
         "file": rel,
         "depends_on": list(d.get("depends_on") or []),
-        "drills": d.get("drills") or [],
         "inquiry_sources": [],  # filled from f below
     }
 

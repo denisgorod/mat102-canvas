@@ -27,61 +27,7 @@
 			"group": "modular-arithmetic",
 			"curriculum_path": null,
 			"file": "Bits/Arithmetic of congruences.md",
-			"concludes": "mod-arithmetic",
-			"drills": [
-				{
-					"id": "modsum",
-					"prompt": "Compute $(%a% + %b%) \\bmod %n%$.",
-					"vars": {
-						"a": {
-							"int": [
-								10,
-								99
-							]
-						},
-						"b": {
-							"int": [
-								10,
-								99
-							]
-						},
-						"n": {
-							"int": [
-								3,
-								12
-							]
-						}
-					},
-					"answer": "mod(a+b,n)",
-					"type": "integer"
-				},
-				{
-					"id": "modprod",
-					"prompt": "Compute $(%a% \\cdot %b%) \\bmod %n%$.",
-					"vars": {
-						"a": {
-							"int": [
-								3,
-								40
-							]
-						},
-						"b": {
-							"int": [
-								3,
-								40
-							]
-						},
-						"n": {
-							"int": [
-								3,
-								12
-							]
-						}
-					},
-					"answer": "mod(a*b,n)",
-					"type": "integer"
-				}
-			]
+			"concludes": "mod-arithmetic"
 		},
 		"back-substitution": {
 			"title": "Back-substitution technique",
@@ -224,67 +170,7 @@
 			"group": "modular-arithmetic",
 			"curriculum_path": null,
 			"file": "Bits/Congruence modulo n.md",
-			"concludes": "mod-congruence-def",
-			"drills": [
-				{
-					"id": "reduce",
-					"prompt": "Compute $%a% \\bmod %n%$.",
-					"vars": {
-						"a": {
-							"int": [
-								17,
-								200
-							]
-						},
-						"n": {
-							"int": [
-								2,
-								15
-							]
-						}
-					},
-					"answer": "mod(a,n)",
-					"type": "integer"
-				},
-				{
-					"id": "congruent",
-					"prompt": "True or false: $%a% \\equiv %b% \\pmod{%n%}$?",
-					"vars": {
-						"a": {
-							"int": [
-								10,
-								99
-							]
-						},
-						"b": {
-							"int": [
-								10,
-								99
-							]
-						},
-						"n": {
-							"int": [
-								2,
-								9
-							]
-						}
-					},
-					"answer": "mod(a-b,n)==0",
-					"type": "boolean"
-				},
-				{
-					"id": "def",
-					"prompt": "What does $a \\equiv b \\pmod{n}$ mean?",
-					"options": [
-						"$n$ divides $a - b$",
-						"$a$ divides $b - n$",
-						"$a$ and $b$ have the same sign",
-						"$ab$ is a multiple of $n$"
-					],
-					"answer": 0,
-					"type": "mc"
-				}
-			]
+			"concludes": "mod-congruence-def"
 		},
 		"conjunction-and-disjunction": {
 			"title": "Conjunction and disjunction",
@@ -1958,29 +1844,7 @@
 			"group": "modular-arithmetic",
 			"curriculum_path": null,
 			"file": "Bits/Last-digit computation.md",
-			"concludes": "mod-lastdigit",
-			"drills": [
-				{
-					"id": "lastdigit",
-					"prompt": "What is the last digit of $%a%^{%k%}$?",
-					"vars": {
-						"a": {
-							"int": [
-								2,
-								39
-							]
-						},
-						"k": {
-							"int": [
-								2,
-								60
-							]
-						}
-					},
-					"answer": "modpow(a,k,10)",
-					"type": "integer"
-				}
-			]
+			"concludes": "mod-lastdigit"
 		},
 		"linear-diophantine-equation": {
 			"title": "Linear Diophantine Equation",
@@ -2044,36 +1908,7 @@
 			"group": "modular-arithmetic",
 			"curriculum_path": null,
 			"file": "Bits/Multiplicative inverses in Zp.md",
-			"concludes": "mod-inverses",
-			"drills": [
-				{
-					"id": "inverse",
-					"prompt": "Find $x$ with $0 \\le x < %n%$ and $%a%\\,x \\equiv 1 \\pmod{%n%}$.",
-					"vars": {
-						"a": {
-							"int": [
-								2,
-								20
-							]
-						},
-						"n": {
-							"int": [
-								3,
-								21
-							]
-						}
-					},
-					"where": "gcd(a,n)==1",
-					"inputs": [
-						"x"
-					],
-					"answer": "mod(a*x, n) == 1",
-					"witness": {
-						"x": "inverse(a, n)"
-					},
-					"type": "predicate"
-				}
-			]
+			"concludes": "mod-inverses"
 		},
 		"necessary-and-sufficient-conditions": {
 			"title": "Necessary and sufficient conditions",
