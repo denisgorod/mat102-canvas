@@ -7,9 +7,8 @@ on:
 
 # Guards the content pipeline: the canvas and the Markdown frontmatter must stay
 # in sync, the generated artifacts (reader-data.json, hierarchy-data.json,
-# content-bundle.json) must be committed and up to date, and every drill must
-# grade correctly. None of this ships to the site; it just keeps the sources and
-# their generated data honest.
+# content-bundle.json) must be committed and up to date, and the site must render
+# and navigate in a real browser.
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -41,5 +40,11 @@ jobs:
             exit 1
           fi
 
-      - name: Validate parametric drills
-        run: node tools/validate-drills.mjs
+      - name: Install browser-test dependencies
+        working-directory: tools
+        run: |
+          npm install --no-audit --no-fund
+          npx playwright install --with-deps chromium
+
+      - name: Browser smoke test
+        run: node tools/smoke-test.mjs

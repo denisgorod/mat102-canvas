@@ -2,11 +2,15 @@
   "name": "mat102-canvas-tools",
   "version": "1.0.0",
   "private": true,
-  "description": "Offline authoring tools for MAT102.canvas (not part of the deployed site).",
+  "description": "Offline authoring tools and checks for the map (not part of the deployed site).",
   "scripts": {
-    "relayout": "node relayout-topics.cjs"
+    "relayout": "node relayout-topics.cjs",
+    "smoke": "node smoke-test.mjs"
   },
   "dependencies": {
     "elkjs": "^0.9.3"
+  },
+  "devDependencies": {
+    "playwright": "^1.49.0"
   }
 }

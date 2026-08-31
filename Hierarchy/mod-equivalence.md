@@ -6,7 +6,6 @@ subject: number-theory
 topic: modular-arithmetic
 statement: "For fixed n, ≡ (mod n) is reflexive, symmetric, and transitive, so it partitions ℤ into n congruence classes."
 depends_on: [mod-congruence-def]
-drills: []
 ---
 >[!t] Theorem
 > For a fixed modulus $n \in \mathbb{Z}^{+}$, congruence modulo $n$ is an equivalence relation on $\mathbb{Z}$: for all $a, b, c \in \mathbb{Z}$,

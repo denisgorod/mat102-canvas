@@ -6,14 +6,6 @@ subject: number-theory
 topic: modular-arithmetic
 statement: "The last digit of an integer m is m mod 10; combined with compatibility, aᵏ mod 10 is found by reducing at each step."
 depends_on: [mod-arithmetic]
-drills:
-  - id: lastdigit
-    prompt: 'What is the last digit of $%a%^{%k%}$?'
-    vars:
-      a: {int: [2, 39]}
-      k: {int: [2, 60]}
-    answer: 'modpow(a,k,10)'
-    type: integer
 ---
 >[!s] Application
 > The last (units) digit of an integer $m$ is $m \bmod 10$. Because congruence is compatible with multiplication,

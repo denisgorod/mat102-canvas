@@ -372,12 +372,9 @@ canvasForViewer.nodes = canvasForViewer.nodes.map((node) => {
 // No attachment map needed — all content is already embedded above.
 const attachmentMap = {};
 
-// Hide loading overlay once all files are pre-fetched.
-const loadingOverlay = document.getElementById("loading-overlay");
-if (loadingOverlay) {
-  loadingOverlay.style.opacity = "0";
-  loadingOverlay.addEventListener("transitionend", () => loadingOverlay.remove(), { once: true });
-}
+// The loading overlay is dismissed by the module router in index.html once this
+// module has finished evaluating, not here: hiding it mid-module would remove the
+// only surface a later startup failure has to report itself on.
 // Edge relationship → canvas colour key. `prerequisite` (≈96% of edges — the
 // backbone) is left uncoloured so it stays neutral; the rarer `related` /
 // `analogy` links get a colour so the map's actual cross-connections read as

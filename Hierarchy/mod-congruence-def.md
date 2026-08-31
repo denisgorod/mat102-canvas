@@ -6,31 +6,6 @@ subject: number-theory
 topic: modular-arithmetic
 statement: "a ≡ b (mod n) means n ∣ (b − a); equivalently, a and b leave the same remainder on division by n."
 depends_on: []
-drills:
-  - id: reduce
-    prompt: 'Compute $%a% \bmod %n%$.'
-    vars:
-      a: {int: [17, 200]}
-      n: {int: [2, 15]}
-    answer: 'mod(a,n)'
-    type: integer
-  - id: congruent
-    prompt: 'True or false: $%a% \equiv %b% \pmod{%n%}$?'
-    vars:
-      a: {int: [10, 99]}
-      b: {int: [10, 99]}
-      n: {int: [2, 9]}
-    answer: 'mod(a-b,n)==0'
-    type: boolean
-  - id: def
-    prompt: 'What does $a \equiv b \pmod{n}$ mean?'
-    options:
-      - '$n$ divides $a - b$'
-      - '$a$ divides $b - n$'
-      - '$a$ and $b$ have the same sign'
-      - '$ab$ is a multiple of $n$'
-    answer: 0
-    type: mc
 ---
 >[!d] Definition
 > Let $n \in \mathbb{Z}^{+}$. For $a, b \in \mathbb{Z}$, we say $a$ is **congruent to** $b$ **modulo** $n$, written

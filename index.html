@@ -58,6 +58,18 @@
       transition: width 0.15s ease;
     }
 
+    /* Failure state: the overlay is removed only on a successful load, so any
+       uncaught startup error must be rendered here rather than left spinning. */
+    #loading-overlay.is-error { background: #16131a; }
+    #loading-content.is-error { width: min(620px, 88vw); align-items: flex-start; gap: 10px; }
+    #loading-error-title { color: #fca5a5; font: 600 15px/1.45 system-ui, sans-serif; }
+    #loading-error-msg {
+      color: #e2e8f0; font: 13px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace;
+      word-break: break-word; background: rgba(148,163,184,.09);
+      border-radius: 6px; padding: 10px 12px; width: 100%; box-sizing: border-box;
+    }
+    #loading-error-hint { color: #94a3b8; font: 13px/1.6 system-ui, sans-serif; }
+
     html, body {
       margin: 0;
       padding: 0;
@@ -485,13 +497,16 @@
       backdrop-filter: blur(4px);
       padding: 10px;
       display: none;
+      flex-direction: column;
       z-index: 40;
-      overflow: auto;
+      /* Panel itself doesn't scroll; only the question list does, so the header
+         and the "Ask a question" footer stay pinned and always visible. */
+      overflow: hidden;
       pointer-events: auto;
     }
 
     .outgoing-panel.is-visible {
-      display: block;
+      display: flex;
     }
 
     .outgoing-title {
@@ -508,11 +523,17 @@
       align-items: center;
       gap: 8px;
       margin-bottom: 8px;
+      flex-shrink: 0;
     }
 
     .outgoing-list {
       display: grid;
       gap: 6px;
+      /* Take the space between the pinned header and Ask button, and scroll when
+         a node has many questions. min-height:0 lets a flex child actually shrink. */
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow-y: auto;
     }
 
     .outgoing-back {
@@ -573,6 +594,7 @@
     .outgoing-ask {
       margin-top: 8px;
       width: 100%;
+      flex-shrink: 0;
       border: 1px dashed rgba(148, 163, 184, 0.6);
       background: rgba(30, 41, 59, 0.55);
       color: #e5e7eb;
@@ -742,11 +764,72 @@
   };
 </script>
 <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script>
+  // The loading overlay is removed only after a successful load, so any uncaught
+  // startup failure (missing canvas, malformed JSON, a failed content preload)
+  // would otherwise leave the page spinning with no explanation. Surface it.
+  (function () {
+    var shown = false;
+    window.__showLoadFailure = function (message) {
+      if (shown) return;
+      shown = true;
+      var overlay = document.getElementById("loading-overlay");
+      var content = overlay && document.getElementById("loading-content");
+      if (!overlay) {
+        // The overlay may already be gone (dismissed, or removed by a module).
+        // Rebuild it rather than fail silently — a blank page with no message is
+        // the outcome this handler exists to prevent.
+        overlay = document.createElement("div");
+        overlay.id = "loading-overlay";
+        content = document.createElement("div");
+        content.id = "loading-content";
+        overlay.appendChild(content);
+        document.body.appendChild(overlay);
+      } else if (!content) {
+        content = document.createElement("div");
+        content.id = "loading-content";
+        overlay.appendChild(content);
+      }
+      overlay.style.transition = "none";   // cancel any in-flight fade-out
+      overlay.style.opacity = "1";
+      overlay.classList.add("is-error");
+      content.classList.add("is-error");
+      content.textContent = "";
+      var title = document.createElement("div");
+      title.id = "loading-error-title";
+      title.textContent = "This page failed to load.";
+      var msg = document.createElement("div");
+      msg.id = "loading-error-msg";
+      msg.textContent = String(message || "Unknown error");
+      var hint = document.createElement("div");
+      hint.id = "loading-error-hint";
+      hint.textContent = "If a file is named above, check that it exists on this branch and that "
+        + "the page is served over http:// — a page opened as file:// cannot fetch it. "
+        + "Full detail is in the browser console.";
+      content.append(title, msg, hint);
+    };
+    var relay = function (m) { window.__showLoadFailure(m); };
+    window.addEventListener("error", function (e) { relay(e.message); });
+    window.addEventListener("unhandledrejection", function (e) {
+      relay(e.reason && e.reason.message ? e.reason.message : e.reason);
+    });
+  })();
+</script>
 <script type="module">
   // Route by mode: ?mode=reader loads the reader-first prototype; default is the canvas viewer.
   const mode = new URLSearchParams(window.location.search).get("mode");
-  if (mode === "reader") import("./reader.js");
-  else import("./viewer.js");
+  import(mode === "reader" ? "./reader.js" : "./viewer.js")
+    .then(() => {
+      // Success, and only now: the entry module evaluated without throwing, so the
+      // overlay has no further failure to report and can be dismissed.
+      const overlay = document.getElementById("loading-overlay");
+      if (!overlay || overlay.classList.contains("is-error")) return;
+      overlay.style.opacity = "0";
+      overlay.addEventListener("transitionend", () => {
+        if (!overlay.classList.contains("is-error")) overlay.remove();
+      }, { once: true });
+    })
+    .catch((err) => window.__showLoadFailure(err && err.message ? err.message : err));
 </script>
 
 </body>

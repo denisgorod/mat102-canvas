@@ -1,0 +1,170 @@
+{
+	"nodes": [
+		{
+			"id": "reading-load",
+			"type": "file",
+			"file": "Talk/reading-load.md",
+			"title": "Reading load in the current cohort",
+			"x": 0,
+			"y": 620,
+			"width": 620,
+			"height": 400
+		},
+		{
+			"id": "dont-simplify",
+			"type": "file",
+			"file": "Talk/dont-simplify.md",
+			"title": "Reducing load without reducing content",
+			"x": 940,
+			"y": 600,
+			"width": 620,
+			"height": 440
+		},
+		{
+			"id": "forced-inquiry",
+			"type": "file",
+			"file": "Talk/forced-inquiry.md",
+			"title": "The map's two restrictions",
+			"x": 1880,
+			"y": 620,
+			"width": 620,
+			"height": 400,
+			"color": "4"
+		},
+		{
+			"id": "student-method",
+			"type": "file",
+			"file": "Talk/student-method.md",
+			"title": "Transfer: an explicit reading procedure",
+			"x": 2820,
+			"y": 0,
+			"width": 620,
+			"height": 440
+		},
+		{
+			"id": "ai-alignment",
+			"type": "file",
+			"file": "Talk/ai-alignment.md",
+			"title": "AI alignment: learning logic, not content",
+			"x": 2820,
+			"y": 560,
+			"width": 620,
+			"height": 440
+		},
+		{
+			"id": "question-reuse",
+			"type": "file",
+			"file": "Talk/question-reuse.md",
+			"title": "Question persistence and reuse",
+			"x": 2820,
+			"y": 1120,
+			"width": 620,
+			"height": 520
+		},
+		{
+			"id": "student-agency",
+			"type": "file",
+			"file": "Talk/student-agency.md",
+			"title": "Student contribution to the curriculum",
+			"x": 3760,
+			"y": 1200,
+			"width": 620,
+			"height": 360
+		},
+		{
+			"id": "how-to-start",
+			"type": "file",
+			"file": "Talk/how-to-start.md",
+			"title": "Adoption: the minimum version",
+			"x": 4700,
+			"y": 1150,
+			"width": 620,
+			"height": 460
+		},
+		{
+			"id": "this-talk",
+			"type": "file",
+			"file": "Talk/this-talk.md",
+			"title": "This presentation",
+			"x": 5640,
+			"y": 610,
+			"width": 620,
+			"height": 420,
+			"color": "5"
+		}
+	],
+	"edges": [
+		{
+			"id": "talk-e1",
+			"fromNode": "reading-load",
+			"fromSide": "right",
+			"toNode": "dont-simplify",
+			"toSide": "left",
+			"edge_type": "prerequisite",
+			"label": "Should the material be simplified?"
+		},
+		{
+			"id": "talk-e2",
+			"fromNode": "dont-simplify",
+			"fromSide": "right",
+			"toNode": "forced-inquiry",
+			"toSide": "left",
+			"edge_type": "prerequisite",
+			"label": "What keeps small units from fragmenting the subject?"
+		},
+		{
+			"id": "talk-e3",
+			"fromNode": "forced-inquiry",
+			"fromSide": "right",
+			"toNode": "student-method",
+			"toSide": "left",
+			"edge_type": "prerequisite",
+			"label": "What does the student take away besides the content?"
+		},
+		{
+			"id": "talk-e4",
+			"fromNode": "forced-inquiry",
+			"fromSide": "right",
+			"toNode": "ai-alignment",
+			"toSide": "left",
+			"edge_type": "prerequisite",
+			"label": "Who else can read an explicit inquiry structure?"
+		},
+		{
+			"id": "talk-e5",
+			"fromNode": "forced-inquiry",
+			"fromSide": "right",
+			"toNode": "question-reuse",
+			"toSide": "left",
+			"edge_type": "prerequisite",
+			"label": "Where do student questions go today?"
+		},
+		{
+			"id": "talk-e6",
+			"fromNode": "question-reuse",
+			"fromSide": "right",
+			"toNode": "student-agency",
+			"toSide": "left",
+			"edge_type": "prerequisite",
+			"label": "Who is permitted to add to the map?"
+		},
+		{
+			"id": "talk-e7",
+			"fromNode": "student-agency",
+			"fromSide": "right",
+			"toNode": "how-to-start",
+			"toSide": "left",
+			"edge_type": "prerequisite",
+			"label": "What would it take for my course?"
+		},
+		{
+			"id": "talk-e8",
+			"fromNode": "how-to-start",
+			"fromSide": "right",
+			"toNode": "this-talk",
+			"toSide": "bottom",
+			"edge_type": "related",
+			"label": "What has this presentation been?"
+		}
+	]
+}

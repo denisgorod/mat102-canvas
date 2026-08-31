@@ -6,7 +6,6 @@ subject: number-theory
 topic: modular-arithmetic
 statement: "ℤₙ = {[0],…,[n−1]} with well-defined +, × inherited from ℤ; it is a commutative ring with identity."
 depends_on: [mod-arithmetic]
-drills: []
 ---
 >[!d] Definition
 > $\mathbb{Z}_n = \{[0], [1], \dots, [n-1]\}$ is the set of congruence classes modulo $n$, with operations
