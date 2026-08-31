@@ -137,6 +137,12 @@ try {
   const readerRoot = await page.locator("#reader-root").count();
   check("reader: boots and renders its root", readerRoot === 1);
   check("reader: overlay dismissed", dismissed(await overlayState(page)));
+  const readerLandmarks = await page.evaluate(() => ({
+    mains: [...document.querySelectorAll("main")].filter((m) => m.offsetParent !== null || m === document.body).length,
+    skipLinks: document.querySelectorAll("a.skip-link").length,
+  }));
+  check("reader: exactly one main landmark, no map-only skip link",
+    readerLandmarks.mains === 1 && readerLandmarks.skipLinks === 0, JSON.stringify(readerLandmarks));
   await page.close();
 
   // --- 5. a missing canvas explains itself instead of spinning forever --
@@ -144,6 +150,78 @@ try {
   ov = await overlayState(page);
   check("missing canvas: failure is surfaced, not a hung spinner",
     ov.present && ov.isError && /404/.test(ov.message || ""), JSON.stringify(ov));
+  await page.close();
+
+  // --- 6. accessibility guarantees -------------------------------------
+  // The map draws to a canvas and hides node overlays with display:none below
+  // the content band, so the outline is the only thing assistive technology can
+  // reach. These assertions exist because that was measured at zero.
+  page = await open(BASE);
+  const a11y = await page.evaluate(() => {
+    const nav = document.getElementById("course-outline");
+    const links = nav ? [...nav.querySelectorAll("a")] : [];
+    return {
+      hasMain: !!document.querySelector("main"),
+      hasH1: !!document.querySelector("h1"),
+      title: document.title,
+      outlineExists: !!nav,
+      // display:none would remove it from the accessibility tree — the whole bug.
+      outlineDisplay: nav ? getComputedStyle(nav).display : null,
+      outlineHidden: nav ? nav.hidden : null,
+      linkCount: links.length,
+      emptyLinkLabels: links.filter((a) => !a.textContent.trim()).length,
+      liveRegion: !!document.querySelector('[aria-live="polite"]'),
+      skipLink: !!document.querySelector("a.skip-link"),
+      // A role conveys no accessible NAME, so checking for it would let the
+      // label be deleted while the assertion still passed. Require a name.
+      unlabelledCanvas: [...document.querySelectorAll("canvas")]
+        .filter((c) => !c.getAttribute("aria-label") && !c.getAttribute("aria-labelledby")).length,
+      panelLabelled: (() => {
+        const p = document.querySelector(".outgoing-panel");
+        return !p || !!(p.getAttribute("aria-label") || p.getAttribute("aria-labelledby"));
+      })(),
+    };
+  });
+  const canvasFileNodes = JSON.parse(
+    await readFile(join(ROOT, "MAT102.canvas"), "utf8")).nodes.filter((n) => n.type === "file").length;
+
+  check("a11y: page has a main landmark and an h1", a11y.hasMain && a11y.hasH1, JSON.stringify(a11y));
+  check("a11y: document title names the map", /MAT102/i.test(a11y.title), a11y.title);
+  check("a11y: skip link present", a11y.skipLink);
+  check("a11y: outline is in the accessibility tree (not display:none)",
+    a11y.outlineExists && a11y.outlineHidden === false && a11y.outlineDisplay !== "none",
+    JSON.stringify(a11y));
+  check("a11y: every canvas node is reachable in the outline",
+    a11y.linkCount === canvasFileNodes, `outline ${a11y.linkCount} vs canvas ${canvasFileNodes}`);
+  check("a11y: no outline link is unlabelled", a11y.emptyLinkLabels === 0, `${a11y.emptyLinkLabels} empty`);
+  check("a11y: live region present for focus announcements", a11y.liveRegion);
+  check("a11y: drawing canvas is labelled", a11y.unlabelledCanvas === 0, `${a11y.unlabelledCanvas} unlabelled`);
+
+  // Activating an outline entry must drive the real map, not just be a link.
+  await page.evaluate(() => document.querySelector("#course-outline a")?.click());
+  await page.waitForTimeout(1500);
+  const drove = await page.evaluate(() => ({
+    panel: document.querySelectorAll(".outgoing-panel.is-visible").length,
+    announced: (document.getElementById("focus-announcer")?.textContent || "").trim(),
+  }));
+  check("a11y: outline entry focuses the node and announces it",
+    drove.panel === 1 && drove.announced.length > 0, JSON.stringify(drove));
+  check("a11y: outgoing panel is labelled", a11y.panelLabelled);
+
+  // A tabbable link inside a clipped container is an invisible focus stop.
+  // Tab past the skip link and confirm the outline actually reveals itself.
+  await page.goto(BASE, { waitUntil: "load" });
+  await page.waitForTimeout(4000);
+  await page.keyboard.press("Tab");
+  await page.keyboard.press("Tab");
+  const revealed = await page.evaluate(() => {
+    const a = document.activeElement;
+    const r = a.getBoundingClientRect();
+    const hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
+    return { focused: (a.textContent || "").trim().slice(0, 40), onScreen: hit === a || a.contains(hit) };
+  });
+  check("a11y: focused outline link is actually visible, not a clipped tab stop",
+    revealed.onScreen, JSON.stringify(revealed));
   await page.close();
 
   check("no uncaught page errors", pageErrors.length === 0, pageErrors.join(" | "));

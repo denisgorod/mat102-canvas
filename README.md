@@ -147,8 +147,8 @@ the browser if you already have one.
 
 The smoke test starts its own HTTP server and asserts what the content pipeline cannot see: the map
 renders its nodes, a `?focus=` deep-link opens the panel, an alternate `?canvas=` loads, the reader
-boots, no uncaught page errors — and that a **missing canvas shows an error rather than hanging on
-the loading spinner**.
+boots, no uncaught page errors, that a **missing canvas shows an error rather than hanging on the
+loading spinner**, and the accessibility guarantees described below.
 
 ### Tools
 
@@ -218,7 +218,33 @@ at deploy time — the generated JSON is committed, which is why CI guards its f
 - **Math** renders through MathJax loaded `async` from a CDN; a slow or blocked CDN delays
   typesetting but never blocks the map.
 
-## Archive
+## Accessibility
+
+The map is a `<canvas>` plus absolutely-positioned overlays, and the level-of-detail
+system hides those overlays with `display: none` below the content band — which removes
+them from the accessibility tree too. Measured at the default zoom, that left **0 of 351
+nodes reachable**: a screen-reader user got an unlabelled canvas and nothing else.
+
+Rather than make a pan/zoom canvas graph conformant, the same graph is published as a
+**parallel text outline**: a `<nav>` of subject → topic → node, one link per node, present
+in the document at all times and visually hidden (never `display: none`). Activating an
+entry drives the real camera and announces the node, so it is a navigation aid rather than
+a link dump.
+
+Also in place: a skip link, `<main>` and a single `<h1>`, a visible `:focus-visible`
+indicator (the tiles previously computed `outline: none`), a polite live region announcing
+focus changes, a labelled drawing canvas, a named outgoing-questions panel, and
+`prefers-reduced-motion` honoured by the camera — a focus change settles in ~65 ms instead
+of animating for ~580 ms.
+
+Ten assertions in `tools/smoke-test.mjs` hold this in place, including that the outline is
+not `display: none` and that it contains every node on the canvas.
+
+**Still open.** The graph itself is not keyboard-traversable — you cannot walk node to node
+or follow an edge with arrow keys; the outline and the reader are the accessible paths.
+MathJax's assistive MathML is unconfigured and untested. The reader (`?mode=reader`) is
+plain DOM and was already the more accessible surface.
+
 
 `archive/` holds features removed from the live site but kept intact, runnable and documented.
 Currently `archive/drills/` — parametric auto-graded practice questions, with their engine, the 7
@@ -244,4 +270,4 @@ cues and the live-demo runbook are in [`TALK-NOTES.md`](TALK-NOTES.md).
 A working prototype in real use, not a finished product. Known gaps: student intake needs a GitHub
 account; the review map covers only the modular-arithmetic slice; 96% of edges are still
 `prerequisite`, so the inquiry framing is real in the edge *labels* and aspirational in the
-*topology*; the map is not yet keyboard- or screen-reader-navigable.
+*topology*; and the graph itself is not keyboard-traversable (see **Accessibility**).

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Canvas Viewer</title>
+  <title>MAT102 inquiry map</title>
   <style>
     :root {
       --obs-font-text: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -56,6 +56,85 @@
       background: #3b82f6;
       border-radius: 999px;
       transition: width 0.15s ease;
+    }
+
+    /* --- Accessibility -------------------------------------------------
+       The map draws to a canvas and hides node overlays with display:none
+       below the content band, so neither is reachable by assistive tech.
+       The outline below is a parallel, always-present text view of the same
+       graph: visually hidden (never display:none, which would remove it from
+       the accessibility tree as well) but fully navigable. */
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      margin: -1px; padding: 0; border: 0;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+
+    /* The skip link is the one sr-only element that reveals itself on focus. */
+    .skip-link:focus {
+      position: fixed;
+      top: 12px; left: 12px;
+      width: auto; height: auto;
+      margin: 0; padding: 10px 16px;
+      clip: auto; clip-path: none;
+      background: #0f1117; color: #fff;
+      border-radius: 8px; font: 600 14px system-ui, sans-serif;
+      z-index: 10000;
+    }
+
+    /* A visible focus indicator everywhere. Keyboard users could previously
+       not see where they were: the tiles computed outline:none. */
+    :focus-visible {
+      outline: 3px solid #2563eb;
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    /* The outline is sr-only so it does not disturb the map, but its links are
+       tabbable. Leaving it clipped would give a sighted keyboard user hundreds
+       of focus stops they cannot see, so reveal it as a panel while anything
+       inside it has focus. */
+    #course-outline:focus-within {
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      width: min(420px, 92vw);
+      height: auto;
+      margin: 0;
+      padding: 18px 22px 40px;
+      clip: auto;
+      clip-path: none;
+      overflow-y: auto;
+      white-space: normal;
+      background: #0f1117;
+      color: #e2e8f0;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.55);
+      z-index: 9998;
+      font: 14px/1.5 system-ui, sans-serif;
+    }
+    #course-outline:focus-within h2 { font-size: 16px; margin: 0 0 4px; color: #fff; }
+    #course-outline:focus-within h3 { font-size: 14px; margin: 18px 0 4px; color: #93c5fd; }
+    #course-outline:focus-within h4 { font-size: 13px; margin: 12px 0 4px; color: #94a3b8; font-weight: 600; }
+    #course-outline:focus-within p  { margin: 0 0 8px; color: #94a3b8; font-size: 12.5px; }
+    #course-outline:focus-within ul { margin: 0 0 4px; padding-left: 18px; }
+    #course-outline:focus-within li { margin: 2px 0; }
+    #course-outline:focus-within a  { color: #e2e8f0; text-decoration: none; }
+    #course-outline:focus-within a:hover { text-decoration: underline; }
+    #course-outline a:focus-visible { outline-offset: 1px; background: #1e293b; }
+
+    /* Honour a reduced-motion preference: the map animates a camera pan on
+       every focus change, which is exactly the kind of motion this disables.
+       The camera duration is also zeroed in viewer.js. */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
     }
 
     /* Failure state: the overlay is removed only on a successful load, so any
@@ -747,7 +826,21 @@
   </div>
 </div>
 
-<div id="canvas-root"></div>
+<a class="sr-only skip-link" href="#course-outline">Skip to the course outline</a>
+
+<main id="map-main">
+  <h1 class="sr-only">MAT102 inquiry map</h1>
+
+  <!-- Populated by viewer.js from the canvas once it loads. Kept in the document
+       (not display:none) so screen readers and keyboard users can reach every
+       node even at zoom levels where the visual overlays are hidden. -->
+  <nav id="course-outline" class="sr-only" aria-label="Course outline" hidden></nav>
+
+  <!-- Announces focus changes, which are otherwise silent to a screen reader. -->
+  <div id="focus-announcer" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <div id="canvas-root"></div>
+</main>
 
 <script>
   window.MathJax = {
@@ -818,6 +911,17 @@
 <script type="module">
   // Route by mode: ?mode=reader loads the reader-first prototype; default is the canvas viewer.
   const mode = new URLSearchParams(window.location.search).get("mode");
+
+  // The map chrome (its <main>, heading, outline and skip link) describes the
+  // canvas only. The reader builds its own <main id="reader-main">, so leaving
+  // this in place would give the page two main landmarks and a skip link
+  // pointing at an outline that is never populated.
+  if (mode === "reader") {
+    const mapMain = document.getElementById("map-main");
+    if (mapMain) mapMain.hidden = true;
+    document.querySelector("a.skip-link")?.remove();
+  }
+
   import(mode === "reader" ? "./reader.js" : "./viewer.js")
     .then(() => {
       // Success, and only now: the entry module evaluated without throwing, so the
