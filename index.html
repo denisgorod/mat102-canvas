@@ -94,8 +94,36 @@
       border-radius: 4px;
     }
 
-    #course-outline a:focus-visible,
-    #course-outline summary:focus-visible { outline-offset: 0; }
+    /* The outline is sr-only so it does not disturb the map, but its links are
+       tabbable. Leaving it clipped would give a sighted keyboard user hundreds
+       of focus stops they cannot see, so reveal it as a panel while anything
+       inside it has focus. */
+    #course-outline:focus-within {
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      width: min(420px, 92vw);
+      height: auto;
+      margin: 0;
+      padding: 18px 22px 40px;
+      clip: auto;
+      clip-path: none;
+      overflow-y: auto;
+      white-space: normal;
+      background: #0f1117;
+      color: #e2e8f0;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.55);
+      z-index: 9998;
+      font: 14px/1.5 system-ui, sans-serif;
+    }
+    #course-outline:focus-within h2 { font-size: 16px; margin: 0 0 4px; color: #fff; }
+    #course-outline:focus-within h3 { font-size: 14px; margin: 18px 0 4px; color: #93c5fd; }
+    #course-outline:focus-within h4 { font-size: 13px; margin: 12px 0 4px; color: #94a3b8; font-weight: 600; }
+    #course-outline:focus-within p  { margin: 0 0 8px; color: #94a3b8; font-size: 12.5px; }
+    #course-outline:focus-within ul { margin: 0 0 4px; padding-left: 18px; }
+    #course-outline:focus-within li { margin: 2px 0; }
+    #course-outline:focus-within a  { color: #e2e8f0; text-decoration: none; }
+    #course-outline:focus-within a:hover { text-decoration: underline; }
+    #course-outline a:focus-visible { outline-offset: 1px; background: #1e293b; }
 
     /* Honour a reduced-motion preference: the map animates a camera pan on
        every focus change, which is exactly the kind of motion this disables.
@@ -883,6 +911,17 @@
 <script type="module">
   // Route by mode: ?mode=reader loads the reader-first prototype; default is the canvas viewer.
   const mode = new URLSearchParams(window.location.search).get("mode");
+
+  // The map chrome (its <main>, heading, outline and skip link) describes the
+  // canvas only. The reader builds its own <main id="reader-main">, so leaving
+  // this in place would give the page two main landmarks and a skip link
+  // pointing at an outline that is never populated.
+  if (mode === "reader") {
+    const mapMain = document.getElementById("map-main");
+    if (mapMain) mapMain.hidden = true;
+    document.querySelector("a.skip-link")?.remove();
+  }
+
   import(mode === "reader" ? "./reader.js" : "./viewer.js")
     .then(() => {
       // Success, and only now: the entry module evaluated without throwing, so the

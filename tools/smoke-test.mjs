@@ -137,6 +137,12 @@ try {
   const readerRoot = await page.locator("#reader-root").count();
   check("reader: boots and renders its root", readerRoot === 1);
   check("reader: overlay dismissed", dismissed(await overlayState(page)));
+  const readerLandmarks = await page.evaluate(() => ({
+    mains: [...document.querySelectorAll("main")].filter((m) => m.offsetParent !== null || m === document.body).length,
+    skipLinks: document.querySelectorAll("a.skip-link").length,
+  }));
+  check("reader: exactly one main landmark, no map-only skip link",
+    readerLandmarks.mains === 1 && readerLandmarks.skipLinks === 0, JSON.stringify(readerLandmarks));
   await page.close();
 
   // --- 5. a missing canvas explains itself instead of spinning forever --
@@ -166,11 +172,13 @@ try {
       emptyLinkLabels: links.filter((a) => !a.textContent.trim()).length,
       liveRegion: !!document.querySelector('[aria-live="polite"]'),
       skipLink: !!document.querySelector("a.skip-link"),
+      // A role conveys no accessible NAME, so checking for it would let the
+      // label be deleted while the assertion still passed. Require a name.
       unlabelledCanvas: [...document.querySelectorAll("canvas")]
-        .filter((c) => !c.getAttribute("aria-label") && !c.getAttribute("role")).length,
+        .filter((c) => !c.getAttribute("aria-label") && !c.getAttribute("aria-labelledby")).length,
       panelLabelled: (() => {
         const p = document.querySelector(".outgoing-panel");
-        return !p || !!(p.getAttribute("aria-label") || p.getAttribute("role"));
+        return !p || !!(p.getAttribute("aria-label") || p.getAttribute("aria-labelledby"));
       })(),
     };
   });
@@ -199,6 +207,21 @@ try {
   check("a11y: outline entry focuses the node and announces it",
     drove.panel === 1 && drove.announced.length > 0, JSON.stringify(drove));
   check("a11y: outgoing panel is labelled", a11y.panelLabelled);
+
+  // A tabbable link inside a clipped container is an invisible focus stop.
+  // Tab past the skip link and confirm the outline actually reveals itself.
+  await page.goto(BASE, { waitUntil: "load" });
+  await page.waitForTimeout(4000);
+  await page.keyboard.press("Tab");
+  await page.keyboard.press("Tab");
+  const revealed = await page.evaluate(() => {
+    const a = document.activeElement;
+    const r = a.getBoundingClientRect();
+    const hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
+    return { focused: (a.textContent || "").trim().slice(0, 40), onScreen: hit === a || a.contains(hit) };
+  });
+  check("a11y: focused outline link is actually visible, not a clipped tab stop",
+    revealed.onScreen, JSON.stringify(revealed));
   await page.close();
 
   check("no uncaught page errors", pageErrors.length === 0, pageErrors.join(" | "));

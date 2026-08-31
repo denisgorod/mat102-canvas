@@ -2033,11 +2033,15 @@ const labelCanvasLayer = () => {
   });
 };
 
-// Group containment. The canvas nests one level: a handful of subject groups,
-// each holding topic groups, each holding file nodes. Rather than classify the
-// groups, take each node's owning groups and read the largest as its subject and
-// the smallest as its topic — which needs no assumption about nesting depth and
-// reproduces exactly the 24 groups `reader-data.json` records.
+// Group containment. The canvas nests one level: subject groups, each holding
+// topic groups, each holding file nodes. Rather than classify the groups, take
+// each node's owning groups and read the largest as its subject and the smallest
+// as its topic — which needs no assumption about nesting depth.
+//
+// On the current canvas that recovers all 30 groups as 8 subjects and 22 topics.
+// Two subjects (Reading Mathematics, Quantifiers and Implications) hold their
+// nodes directly rather than through a topic, so the nodes fall into 22 + 2 = 24
+// distinct groupings — the same 24 that `reader-data.json` records as `group`.
 const buildOutlineModel = () => {
   const groups = groupNodes.slice();
   const areaOf = (g) => Number(g.width) * Number(g.height);
@@ -2098,7 +2102,13 @@ const buildCourseOutline = () => {
     const li = document.createElement("li");
     const a = document.createElement("a");
     const slug = slugByNodeId.get(node.id);
-    a.href = `?focus=${encodeURIComponent(slug || node.id)}`;
+    // Preserve the rest of the query (notably ?canvas=), so opening or copying a
+    // link on an alternate canvas does not land on the default map, where the
+    // node may not exist. The click handler below keeps same-tab use instant.
+    const href = new URL(window.location.href);
+    href.searchParams.set("focus", slug || node.id);
+    href.hash = "";
+    a.href = `${href.pathname}${href.search}`;
     a.textContent = getNodeLabel(node.id);        // textContent, never innerHTML
     a.addEventListener("click", (event) => {
       // Drive the real map instead of reloading the page.
