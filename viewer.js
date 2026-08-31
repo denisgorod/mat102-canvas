@@ -579,6 +579,16 @@ let edgeLabelsSetFocus = null;
 let edgeLabelsRefresh = null;
 let lodKick = null; // set by the LOD controller; wakes the band loop on programmatic zoom
 let crossMapOnFocus = null; // set by the cross-map bridge; retargets the jump button on focus
+// Announce view changes to assistive technology via the polite live region in
+// index.html. Declared here because focus handling below calls it.
+const announceFocus = (text) => {
+  const el = document.getElementById("focus-announcer");
+  if (el) el.textContent = text;
+};
+
+const prefersReducedMotion = () =>
+  window.matchMedia?.("(prefers-reduced-motion: reduce)").matches === true;
+
 const overlayNodeTypeClasses = ["node-type-text", "node-type-file", "node-type-group", "node-type-link"];
 const groupNodes = canvasJSON.nodes.filter((node) => node.type === "group");
 const collapsedGroupIds = new Set();
@@ -696,6 +706,9 @@ const ensureOutgoingPanel = () => {
 
   const panel = document.createElement("aside");
   panel.className = "outgoing-panel";
+  panel.setAttribute("role", "region");
+  panel.setAttribute("aria-label", "Questions leading on from the focused node");
+  panel.setAttribute("tabindex", "-1");   // focusable as a target, not in the tab order
   panel.innerHTML = `
     <div class="outgoing-header">
       <button type="button" class="outgoing-back" aria-label="Back to previous node">Back</button>
@@ -755,8 +768,12 @@ const ensureOutgoingPanel = () => {
 const activateFocusedNode = (nodeId, { recordHistory = true } = {}) => {
   if (!nodeId) {
     setFocusedNode(null);
+    announceFocus("");
     return;
   }
+
+  // Focusing a node changes the whole view; without this it happens silently.
+  announceFocus(getNodeLabel(nodeId));
 
   if (recordHistory && focusState.nodeId && focusState.nodeId !== nodeId) {
     const lastHistoryNode = focusState.history[focusState.history.length - 1];
@@ -979,7 +996,9 @@ const smoothPanToNode = (nodeId, options = {}) => {
   cancelPanAnimation();
   lodKick?.(); // the pan animates the scale each frame — keep the LOD loop awake for it
 
-  const durationMs = options.durationMs ?? 520;
+  // A camera pan on every focus change is exactly the motion a reduced-motion
+  // preference asks us to drop; jump straight to the target instead.
+  const durationMs = prefersReducedMotion() ? 0 : (options.durationMs ?? 520);
   const { scale: startScale, offsetX: startOffsetX, offsetY: startOffsetY } = start;
   const targetViewport = focusViewportForNode(targetNode, { mode: options.mode });
   const finalViewport = snapViewportForCrispText(targetViewport);
@@ -1986,3 +2005,158 @@ if (camera.available) {
   kickLod();   // …then settle to the load-time scale and stop.
 }
 
+
+// ---------------------------------------------------------------------------
+// Accessibility: a parallel text view of the graph.
+//
+// The map is a <canvas> plus absolutely-positioned overlays, and the LOD system
+// hides those overlays with `display: none` below the content band — which
+// removes them from the accessibility tree too. Measured at the default zoom,
+// that left 0 of 351 nodes reachable: a screen-reader user got an unlabelled
+// canvas and nothing else.
+//
+// Rather than make the pan/zoom canvas itself conformant (a much larger change,
+// tracked separately), this builds the same graph as a nested, always-present
+// list: subject → topic → node, every node a link that drives the real camera.
+// It is visually hidden, never display:none.
+// ---------------------------------------------------------------------------
+
+// Label the drawing surface. It carries no accessible text of its own, and the
+// outline below is the real content, so name it rather than leave it anonymous.
+const labelCanvasLayer = () => {
+  canvasRoot.querySelectorAll("canvas").forEach((c) => {
+    if (!c.hasAttribute("aria-label")) {
+      c.setAttribute("role", "img");
+      c.setAttribute("aria-label",
+        "Visual rendering of the inquiry map. The same content is available as text in the course outline.");
+    }
+  });
+};
+
+// Group containment. The canvas nests one level: a handful of subject groups,
+// each holding topic groups, each holding file nodes. Rather than classify the
+// groups, take each node's owning groups and read the largest as its subject and
+// the smallest as its topic — which needs no assumption about nesting depth and
+// reproduces exactly the 24 groups `reader-data.json` records.
+const buildOutlineModel = () => {
+  const groups = groupNodes.slice();
+  const areaOf = (g) => Number(g.width) * Number(g.height);
+  const byPosition = (a, b) => (Number(a.y) - Number(b.y)) || (Number(a.x) - Number(b.x));
+
+  const subjects = new Map();   // label -> { label, order, topics: Map }
+  const OTHER = "Other";
+
+  canvasJSON.nodes
+    .filter((n) => n.type === "file")
+    .sort(byPosition)
+    .forEach((node) => {
+      const owners = groups.filter((g) => isNodeInsideGroup(node, g)).sort((a, b) => areaOf(a) - areaOf(b));
+      const subjectGroup = owners.length ? owners[owners.length - 1] : null;
+      const topicGroup = owners.length ? owners[0] : null;
+      const subjectLabel = subjectGroup?.label || OTHER;
+      // One owner means the node sits directly in its subject with no topic.
+      const topicLabel = topicGroup && topicGroup !== subjectGroup ? (topicGroup.label || "Untitled topic") : null;
+
+      if (!subjects.has(subjectLabel)) {
+        subjects.set(subjectLabel, {
+          label: subjectLabel,
+          order: subjectGroup ? Number(subjectGroup.y) : Number.MAX_SAFE_INTEGER,
+          direct: [],
+          topics: new Map(),
+        });
+      }
+      const subject = subjects.get(subjectLabel);
+      if (!topicLabel) {
+        subject.direct.push(node);
+        return;
+      }
+      if (!subject.topics.has(topicLabel)) {
+        subject.topics.set(topicLabel, { label: topicLabel, order: Number(topicGroup.x), nodes: [] });
+      }
+      subject.topics.get(topicLabel).nodes.push(node);
+    });
+
+  return [...subjects.values()]
+    .sort((a, b) => a.order - b.order)
+    .map((s) => ({
+      label: s.label,
+      direct: s.direct,
+      topics: [...s.topics.values()].sort((a, b) => a.order - b.order),
+    }));
+};
+
+const buildCourseOutline = () => {
+  const nav = document.getElementById("course-outline");
+  if (!nav) return;
+
+  const model = buildOutlineModel();
+  const total = model.reduce(
+    (n, s) => n + s.direct.length + s.topics.reduce((m, t) => m + t.nodes.length, 0), 0);
+  if (!total) return;   // nothing to offer; leave the nav hidden
+
+  const nodeLink = (node) => {
+    const li = document.createElement("li");
+    const a = document.createElement("a");
+    const slug = slugByNodeId.get(node.id);
+    a.href = `?focus=${encodeURIComponent(slug || node.id)}`;
+    a.textContent = getNodeLabel(node.id);        // textContent, never innerHTML
+    a.addEventListener("click", (event) => {
+      // Drive the real map instead of reloading the page.
+      event.preventDefault();
+      try { smoothPanToNode(node.id, { mode: "fit" }); }
+      catch { focusNode(node.id, { mode: "fit" }); }
+      announceFocus(`${getNodeLabel(node.id)}. Focused on the map.`);
+    });
+    li.appendChild(a);
+    return li;
+  };
+
+  const frag = document.createDocumentFragment();
+  const h2 = document.createElement("h2");
+  h2.textContent = "Course outline";
+  frag.appendChild(h2);
+
+  const intro = document.createElement("p");
+  intro.textContent =
+    `${total} nodes across ${model.length} sections. Activating a node focuses it on the map. `
+    + "The reader at ?mode=reader presents the same material as continuous text.";
+  frag.appendChild(intro);
+
+  const subjectList = document.createElement("ul");
+  model.forEach((subject) => {
+    const sLi = document.createElement("li");
+    const sH = document.createElement("h3");
+    sH.textContent = subject.label;
+    sLi.appendChild(sH);
+
+    if (subject.direct.length) {
+      const ul = document.createElement("ul");
+      subject.direct.forEach((n) => ul.appendChild(nodeLink(n)));
+      sLi.appendChild(ul);
+    }
+
+    subject.topics.forEach((topic) => {
+      const tH = document.createElement("h4");
+      tH.textContent = topic.label;
+      sLi.appendChild(tH);
+      const ul = document.createElement("ul");
+      topic.nodes.forEach((n) => ul.appendChild(nodeLink(n)));
+      sLi.appendChild(ul);
+    });
+
+    subjectList.appendChild(sLi);
+  });
+  frag.appendChild(subjectList);
+
+  nav.textContent = "";
+  nav.appendChild(frag);
+  nav.hidden = false;
+};
+
+try {
+  labelCanvasLayer();
+  buildCourseOutline();
+} catch (error) {
+  // The outline is an enhancement: never let it take the map down with it.
+  console.warn("Course outline unavailable:", error);
+}

@@ -146,6 +146,61 @@ try {
     ov.present && ov.isError && /404/.test(ov.message || ""), JSON.stringify(ov));
   await page.close();
 
+  // --- 6. accessibility guarantees -------------------------------------
+  // The map draws to a canvas and hides node overlays with display:none below
+  // the content band, so the outline is the only thing assistive technology can
+  // reach. These assertions exist because that was measured at zero.
+  page = await open(BASE);
+  const a11y = await page.evaluate(() => {
+    const nav = document.getElementById("course-outline");
+    const links = nav ? [...nav.querySelectorAll("a")] : [];
+    return {
+      hasMain: !!document.querySelector("main"),
+      hasH1: !!document.querySelector("h1"),
+      title: document.title,
+      outlineExists: !!nav,
+      // display:none would remove it from the accessibility tree — the whole bug.
+      outlineDisplay: nav ? getComputedStyle(nav).display : null,
+      outlineHidden: nav ? nav.hidden : null,
+      linkCount: links.length,
+      emptyLinkLabels: links.filter((a) => !a.textContent.trim()).length,
+      liveRegion: !!document.querySelector('[aria-live="polite"]'),
+      skipLink: !!document.querySelector("a.skip-link"),
+      unlabelledCanvas: [...document.querySelectorAll("canvas")]
+        .filter((c) => !c.getAttribute("aria-label") && !c.getAttribute("role")).length,
+      panelLabelled: (() => {
+        const p = document.querySelector(".outgoing-panel");
+        return !p || !!(p.getAttribute("aria-label") || p.getAttribute("role"));
+      })(),
+    };
+  });
+  const canvasFileNodes = JSON.parse(
+    await readFile(join(ROOT, "MAT102.canvas"), "utf8")).nodes.filter((n) => n.type === "file").length;
+
+  check("a11y: page has a main landmark and an h1", a11y.hasMain && a11y.hasH1, JSON.stringify(a11y));
+  check("a11y: document title names the map", /MAT102/i.test(a11y.title), a11y.title);
+  check("a11y: skip link present", a11y.skipLink);
+  check("a11y: outline is in the accessibility tree (not display:none)",
+    a11y.outlineExists && a11y.outlineHidden === false && a11y.outlineDisplay !== "none",
+    JSON.stringify(a11y));
+  check("a11y: every canvas node is reachable in the outline",
+    a11y.linkCount === canvasFileNodes, `outline ${a11y.linkCount} vs canvas ${canvasFileNodes}`);
+  check("a11y: no outline link is unlabelled", a11y.emptyLinkLabels === 0, `${a11y.emptyLinkLabels} empty`);
+  check("a11y: live region present for focus announcements", a11y.liveRegion);
+  check("a11y: drawing canvas is labelled", a11y.unlabelledCanvas === 0, `${a11y.unlabelledCanvas} unlabelled`);
+
+  // Activating an outline entry must drive the real map, not just be a link.
+  await page.evaluate(() => document.querySelector("#course-outline a")?.click());
+  await page.waitForTimeout(1500);
+  const drove = await page.evaluate(() => ({
+    panel: document.querySelectorAll(".outgoing-panel.is-visible").length,
+    announced: (document.getElementById("focus-announcer")?.textContent || "").trim(),
+  }));
+  check("a11y: outline entry focuses the node and announces it",
+    drove.panel === 1 && drove.announced.length > 0, JSON.stringify(drove));
+  check("a11y: outgoing panel is labelled", a11y.panelLabelled);
+  await page.close();
+
   check("no uncaught page errors", pageErrors.length === 0, pageErrors.join(" | "));
 } finally {
   await browser.close();

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Canvas Viewer</title>
+  <title>MAT102 inquiry map</title>
   <style>
     :root {
       --obs-font-text: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -56,6 +56,57 @@
       background: #3b82f6;
       border-radius: 999px;
       transition: width 0.15s ease;
+    }
+
+    /* --- Accessibility -------------------------------------------------
+       The map draws to a canvas and hides node overlays with display:none
+       below the content band, so neither is reachable by assistive tech.
+       The outline below is a parallel, always-present text view of the same
+       graph: visually hidden (never display:none, which would remove it from
+       the accessibility tree as well) but fully navigable. */
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      margin: -1px; padding: 0; border: 0;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+
+    /* The skip link is the one sr-only element that reveals itself on focus. */
+    .skip-link:focus {
+      position: fixed;
+      top: 12px; left: 12px;
+      width: auto; height: auto;
+      margin: 0; padding: 10px 16px;
+      clip: auto; clip-path: none;
+      background: #0f1117; color: #fff;
+      border-radius: 8px; font: 600 14px system-ui, sans-serif;
+      z-index: 10000;
+    }
+
+    /* A visible focus indicator everywhere. Keyboard users could previously
+       not see where they were: the tiles computed outline:none. */
+    :focus-visible {
+      outline: 3px solid #2563eb;
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    #course-outline a:focus-visible,
+    #course-outline summary:focus-visible { outline-offset: 0; }
+
+    /* Honour a reduced-motion preference: the map animates a camera pan on
+       every focus change, which is exactly the kind of motion this disables.
+       The camera duration is also zeroed in viewer.js. */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
     }
 
     /* Failure state: the overlay is removed only on a successful load, so any
@@ -747,7 +798,21 @@
   </div>
 </div>
 
-<div id="canvas-root"></div>
+<a class="sr-only skip-link" href="#course-outline">Skip to the course outline</a>
+
+<main id="map-main">
+  <h1 class="sr-only">MAT102 inquiry map</h1>
+
+  <!-- Populated by viewer.js from the canvas once it loads. Kept in the document
+       (not display:none) so screen readers and keyboard users can reach every
+       node even at zoom levels where the visual overlays are hidden. -->
+  <nav id="course-outline" class="sr-only" aria-label="Course outline" hidden></nav>
+
+  <!-- Announces focus changes, which are otherwise silent to a screen reader. -->
+  <div id="focus-announcer" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <div id="canvas-root"></div>
+</main>
 
 <script>
   window.MathJax = {
