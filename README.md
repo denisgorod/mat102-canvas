@@ -132,10 +132,18 @@ node tools/build-content-bundle.mjs
 ### Checks
 
 ```bash
-python3 tools/check-sync.py        # canvas ⇄ frontmatter edge parity
-cd tools && npm install            # once, for the browser test
-node tools/smoke-test.mjs          # drives real Chromium against the real page
+python3 tools/check-sync.py     # canvas ⇄ frontmatter edge parity
+
+# Once, to provision the browser test. Installing the package does not fetch a
+# browser, so the second command is required; CI does the same with --with-deps,
+# which also pulls the system libraries a bare runner lacks.
+(cd tools && npm install && npx playwright install chromium)
+
+node tools/smoke-test.mjs       # drives real Chromium against the real page
 ```
+
+Run each block from the repository root. `SMOKE_CHROME=/path/to/chrome` overrides
+the browser if you already have one.
 
 The smoke test starts its own HTTP server and asserts what the content pipeline cannot see: the map
 renders its nodes, a `?focus=` deep-link opens the panel, an alternate `?canvas=` loads, the reader

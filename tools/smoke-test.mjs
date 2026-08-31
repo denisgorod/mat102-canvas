@@ -82,6 +82,7 @@ const overlayState = (page) => page.evaluate(() => {
   return {
     present: !!ov,
     isError: ov ? ov.classList.contains("is-error") : false,
+    opacity: ov ? getComputedStyle(ov).opacity : null,
     message: document.getElementById("loading-error-msg")?.textContent || null,
   };
 });
@@ -104,7 +105,11 @@ try {
   // --- 1. the inquiry map renders ---------------------------------------
   let page = await open(BASE);
   let ov = await overlayState(page);
-  check("inquiry map: startup completes (no stuck overlay)", !ov.present || !ov.isError, JSON.stringify(ov));
+  // Success means the overlay is gone (or fully faded) AND not showing an error.
+  // Asserting `!present || !isError` would pass on a stuck spinner, which is the
+  // one thing this check exists to catch.
+  const dismissed = (o) => (!o.present || o.opacity === "0") && !o.isError;
+  check("inquiry map: startup completes (overlay dismissed)", dismissed(ov), JSON.stringify(ov));
   const nodeCount = await page.locator(".JCV-overlay-container").count();
   check("inquiry map: nodes render", nodeCount > 300, `rendered ${nodeCount}`);
   const edgeCanvas = await page.locator("canvas").count();
@@ -124,12 +129,14 @@ try {
   // --- 3. an alternate canvas loads (?canvas=) --------------------------
   page = await open(`${BASE}?canvas=Talk.canvas&focus=forced-inquiry`, { waitPanel: true });
   check("alternate canvas: Talk.canvas focuses", await page.locator(".outgoing-panel.is-visible").count() === 1);
+  check("alternate canvas: overlay dismissed", dismissed(await overlayState(page)));
   await page.close();
 
   // --- 4. the reader boots ---------------------------------------------
   page = await open(`${BASE}?mode=reader`);
   const readerRoot = await page.locator("#reader-root").count();
   check("reader: boots and renders its root", readerRoot === 1);
+  check("reader: overlay dismissed", dismissed(await overlayState(page)));
   await page.close();
 
   // --- 5. a missing canvas explains itself instead of spinning forever --

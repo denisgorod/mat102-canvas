@@ -120,6 +120,19 @@ if (typeof store.trailPos !== "number") store.trailPos = store.trail.length - 1;
 store.srs ||= {};          // exerciseSlug -> { box, due, reps, lapses, last }
 const save = () => localStorage.setItem(STORE_KEY, JSON.stringify(store));
 
+// Migration. Until drills were archived, the auto-graded items were scheduled in
+// this same map under keys like `drill:<bit>:<id>`. Those no longer resolve to
+// anything: left in place they inflate the review badge forever and surface an
+// empty card when they come due. Drop every key that is not a current exercise
+// (this also clears entries for exercises that have since been renamed away).
+{
+  const stale = Object.keys(store.srs).filter((k) => NODES[k]?.role !== "exercise");
+  if (stale.length) {
+    for (const k of stale) delete store.srs[k];
+    save();
+  }
+}
+
 // ?start=<slug> (e.g. arriving from the map) wins over the saved resume point.
 const START = params.get("start");
 let current = (START && NODES[START]) ? START : (NODES[store.last] ? store.last : ROOT);
@@ -157,7 +170,6 @@ function rateExercise(slug, gotIt) {
 // ---------------------------------------------------------------------------
 // DOM + styles
 // ---------------------------------------------------------------------------
-document.getElementById("loading-overlay")?.remove();
 const canvasRoot = document.getElementById("canvas-root");
 if (canvasRoot) canvasRoot.style.display = "none";
 document.documentElement.style.overflow = "auto";

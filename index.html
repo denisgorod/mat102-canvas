@@ -774,8 +774,23 @@
       if (shown) return;
       shown = true;
       var overlay = document.getElementById("loading-overlay");
-      var content = document.getElementById("loading-content");
-      if (!overlay || !content) return;
+      var content = overlay && document.getElementById("loading-content");
+      if (!overlay) {
+        // The overlay may already be gone (dismissed, or removed by a module).
+        // Rebuild it rather than fail silently — a blank page with no message is
+        // the outcome this handler exists to prevent.
+        overlay = document.createElement("div");
+        overlay.id = "loading-overlay";
+        content = document.createElement("div");
+        content.id = "loading-content";
+        overlay.appendChild(content);
+        document.body.appendChild(overlay);
+      } else if (!content) {
+        content = document.createElement("div");
+        content.id = "loading-content";
+        overlay.appendChild(content);
+      }
+      overlay.style.transition = "none";   // cancel any in-flight fade-out
       overlay.style.opacity = "1";
       overlay.classList.add("is-error");
       content.classList.add("is-error");
@@ -804,6 +819,16 @@
   // Route by mode: ?mode=reader loads the reader-first prototype; default is the canvas viewer.
   const mode = new URLSearchParams(window.location.search).get("mode");
   import(mode === "reader" ? "./reader.js" : "./viewer.js")
+    .then(() => {
+      // Success, and only now: the entry module evaluated without throwing, so the
+      // overlay has no further failure to report and can be dismissed.
+      const overlay = document.getElementById("loading-overlay");
+      if (!overlay || overlay.classList.contains("is-error")) return;
+      overlay.style.opacity = "0";
+      overlay.addEventListener("transitionend", () => {
+        if (!overlay.classList.contains("is-error")) overlay.remove();
+      }, { once: true });
+    })
     .catch((err) => window.__showLoadFailure(err && err.message ? err.message : err));
 </script>
 
