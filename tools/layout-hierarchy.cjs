@@ -29,9 +29,11 @@ const ELK = require("elkjs/lib/elk.bundled.js");
 const elk = new ELK();
 
 const ROOT = path.join(__dirname, "..");
-const DATA = path.join(ROOT, "hierarchy-data.json");
-const INQUIRY = path.join(ROOT, "MAT102.canvas");
-const OUT = path.join(ROOT, "MAT102-review.canvas");
+// Paths are overridable so the layout can be exercised on a fixture (see the
+// multi-subject check in tools/smoke-test.mjs) without touching the real map.
+const DATA = process.env.HIERARCHY_DATA || path.join(ROOT, "hierarchy-data.json");
+const INQUIRY = process.env.INQUIRY_CANVAS || path.join(ROOT, "MAT102.canvas");
+const OUT = process.env.REVIEW_OUT || path.join(ROOT, "MAT102-review.canvas");
 
 const NODE_W = 540, NODE_H = 360;
 const NODE_GAP = 55;             // siblings within a layer

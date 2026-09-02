@@ -4,7 +4,7 @@ title: "General solution"
 role: theorem
 subject: number-theory
 topic: diophantine-equations
-statement: "If (x₀, y₀) is one solution of ax + by = c and d = gcd(a, b), then every solution is x = x₀ + (b/d)t, y = y₀ − (a/d)t for t ∈ ℤ."
+statement: "For a, b nonzero with d = gcd(a, b): if (x₀, y₀) solves ax + by = c, every solution is x = x₀ + (b/d)t, y = y₀ − (a/d)t for t ∈ ℤ."
 depends_on: [lde-solvable]
 ---
 >[!t] Theorem

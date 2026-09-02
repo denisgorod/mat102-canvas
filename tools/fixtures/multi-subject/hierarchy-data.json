@@ -1,0 +1,54 @@
+{
+	"nodes": {
+		"a1": {
+			"title": "A1",
+			"role": "definition",
+			"subject": "alpha",
+			"topic": "zeta-first",
+			"statement": "fixture",
+			"file": "Fixture/x.md",
+			"depends_on": [],
+			"inquiry_sources": []
+		},
+		"a2": {
+			"title": "A2",
+			"role": "definition",
+			"subject": "alpha",
+			"topic": "alpha-second",
+			"statement": "fixture",
+			"file": "Fixture/x.md",
+			"depends_on": [],
+			"inquiry_sources": []
+		},
+		"b1": {
+			"title": "B1",
+			"role": "definition",
+			"subject": "beta",
+			"topic": "mu-first",
+			"statement": "fixture",
+			"file": "Fixture/x.md",
+			"depends_on": [],
+			"inquiry_sources": []
+		},
+		"b2": {
+			"title": "B2",
+			"role": "definition",
+			"subject": "beta",
+			"topic": "beta-second",
+			"statement": "fixture",
+			"file": "Fixture/x.md",
+			"depends_on": [],
+			"inquiry_sources": []
+		}
+	},
+	"edges": [
+		{
+			"from": "a1",
+			"to": "a2"
+		},
+		{
+			"from": "b1",
+			"to": "b2"
+		}
+	]
+}
