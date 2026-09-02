@@ -5,7 +5,7 @@ role: definition
 subject: number-theory
 topic: modular-arithmetic
 statement: "a ≡ b (mod n) means n ∣ (b − a); equivalently, a and b leave the same remainder on division by n."
-depends_on: []
+depends_on: [div-def, gcd-division-algorithm]
 ---
 >[!d] Definition
 > Let $n \in \mathbb{Z}^{+}$. For $a, b \in \mathbb{Z}$, we say $a$ is **congruent to** $b$ **modulo** $n$, written

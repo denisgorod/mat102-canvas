@@ -5,6 +5,7 @@ role: bit
 group: diophantine-equations
 curriculum_path: null
 learning_objectives: []
+concludes: lde-solvable
 children:
   - id: lde-particular-solution
     question: "How do I actually find a solution?"

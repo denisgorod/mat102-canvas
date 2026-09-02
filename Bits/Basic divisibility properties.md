@@ -5,6 +5,7 @@ role: bit
 group: divisibility
 curriculum_path: null
 learning_objectives: []
+concludes: div-properties
 children:
   - id: well-ordering-principle
     question: "What foundational property of Z⁺ helps prove deeper results?"

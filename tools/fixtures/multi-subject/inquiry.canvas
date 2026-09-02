@@ -1,0 +1,16 @@
+{
+	"nodes": [
+		{ "id": "subject-alpha", "type": "group", "label": "Alpha", "x": 200, "y": 200, "width": 3000, "height": 1100 },
+		{ "id": "topic-zeta", "type": "group", "label": "Zeta First", "x": 340, "y": 290, "width": 800, "height": 700 },
+		{ "id": "topic-alpha2", "type": "group", "label": "Alpha Second", "x": 1334, "y": 290, "width": 800, "height": 700 },
+		{ "id": "file-a1", "type": "file", "file": "Fixture/a1.md", "x": 400, "y": 360, "width": 500, "height": 400 },
+		{ "id": "file-a2", "type": "file", "file": "Fixture/a2.md", "x": 1394, "y": 360, "width": 500, "height": 400 },
+
+		{ "id": "subject-beta", "type": "group", "label": "Beta", "x": 200, "y": 1600, "width": 3000, "height": 1100 },
+		{ "id": "topic-mu", "type": "group", "label": "Mu First", "x": 340, "y": 1690, "width": 800, "height": 700 },
+		{ "id": "topic-beta2", "type": "group", "label": "Beta Second", "x": 1334, "y": 1690, "width": 800, "height": 700 },
+		{ "id": "file-b1", "type": "file", "file": "Fixture/b1.md", "x": 400, "y": 1760, "width": 500, "height": 400 },
+		{ "id": "file-b2", "type": "file", "file": "Fixture/b2.md", "x": 1394, "y": 1760, "width": 500, "height": 400 }
+	],
+	"edges": []
+}

@@ -1,5 +1,178 @@
 {
 	"nodes": {
+		"div-def": {
+			"title": "Divisibility",
+			"role": "definition",
+			"subject": "number-theory",
+			"topic": "divisibility",
+			"statement": "For a, b ∈ ℤ, a ∣ b means there is k ∈ ℤ with b = ak; a is then a divisor of b.",
+			"file": "Hierarchy/div-def.md",
+			"depends_on": [],
+			"inquiry_sources": [
+				"divisibility-definition"
+			]
+		},
+		"div-properties": {
+			"title": "Basic properties of divisibility",
+			"role": "theorem",
+			"subject": "number-theory",
+			"topic": "divisibility",
+			"statement": "Divisibility is transitive, and if a ∣ b and a ∣ c then a ∣ (bx + cy) for all x, y ∈ ℤ.",
+			"file": "Hierarchy/div-properties.md",
+			"depends_on": [
+				"div-def"
+			],
+			"inquiry_sources": [
+				"basic-divisibility-properties"
+			]
+		},
+		"gcd-bezout-cor": {
+			"title": "Consequences of Bézout",
+			"role": "theorem",
+			"subject": "number-theory",
+			"topic": "gcd-and-euclidean-algorithm",
+			"statement": "If d ∣ a and d ∣ b then d ∣ gcd(a, b); a and b are coprime iff au + bv = 1 for some u, v; and if gcd(a, b) = 1 with a ∣ bc then a ∣ c.",
+			"file": "Hierarchy/gcd-bezout-cor.md",
+			"depends_on": [
+				"gcd-bezout",
+				"div-properties"
+			],
+			"inquiry_sources": [
+				"bezout-corollaries",
+				"coprime-divides-product"
+			]
+		},
+		"gcd-bezout": {
+			"title": "Bézout's Identity",
+			"role": "theorem",
+			"subject": "number-theory",
+			"topic": "gcd-and-euclidean-algorithm",
+			"statement": "For a, b not both zero there exist u, v ∈ ℤ with au + bv = gcd(a, b); indeed gcd(a, b) is the least positive integer of that form.",
+			"file": "Hierarchy/gcd-bezout.md",
+			"depends_on": [
+				"gcd-wop",
+				"gcd-def"
+			],
+			"inquiry_sources": [
+				"back-substitution",
+				"bezouts-identity"
+			]
+		},
+		"gcd-def": {
+			"title": "Greatest common divisor and coprimality",
+			"role": "definition",
+			"subject": "number-theory",
+			"topic": "gcd-and-euclidean-algorithm",
+			"statement": "gcd(a, b) is the largest integer dividing both a and b (not both zero); a and b are coprime when gcd(a, b) = 1.",
+			"file": "Hierarchy/gcd-def.md",
+			"depends_on": [
+				"div-def"
+			],
+			"inquiry_sources": [
+				"gcd-definition"
+			]
+		},
+		"gcd-division-algorithm": {
+			"title": "Division Algorithm",
+			"role": "theorem",
+			"subject": "number-theory",
+			"topic": "gcd-and-euclidean-algorithm",
+			"statement": "For a ∈ ℤ and b ∈ ℤ⁺ there exist unique q, r ∈ ℤ with a = qb + r and 0 ≤ r < b.",
+			"file": "Hierarchy/gcd-division-algorithm.md",
+			"depends_on": [
+				"gcd-wop"
+			],
+			"inquiry_sources": [
+				"case-analysis-via-remainders",
+				"division-algorithm"
+			]
+		},
+		"gcd-euclidean": {
+			"title": "Euclidean Algorithm",
+			"role": "application",
+			"subject": "number-theory",
+			"topic": "gcd-and-euclidean-algorithm",
+			"statement": "gcd(a, b) = gcd(b, a mod b); iterating the division algorithm terminates at the last non-zero remainder, which is gcd(a, b).",
+			"file": "Hierarchy/gcd-euclidean.md",
+			"depends_on": [
+				"gcd-division-algorithm",
+				"gcd-def"
+			],
+			"inquiry_sources": [
+				"euclidean-algorithm",
+				"gcd-respects-remainders"
+			]
+		},
+		"gcd-wop": {
+			"title": "Well-Ordering Principle",
+			"role": "theorem",
+			"subject": "number-theory",
+			"topic": "gcd-and-euclidean-algorithm",
+			"statement": "Every non-empty set of non-negative integers has a least element.",
+			"file": "Hierarchy/gcd-wop.md",
+			"depends_on": [],
+			"inquiry_sources": [
+				"well-ordering-principle"
+			]
+		},
+		"lde-def": {
+			"title": "Linear Diophantine equations",
+			"role": "definition",
+			"subject": "number-theory",
+			"topic": "diophantine-equations",
+			"statement": "A linear Diophantine equation is ax + by = c with a, b, c ∈ ℤ, to be solved for integers x and y.",
+			"file": "Hierarchy/lde-def.md",
+			"depends_on": [
+				"div-def"
+			],
+			"inquiry_sources": [
+				"linear-diophantine-equation"
+			]
+		},
+		"lde-general": {
+			"title": "General solution",
+			"role": "theorem",
+			"subject": "number-theory",
+			"topic": "diophantine-equations",
+			"statement": "For a, b nonzero with d = gcd(a, b): if (x₀, y₀) solves ax + by = c, every solution is x = x₀ + (b/d)t, y = y₀ − (a/d)t for t ∈ ℤ.",
+			"file": "Hierarchy/lde-general.md",
+			"depends_on": [
+				"lde-solvable"
+			],
+			"inquiry_sources": [
+				"lde-general-solution"
+			]
+		},
+		"lde-nonneg": {
+			"title": "Non-negative solutions",
+			"role": "application",
+			"subject": "number-theory",
+			"topic": "diophantine-equations",
+			"statement": "Requiring x, y ≥ 0 restricts the parameter t to an interval, so a solvable equation may still have no, finitely many, or infinitely many non-negative solutions.",
+			"file": "Hierarchy/lde-nonneg.md",
+			"depends_on": [
+				"lde-general"
+			],
+			"inquiry_sources": [
+				"lde-non-negative-solutions"
+			]
+		},
+		"lde-solvable": {
+			"title": "Solvability criterion",
+			"role": "theorem",
+			"subject": "number-theory",
+			"topic": "diophantine-equations",
+			"statement": "ax + by = c has an integer solution if and only if gcd(a, b) divides c.",
+			"file": "Hierarchy/lde-solvable.md",
+			"depends_on": [
+				"lde-def",
+				"gcd-bezout-cor"
+			],
+			"inquiry_sources": [
+				"lde-particular-solution",
+				"lde-solvability"
+			]
+		},
 		"mod-arithmetic": {
 			"title": "Arithmetic of congruences",
 			"role": "objective",
@@ -21,7 +194,10 @@
 			"topic": "modular-arithmetic",
 			"statement": "a ≡ b (mod n) means n ∣ (b − a); equivalently, a and b leave the same remainder on division by n.",
 			"file": "Hierarchy/mod-congruence-def.md",
-			"depends_on": [],
+			"depends_on": [
+				"div-def",
+				"gcd-division-algorithm"
+			],
 			"inquiry_sources": [
 				"congruence-mod-n"
 			]
@@ -48,7 +224,8 @@
 			"statement": "[a] is invertible in ℤₙ iff gcd(a,n)=1; the inverse is computed from a Bézout identity au+nv=1.",
 			"file": "Hierarchy/mod-inverses.md",
 			"depends_on": [
-				"mod-zn"
+				"mod-zn",
+				"gcd-bezout"
 			],
 			"inquiry_sources": [
 				"multiplicative-inverses-in-zp"
@@ -81,12 +258,136 @@
 			"inquiry_sources": [
 				"congruence-classes-and-zn"
 			]
+		},
+		"prime-def": {
+			"title": "Prime and composite integers",
+			"role": "definition",
+			"subject": "number-theory",
+			"topic": "primes",
+			"statement": "An integer p > 1 is prime when its only positive divisors are 1 and p; an integer n > 1 that is not prime is composite.",
+			"file": "Hierarchy/prime-def.md",
+			"depends_on": [
+				"div-def"
+			],
+			"inquiry_sources": [
+				"prime-definition"
+			]
+		},
+		"prime-euclid-lemma": {
+			"title": "Euclid's Lemma",
+			"role": "theorem",
+			"subject": "number-theory",
+			"topic": "primes",
+			"statement": "If p is prime and p ∣ ab, then p ∣ a or p ∣ b.",
+			"file": "Hierarchy/prime-euclid-lemma.md",
+			"depends_on": [
+				"prime-def",
+				"gcd-bezout-cor"
+			],
+			"inquiry_sources": [
+				"prime-divisibility-property"
+			]
+		},
+		"prime-fta": {
+			"title": "Fundamental Theorem of Arithmetic",
+			"role": "theorem",
+			"subject": "number-theory",
+			"topic": "primes",
+			"statement": "Every integer n > 1 is a product of primes, and that factorisation is unique up to the order of the factors.",
+			"file": "Hierarchy/prime-fta.md",
+			"depends_on": [
+				"prime-euclid-lemma",
+				"gcd-wop"
+			],
+			"inquiry_sources": [
+				"fta-existence",
+				"fta-uniqueness",
+				"irrationality-via-fta"
+			]
+		},
+		"prime-infinitude": {
+			"title": "Infinitude of the primes",
+			"role": "theorem",
+			"subject": "number-theory",
+			"topic": "primes",
+			"statement": "There are infinitely many primes.",
+			"file": "Hierarchy/prime-infinitude.md",
+			"depends_on": [
+				"prime-fta"
+			],
+			"inquiry_sources": [
+				"infinitely-many-primes"
+			]
 		}
 	},
 	"edges": [
 		{
+			"from": "div-def",
+			"to": "div-properties"
+		},
+		{
+			"from": "gcd-bezout",
+			"to": "gcd-bezout-cor"
+		},
+		{
+			"from": "div-properties",
+			"to": "gcd-bezout-cor"
+		},
+		{
+			"from": "gcd-wop",
+			"to": "gcd-bezout"
+		},
+		{
+			"from": "gcd-def",
+			"to": "gcd-bezout"
+		},
+		{
+			"from": "div-def",
+			"to": "gcd-def"
+		},
+		{
+			"from": "gcd-wop",
+			"to": "gcd-division-algorithm"
+		},
+		{
+			"from": "gcd-division-algorithm",
+			"to": "gcd-euclidean"
+		},
+		{
+			"from": "gcd-def",
+			"to": "gcd-euclidean"
+		},
+		{
+			"from": "div-def",
+			"to": "lde-def"
+		},
+		{
+			"from": "lde-solvable",
+			"to": "lde-general"
+		},
+		{
+			"from": "lde-general",
+			"to": "lde-nonneg"
+		},
+		{
+			"from": "lde-def",
+			"to": "lde-solvable"
+		},
+		{
+			"from": "gcd-bezout-cor",
+			"to": "lde-solvable"
+		},
+		{
 			"from": "mod-equivalence",
 			"to": "mod-arithmetic"
+		},
+		{
+			"from": "div-def",
+			"to": "mod-congruence-def"
+		},
+		{
+			"from": "gcd-division-algorithm",
+			"to": "mod-congruence-def"
 		},
 		{
 			"from": "mod-congruence-def",
@@ -97,12 +398,40 @@
 			"to": "mod-inverses"
 		},
 		{
+			"from": "gcd-bezout",
+			"to": "mod-inverses"
+		},
+		{
 			"from": "mod-arithmetic",
 			"to": "mod-lastdigit"
 		},
 		{
 			"from": "mod-arithmetic",
 			"to": "mod-zn"
+		},
+		{
+			"from": "div-def",
+			"to": "prime-def"
+		},
+		{
+			"from": "prime-def",
+			"to": "prime-euclid-lemma"
+		},
+		{
+			"from": "gcd-bezout-cor",
+			"to": "prime-euclid-lemma"
+		},
+		{
+			"from": "prime-euclid-lemma",
+			"to": "prime-fta"
+		},
+		{
+			"from": "gcd-wop",
+			"to": "prime-fta"
+		},
+		{
+			"from": "prime-fta",
+			"to": "prime-infinitude"
 		}
 	]
 }

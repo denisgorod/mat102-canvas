@@ -34,14 +34,16 @@
 			"role": "bit",
 			"group": "gcd-and-euclidean-algorithm",
 			"curriculum_path": null,
-			"file": "Bits/Back-substitution technique.md"
+			"file": "Bits/Back-substitution technique.md",
+			"concludes": "gcd-bezout"
 		},
 		"basic-divisibility-properties": {
 			"title": "Basic divisibility properties",
 			"role": "bit",
 			"group": "divisibility",
 			"curriculum_path": null,
-			"file": "Bits/Basic divisibility properties.md"
+			"file": "Bits/Basic divisibility properties.md",
+			"concludes": "div-properties"
 		},
 		"basic-group-properties": {
 			"title": "Basic group properties",
@@ -55,14 +57,16 @@
 			"role": "bit",
 			"group": "gcd-and-euclidean-algorithm",
 			"curriculum_path": null,
-			"file": "Bits/Bezout corollaries.md"
+			"file": "Bits/Bezout corollaries.md",
+			"concludes": "gcd-bezout-cor"
 		},
 		"bezouts-identity": {
 			"title": "Bézout's Identity",
 			"role": "bit",
 			"group": "gcd-and-euclidean-algorithm",
 			"curriculum_path": null,
-			"file": "Bits/Bezouts Identity.md"
+			"file": "Bits/Bezouts Identity.md",
+			"concludes": "gcd-bezout"
 		},
 		"bijective-functions": {
 			"title": "Bijective functions",
@@ -111,7 +115,8 @@
 			"role": "bit",
 			"group": "gcd-and-euclidean-algorithm",
 			"curriculum_path": null,
-			"file": "Bits/Case analysis via remainders.md"
+			"file": "Bits/Case analysis via remainders.md",
+			"concludes": "gcd-division-algorithm"
 		},
 		"checking-relation-properties": {
 			"title": "Checking relation properties",
@@ -205,7 +210,8 @@
 			"role": "bit",
 			"group": "diophantine-equations",
 			"curriculum_path": null,
-			"file": "Bits/Coprime divides product.md"
+			"file": "Bits/Coprime divides product.md",
+			"concludes": "gcd-bezout-cor"
 		},
 		"countable-sets": {
 			"title": "Countable sets",
@@ -247,14 +253,16 @@
 			"role": "bit",
 			"group": "divisibility",
 			"curriculum_path": null,
-			"file": "Bits/Divisibility definition.md"
+			"file": "Bits/Divisibility definition.md",
+			"concludes": "div-def"
 		},
 		"division-algorithm": {
 			"title": "Division Algorithm",
 			"role": "bit",
 			"group": "gcd-and-euclidean-algorithm",
 			"curriculum_path": null,
-			"file": "Bits/Division Algorithm.md"
+			"file": "Bits/Division Algorithm.md",
+			"concludes": "gcd-division-algorithm"
 		},
 		"domain-codomain-range": {
 			"title": "Domain, codomain, and range",
@@ -296,7 +304,8 @@
 			"role": "bit",
 			"group": "gcd-and-euclidean-algorithm",
 			"curriculum_path": null,
-			"file": "Bits/Euclidean Algorithm.md"
+			"file": "Bits/Euclidean Algorithm.md",
+			"concludes": "gcd-euclidean"
 		},
 		"ex-four-divides-odd-squared-minus-one": {
 			"title": "4|(n²-1) for odd n",
@@ -1605,14 +1614,16 @@
 			"role": "bit",
 			"group": "primes",
 			"curriculum_path": null,
-			"file": "Bits/FTA existence.md"
+			"file": "Bits/FTA existence.md",
+			"concludes": "prime-fta"
 		},
 		"fta-uniqueness": {
 			"title": "FTA uniqueness",
 			"role": "bit",
 			"group": "primes",
 			"curriculum_path": null,
-			"file": "Bits/FTA uniqueness.md"
+			"file": "Bits/FTA uniqueness.md",
+			"concludes": "prime-fta"
 		},
 		"fermats-little-theorem": {
 			"title": "Fermat's Little Theorem",
@@ -1640,14 +1651,16 @@
 			"role": "bit",
 			"group": "gcd-and-euclidean-algorithm",
 			"curriculum_path": null,
-			"file": "Bits/GCD definition and coprimality.md"
+			"file": "Bits/GCD definition and coprimality.md",
+			"concludes": "gcd-def"
 		},
 		"gcd-respects-remainders": {
 			"title": "GCD respects remainders",
 			"role": "bit",
 			"group": "gcd-and-euclidean-algorithm",
 			"curriculum_path": null,
-			"file": "Bits/GCD respects remainders.md"
+			"file": "Bits/GCD respects remainders.md",
+			"concludes": "gcd-euclidean"
 		},
 		"generality-in-proofs": {
 			"title": "Generality in proofs",
@@ -1745,7 +1758,8 @@
 			"role": "bit",
 			"group": "primes",
 			"curriculum_path": null,
-			"file": "Bits/Infinitely many primes.md"
+			"file": "Bits/Infinitely many primes.md",
+			"concludes": "prime-infinitude"
 		},
 		"injective-functions": {
 			"title": "Injective (one-to-one) functions",
@@ -1780,7 +1794,8 @@
 			"role": "bit",
 			"group": "primes",
 			"curriculum_path": null,
-			"file": "Bits/Irrationality via FTA.md"
+			"file": "Bits/Irrationality via FTA.md",
+			"concludes": "prime-fta"
 		},
 		"isomorphism-definition": {
 			"title": "Isomorphism definition",
@@ -1815,28 +1830,32 @@
 			"role": "bit",
 			"group": "diophantine-equations",
 			"curriculum_path": null,
-			"file": "Bits/LDE general solution.md"
+			"file": "Bits/LDE general solution.md",
+			"concludes": "lde-general"
 		},
 		"lde-non-negative-solutions": {
 			"title": "LDE non-negative solutions",
 			"role": "bit",
 			"group": "diophantine-equations",
 			"curriculum_path": null,
-			"file": "Bits/LDE non-negative solutions.md"
+			"file": "Bits/LDE non-negative solutions.md",
+			"concludes": "lde-nonneg"
 		},
 		"lde-particular-solution": {
 			"title": "LDE particular solution",
 			"role": "bit",
 			"group": "diophantine-equations",
 			"curriculum_path": null,
-			"file": "Bits/LDE particular solution.md"
+			"file": "Bits/LDE particular solution.md",
+			"concludes": "lde-solvable"
 		},
 		"lde-solvability": {
 			"title": "LDE solvability criterion",
 			"role": "bit",
 			"group": "diophantine-equations",
 			"curriculum_path": null,
-			"file": "Bits/LDE solvability criterion.md"
+			"file": "Bits/LDE solvability criterion.md",
+			"concludes": "lde-solvable"
 		},
 		"last-digit-computation": {
 			"title": "Last-digit computation",
@@ -1851,7 +1870,8 @@
 			"role": "bit",
 			"group": "diophantine-equations",
 			"curriculum_path": null,
-			"file": "Bits/Linear Diophantine Equation.md"
+			"file": "Bits/Linear Diophantine Equation.md",
+			"concludes": "lde-def"
 		},
 		"math-vs-english-not": {
 			"title": "Math vs English: NOT",
@@ -1992,14 +2012,16 @@
 			"role": "bit",
 			"group": "primes",
 			"curriculum_path": null,
-			"file": "Bits/Prime definition.md"
+			"file": "Bits/Prime definition.md",
+			"concludes": "prime-def"
 		},
 		"prime-divisibility-property": {
 			"title": "Prime divisibility property",
 			"role": "bit",
 			"group": "primes",
 			"curriculum_path": null,
-			"file": "Bits/Prime divisibility property.md"
+			"file": "Bits/Prime divisibility property.md",
+			"concludes": "prime-euclid-lemma"
 		},
 		"principle-of-induction": {
 			"title": "Principle of Mathematical Induction",
@@ -2377,7 +2399,8 @@
 			"role": "bit",
 			"group": "gcd-and-euclidean-algorithm",
 			"curriculum_path": null,
-			"file": "Bits/Well-Ordering Principle.md"
+			"file": "Bits/Well-Ordering Principle.md",
+			"concludes": "gcd-wop"
 		},
 		"what-is-a-binary-relation": {
 			"title": "What is a binary relation?",

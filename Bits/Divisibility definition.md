@@ -5,6 +5,7 @@ role: bit
 group: divisibility
 curriculum_path: null
 learning_objectives: []
+concludes: div-def
 children:
   - id: basic-divisibility-properties
     question: "What can we deduce from divisibility alone?"

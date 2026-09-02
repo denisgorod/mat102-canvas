@@ -5,6 +5,7 @@ role: bit
 group: gcd-and-euclidean-algorithm
 curriculum_path: null
 learning_objectives: []
+concludes: gcd-euclidean
 children:
   - id: euclidean-algorithm
     question: "What if I apply the gcd-remainder trick repeatedly?"

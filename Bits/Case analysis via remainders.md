@@ -5,6 +5,7 @@ role: bit
 group: gcd-and-euclidean-algorithm
 curriculum_path: null
 learning_objectives: []
+concludes: gcd-division-algorithm
 children:
   - id: ex-factor-n-cubed-minus-n
     question: "Is there a faster proof using factoring?"

@@ -5,6 +5,7 @@ role: bit
 group: primes
 curriculum_path: null
 learning_objectives: []
+concludes: prime-infinitude
 children:
   - id: ex-primes-of-form-4k3
     question: "Can Euclid's proof be adapted to show infinitely many primes of a specific form?"

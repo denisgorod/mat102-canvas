@@ -5,6 +5,7 @@ role: bit
 group: primes
 curriculum_path: null
 learning_objectives: []
+concludes: prime-fta
 children:
   - id: irrationality-via-fta
     question: "Can unique factorization prove irrationality?"

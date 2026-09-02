@@ -5,6 +5,7 @@ role: bit
 group: diophantine-equations
 curriculum_path: null
 learning_objectives: []
+concludes: lde-general
 children:
   - id: lde-non-negative-solutions
     question: "Can I find non-negative solutions?"

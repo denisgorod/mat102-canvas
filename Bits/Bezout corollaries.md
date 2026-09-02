@@ -5,6 +5,7 @@ role: bit
 group: gcd-and-euclidean-algorithm
 curriculum_path: null
 learning_objectives: []
+concludes: gcd-bezout-cor
 children:
   - id: ex-prove-bezout-corollaries
     question: "Can I prove these corollaries myself?"

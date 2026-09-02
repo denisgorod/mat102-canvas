@@ -5,6 +5,7 @@ role: bit
 group: gcd-and-euclidean-algorithm
 curriculum_path: null
 learning_objectives: []
+concludes: gcd-division-algorithm
 children:
   - id: case-analysis-via-remainders
     question: "How can remainders help prove divisibility results?"
