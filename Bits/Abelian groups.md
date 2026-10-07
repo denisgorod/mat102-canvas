@@ -5,6 +5,7 @@ role: bit
 group: groups-first-principles
 curriculum_path: null
 learning_objectives: []
+concludes: grp-abelian
 children:
   - id: symmetric-group
     question: "What is the simplest example of a non-abelian group?"

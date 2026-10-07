@@ -5,6 +5,7 @@ role: bit
 group: functions-i
 curriculum_path: null
 learning_objectives: []
+concludes: fn-preimage
 children:
   - id: ex-compute-preimage
     question: "Can I compute a preimage for a specific function?"

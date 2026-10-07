@@ -5,6 +5,7 @@ role: bit
 group: quantifiers-and-implications
 curriculum_path: null
 learning_objectives: []
+concludes: impl-nec-suff
 children: []
 parents:
   - if-and-only-if

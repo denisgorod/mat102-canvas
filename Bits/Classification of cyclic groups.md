@@ -5,6 +5,7 @@ role: bit
 group: isomorphisms
 curriculum_path: null
 learning_objectives: []
+concludes: iso-cyclic
 children:
   - id: ex-prove-finite-cyclic-classification
     question: "Can I prove the finite case of the classification?"

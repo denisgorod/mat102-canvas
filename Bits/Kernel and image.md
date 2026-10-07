@@ -5,6 +5,7 @@ role: bit
 group: homomorphisms
 curriculum_path: null
 learning_objectives: []
+concludes: hom-kernel
 children:
   - id: kernel-and-image-example
     question: "What do the kernel and image look like for a concrete homomorphism?"

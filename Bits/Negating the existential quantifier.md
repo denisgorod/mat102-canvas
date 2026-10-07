@@ -5,6 +5,7 @@ role: bit
 group: quantifiers-and-implications
 curriculum_path: null
 learning_objectives: []
+concludes: quant-negation
 children:
   - id: ex-negate-quantified-sentences
     question: "Can I negate quantified sentences in practice?"

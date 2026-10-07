@@ -5,6 +5,7 @@ role: bit
 group: reading-mathematics
 curriculum_path: null
 learning_objectives: []
+concludes: read-definition
 children:
   - id: definitions-vs-intuition
     question: "Why can't I just use my intuition for what a word means?"

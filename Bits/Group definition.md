@@ -5,6 +5,7 @@ role: bit
 group: groups-first-principles
 curriculum_path: null
 learning_objectives: []
+concludes: grp-def
 children:
   - id: zn-is-a-group
     question: "Is Z_n a group?"

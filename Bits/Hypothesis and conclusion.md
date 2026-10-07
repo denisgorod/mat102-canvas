@@ -5,6 +5,7 @@ role: bit
 group: reading-mathematics
 curriculum_path: null
 learning_objectives: []
+concludes: read-hypothesis-conclusion
 children:
   - id: ex-identify-hypothesis-conclusion
     question: "Can I identify hypothesis and conclusion in practice?"

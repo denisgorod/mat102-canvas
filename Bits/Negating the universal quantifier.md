@@ -5,6 +5,7 @@ role: bit
 group: quantifiers-and-implications
 curriculum_path: null
 learning_objectives: []
+concludes: quant-negation
 children:
   - id: negating-existential-quantifier
     question: "What about negating 'there exists'?"

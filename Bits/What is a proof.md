@@ -5,6 +5,7 @@ role: bit
 group: reading-mathematics
 curriculum_path: null
 learning_objectives: []
+concludes: read-proof
 children:
   - id: anatomy-of-a-proof
     question: "What does a proof actually look like?"

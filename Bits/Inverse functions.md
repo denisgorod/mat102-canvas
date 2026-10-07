@@ -5,6 +5,7 @@ role: bit
 group: functions-ii
 curriculum_path: null
 learning_objectives: []
+concludes: fn-inverse-function
 children:
   - id: invertibility-requires-bijectivity
     question: "When does an inverse actually exist?"

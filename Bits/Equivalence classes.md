@@ -5,6 +5,7 @@ role: bit
 group: equivalence-relations
 curriculum_path: null
 learning_objectives: []
+concludes: eqv-classes
 children:
   - id: equivalence-relations-partition-a-set
     question: "Can two different equivalence classes overlap?"

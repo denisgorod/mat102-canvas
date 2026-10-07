@@ -5,6 +5,7 @@ role: bit
 group: quantifiers-and-implications
 curriculum_path: null
 learning_objectives: []
+concludes: quant-order
 children:
   - id: ex-birthday-quantifiers
     question: "Can I see the difference in a concrete example?"

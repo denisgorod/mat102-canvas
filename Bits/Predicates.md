@@ -5,6 +5,7 @@ role: bit
 group: propositional-logic
 curriculum_path: null
 learning_objectives: []
+concludes: prop-predicate
 children:
   - id: ex-classify-propositions
     question: "Can I tell which statements are propositions, predicates, or neither?"

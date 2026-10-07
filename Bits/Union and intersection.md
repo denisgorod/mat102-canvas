@@ -5,6 +5,7 @@ role: bit
 group: sets
 curriculum_path: null
 learning_objectives: []
+concludes: set-union-intersection
 children:
   - id: set-difference
     question: "What if I want the elements in one set but not the other?"

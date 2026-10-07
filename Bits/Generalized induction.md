@@ -5,6 +5,7 @@ role: bit
 group: strong-induction
 curriculum_path: null
 learning_objectives: []
+concludes: sind-generalized
 parents:
   - summation-identity-example
 children:

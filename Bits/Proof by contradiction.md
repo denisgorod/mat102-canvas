@@ -5,6 +5,7 @@ role: bit
 group: proof-techniques
 curriculum_path: null
 learning_objectives: []
+concludes: pf-contradiction
 children:
   - id: contradiction-is-not-constructive
     question: "Does a contradiction proof tell me which case is true?"

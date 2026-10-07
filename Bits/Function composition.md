@@ -5,6 +5,7 @@ role: bit
 group: functions-ii
 curriculum_path: null
 learning_objectives: []
+concludes: fn-composition
 children:
   - id: symmetric-group
     question: "Does the set of all bijections under composition have special structure?"

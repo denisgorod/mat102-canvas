@@ -5,6 +5,7 @@ role: bit
 group: functions-ii
 curriculum_path: null
 learning_objectives: []
+concludes: card-reals-uncountable
 children:
   - id: why-diagonalization-fails-for-rationals
     question: "Why can't I diagonalize the rationals the same way?"

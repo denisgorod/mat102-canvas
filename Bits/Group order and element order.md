@@ -5,6 +5,7 @@ role: bit
 group: subgroups-and-order
 curriculum_path: null
 learning_objectives: []
+concludes: sub-order
 children:
   - id: order-divides-exponent
     question: "When does g^k equal the identity?"

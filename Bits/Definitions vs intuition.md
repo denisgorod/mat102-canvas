@@ -5,6 +5,7 @@ role: bit
 group: reading-mathematics
 curriculum_path: null
 learning_objectives: []
+concludes: read-definition
 children:
   - id: ex-quirky-number-result
     question: "What can I say about quirky numbers using only the definition?"

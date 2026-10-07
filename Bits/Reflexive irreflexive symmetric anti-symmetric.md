@@ -5,6 +5,7 @@ role: bit
 group: binary-relations
 curriculum_path: null
 learning_objectives: []
+concludes: rel-properties
 children:
   - id: relation-properties-transitive-total
     question: "Are there more properties a relation can have?"

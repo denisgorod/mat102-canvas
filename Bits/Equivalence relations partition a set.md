@@ -5,6 +5,7 @@ role: bit
 group: equivalence-relations
 curriculum_path: null
 learning_objectives: []
+concludes: eqv-partition
 children: []
 parents:
   - equivalence-classes

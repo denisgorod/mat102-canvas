@@ -5,6 +5,7 @@ role: bit
 group: isomorphisms
 curriculum_path: null
 learning_objectives: []
+concludes: iso-invariants
 children:
   - id: cyclic-groups-classification
     question: "Are all cyclic groups of the same order isomorphic?"

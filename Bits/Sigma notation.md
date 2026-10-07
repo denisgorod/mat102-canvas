@@ -5,6 +5,7 @@ role: bit
 group: summation-notation
 curriculum_path: null
 learning_objectives: []
+concludes: sum-sigma
 parents:
   - induction-example-l-tiling
 children:

@@ -5,6 +5,7 @@ role: bit
 group: equivalence-relations
 curriculum_path: null
 learning_objectives: []
+concludes: eqv-def
 children:
   - id: congruence-is-equivalence-relation
     question: "Can we build an equivalence relation from divisibility?"

@@ -5,6 +5,7 @@ role: bit
 group: functions-ii
 curriculum_path: null
 learning_objectives: []
+concludes: card-reals-uncountable
 children: []
 parents:
   - reals-are-uncountable

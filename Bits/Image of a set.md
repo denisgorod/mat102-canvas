@@ -5,6 +5,7 @@ role: bit
 group: functions-i
 curriculum_path: null
 learning_objectives: []
+concludes: fn-image
 children:
   - id: preimage-of-a-set
     question: "Can I go backwards — which inputs land in a given output set?"

@@ -5,6 +5,7 @@ role: bit
 group: quantifiers-and-implications
 curriculum_path: null
 learning_objectives: []
+concludes: impl-iff
 children:
   - id: necessary-and-sufficient-conditions
     question: "What do 'necessary' and 'sufficient' mean precisely?"

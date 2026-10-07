@@ -5,6 +5,7 @@ role: bit
 group: sets
 curriculum_path: null
 learning_objectives: []
+concludes: set-def
 children:
   - id: sets-can-contain-anything
     question: "What kinds of things can be elements of a set?"

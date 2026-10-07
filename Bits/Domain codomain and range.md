@@ -5,6 +5,7 @@ role: bit
 group: functions-i
 curriculum_path: null
 learning_objectives: []
+concludes: fn-image
 children:
   - id: image-of-a-set
     question: "What outputs does a function actually produce from a given input set?"

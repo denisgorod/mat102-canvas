@@ -5,6 +5,7 @@ role: bit
 group: homomorphisms
 curriculum_path: null
 learning_objectives: []
+concludes: hom-properties
 children:
   - id: isomorphism-definition
     question: "What if a homomorphism is also a bijection?"

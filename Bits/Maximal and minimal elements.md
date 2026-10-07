@@ -5,6 +5,7 @@ role: bit
 group: order-relations
 curriculum_path: null
 learning_objectives: []
+concludes: ord-max
 children:
   - id: maximum-vs-maximal
     question: "Is a maximal element the same as the maximum?"

@@ -5,6 +5,7 @@ role: bit
 group: reading-mathematics
 curriculum_path: null
 learning_objectives: []
+concludes: read-proof
 children:
   - id: what-is-a-proof
     question: "How can anything be absolutely certain?"

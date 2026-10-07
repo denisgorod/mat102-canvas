@@ -5,6 +5,7 @@ role: bit
 group: reading-mathematics
 curriculum_path: null
 learning_objectives: []
+concludes: read-proving-vs-applying
 children: []
 parents:
   - anatomy-of-a-proof

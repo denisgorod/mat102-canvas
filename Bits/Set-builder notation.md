@@ -5,6 +5,7 @@ role: bit
 group: sets
 curriculum_path: null
 learning_objectives: []
+concludes: set-builder
 children:
   - id: standard-number-sets
     question: "What are the standard sets mathematicians work with?"

@@ -5,6 +5,7 @@ role: bit
 group: functions-ii
 curriculum_path: null
 learning_objectives: []
+concludes: fn-invertible-iff-bijective
 children:
   - id: cardinality-definition
     question: "Can bijections measure size?"

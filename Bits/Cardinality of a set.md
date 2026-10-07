@@ -5,6 +5,7 @@ role: bit
 group: functions-ii
 curriculum_path: null
 learning_objectives: []
+concludes: card-leq
 children:
   - id: cardinality-via-bijection
     question: "When do two sets have the same cardinality?"

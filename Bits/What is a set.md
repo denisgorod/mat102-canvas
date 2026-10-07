@@ -5,6 +5,7 @@ role: bit
 group: sets
 curriculum_path: null
 learning_objectives: []
+concludes: set-def
 children:
   - id: set-notation
     question: "How do we write down a set?"

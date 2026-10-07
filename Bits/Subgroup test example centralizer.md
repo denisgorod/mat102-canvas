@@ -5,6 +5,7 @@ role: bit
 group: subgroups-and-order
 curriculum_path: null
 learning_objectives: []
+concludes: sub-test
 children:
   - id: cyclic-group-definition
     question: "Is there a particularly simple kind of subgroup?"

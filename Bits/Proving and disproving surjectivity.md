@@ -5,6 +5,7 @@ role: bit
 group: functions-i
 curriculum_path: null
 learning_objectives: []
+concludes: fn-surjective
 children:
   - id: ex-classify-inj-surj
     question: "Can I classify concrete functions?"

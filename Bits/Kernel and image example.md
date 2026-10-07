@@ -5,6 +5,7 @@ role: bit
 group: homomorphisms
 curriculum_path: null
 learning_objectives: []
+concludes: hom-kernel
 children:
   - id: homomorphism-properties
     question: "What general properties do homomorphisms have?"

@@ -5,6 +5,7 @@ role: bit
 group: quantifiers-and-implications
 curriculum_path: null
 learning_objectives: []
+concludes: quant-forall
 children:
   - id: ex-translate-to-quantifiers
     question: "Can I convert English sentences into quantifier notation?"

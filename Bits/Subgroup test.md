@@ -5,6 +5,7 @@ role: bit
 group: subgroups-and-order
 curriculum_path: null
 learning_objectives: []
+concludes: sub-test
 children:
   - id: subgroup-test-example
     question: "What does a subgroup test proof look like in practice?"

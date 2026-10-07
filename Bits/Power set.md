@@ -5,6 +5,7 @@ role: bit
 group: functions-ii
 curriculum_path: null
 learning_objectives: []
+concludes: card-power-set
 children:
   - id: cantors-theorem
     question: "Is the power set always strictly larger?"

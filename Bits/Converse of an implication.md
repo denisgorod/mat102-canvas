@@ -5,6 +5,7 @@ role: bit
 group: quantifiers-and-implications
 curriculum_path: null
 learning_objectives: []
+concludes: impl-converse
 children:
   - id: if-and-only-if
     question: "When IS the converse also true?"

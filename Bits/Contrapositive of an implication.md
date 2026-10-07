@@ -5,6 +5,7 @@ role: bit
 group: quantifiers-and-implications
 curriculum_path: null
 learning_objectives: []
+concludes: impl-contrapositive
 children:
   - id: proof-by-contrapositive
     question: "Can I use the contrapositive to prove theorems?"

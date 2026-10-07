@@ -5,6 +5,7 @@ role: bit
 group: functions-ii
 curriculum_path: null
 learning_objectives: []
+concludes: card-z-q-countable
 children:
   - id: rationals-are-countable
     question: "What about Q -- is it countable too?"

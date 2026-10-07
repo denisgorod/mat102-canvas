@@ -5,6 +5,7 @@ role: bit
 group: order-relations
 curriculum_path: null
 learning_objectives: []
+concludes: ord-sup-inf
 children:
   - id: well-ordering-principle
     question: "Does every subset of Z⁺ have a least element?"

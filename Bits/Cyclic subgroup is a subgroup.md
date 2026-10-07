@@ -5,6 +5,7 @@ role: bit
 group: cyclic-groups
 curriculum_path: null
 learning_objectives: []
+concludes: cyc-def
 children:
   - id: ex-cyclic-subgroup-order
     question: "What is the order of the cyclic subgroup ⟨g⟩?"

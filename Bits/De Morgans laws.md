@@ -5,6 +5,7 @@ role: bit
 group: propositional-logic
 curriculum_path: null
 learning_objectives: []
+concludes: prop-de-morgan
 children:
   - id: ex-negate-conjunction
     question: "Can I discover the negation rule for OR myself?"

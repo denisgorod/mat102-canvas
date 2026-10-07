@@ -5,6 +5,7 @@ role: bit
 group: isomorphisms
 curriculum_path: null
 learning_objectives: []
+concludes: iso-def
 children:
   - id: isomorphism-properties
     question: "What properties are preserved by isomorphisms?"

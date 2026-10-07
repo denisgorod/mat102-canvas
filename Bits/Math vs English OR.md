@@ -5,6 +5,7 @@ role: bit
 group: quantifiers-and-implications
 curriculum_path: null
 learning_objectives: []
+concludes: prop-connectives
 children: []
 parents:
   - conjunction-and-disjunction

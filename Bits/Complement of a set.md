@@ -5,6 +5,7 @@ role: bit
 group: sets
 curriculum_path: null
 learning_objectives: []
+concludes: set-difference-complement
 children:
   - id: ex-complement-of-integers
     question: "What does the complement look like for a concrete set?"

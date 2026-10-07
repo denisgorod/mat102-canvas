@@ -1,20 +1,173 @@
 {
 	"nodes": [
 		{
+			"id": "subject-reading-mathematics",
+			"type": "group",
+			"label": "Reading Mathematics",
+			"x": 200,
+			"y": 200,
+			"width": 4304,
+			"height": 1557
+		},
+		{
+			"id": "subject-quantifiers-and-implications",
+			"type": "group",
+			"label": "Quantifiers and Implications",
+			"x": 200,
+			"y": 2277,
+			"width": 2964,
+			"height": 2708
+		},
+		{
+			"id": "subject-sets-and-propositions",
+			"type": "group",
+			"label": "Sets and Propositions",
+			"x": 200,
+			"y": 5505,
+			"width": 5298,
+			"height": 2327
+		},
+		{
+			"id": "subject-relations",
+			"type": "group",
+			"label": "Relations",
+			"x": 200,
+			"y": 8352,
+			"width": 7956,
+			"height": 1082
+		},
+		{
+			"id": "subject-functions",
+			"type": "group",
+			"label": "Functions",
+			"x": 200,
+			"y": 9954,
+			"width": 9318,
+			"height": 1830
+		},
+		{
 			"id": "subject-number-theory",
 			"type": "group",
 			"label": "Number Theory",
 			"x": 200,
-			"y": 200,
+			"y": 12304,
 			"width": 13640,
 			"height": 1243
+		},
+		{
+			"id": "subject-induction",
+			"type": "group",
+			"label": "Induction",
+			"x": 200,
+			"y": 14067,
+			"width": 7286,
+			"height": 1082
+		},
+		{
+			"id": "subject-group-theory",
+			"type": "group",
+			"label": "Group Theory",
+			"x": 200,
+			"y": 15669,
+			"width": 11630,
+			"height": 1497
+		},
+		{
+			"id": "topic-reading-mathematics",
+			"type": "group",
+			"label": "Reading Mathematics",
+			"x": 340,
+			"y": 290,
+			"width": 4024,
+			"height": 1377
+		},
+		{
+			"id": "topic-quantifiers-and-implications",
+			"type": "group",
+			"label": "Quantifiers and Implications",
+			"x": 340,
+			"y": 2367,
+			"width": 2684,
+			"height": 2528
+		},
+		{
+			"id": "topic-sets",
+			"type": "group",
+			"label": "Sets",
+			"x": 340,
+			"y": 5595,
+			"width": 2014,
+			"height": 2147
+		},
+		{
+			"id": "topic-propositional-logic",
+			"type": "group",
+			"label": "Propositional Logic",
+			"x": 2674,
+			"y": 5595,
+			"width": 2684,
+			"height": 902
+		},
+		{
+			"id": "topic-binary-relations",
+			"type": "group",
+			"label": "Binary Relations",
+			"x": 340,
+			"y": 8442,
+			"width": 2014,
+			"height": 902
+		},
+		{
+			"id": "topic-equivalence-relations",
+			"type": "group",
+			"label": "Equivalence Relations",
+			"x": 2674,
+			"y": 8442,
+			"width": 2014,
+			"height": 487
+		},
+		{
+			"id": "topic-order-relations",
+			"type": "group",
+			"label": "Order Relations",
+			"x": 5008,
+			"y": 8442,
+			"width": 1344,
+			"height": 902
+		},
+		{
+			"id": "topic-proof-techniques",
+			"type": "group",
+			"label": "Proof Techniques",
+			"x": 6672,
+			"y": 8442,
+			"width": 1344,
+			"height": 487
+		},
+		{
+			"id": "topic-functions-i",
+			"type": "group",
+			"label": "Functions I",
+			"x": 340,
+			"y": 10044,
+			"width": 3354,
+			"height": 1508
+		},
+		{
+			"id": "topic-functions-ii",
+			"type": "group",
+			"label": "Functions II",
+			"x": 4014,
+			"y": 10044,
+			"width": 5364,
+			"height": 1650
 		},
 		{
 			"id": "topic-divisibility",
 			"type": "group",
 			"label": "Divisibility",
 			"x": 340,
-			"y": 290,
+			"y": 12394,
 			"width": 1344,
 			"height": 487
 		},
@@ -23,7 +176,7 @@
 			"type": "group",
 			"label": "GCD and Euclidean Algorithm",
 			"x": 2004,
-			"y": 290,
+			"y": 12394,
 			"width": 2014,
 			"height": 1063
 		},
@@ -32,7 +185,7 @@
 			"type": "group",
 			"label": "Modular Arithmetic",
 			"x": 4338,
-			"y": 290,
+			"y": 12394,
 			"width": 3354,
 			"height": 902
 		},
@@ -41,7 +194,7 @@
 			"type": "group",
 			"label": "Primes",
 			"x": 8012,
-			"y": 290,
+			"y": 12394,
 			"width": 2684,
 			"height": 487
 		},
@@ -50,9 +203,860 @@
 			"type": "group",
 			"label": "Diophantine Equations",
 			"x": 11016,
-			"y": 290,
+			"y": 12394,
 			"width": 2684,
 			"height": 487
+		},
+		{
+			"id": "topic-mathematical-induction",
+			"type": "group",
+			"label": "Mathematical Induction",
+			"x": 340,
+			"y": 14157,
+			"width": 1344,
+			"height": 487
+		},
+		{
+			"id": "topic-summation-notation",
+			"type": "group",
+			"label": "Summation Notation",
+			"x": 2004,
+			"y": 14157,
+			"width": 1344,
+			"height": 487
+		},
+		{
+			"id": "topic-strong-induction",
+			"type": "group",
+			"label": "Strong Induction",
+			"x": 3668,
+			"y": 14157,
+			"width": 2014,
+			"height": 487
+		},
+		{
+			"id": "topic-recursion-and-structural-induction",
+			"type": "group",
+			"label": "Recursion and Structural Induction",
+			"x": 6002,
+			"y": 14157,
+			"width": 1344,
+			"height": 902
+		},
+		{
+			"id": "topic-groups-first-principles",
+			"type": "group",
+			"label": "Groups — First Principles",
+			"x": 340,
+			"y": 15759,
+			"width": 2684,
+			"height": 1317
+		},
+		{
+			"id": "topic-subgroups-and-order",
+			"type": "group",
+			"label": "Subgroups and Order",
+			"x": 3344,
+			"y": 15759,
+			"width": 2014,
+			"height": 867
+		},
+		{
+			"id": "topic-cyclic-groups",
+			"type": "group",
+			"label": "Cyclic Groups",
+			"x": 5678,
+			"y": 15759,
+			"width": 1344,
+			"height": 487
+		},
+		{
+			"id": "topic-homomorphisms",
+			"type": "group",
+			"label": "Homomorphisms",
+			"x": 7342,
+			"y": 15759,
+			"width": 2014,
+			"height": 487
+		},
+		{
+			"id": "topic-isomorphisms",
+			"type": "group",
+			"label": "Isomorphisms",
+			"x": 9676,
+			"y": 15759,
+			"width": 2014,
+			"height": 487
+		},
+		{
+			"id": "read-definition",
+			"type": "file",
+			"file": "Hierarchy/read-definition.md",
+			"title": "Mathematical definition",
+			"x": 407,
+			"y": 558,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "read-direct-proof",
+			"type": "file",
+			"file": "Hierarchy/read-direct-proof.md",
+			"title": "Anatomy of a direct proof",
+			"x": 3087,
+			"y": 1180,
+			"width": 540,
+			"height": 360,
+			"color": "4"
+		},
+		{
+			"id": "read-even-odd",
+			"type": "file",
+			"file": "Hierarchy/read-even-odd.md",
+			"title": "Even and odd integers",
+			"x": 2417,
+			"y": 1240,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "read-examples-nonexamples",
+			"type": "file",
+			"file": "Hierarchy/read-examples-nonexamples.md",
+			"title": "Examples and non-examples",
+			"x": 1077,
+			"y": 350,
+			"width": 540,
+			"height": 360,
+			"color": "4"
+		},
+		{
+			"id": "read-hypothesis-conclusion",
+			"type": "file",
+			"file": "Hierarchy/read-hypothesis-conclusion.md",
+			"title": "Hypothesis and conclusion",
+			"x": 1747,
+			"y": 765,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "read-kinds-of-results",
+			"type": "file",
+			"file": "Hierarchy/read-kinds-of-results.md",
+			"title": "Lemma, proposition, theorem, corollary",
+			"x": 1077,
+			"y": 765,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "read-proof-generality",
+			"type": "file",
+			"file": "Hierarchy/read-proof-generality.md",
+			"title": "Generality in proofs",
+			"x": 3757,
+			"y": 1180,
+			"width": 540,
+			"height": 360,
+			"color": "4"
+		},
+		{
+			"id": "read-proof",
+			"type": "file",
+			"file": "Hierarchy/read-proof.md",
+			"title": "Proof",
+			"x": 2417,
+			"y": 765,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "read-proving-vs-applying",
+			"type": "file",
+			"file": "Hierarchy/read-proving-vs-applying.md",
+			"title": "Proving vs applying a theorem",
+			"x": 3087,
+			"y": 765,
+			"width": 540,
+			"height": 360,
+			"color": "4"
+		},
+		{
+			"id": "read-self-explanation",
+			"type": "file",
+			"file": "Hierarchy/read-self-explanation.md",
+			"title": "Self-explanation",
+			"x": 3087,
+			"y": 350,
+			"width": 540,
+			"height": 360,
+			"color": "4"
+		},
+		{
+			"id": "impl-contrapositive-proof",
+			"type": "file",
+			"file": "Hierarchy/impl-contrapositive-proof.md",
+			"title": "Proof by contrapositive",
+			"x": 1747,
+			"y": 4053,
+			"width": 540,
+			"height": 360,
+			"color": "2"
+		},
+		{
+			"id": "impl-contrapositive",
+			"type": "file",
+			"file": "Hierarchy/impl-contrapositive.md",
+			"title": "Contrapositive of an implication",
+			"x": 1077,
+			"y": 4053,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "impl-converse",
+			"type": "file",
+			"file": "Hierarchy/impl-converse.md",
+			"title": "Converse of an implication",
+			"x": 1077,
+			"y": 4468,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "impl-def",
+			"type": "file",
+			"file": "Hierarchy/impl-def.md",
+			"title": "Implication",
+			"x": 407,
+			"y": 3876,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "impl-iff",
+			"type": "file",
+			"file": "Hierarchy/impl-iff.md",
+			"title": "If and only if",
+			"x": 1747,
+			"y": 4468,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "impl-nec-suff",
+			"type": "file",
+			"file": "Hierarchy/impl-nec-suff.md",
+			"title": "Necessary and sufficient conditions",
+			"x": 2417,
+			"y": 4468,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "impl-negation",
+			"type": "file",
+			"file": "Hierarchy/impl-negation.md",
+			"title": "Negating an implication",
+			"x": 1747,
+			"y": 2937,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "impl-vacuous",
+			"type": "file",
+			"file": "Hierarchy/impl-vacuous.md",
+			"title": "Vacuous truth",
+			"x": 1077,
+			"y": 3638,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "quant-exists",
+			"type": "file",
+			"file": "Hierarchy/quant-exists.md",
+			"title": "Existential quantifier",
+			"x": 407,
+			"y": 2782,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "quant-forall",
+			"type": "file",
+			"file": "Hierarchy/quant-forall.md",
+			"title": "Universal quantifier",
+			"x": 407,
+			"y": 3281,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "quant-negation",
+			"type": "file",
+			"file": "Hierarchy/quant-negation.md",
+			"title": "Negating quantifiers",
+			"x": 1077,
+			"y": 2427,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "quant-order",
+			"type": "file",
+			"file": "Hierarchy/quant-order.md",
+			"title": "Order of quantifiers",
+			"x": 1077,
+			"y": 3257,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "quant-proof-methods",
+			"type": "file",
+			"file": "Hierarchy/quant-proof-methods.md",
+			"title": "Proving quantified statements",
+			"x": 1077,
+			"y": 2842,
+			"width": 540,
+			"height": 360,
+			"color": "4"
+		},
+		{
+			"id": "set-builder",
+			"type": "file",
+			"file": "Hierarchy/set-builder.md",
+			"title": "Set-builder notation",
+			"x": 1077,
+			"y": 6248,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "set-cartesian-product",
+			"type": "file",
+			"file": "Hierarchy/set-cartesian-product.md",
+			"title": "Cartesian product",
+			"x": 1747,
+			"y": 5655,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "set-def",
+			"type": "file",
+			"file": "Hierarchy/set-def.md",
+			"title": "Sets, elements and the empty set",
+			"x": 407,
+			"y": 6533,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "set-difference-complement",
+			"type": "file",
+			"file": "Hierarchy/set-difference-complement.md",
+			"title": "Set difference and complement",
+			"x": 1747,
+			"y": 6900,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "set-double-inclusion",
+			"type": "file",
+			"file": "Hierarchy/set-double-inclusion.md",
+			"title": "Set equality by double inclusion",
+			"x": 1747,
+			"y": 7315,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "set-number-sets",
+			"type": "file",
+			"file": "Hierarchy/set-number-sets.md",
+			"title": "Standard number sets",
+			"x": 1747,
+			"y": 6485,
+			"width": 540,
+			"height": 360,
+			"color": "6"
+		},
+		{
+			"id": "set-subset",
+			"type": "file",
+			"file": "Hierarchy/set-subset.md",
+			"title": "Subsets",
+			"x": 1077,
+			"y": 6960,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "set-union-intersection",
+			"type": "file",
+			"file": "Hierarchy/set-union-intersection.md",
+			"title": "Union and intersection",
+			"x": 1747,
+			"y": 6070,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "prop-connectives",
+			"type": "file",
+			"file": "Hierarchy/prop-connectives.md",
+			"title": "Conjunction, disjunction and negation",
+			"x": 3411,
+			"y": 6070,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "prop-de-morgan",
+			"type": "file",
+			"file": "Hierarchy/prop-de-morgan.md",
+			"title": "De Morgan's laws",
+			"x": 4751,
+			"y": 6070,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "prop-predicate",
+			"type": "file",
+			"file": "Hierarchy/prop-predicate.md",
+			"title": "Predicates",
+			"x": 3411,
+			"y": 5655,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "prop-proposition",
+			"type": "file",
+			"file": "Hierarchy/prop-proposition.md",
+			"title": "Propositions",
+			"x": 2741,
+			"y": 5863,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "prop-truth-tables",
+			"type": "file",
+			"file": "Hierarchy/prop-truth-tables.md",
+			"title": "Truth tables and logical equivalence",
+			"x": 4081,
+			"y": 6070,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "rel-checking",
+			"type": "file",
+			"file": "Hierarchy/rel-checking.md",
+			"title": "Verifying and refuting relation properties",
+			"x": 1747,
+			"y": 8917,
+			"width": 540,
+			"height": 360,
+			"color": "2"
+		},
+		{
+			"id": "rel-def",
+			"type": "file",
+			"file": "Hierarchy/rel-def.md",
+			"title": "Binary relation",
+			"x": 407,
+			"y": 8710,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "rel-left-total-functional",
+			"type": "file",
+			"file": "Hierarchy/rel-left-total-functional.md",
+			"title": "Left-total and functional relations",
+			"x": 1077,
+			"y": 8502,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "rel-properties",
+			"type": "file",
+			"file": "Hierarchy/rel-properties.md",
+			"title": "Properties of relations on a set",
+			"x": 1077,
+			"y": 8917,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "eqv-classes",
+			"type": "file",
+			"file": "Hierarchy/eqv-classes.md",
+			"title": "Equivalence classes and quotient set",
+			"x": 3411,
+			"y": 8502,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "eqv-def",
+			"type": "file",
+			"file": "Hierarchy/eqv-def.md",
+			"title": "Equivalence relation",
+			"x": 2741,
+			"y": 8502,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "eqv-partition",
+			"type": "file",
+			"file": "Hierarchy/eqv-partition.md",
+			"title": "Equivalence classes partition the set",
+			"x": 4081,
+			"y": 8502,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "ord-def",
+			"type": "file",
+			"file": "Hierarchy/ord-def.md",
+			"title": "Partial and total orders (posets)",
+			"x": 5075,
+			"y": 8710,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "ord-max",
+			"type": "file",
+			"file": "Hierarchy/ord-max.md",
+			"title": "Maximal elements and the maximum",
+			"x": 5745,
+			"y": 8502,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "ord-sup-inf",
+			"type": "file",
+			"file": "Hierarchy/ord-sup-inf.md",
+			"title": "Bounds, supremum and infimum",
+			"x": 5745,
+			"y": 8917,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "pf-contradiction",
+			"type": "file",
+			"file": "Hierarchy/pf-contradiction.md",
+			"title": "Proof by contradiction",
+			"x": 6739,
+			"y": 8502,
+			"width": 540,
+			"height": 360,
+			"color": "4"
+		},
+		{
+			"id": "pf-sqrt2",
+			"type": "file",
+			"file": "Hierarchy/pf-sqrt2.md",
+			"title": "√2 is irrational",
+			"x": 7409,
+			"y": 8502,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "fn-bijective",
+			"type": "file",
+			"file": "Hierarchy/fn-bijective.md",
+			"title": "Bijective function",
+			"x": 2417,
+			"y": 10312,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "fn-composition-preserves",
+			"type": "file",
+			"file": "Hierarchy/fn-composition-preserves.md",
+			"title": "Composites of injections, surjections and bijections",
+			"x": 3087,
+			"y": 10645,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "fn-composition",
+			"type": "file",
+			"file": "Hierarchy/fn-composition.md",
+			"title": "Function composition and identity functions",
+			"x": 2417,
+			"y": 11125,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "fn-def",
+			"type": "file",
+			"file": "Hierarchy/fn-def.md",
+			"title": "Function",
+			"x": 407,
+			"y": 10615,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "fn-equality",
+			"type": "file",
+			"file": "Hierarchy/fn-equality.md",
+			"title": "Equality of functions",
+			"x": 1077,
+			"y": 11125,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "fn-image",
+			"type": "file",
+			"file": "Hierarchy/fn-image.md",
+			"title": "Image of a set and range",
+			"x": 1077,
+			"y": 10104,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "fn-injective",
+			"type": "file",
+			"file": "Hierarchy/fn-injective.md",
+			"title": "Injective function",
+			"x": 1747,
+			"y": 10519,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "fn-preimage",
+			"type": "file",
+			"file": "Hierarchy/fn-preimage.md",
+			"title": "Preimage of a set",
+			"x": 1077,
+			"y": 10710,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "fn-surjective",
+			"type": "file",
+			"file": "Hierarchy/fn-surjective.md",
+			"title": "Surjective function",
+			"x": 1747,
+			"y": 10104,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "card-cantor",
+			"type": "file",
+			"file": "Hierarchy/card-cantor.md",
+			"title": "Cantor's theorem",
+			"x": 7431,
+			"y": 10164,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "card-countable-closure",
+			"type": "file",
+			"file": "Hierarchy/card-countable-closure.md",
+			"title": "Products and countable unions of countable sets",
+			"x": 8101,
+			"y": 11267,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "card-countable",
+			"type": "file",
+			"file": "Hierarchy/card-countable.md",
+			"title": "Countable sets",
+			"x": 7431,
+			"y": 11059,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "card-csb",
+			"type": "file",
+			"file": "Hierarchy/card-csb.md",
+			"title": "Cantor–Schröder–Bernstein theorem",
+			"x": 8101,
+			"y": 10437,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "card-equal",
+			"type": "file",
+			"file": "Hierarchy/card-equal.md",
+			"title": "Equal cardinality",
+			"x": 6761,
+			"y": 10519,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "card-leq",
+			"type": "file",
+			"file": "Hierarchy/card-leq.md",
+			"title": "Comparing cardinalities",
+			"x": 6091,
+			"y": 10874,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "card-power-set",
+			"type": "file",
+			"file": "Hierarchy/card-power-set.md",
+			"title": "Power set",
+			"x": 6761,
+			"y": 10104,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "card-reals-uncountable",
+			"type": "file",
+			"file": "Hierarchy/card-reals-uncountable.md",
+			"title": "ℝ is uncountable",
+			"x": 8101,
+			"y": 10852,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "card-z-q-countable",
+			"type": "file",
+			"file": "Hierarchy/card-z-q-countable.md",
+			"title": "ℤ and ℚ are countably infinite",
+			"x": 8771,
+			"y": 10852,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "fn-binary-operator",
+			"type": "file",
+			"file": "Hierarchy/fn-binary-operator.md",
+			"title": "Binary operator and identity element",
+			"x": 4081,
+			"y": 10459,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "fn-inverse-function",
+			"type": "file",
+			"file": "Hierarchy/fn-inverse-function.md",
+			"title": "Inverse function",
+			"x": 5421,
+			"y": 10459,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "fn-invertible-iff-bijective",
+			"type": "file",
+			"file": "Hierarchy/fn-invertible-iff-bijective.md",
+			"title": "Invertible iff bijective",
+			"x": 6091,
+			"y": 10459,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "fn-operator-inverse",
+			"type": "file",
+			"file": "Hierarchy/fn-operator-inverse.md",
+			"title": "Inverse with respect to an operator",
+			"x": 4751,
+			"y": 10459,
+			"width": 540,
+			"height": 360,
+			"color": "5"
 		},
 		{
 			"id": "div-def",
@@ -60,7 +1064,7 @@
 			"file": "Hierarchy/div-def.md",
 			"title": "Divisibility",
 			"x": 407,
-			"y": 350,
+			"y": 12454,
 			"width": 540,
 			"height": 360,
 			"color": "5"
@@ -71,7 +1075,7 @@
 			"file": "Hierarchy/div-properties.md",
 			"title": "Basic properties of divisibility",
 			"x": 1077,
-			"y": 350,
+			"y": 12454,
 			"width": 540,
 			"height": 360,
 			"color": "1"
@@ -82,7 +1086,7 @@
 			"file": "Hierarchy/gcd-bezout-cor.md",
 			"title": "Consequences of Bézout",
 			"x": 3411,
-			"y": 350,
+			"y": 12454,
 			"width": 540,
 			"height": 360,
 			"color": "1"
@@ -93,7 +1097,7 @@
 			"file": "Hierarchy/gcd-bezout.md",
 			"title": "Bézout's Identity",
 			"x": 2741,
-			"y": 350,
+			"y": 12454,
 			"width": 540,
 			"height": 360,
 			"color": "1"
@@ -104,7 +1108,7 @@
 			"file": "Hierarchy/gcd-def.md",
 			"title": "Greatest common divisor and coprimality",
 			"x": 2071,
-			"y": 415,
+			"y": 12519,
 			"width": 540,
 			"height": 360,
 			"color": "5"
@@ -115,7 +1119,7 @@
 			"file": "Hierarchy/gcd-division-algorithm.md",
 			"title": "Division Algorithm",
 			"x": 2741,
-			"y": 926,
+			"y": 13030,
 			"width": 540,
 			"height": 360,
 			"color": "1"
@@ -126,7 +1130,7 @@
 			"file": "Hierarchy/gcd-euclidean.md",
 			"title": "Euclidean Algorithm",
 			"x": 3411,
-			"y": 830,
+			"y": 12934,
 			"width": 540,
 			"height": 360,
 			"color": "2"
@@ -137,7 +1141,7 @@
 			"file": "Hierarchy/gcd-wop.md",
 			"title": "Well-Ordering Principle",
 			"x": 2071,
-			"y": 866,
+			"y": 12970,
 			"width": 540,
 			"height": 360,
 			"color": "1"
@@ -148,7 +1152,7 @@
 			"file": "Hierarchy/mod-arithmetic.md",
 			"title": "Arithmetic of congruences",
 			"x": 5745,
-			"y": 558,
+			"y": 12662,
 			"width": 540,
 			"height": 360,
 			"color": "4"
@@ -159,7 +1163,7 @@
 			"file": "Hierarchy/mod-congruence-def.md",
 			"title": "Congruence modulo n",
 			"x": 4405,
-			"y": 558,
+			"y": 12662,
 			"width": 540,
 			"height": 360,
 			"color": "5"
@@ -170,7 +1174,7 @@
 			"file": "Hierarchy/mod-equivalence.md",
 			"title": "Congruence is an equivalence relation",
 			"x": 5075,
-			"y": 558,
+			"y": 12662,
 			"width": 540,
 			"height": 360,
 			"color": "1"
@@ -181,7 +1185,7 @@
 			"file": "Hierarchy/mod-inverses.md",
 			"title": "Multiplicative inverses in ℤₙ",
 			"x": 7085,
-			"y": 765,
+			"y": 12869,
 			"width": 540,
 			"height": 360,
 			"color": "1"
@@ -192,7 +1196,7 @@
 			"file": "Hierarchy/mod-lastdigit.md",
 			"title": "Last-digit computation",
 			"x": 6415,
-			"y": 350,
+			"y": 12454,
 			"width": 540,
 			"height": 360,
 			"color": "2"
@@ -203,7 +1207,7 @@
 			"file": "Hierarchy/mod-zn.md",
 			"title": "The integers modulo n (ℤₙ)",
 			"x": 6415,
-			"y": 765,
+			"y": 12869,
 			"width": 540,
 			"height": 360,
 			"color": "6"
@@ -214,7 +1218,7 @@
 			"file": "Hierarchy/prime-def.md",
 			"title": "Prime and composite integers",
 			"x": 8079,
-			"y": 350,
+			"y": 12454,
 			"width": 540,
 			"height": 360,
 			"color": "5"
@@ -225,7 +1229,7 @@
 			"file": "Hierarchy/prime-euclid-lemma.md",
 			"title": "Euclid's Lemma",
 			"x": 8749,
-			"y": 350,
+			"y": 12454,
 			"width": 540,
 			"height": 360,
 			"color": "1"
@@ -236,7 +1240,7 @@
 			"file": "Hierarchy/prime-fta.md",
 			"title": "Fundamental Theorem of Arithmetic",
 			"x": 9419,
-			"y": 350,
+			"y": 12454,
 			"width": 540,
 			"height": 360,
 			"color": "1"
@@ -247,7 +1251,7 @@
 			"file": "Hierarchy/prime-infinitude.md",
 			"title": "Infinitude of the primes",
 			"x": 10089,
-			"y": 350,
+			"y": 12454,
 			"width": 540,
 			"height": 360,
 			"color": "1"
@@ -258,7 +1262,7 @@
 			"file": "Hierarchy/lde-def.md",
 			"title": "Linear Diophantine equations",
 			"x": 11083,
-			"y": 350,
+			"y": 12454,
 			"width": 540,
 			"height": 360,
 			"color": "5"
@@ -269,7 +1273,7 @@
 			"file": "Hierarchy/lde-general.md",
 			"title": "General solution",
 			"x": 12423,
-			"y": 350,
+			"y": 12454,
 			"width": 540,
 			"height": 360,
 			"color": "1"
@@ -280,7 +1284,7 @@
 			"file": "Hierarchy/lde-nonneg.md",
 			"title": "Non-negative solutions",
 			"x": 13093,
-			"y": 350,
+			"y": 12454,
 			"width": 540,
 			"height": 360,
 			"color": "2"
@@ -291,7 +1295,326 @@
 			"file": "Hierarchy/lde-solvable.md",
 			"title": "Solvability criterion",
 			"x": 11753,
-			"y": 350,
+			"y": 12454,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "ind-principle",
+			"type": "file",
+			"file": "Hierarchy/ind-principle.md",
+			"title": "Principle of Mathematical Induction",
+			"x": 407,
+			"y": 14217,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "ind-proof-format",
+			"type": "file",
+			"file": "Hierarchy/ind-proof-format.md",
+			"title": "Writing a proof by induction",
+			"x": 1077,
+			"y": 14217,
+			"width": 540,
+			"height": 360,
+			"color": "2"
+		},
+		{
+			"id": "sum-induction",
+			"type": "file",
+			"file": "Hierarchy/sum-induction.md",
+			"title": "Proving summation identities by induction",
+			"x": 2741,
+			"y": 14217,
+			"width": 540,
+			"height": 360,
+			"color": "2"
+		},
+		{
+			"id": "sum-sigma",
+			"type": "file",
+			"file": "Hierarchy/sum-sigma.md",
+			"title": "Sigma notation",
+			"x": 2071,
+			"y": 14217,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "sind-generalized",
+			"type": "file",
+			"file": "Hierarchy/sind-generalized.md",
+			"title": "Induction from any base and step",
+			"x": 3735,
+			"y": 14217,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "sind-postage",
+			"type": "file",
+			"file": "Hierarchy/sind-postage.md",
+			"title": "Postage with 3¢ and 5¢ stamps",
+			"x": 5075,
+			"y": 14217,
+			"width": 540,
+			"height": 360,
+			"color": "2"
+		},
+		{
+			"id": "sind-principle",
+			"type": "file",
+			"file": "Hierarchy/sind-principle.md",
+			"title": "Principle of Strong Induction",
+			"x": 4405,
+			"y": 14217,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "rec-fibonacci",
+			"type": "file",
+			"file": "Hierarchy/rec-fibonacci.md",
+			"title": "The Fibonacci sequence",
+			"x": 6739,
+			"y": 14217,
+			"width": 540,
+			"height": 360,
+			"color": "6"
+		},
+		{
+			"id": "rec-recursive-def",
+			"type": "file",
+			"file": "Hierarchy/rec-recursive-def.md",
+			"title": "Recursive definitions",
+			"x": 6069,
+			"y": 14425,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "rec-structural-induction",
+			"type": "file",
+			"file": "Hierarchy/rec-structural-induction.md",
+			"title": "Principle of Structural Induction",
+			"x": 6739,
+			"y": 14632,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "grp-abelian",
+			"type": "file",
+			"file": "Hierarchy/grp-abelian.md",
+			"title": "Abelian groups",
+			"x": 1747,
+			"y": 16234,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "grp-def",
+			"type": "file",
+			"file": "Hierarchy/grp-def.md",
+			"title": "Group",
+			"x": 407,
+			"y": 16234,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "grp-dihedral",
+			"type": "file",
+			"file": "Hierarchy/grp-dihedral.md",
+			"title": "The dihedral group Dₙ",
+			"x": 2417,
+			"y": 16234,
+			"width": 540,
+			"height": 360,
+			"color": "6"
+		},
+		{
+			"id": "grp-properties",
+			"type": "file",
+			"file": "Hierarchy/grp-properties.md",
+			"title": "Basic properties of groups",
+			"x": 1077,
+			"y": 16234,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "grp-symmetric",
+			"type": "file",
+			"file": "Hierarchy/grp-symmetric.md",
+			"title": "The symmetric group Sₙ",
+			"x": 2417,
+			"y": 16649,
+			"width": 540,
+			"height": 360,
+			"color": "6"
+		},
+		{
+			"id": "grp-zn",
+			"type": "file",
+			"file": "Hierarchy/grp-zn.md",
+			"title": "The groups ℤₙ and ℤₙ*",
+			"x": 2417,
+			"y": 15819,
+			"width": 540,
+			"height": 360,
+			"color": "6"
+		},
+		{
+			"id": "sub-def",
+			"type": "file",
+			"file": "Hierarchy/sub-def.md",
+			"title": "Subgroup",
+			"x": 3411,
+			"y": 15819,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "sub-order-divides",
+			"type": "file",
+			"file": "Hierarchy/sub-order-divides.md",
+			"title": "Order divides exponent",
+			"x": 4081,
+			"y": 16199,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "sub-order-power",
+			"type": "file",
+			"file": "Hierarchy/sub-order-power.md",
+			"title": "Order of a power",
+			"x": 4751,
+			"y": 16199,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "sub-order",
+			"type": "file",
+			"file": "Hierarchy/sub-order.md",
+			"title": "Order of a group and of an element",
+			"x": 3411,
+			"y": 16199,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "sub-test",
+			"type": "file",
+			"file": "Hierarchy/sub-test.md",
+			"title": "Subgroup test",
+			"x": 4081,
+			"y": 15819,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "cyc-def",
+			"type": "file",
+			"file": "Hierarchy/cyc-def.md",
+			"title": "Cyclic subgroups and cyclic groups",
+			"x": 5745,
+			"y": 15819,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "cyc-subgroups",
+			"type": "file",
+			"file": "Hierarchy/cyc-subgroups.md",
+			"title": "Subgroups of cyclic groups are cyclic",
+			"x": 6415,
+			"y": 15819,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "hom-def",
+			"type": "file",
+			"file": "Hierarchy/hom-def.md",
+			"title": "Group homomorphism",
+			"x": 7409,
+			"y": 15819,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "hom-kernel",
+			"type": "file",
+			"file": "Hierarchy/hom-kernel.md",
+			"title": "Kernel and image",
+			"x": 8749,
+			"y": 15819,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "hom-properties",
+			"type": "file",
+			"file": "Hierarchy/hom-properties.md",
+			"title": "Properties of homomorphisms",
+			"x": 8079,
+			"y": 15819,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "iso-cyclic",
+			"type": "file",
+			"file": "Hierarchy/iso-cyclic.md",
+			"title": "Classification of cyclic groups",
+			"x": 11083,
+			"y": 15819,
+			"width": 540,
+			"height": 360,
+			"color": "1"
+		},
+		{
+			"id": "iso-def",
+			"type": "file",
+			"file": "Hierarchy/iso-def.md",
+			"title": "Isomorphism",
+			"x": 9743,
+			"y": 15819,
+			"width": 540,
+			"height": 360,
+			"color": "5"
+		},
+		{
+			"id": "iso-invariants",
+			"type": "file",
+			"file": "Hierarchy/iso-invariants.md",
+			"title": "Isomorphism invariants",
+			"x": 10413,
+			"y": 15819,
 			"width": 540,
 			"height": 360,
 			"color": "1"
@@ -300,6 +1623,158 @@
 	"edges": [
 		{
 			"id": "dep-0",
+			"fromNode": "card-power-set",
+			"fromSide": "right",
+			"toNode": "card-cantor",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-1",
+			"fromNode": "card-equal",
+			"fromSide": "right",
+			"toNode": "card-cantor",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-2",
+			"fromNode": "card-countable",
+			"fromSide": "right",
+			"toNode": "card-countable-closure",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-3",
+			"fromNode": "prime-fta",
+			"fromSide": "bottom",
+			"toNode": "card-countable-closure",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-4",
+			"fromNode": "card-equal",
+			"fromSide": "right",
+			"toNode": "card-countable",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-5",
+			"fromNode": "card-equal",
+			"fromSide": "right",
+			"toNode": "card-csb",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-6",
+			"fromNode": "card-leq",
+			"fromSide": "right",
+			"toNode": "card-equal",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-7",
+			"fromNode": "fn-invertible-iff-bijective",
+			"fromSide": "right",
+			"toNode": "card-equal",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-8",
+			"fromNode": "rel-properties",
+			"fromSide": "bottom",
+			"toNode": "card-equal",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-9",
+			"fromNode": "fn-composition-preserves",
+			"fromSide": "bottom",
+			"toNode": "card-leq",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-10",
+			"fromNode": "fn-bijective",
+			"fromSide": "bottom",
+			"toNode": "card-power-set",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-11",
+			"fromNode": "card-countable",
+			"fromSide": "right",
+			"toNode": "card-reals-uncountable",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-12",
+			"fromNode": "card-countable-closure",
+			"fromSide": "right",
+			"toNode": "card-z-q-countable",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-13",
+			"fromNode": "card-csb",
+			"fromSide": "right",
+			"toNode": "card-z-q-countable",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-14",
+			"fromNode": "grp-abelian",
+			"fromSide": "bottom",
+			"toNode": "cyc-def",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-15",
+			"fromNode": "sub-test",
+			"fromSide": "bottom",
+			"toNode": "cyc-def",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-16",
+			"fromNode": "sub-order-divides",
+			"fromSide": "bottom",
+			"toNode": "cyc-def",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-17",
+			"fromNode": "cyc-def",
+			"fromSide": "right",
+			"toNode": "cyc-subgroups",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-18",
+			"fromNode": "gcd-bezout",
+			"fromSide": "bottom",
+			"toNode": "cyc-subgroups",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-19",
 			"fromNode": "div-def",
 			"fromSide": "right",
 			"toNode": "div-properties",
@@ -307,7 +1782,175 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-1",
+			"id": "dep-20",
+			"fromNode": "eqv-def",
+			"fromSide": "right",
+			"toNode": "eqv-classes",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-21",
+			"fromNode": "rel-properties",
+			"fromSide": "bottom",
+			"toNode": "eqv-def",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-22",
+			"fromNode": "eqv-classes",
+			"fromSide": "right",
+			"toNode": "eqv-partition",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-23",
+			"fromNode": "set-double-inclusion",
+			"fromSide": "bottom",
+			"toNode": "eqv-partition",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-24",
+			"fromNode": "fn-injective",
+			"fromSide": "right",
+			"toNode": "fn-bijective",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-25",
+			"fromNode": "fn-surjective",
+			"fromSide": "right",
+			"toNode": "fn-bijective",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-26",
+			"fromNode": "fn-def",
+			"fromSide": "bottom",
+			"toNode": "fn-binary-operator",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-27",
+			"fromNode": "fn-composition",
+			"fromSide": "right",
+			"toNode": "fn-composition-preserves",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-28",
+			"fromNode": "fn-bijective",
+			"fromSide": "right",
+			"toNode": "fn-composition-preserves",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-29",
+			"fromNode": "fn-equality",
+			"fromSide": "right",
+			"toNode": "fn-composition",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-30",
+			"fromNode": "rel-left-total-functional",
+			"fromSide": "bottom",
+			"toNode": "fn-def",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-31",
+			"fromNode": "fn-def",
+			"fromSide": "right",
+			"toNode": "fn-equality",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-32",
+			"fromNode": "fn-def",
+			"fromSide": "right",
+			"toNode": "fn-image",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-33",
+			"fromNode": "fn-def",
+			"fromSide": "right",
+			"toNode": "fn-injective",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-34",
+			"fromNode": "fn-composition",
+			"fromSide": "bottom",
+			"toNode": "fn-inverse-function",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-35",
+			"fromNode": "fn-operator-inverse",
+			"fromSide": "right",
+			"toNode": "fn-inverse-function",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-36",
+			"fromNode": "fn-inverse-function",
+			"fromSide": "right",
+			"toNode": "fn-invertible-iff-bijective",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-37",
+			"fromNode": "fn-bijective",
+			"fromSide": "bottom",
+			"toNode": "fn-invertible-iff-bijective",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-38",
+			"fromNode": "fn-binary-operator",
+			"fromSide": "right",
+			"toNode": "fn-operator-inverse",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-39",
+			"fromNode": "fn-def",
+			"fromSide": "right",
+			"toNode": "fn-preimage",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-40",
+			"fromNode": "fn-image",
+			"fromSide": "right",
+			"toNode": "fn-surjective",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-41",
 			"fromNode": "gcd-bezout",
 			"fromSide": "right",
 			"toNode": "gcd-bezout-cor",
@@ -315,7 +1958,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-2",
+			"id": "dep-42",
 			"fromNode": "div-properties",
 			"fromSide": "bottom",
 			"toNode": "gcd-bezout-cor",
@@ -323,7 +1966,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-3",
+			"id": "dep-43",
 			"fromNode": "gcd-wop",
 			"fromSide": "right",
 			"toNode": "gcd-bezout",
@@ -331,7 +1974,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-4",
+			"id": "dep-44",
 			"fromNode": "gcd-def",
 			"fromSide": "right",
 			"toNode": "gcd-bezout",
@@ -339,7 +1982,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-5",
+			"id": "dep-45",
 			"fromNode": "div-def",
 			"fromSide": "bottom",
 			"toNode": "gcd-def",
@@ -347,7 +1990,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-6",
+			"id": "dep-46",
 			"fromNode": "gcd-wop",
 			"fromSide": "right",
 			"toNode": "gcd-division-algorithm",
@@ -355,7 +1998,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-7",
+			"id": "dep-47",
 			"fromNode": "gcd-division-algorithm",
 			"fromSide": "right",
 			"toNode": "gcd-euclidean",
@@ -363,7 +2006,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-8",
+			"id": "dep-48",
 			"fromNode": "gcd-def",
 			"fromSide": "right",
 			"toNode": "gcd-euclidean",
@@ -371,7 +2014,351 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-9",
+			"id": "dep-49",
+			"fromNode": "grp-properties",
+			"fromSide": "right",
+			"toNode": "grp-abelian",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-50",
+			"fromNode": "fn-operator-inverse",
+			"fromSide": "bottom",
+			"toNode": "grp-def",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-51",
+			"fromNode": "grp-abelian",
+			"fromSide": "right",
+			"toNode": "grp-dihedral",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-52",
+			"fromNode": "fn-composition",
+			"fromSide": "bottom",
+			"toNode": "grp-dihedral",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-53",
+			"fromNode": "grp-def",
+			"fromSide": "right",
+			"toNode": "grp-properties",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-54",
+			"fromNode": "ind-principle",
+			"fromSide": "bottom",
+			"toNode": "grp-properties",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-55",
+			"fromNode": "grp-abelian",
+			"fromSide": "right",
+			"toNode": "grp-symmetric",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-56",
+			"fromNode": "fn-composition-preserves",
+			"fromSide": "bottom",
+			"toNode": "grp-symmetric",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-57",
+			"fromNode": "fn-invertible-iff-bijective",
+			"fromSide": "bottom",
+			"toNode": "grp-symmetric",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-58",
+			"fromNode": "grp-abelian",
+			"fromSide": "right",
+			"toNode": "grp-zn",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-59",
+			"fromNode": "mod-inverses",
+			"fromSide": "bottom",
+			"toNode": "grp-zn",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-60",
+			"fromNode": "grp-def",
+			"fromSide": "bottom",
+			"toNode": "hom-def",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-61",
+			"fromNode": "hom-properties",
+			"fromSide": "right",
+			"toNode": "hom-kernel",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-62",
+			"fromNode": "fn-injective",
+			"fromSide": "bottom",
+			"toNode": "hom-kernel",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-63",
+			"fromNode": "hom-def",
+			"fromSide": "right",
+			"toNode": "hom-properties",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-64",
+			"fromNode": "cyc-def",
+			"fromSide": "bottom",
+			"toNode": "hom-properties",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-65",
+			"fromNode": "fn-image",
+			"fromSide": "bottom",
+			"toNode": "hom-properties",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-66",
+			"fromNode": "fn-preimage",
+			"fromSide": "bottom",
+			"toNode": "hom-properties",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-67",
+			"fromNode": "impl-contrapositive",
+			"fromSide": "right",
+			"toNode": "impl-contrapositive-proof",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-68",
+			"fromNode": "read-even-odd",
+			"fromSide": "bottom",
+			"toNode": "impl-contrapositive-proof",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-69",
+			"fromNode": "gcd-division-algorithm",
+			"fromSide": "bottom",
+			"toNode": "impl-contrapositive-proof",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-70",
+			"fromNode": "impl-def",
+			"fromSide": "right",
+			"toNode": "impl-contrapositive",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-71",
+			"fromNode": "impl-def",
+			"fromSide": "right",
+			"toNode": "impl-converse",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-72",
+			"fromNode": "read-hypothesis-conclusion",
+			"fromSide": "bottom",
+			"toNode": "impl-def",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-73",
+			"fromNode": "prop-truth-tables",
+			"fromSide": "bottom",
+			"toNode": "impl-def",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-74",
+			"fromNode": "impl-converse",
+			"fromSide": "right",
+			"toNode": "impl-iff",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-75",
+			"fromNode": "impl-iff",
+			"fromSide": "right",
+			"toNode": "impl-nec-suff",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-76",
+			"fromNode": "impl-def",
+			"fromSide": "right",
+			"toNode": "impl-negation",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-77",
+			"fromNode": "quant-negation",
+			"fromSide": "right",
+			"toNode": "impl-negation",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-78",
+			"fromNode": "impl-def",
+			"fromSide": "right",
+			"toNode": "impl-vacuous",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-79",
+			"fromNode": "quant-forall",
+			"fromSide": "right",
+			"toNode": "impl-vacuous",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-80",
+			"fromNode": "gcd-wop",
+			"fromSide": "bottom",
+			"toNode": "ind-principle",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-81",
+			"fromNode": "ind-principle",
+			"fromSide": "right",
+			"toNode": "ind-proof-format",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-82",
+			"fromNode": "div-def",
+			"fromSide": "bottom",
+			"toNode": "ind-proof-format",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-83",
+			"fromNode": "iso-invariants",
+			"fromSide": "right",
+			"toNode": "iso-cyclic",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-84",
+			"fromNode": "grp-zn",
+			"fromSide": "bottom",
+			"toNode": "iso-cyclic",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-85",
+			"fromNode": "hom-def",
+			"fromSide": "bottom",
+			"toNode": "iso-def",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-86",
+			"fromNode": "fn-composition-preserves",
+			"fromSide": "bottom",
+			"toNode": "iso-def",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-87",
+			"fromNode": "fn-invertible-iff-bijective",
+			"fromSide": "bottom",
+			"toNode": "iso-def",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-88",
+			"fromNode": "eqv-def",
+			"fromSide": "bottom",
+			"toNode": "iso-def",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-89",
+			"fromNode": "iso-def",
+			"fromSide": "right",
+			"toNode": "iso-invariants",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-90",
+			"fromNode": "hom-properties",
+			"fromSide": "bottom",
+			"toNode": "iso-invariants",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-91",
+			"fromNode": "card-equal",
+			"fromSide": "bottom",
+			"toNode": "iso-invariants",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-92",
 			"fromNode": "div-def",
 			"fromSide": "bottom",
 			"toNode": "lde-def",
@@ -379,7 +2366,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-10",
+			"id": "dep-93",
 			"fromNode": "lde-solvable",
 			"fromSide": "right",
 			"toNode": "lde-general",
@@ -387,7 +2374,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-11",
+			"id": "dep-94",
 			"fromNode": "lde-general",
 			"fromSide": "right",
 			"toNode": "lde-nonneg",
@@ -395,7 +2382,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-12",
+			"id": "dep-95",
 			"fromNode": "lde-def",
 			"fromSide": "right",
 			"toNode": "lde-solvable",
@@ -403,7 +2390,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-13",
+			"id": "dep-96",
 			"fromNode": "gcd-bezout-cor",
 			"fromSide": "bottom",
 			"toNode": "lde-solvable",
@@ -411,7 +2398,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-14",
+			"id": "dep-97",
 			"fromNode": "mod-equivalence",
 			"fromSide": "right",
 			"toNode": "mod-arithmetic",
@@ -419,7 +2406,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-15",
+			"id": "dep-98",
 			"fromNode": "div-def",
 			"fromSide": "bottom",
 			"toNode": "mod-congruence-def",
@@ -427,7 +2414,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-16",
+			"id": "dep-99",
 			"fromNode": "gcd-division-algorithm",
 			"fromSide": "bottom",
 			"toNode": "mod-congruence-def",
@@ -435,7 +2422,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-17",
+			"id": "dep-100",
 			"fromNode": "mod-congruence-def",
 			"fromSide": "right",
 			"toNode": "mod-equivalence",
@@ -443,7 +2430,15 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-18",
+			"id": "dep-101",
+			"fromNode": "eqv-partition",
+			"fromSide": "bottom",
+			"toNode": "mod-equivalence",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-102",
 			"fromNode": "mod-zn",
 			"fromSide": "right",
 			"toNode": "mod-inverses",
@@ -451,7 +2446,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-19",
+			"id": "dep-103",
 			"fromNode": "gcd-bezout",
 			"fromSide": "bottom",
 			"toNode": "mod-inverses",
@@ -459,7 +2454,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-20",
+			"id": "dep-104",
 			"fromNode": "mod-arithmetic",
 			"fromSide": "right",
 			"toNode": "mod-lastdigit",
@@ -467,7 +2462,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-21",
+			"id": "dep-105",
 			"fromNode": "mod-arithmetic",
 			"fromSide": "right",
 			"toNode": "mod-zn",
@@ -475,7 +2470,55 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-22",
+			"id": "dep-106",
+			"fromNode": "rel-properties",
+			"fromSide": "bottom",
+			"toNode": "ord-def",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-107",
+			"fromNode": "ord-def",
+			"fromSide": "right",
+			"toNode": "ord-max",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-108",
+			"fromNode": "ord-def",
+			"fromSide": "right",
+			"toNode": "ord-sup-inf",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-109",
+			"fromNode": "impl-def",
+			"fromSide": "bottom",
+			"toNode": "pf-contradiction",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-110",
+			"fromNode": "pf-contradiction",
+			"fromSide": "right",
+			"toNode": "pf-sqrt2",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-111",
+			"fromNode": "impl-contrapositive-proof",
+			"fromSide": "bottom",
+			"toNode": "pf-sqrt2",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-112",
 			"fromNode": "div-def",
 			"fromSide": "bottom",
 			"toNode": "prime-def",
@@ -483,7 +2526,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-23",
+			"id": "dep-113",
 			"fromNode": "prime-def",
 			"fromSide": "right",
 			"toNode": "prime-euclid-lemma",
@@ -491,7 +2534,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-24",
+			"id": "dep-114",
 			"fromNode": "gcd-bezout-cor",
 			"fromSide": "bottom",
 			"toNode": "prime-euclid-lemma",
@@ -499,7 +2542,15 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-25",
+			"id": "dep-115",
+			"fromNode": "ind-principle",
+			"fromSide": "bottom",
+			"toNode": "prime-euclid-lemma",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-116",
 			"fromNode": "prime-euclid-lemma",
 			"fromSide": "right",
 			"toNode": "prime-fta",
@@ -507,18 +2558,490 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-26",
-			"fromNode": "gcd-wop",
+			"id": "dep-117",
+			"fromNode": "prime-fta",
+			"fromSide": "right",
+			"toNode": "prime-infinitude",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-118",
+			"fromNode": "prop-proposition",
+			"fromSide": "right",
+			"toNode": "prop-connectives",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-119",
+			"fromNode": "prop-truth-tables",
+			"fromSide": "right",
+			"toNode": "prop-de-morgan",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-120",
+			"fromNode": "prop-proposition",
+			"fromSide": "right",
+			"toNode": "prop-predicate",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-121",
+			"fromNode": "prop-connectives",
+			"fromSide": "right",
+			"toNode": "prop-truth-tables",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-122",
+			"fromNode": "prop-predicate",
 			"fromSide": "bottom",
-			"toNode": "prime-fta",
+			"toNode": "quant-exists",
 			"toSide": "top",
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-27",
-			"fromNode": "prime-fta",
+			"id": "dep-123",
+			"fromNode": "set-def",
+			"fromSide": "bottom",
+			"toNode": "quant-exists",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-124",
+			"fromNode": "prop-predicate",
+			"fromSide": "bottom",
+			"toNode": "quant-forall",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-125",
+			"fromNode": "set-def",
+			"fromSide": "bottom",
+			"toNode": "quant-forall",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-126",
+			"fromNode": "quant-forall",
 			"fromSide": "right",
-			"toNode": "prime-infinitude",
+			"toNode": "quant-negation",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-127",
+			"fromNode": "quant-exists",
+			"fromSide": "right",
+			"toNode": "quant-negation",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-128",
+			"fromNode": "prop-connectives",
+			"fromSide": "bottom",
+			"toNode": "quant-negation",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-129",
+			"fromNode": "quant-forall",
+			"fromSide": "right",
+			"toNode": "quant-order",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-130",
+			"fromNode": "quant-exists",
+			"fromSide": "right",
+			"toNode": "quant-order",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-131",
+			"fromNode": "quant-forall",
+			"fromSide": "right",
+			"toNode": "quant-proof-methods",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-132",
+			"fromNode": "quant-exists",
+			"fromSide": "right",
+			"toNode": "quant-proof-methods",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-133",
+			"fromNode": "read-proof-generality",
+			"fromSide": "bottom",
+			"toNode": "quant-proof-methods",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-134",
+			"fromNode": "read-proof",
+			"fromSide": "right",
+			"toNode": "read-direct-proof",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-135",
+			"fromNode": "read-even-odd",
+			"fromSide": "right",
+			"toNode": "read-direct-proof",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-136",
+			"fromNode": "read-definition",
+			"fromSide": "right",
+			"toNode": "read-examples-nonexamples",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-137",
+			"fromNode": "read-kinds-of-results",
+			"fromSide": "right",
+			"toNode": "read-hypothesis-conclusion",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-138",
+			"fromNode": "read-definition",
+			"fromSide": "right",
+			"toNode": "read-kinds-of-results",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-139",
+			"fromNode": "read-direct-proof",
+			"fromSide": "right",
+			"toNode": "read-proof-generality",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-140",
+			"fromNode": "read-hypothesis-conclusion",
+			"fromSide": "right",
+			"toNode": "read-proof",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-141",
+			"fromNode": "read-proof",
+			"fromSide": "right",
+			"toNode": "read-proving-vs-applying",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-142",
+			"fromNode": "read-proof",
+			"fromSide": "right",
+			"toNode": "read-self-explanation",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-143",
+			"fromNode": "rec-recursive-def",
+			"fromSide": "right",
+			"toNode": "rec-fibonacci",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-144",
+			"fromNode": "sind-principle",
+			"fromSide": "bottom",
+			"toNode": "rec-fibonacci",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-145",
+			"fromNode": "rec-recursive-def",
+			"fromSide": "right",
+			"toNode": "rec-structural-induction",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-146",
+			"fromNode": "sind-principle",
+			"fromSide": "bottom",
+			"toNode": "rec-structural-induction",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-147",
+			"fromNode": "rel-properties",
+			"fromSide": "right",
+			"toNode": "rel-checking",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-148",
+			"fromNode": "quant-proof-methods",
+			"fromSide": "bottom",
+			"toNode": "rel-checking",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-149",
+			"fromNode": "quant-negation",
+			"fromSide": "bottom",
+			"toNode": "rel-checking",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-150",
+			"fromNode": "set-cartesian-product",
+			"fromSide": "bottom",
+			"toNode": "rel-def",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-151",
+			"fromNode": "set-subset",
+			"fromSide": "bottom",
+			"toNode": "rel-def",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-152",
+			"fromNode": "rel-def",
+			"fromSide": "right",
+			"toNode": "rel-left-total-functional",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-153",
+			"fromNode": "rel-def",
+			"fromSide": "right",
+			"toNode": "rel-properties",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-154",
+			"fromNode": "set-def",
+			"fromSide": "right",
+			"toNode": "set-builder",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-155",
+			"fromNode": "prop-predicate",
+			"fromSide": "bottom",
+			"toNode": "set-builder",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-156",
+			"fromNode": "set-builder",
+			"fromSide": "right",
+			"toNode": "set-cartesian-product",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-157",
+			"fromNode": "set-builder",
+			"fromSide": "right",
+			"toNode": "set-difference-complement",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-158",
+			"fromNode": "set-subset",
+			"fromSide": "right",
+			"toNode": "set-difference-complement",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-159",
+			"fromNode": "prop-connectives",
+			"fromSide": "bottom",
+			"toNode": "set-difference-complement",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-160",
+			"fromNode": "set-subset",
+			"fromSide": "right",
+			"toNode": "set-double-inclusion",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-161",
+			"fromNode": "set-builder",
+			"fromSide": "right",
+			"toNode": "set-number-sets",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-162",
+			"fromNode": "set-subset",
+			"fromSide": "right",
+			"toNode": "set-number-sets",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-163",
+			"fromNode": "set-def",
+			"fromSide": "right",
+			"toNode": "set-subset",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-164",
+			"fromNode": "set-builder",
+			"fromSide": "right",
+			"toNode": "set-union-intersection",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-165",
+			"fromNode": "prop-connectives",
+			"fromSide": "bottom",
+			"toNode": "set-union-intersection",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-166",
+			"fromNode": "ind-principle",
+			"fromSide": "bottom",
+			"toNode": "sind-generalized",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-167",
+			"fromNode": "sind-principle",
+			"fromSide": "right",
+			"toNode": "sind-postage",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-168",
+			"fromNode": "sind-generalized",
+			"fromSide": "right",
+			"toNode": "sind-principle",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-169",
+			"fromNode": "grp-properties",
+			"fromSide": "bottom",
+			"toNode": "sub-def",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-170",
+			"fromNode": "sub-order",
+			"fromSide": "right",
+			"toNode": "sub-order-divides",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-171",
+			"fromNode": "mod-congruence-def",
+			"fromSide": "bottom",
+			"toNode": "sub-order-divides",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-172",
+			"fromNode": "sub-order-divides",
+			"fromSide": "right",
+			"toNode": "sub-order-power",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-173",
+			"fromNode": "gcd-bezout-cor",
+			"fromSide": "bottom",
+			"toNode": "sub-order-power",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-174",
+			"fromNode": "grp-def",
+			"fromSide": "bottom",
+			"toNode": "sub-order",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-175",
+			"fromNode": "sub-def",
+			"fromSide": "right",
+			"toNode": "sub-test",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-176",
+			"fromNode": "ind-principle",
+			"fromSide": "bottom",
+			"toNode": "sum-induction",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-177",
+			"fromNode": "sum-sigma",
+			"fromSide": "right",
+			"toNode": "sum-induction",
 			"toSide": "left",
 			"edge_type": "depends_on"
 		}

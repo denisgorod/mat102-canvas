@@ -5,6 +5,7 @@ role: bit
 group: propositional-logic
 curriculum_path: null
 learning_objectives: []
+concludes: prop-proposition
 children:
   - id: predicates
     question: "What if a statement's truth depends on a variable?"

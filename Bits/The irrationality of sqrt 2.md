@@ -5,6 +5,7 @@ role: bit
 group: proof-techniques
 curriculum_path: null
 learning_objectives: []
+concludes: pf-sqrt2
 children:
   - id: ex-contradiction-proofs-hw
     question: "Can I generalize the √2 argument to other primes?"

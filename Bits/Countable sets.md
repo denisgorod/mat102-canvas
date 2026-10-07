@@ -5,6 +5,7 @@ role: bit
 group: functions-ii
 curriculum_path: null
 learning_objectives: []
+concludes: card-countable
 children:
   - id: integers-are-countable
     question: "Is Z countable?"

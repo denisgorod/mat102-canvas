@@ -5,6 +5,7 @@ role: bit
 group: propositional-logic
 curriculum_path: null
 learning_objectives: []
+concludes: prop-connectives
 children:
   - id: de-morgans-laws
     question: "How does negation interact with conjunction and disjunction?"

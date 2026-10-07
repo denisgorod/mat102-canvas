@@ -5,6 +5,7 @@ role: bit
 group: recursion-and-structural-induction
 curriculum_path: null
 learning_objectives: []
+concludes: rec-fibonacci
 parents:
   - recursive-definitions
 children:

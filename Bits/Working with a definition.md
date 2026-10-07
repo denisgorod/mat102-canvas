@@ -5,6 +5,7 @@ role: bit
 group: reading-mathematics
 curriculum_path: null
 learning_objectives: []
+concludes: read-examples-nonexamples
 children:
   - id: ex-define-odd-and-prime
     question: "Can I write my own precise definition?"

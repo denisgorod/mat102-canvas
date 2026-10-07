@@ -5,6 +5,7 @@ role: bit
 group: functions-i
 curriculum_path: null
 learning_objectives: []
+concludes: fn-def
 children:
   - id: function-notation
     question: "How do mathematicians actually write functions?"

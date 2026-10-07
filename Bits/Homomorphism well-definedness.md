@@ -5,6 +5,7 @@ role: bit
 group: homomorphisms
 curriculum_path: null
 learning_objectives: []
+concludes: hom-def
 children: []
 parents:
   - group-homomorphism-definition

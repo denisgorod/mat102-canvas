@@ -5,6 +5,7 @@ role: bit
 group: reading-mathematics
 curriculum_path: null
 learning_objectives: []
+concludes: read-self-explanation
 children: []
 parents:
   - self-explanation-training

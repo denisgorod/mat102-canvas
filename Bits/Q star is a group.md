@@ -5,6 +5,7 @@ role: bit
 group: groups-first-principles
 curriculum_path: null
 learning_objectives: []
+concludes: grp-def
 children:
   - id: ex-why-not-q-with-zero
     question: "What goes wrong if we include zero?"

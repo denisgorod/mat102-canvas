@@ -5,6 +5,7 @@ role: bit
 group: groups-first-principles
 curriculum_path: null
 learning_objectives: []
+concludes: grp-dihedral
 children:
   - id: ex-sr-neq-rs
     question: "Can I prove that sr ≠ rs in D_n?"

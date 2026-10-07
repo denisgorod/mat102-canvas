@@ -5,6 +5,7 @@ role: bit
 group: proof-techniques
 curriculum_path: null
 learning_objectives: []
+concludes: pf-contradiction
 children: []
 parents:
   - proof-by-contradiction
