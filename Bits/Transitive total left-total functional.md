@@ -37,7 +37,8 @@ Let's verify these on familiar examples:
 
 - Equals ($=$) is transitive ($a = b$ and $b = c$ implies $a = c$).
 - Less than or equal ($\leq$) on $\mathbb{Z}$ is transitive and total (any two integers are comparable).
-- Less than ($<$) is transitive but not total ($2 < 3$ or $2 = 3$ or $3 < 2$, but you need exactly one).
+- Less than ($<$) on $\mathbb{Z}$ is transitive and also total: for any integers $a, b$, at least one of $a = b$, $a < b$, $b < a$ holds (by trichotomy, exactly one).
+- Divisibility on $\mathbb{Z}^+$ is transitive but not total: neither $2 \mid 3$ nor $3 \mid 2$.
 
 Left-total and functional encode different ideas: a left-total relation ensures every element on the left has *at least one* partner; a functional relation ensures every element has *at most one* partner. Together, they will define functions — relations where every input has exactly one output.
 

@@ -43,6 +43,6 @@ This shows $3 \mid (a + b)$, so the property is preserved by the constructor.
 
 The proof mirrors the structure of the definition: you handle the basis, then you handle the constructor. No need to worry about indices or dominos. You just trace through *how* elements are built and verify that the property survives each construction step.
 
-Note that the set $S$ consists exactly of all positive multiples of 3: $\{3, 6, 9, 12, \ldots\}$. This proof shows why: every element is built from 3 by adding, so every element is a sum of 3's, hence a multiple of 3.
+Note that the set $S$ consists exactly of all positive multiples of 3: $\{3, 6, 9, 12, \ldots\}$. The proof above gives one inclusion, $S \subseteq 3\mathbb{Z}^+$: every element is built from 3 by adding, so it is a sum of 3's. The reverse inclusion is a separate induction on $m$: $3 \in S$, and if $3m \in S$ then $3m + 3 \in S$ by the constructor with $a = 3m$ and $b = 3$.
 
 >[!idea] Structural induction proves a property by checking the basis and verifying that each constructor preserves the property—exactly mirroring how the recursive set is built.

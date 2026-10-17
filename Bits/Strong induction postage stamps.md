@@ -20,11 +20,11 @@ children:
     edge_type: prerequisite
 ---
 
-Here's a concrete example where strong induction is essential.
+Here's a concrete example where strong induction is the natural tool.
 
 **Claim:** Any postage amount of 8 cents or more can be made using 3-cent and 5-cent stamps.
 
-With regular induction, you'd be stuck. If you assume you can make $k$ cents and want to prove you can make $k+1$ cents, you'd need to know that $k-2$ cents is achievable (so you can add a 3-cent stamp). But if $k = 1$ or $k = 2$, then $k - 2 \leq 0$, and you're outside your domain.
+Suppose you want to make $k+1$ cents by adding one 3-cent stamp to $k-2$ cents. Regular induction is not enough for that step: it only lets you assume you can make $k$ cents, not $k-2$.
 
 Strong induction rescues you. Let $P(n)$ be "$n$ cents can be made with 3-cent and 5-cent stamps."
 
@@ -33,7 +33,7 @@ Strong induction rescues you. Let $P(n)$ be "$n$ cents can be made with 3-cent a
 - $P(9)$: $9 = 3 + 3 + 3$ ✓
 - $P(10)$: $10 = 5 + 5$ ✓
 
-**Induction step:** Assume $P(1), P(2), \ldots, P(k)$ are all true for some $k \geq 10$. You want to show $P(k+1)$.
+**Induction step:** Assume $P(8), P(9), \ldots, P(k)$ are all true for some $k \geq 10$. You want to show $P(k+1)$.
 
 Write $k + 1 = (k - 2) + 3$. Since $k \geq 10$, we have $k - 2 \geq 8$, so by the induction hypothesis, $P(k-2)$ is true. This means you can make $k-2$ cents. Add one 3-cent stamp, and you've made $(k-2) + 3 = k+1$ cents.
 
@@ -41,7 +41,7 @@ Therefore $P(k+1)$ is true.
 
 By strong induction, $P(n)$ is true for all $n \geq 8$.
 
-Notice why this needs strong induction: the trick of writing $k+1 = (k-2) + 3$ requires you to know the result for $k-2$, which might be far earlier than $k$. Regular induction only promises the result for $k$, so you'd get stuck.
+Notice why this step needs strong induction: writing $k+1 = (k-2)+3$ requires the result for $k-2$, while regular induction only promises the result for $k$. A different step does work with ordinary induction — replace one 5-cent stamp by two 3-cent stamps, or, if there is none, three 3-cent stamps by two 5-cent stamps — as it must, since the two principles are equivalent.
 
 The multiple base cases (8, 9, 10) are necessary to ensure the induction step "kicks in" once it reaches $k = 10$. For $n < 8$, the statement is simply false (you can make 3, 5, 6, but not 1, 2, 4, 7), so the claim doesn't apply there.
 

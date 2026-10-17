@@ -16,7 +16,7 @@ A function $f: A \to B$ is *left-invertible* if there exists a function $g: B \t
 
 A function $f: A \to B$ is *right-invertible* if there exists a function $g: B \to A$ such that $f \circ g = \mathrm{id}_B$.
 
-(a) Prove that $f$ is left-invertible if and only if $f$ is injective.
+(a) Suppose $A \neq \emptyset$. Prove that $f$ is left-invertible if and only if $f$ is injective.
 
 (b) Prove that $f$ is right-invertible if and only if $f$ is surjective.
 

@@ -27,7 +27,7 @@ A group $(G, \cdot)$ is **abelian** (or **commutative**) if $a \cdot b = b \cdot
 
 This is a simple condition: the group operation commutes. In many groups, this is true. In fact, all the groups you've seen so far are abelian:
 - $(\mathbb{Z}_n, +)$ is abelian because $[a] + [b] = [a + b] = [b + a] = [b] + [a]$.
-- $(\mathbb{Q}^*, \times)$ is abelian because $\frac{p}{q} \cdot \frac{r}{s} = \frac{pr}{qs} = \frac{rs}{qp} = \frac{r}{s} \cdot \frac{p}{q}$.
+- $(\mathbb{Q}^*, \times)$ is abelian because $\frac{p}{q} \cdot \frac{r}{s} = \frac{pr}{qs} = \frac{rp}{sq} = \frac{r}{s} \cdot \frac{p}{q}$.
 - $(\mathbb{Z}, +)$ and $(\mathbb{R}, +)$ are abelian for the same reason.
 
 But not all groups are abelian. Here's the key insight: when we move to operations beyond arithmetic — like function composition — commutativity can fail.

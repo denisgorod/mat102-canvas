@@ -18,9 +18,9 @@ parents:
 Having generalized equality (equivalence relations), we now generalize inequality.
 
 >[!d] Definition
-> A relation $R$ on $A$ is a **weak order** if it is reflexive, transitive, and anti-symmetric (like $\leq$). It is a **strong order** if it is irreflexive, transitive, and anti-symmetric (like $<$). A weak or strong order is **total** (or **linear**) if every pair of elements is comparable, and **partial** otherwise.
+> A relation $R$ on $A$ is a **weak order** (or **partial order**) if it is reflexive, transitive, and anti-symmetric (like $\leq$). It is a **strong order** if it is irreflexive, transitive, and anti-symmetric (like $<$). A weak or strong order is **total** (or **linear**) if, in addition, every two distinct elements are comparable. *Partial* means comparability is not required, so every total order is also a partial order.
 
-The familiar $\leq$ on $\mathbb{Z}$ is a weak total order. Subset inclusion $\subseteq$ on the power set $\mathcal{P}(X)$ is a weak partial order — some pairs of subsets (like $\{1,2\}$ and $\{2,3\}$) are incomparable.
+The familiar $\leq$ on $\mathbb{Z}$ is a weak total order. Subset inclusion $\subseteq$ on the power set $\mathcal{P}(\{1,2,3\})$ is a weak partial order but not total — some pairs of subsets (like $\{1,2\}$ and $\{2,3\}$) are incomparable.
 
 >[!idea]
-> Order relations generalize inequality: weak orders are reflexive, strong orders are irreflexive; both are transitive and anti-symmetric, and may be total or partial.
+> Order relations generalize inequality: weak orders are reflexive, strong orders are irreflexive; both are transitive and anti-symmetric, and may or may not be total.

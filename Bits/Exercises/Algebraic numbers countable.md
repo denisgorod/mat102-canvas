@@ -10,13 +10,13 @@ parents:
   - countable-sets
 ---
 
-A real number $r$ is *algebraic* if there exists a polynomial $p(x)$ with rational coefficients such that $p(r) = 0$.
+A real number $r$ is *algebraic* if there exists a nonzero polynomial $p(x)$ with rational coefficients such that $p(r) = 0$.
 
 Show that the set $A$ of all algebraic numbers is countable.
 
 You may use the following facts without proof:
-- Any polynomial with rational coefficients has finitely many roots.
+- Any nonzero polynomial with rational coefficients has finitely many roots.
 - The set $\mathbb{Q}[x]$ of all polynomials with rational coefficients is countable.
 
 >[!question] Exercise
->Construct an injection from $A$ into $\mathbb{Q}[x]$ or a countable product of countable sets. Alternatively, express $A$ as a countable union of finite sets and use the proposition on countable unions.
+>Express $A$ as a countable union of finite sets — the root sets of the nonzero $p \in \mathbb{Q}[x]$ — and use the proposition on countable unions. (Sending each algebraic number to a polynomial it satisfies is not injective: $\sqrt{2}$ and $-\sqrt{2}$ are both roots of $x^2 - 2$.)
