@@ -5,6 +5,7 @@ role: bit
 group: sets
 curriculum_path: null
 learning_objectives: []
+concludes: set-difference-complement
 children:
   - id: complement-of-a-set
     question: "What if I want everything that's NOT in a set?"

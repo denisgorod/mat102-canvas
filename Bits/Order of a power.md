@@ -5,6 +5,7 @@ role: bit
 group: subgroups-and-order
 curriculum_path: null
 learning_objectives: []
+concludes: sub-order-power
 children:
   - id: ex-prove-order-of-power
     question: "Can I prove the order-of-a-power formula?"

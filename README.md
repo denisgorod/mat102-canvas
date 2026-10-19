@@ -26,7 +26,7 @@ course *is* selecting a question.
 |---|---|---|
 | Question it answers | How is this discovered? | How is this organised? |
 | Source | `Bits/*.md` + `MAT102.canvas` | `Hierarchy/*.md` + `MAT102-review.canvas` |
-| Size | 351 nodes (166 ideas, 185 exercises), 415 edges | 6 nodes, 5 edges (modular-arithmetic slice) |
+| Size | 351 nodes (166 ideas, 185 exercises), 415 edges | 121 nodes, 178 edges, all 8 subjects |
 | Edges mean | the question motivating the next idea | mathematical dependency (`depends_on`) |
 
 They are joined by a function **f : bits → hierarchy**, encoded as `concludes:` on an inquiry bit
@@ -104,6 +104,38 @@ Two invariants matter:
 `student_questions` is deliberately *not* an edge: it is an annotation, invisible to `check-sync.py`
 and to the canvas, so accumulated questions never clutter the graph.
 
+### Review-map nodes
+
+A `Hierarchy/*.md` file is one reference-grade statement. Its frontmatter is the review graph;
+`MAT102-review.canvas` is generated from it and never edited by hand.
+
+```yaml
+---
+id: gcd-bezout
+title: "Bézout's Identity"
+role: theorem                  # definition | theorem | object | application | objective
+subject: number-theory         # slug of the inquiry map's subject group
+topic: gcd-and-euclidean-algorithm   # slug of its topic group
+statement: "For a, b not both zero there exist u, v ∈ ℤ with au + bv = gcd(a, b); …"
+depends_on: [gcd-wop, gcd-def]
+---
+```
+
+- **`statement`** — one sentence, plain Unicode, every hypothesis included, at most 40 words.
+- **`depends_on`** — the *direct* prerequisites: definitions and results the statement or proof
+  invokes. Not general logical vocabulary or proof methods; not notation used only to name a set
+  (∈, ⊆, the standard number sets, ℚ ∖ {0}, S ∩ ℤ⁺), though a set operation the node reasons
+  with does count; and not anything already implied by another listed prerequisite. Every arrow on the review map is therefore one that no other
+  path gives you; what a node ultimately rests on is its full set of ancestors.
+- **Body** — 90–145 words in two or three callouts (`>[!d]` definition, `>[!t]` theorem,
+  `>[!p]` proof ending in `$\square$`, `>[!e]` example, `>[!s]` method or application,
+  `>[!info]` note, `>[!warning]` common error), and no text outside them. Proofs are complete.
+- **Bridge** — a bit's `concludes:` names the review node its inquiry ends in; only `role: bit`
+  bits are mapped, and only where one node is clearly the destination.
+
+Notation across the course: ℤ⁺ = {1, 2, 3, …}; ℤ* = {0, 1, 2, …}; in cardinality, ℕ = {0, 1, 2, …};
+in group theory a star means *nonzero* or *units* (ℚ*, ℤₙ*).
+
 ## Working on it
 
 Requirements: Python 3.12 with `pyyaml`, Node 20.
@@ -128,6 +160,10 @@ python3 tools/build-reader-data.py
 python3 tools/build-hierarchy.py
 node tools/build-content-bundle.mjs
 ```
+
+5. If you touched `Hierarchy/` or any `concludes:`, regenerate the review map's layout too:
+   `node tools/layout-hierarchy.cjs`. Subject lanes and topic order are read from `MAT102.canvas`,
+   so the two maps keep the same geography.
 
 ### Checks
 
@@ -268,6 +304,6 @@ cues and the live-demo runbook are in [`TALK-NOTES.md`](TALK-NOTES.md).
 ## Status
 
 A working prototype in real use, not a finished product. Known gaps: student intake needs a GitHub
-account; the review map covers only the modular-arithmetic slice; 96% of edges are still
-`prerequisite`, so the inquiry framing is real in the edge *labels* and aspirational in the
-*topology*; and the graph itself is not keyboard-traversable (see **Accessibility**).
+account; 96% of edges are still `prerequisite`, so the inquiry framing is real in the edge *labels*
+and aspirational in the *topology*; and the graph itself is not keyboard-traversable (see
+**Accessibility**).

@@ -5,7 +5,7 @@ role: theorem
 subject: number-theory
 topic: primes
 statement: "Every integer n > 1 is a product of primes, and that factorisation is unique up to the order of the factors."
-depends_on: [prime-euclid-lemma, gcd-wop]
+depends_on: [prime-euclid-lemma]
 ---
 >[!t] Theorem
 > Every integer $n > 1$ is a product of primes,

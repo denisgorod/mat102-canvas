@@ -5,6 +5,7 @@ role: bit
 group: functions-ii
 curriculum_path: null
 learning_objectives: []
+concludes: fn-operator-inverse
 children:
   - id: group-definition
     question: "What structure do we get when every element has an inverse?"

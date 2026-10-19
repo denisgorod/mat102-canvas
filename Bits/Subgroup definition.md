@@ -5,6 +5,7 @@ role: bit
 group: subgroups-and-order
 curriculum_path: null
 learning_objectives: []
+concludes: sub-def
 children:
   - id: subgroup-test
     question: "Is there a shortcut for checking whether a subset is a subgroup?"

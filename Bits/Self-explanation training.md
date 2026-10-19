@@ -5,6 +5,7 @@ role: bit
 group: reading-mathematics
 curriculum_path: null
 learning_objectives: []
+concludes: read-self-explanation
 children:
   - id: self-explanation-vs-paraphrasing
     question: "Is restating each line in my own words enough?"

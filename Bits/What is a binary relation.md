@@ -5,6 +5,7 @@ role: bit
 group: binary-relations
 curriculum_path: null
 learning_objectives: []
+concludes: rel-def
 children:
   - id: relations-on-a-set
     question: "What if the two sets are the same?"

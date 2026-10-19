@@ -5,6 +5,7 @@ role: bit
 group: subgroups-and-order
 curriculum_path: null
 learning_objectives: []
+concludes: sub-order-divides
 children:
   - id: order-of-a-power
     question: "What is the order of g^k?"

@@ -5,6 +5,7 @@ role: bit
 group: functions-ii
 curriculum_path: null
 learning_objectives: []
+concludes: card-cantor
 children:
   - id: no-set-of-all-sets
     question: "Can I keep taking power sets forever -- is there a set of all sets?"

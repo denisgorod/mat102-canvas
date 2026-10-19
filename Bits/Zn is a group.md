@@ -5,6 +5,7 @@ role: bit
 group: groups-first-principles
 curriculum_path: null
 learning_objectives: []
+concludes: grp-zn
 children:
   - id: ex-z6-multiplicative-subgroup
     question: "Can a subset of Z_n be a group under multiplication instead?"

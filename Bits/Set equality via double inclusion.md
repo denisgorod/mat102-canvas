@@ -5,6 +5,7 @@ role: bit
 group: sets
 curriculum_path: null
 learning_objectives: []
+concludes: set-double-inclusion
 children:
   - id: ex-prove-set-equality
     question: "Can I prove two complicated-looking sets are actually the same?"

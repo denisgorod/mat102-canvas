@@ -5,6 +5,7 @@ role: bit
 group: quantifiers-and-implications
 curriculum_path: null
 learning_objectives: []
+concludes: quant-order
 children:
   - id: quantifier-order-matters
     question: "Does the order of different quantifiers matter?"

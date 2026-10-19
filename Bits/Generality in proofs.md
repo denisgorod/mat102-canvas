@@ -5,6 +5,7 @@ role: bit
 group: reading-mathematics
 curriculum_path: null
 learning_objectives: []
+concludes: read-proof-generality
 children:
   - id: ex-restate-product-proposition
     question: "Can I strengthen a result by weakening its hypothesis?"

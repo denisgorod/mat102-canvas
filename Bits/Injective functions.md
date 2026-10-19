@@ -5,6 +5,7 @@ role: bit
 group: functions-i
 curriculum_path: null
 learning_objectives: []
+concludes: fn-injective
 children:
   - id: proving-injectivity
     question: "How do I prove a function is injective?"

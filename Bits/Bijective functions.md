@@ -5,6 +5,7 @@ role: bit
 group: functions-i
 curriculum_path: null
 learning_objectives: []
+concludes: fn-bijective
 children:
   - id: symmetric-group
     question: "Do the bijections on a set form a group under composition?"

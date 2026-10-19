@@ -5,6 +5,7 @@ role: bit
 group: binary-relations
 curriculum_path: null
 learning_objectives: []
+concludes: rel-checking
 children:
   - id: ex-divisibility-relation-properties
     question: "Which properties does divisibility satisfy?"

@@ -5,6 +5,7 @@ role: bit
 group: binary-relations
 curriculum_path: null
 learning_objectives: []
+concludes: rel-def
 children:
   - id: relation-properties-reflexive-symmetric
     question: "How do I tell different types of relations apart?"

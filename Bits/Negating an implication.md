@@ -5,6 +5,7 @@ role: bit
 group: quantifiers-and-implications
 curriculum_path: null
 learning_objectives: []
+concludes: impl-negation
 children:
   - id: proof-by-contradiction
     question: "Can I use negation to prove a statement is true?"

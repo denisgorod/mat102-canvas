@@ -5,6 +5,7 @@ role: bit
 group: functions-ii
 curriculum_path: null
 learning_objectives: []
+concludes: card-csb
 children:
   - id: ex-interval-cardinality
     question: "Can CSB simplify cardinality proofs?"

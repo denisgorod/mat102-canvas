@@ -5,6 +5,7 @@ role: bit
 group: sets
 curriculum_path: null
 learning_objectives: []
+concludes: set-subset
 children:
   - id: ex-subset-intersection
     question: "Is a set always a subset of its intersection with another set, or the other way around?"

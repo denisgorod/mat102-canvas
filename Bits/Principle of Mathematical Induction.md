@@ -5,6 +5,7 @@ role: bit
 group: mathematical-induction
 curriculum_path: null
 learning_objectives: []
+concludes: ind-principle
 parents:
   - well-ordering-principle
   - what-is-an-implication

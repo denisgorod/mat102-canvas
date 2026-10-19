@@ -5,6 +5,7 @@ role: bit
 group: functions-ii
 curriculum_path: null
 learning_objectives: []
+concludes: card-cantor
 children: []
 parents:
   - cantors-theorem

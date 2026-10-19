@@ -5,6 +5,7 @@ role: bit
 group: propositional-logic
 curriculum_path: null
 learning_objectives: []
+concludes: prop-connectives
 children:
   - id: negation
     question: "What if I want the opposite of a statement?"

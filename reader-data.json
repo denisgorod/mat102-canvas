@@ -5,21 +5,24 @@
 			"role": "bit",
 			"group": "functions-i",
 			"curriculum_path": null,
-			"file": "Bits/A function is a special relation.md"
+			"file": "Bits/A function is a special relation.md",
+			"concludes": "fn-def"
 		},
 		"abelian-groups": {
 			"title": "Abelian groups",
 			"role": "bit",
 			"group": "groups-first-principles",
 			"curriculum_path": null,
-			"file": "Bits/Abelian groups.md"
+			"file": "Bits/Abelian groups.md",
+			"concludes": "grp-abelian"
 		},
 		"anatomy-of-a-proof": {
 			"title": "Anatomy of a proof",
 			"role": "bit",
 			"group": "reading-mathematics",
 			"curriculum_path": null,
-			"file": "Bits/Anatomy of a proof.md"
+			"file": "Bits/Anatomy of a proof.md",
+			"concludes": "read-direct-proof"
 		},
 		"arithmetic-of-congruences": {
 			"title": "Arithmetic of congruences",
@@ -50,7 +53,8 @@
 			"role": "bit",
 			"group": "groups-first-principles",
 			"curriculum_path": null,
-			"file": "Bits/Basic group properties.md"
+			"file": "Bits/Basic group properties.md",
+			"concludes": "grp-properties"
 		},
 		"bezout-corollaries": {
 			"title": "Bézout corollaries",
@@ -73,42 +77,48 @@
 			"role": "bit",
 			"group": "functions-i",
 			"curriculum_path": null,
-			"file": "Bits/Bijective functions.md"
+			"file": "Bits/Bijective functions.md",
+			"concludes": "fn-bijective"
 		},
 		"binary-operator-identity": {
 			"title": "Binary operators and identity elements",
 			"role": "bit",
 			"group": "functions-ii",
 			"curriculum_path": null,
-			"file": "Bits/Binary operators and identity elements.md"
+			"file": "Bits/Binary operators and identity elements.md",
+			"concludes": "fn-binary-operator"
 		},
 		"cantor-schroder-bernstein": {
 			"title": "Cantor-Schroder-Bernstein theorem",
 			"role": "bit",
 			"group": "functions-ii",
 			"curriculum_path": null,
-			"file": "Bits/Cantor-Schroder-Bernstein theorem.md"
+			"file": "Bits/Cantor-Schroder-Bernstein theorem.md",
+			"concludes": "card-csb"
 		},
 		"cantors-theorem": {
 			"title": "Cantor's theorem",
 			"role": "bit",
 			"group": "functions-ii",
 			"curriculum_path": null,
-			"file": "Bits/Cantors theorem.md"
+			"file": "Bits/Cantors theorem.md",
+			"concludes": "card-cantor"
 		},
 		"cardinality-definition": {
 			"title": "Cardinality of a set",
 			"role": "bit",
 			"group": "functions-ii",
 			"curriculum_path": null,
-			"file": "Bits/Cardinality of a set.md"
+			"file": "Bits/Cardinality of a set.md",
+			"concludes": "card-leq"
 		},
 		"cartesian-product": {
 			"title": "Cartesian product",
 			"role": "bit",
 			"group": "sets",
 			"curriculum_path": null,
-			"file": "Bits/Cartesian product.md"
+			"file": "Bits/Cartesian product.md",
+			"concludes": "set-cartesian-product"
 		},
 		"case-analysis-via-remainders": {
 			"title": "Case analysis via remainders",
@@ -123,35 +133,40 @@
 			"role": "bit",
 			"group": "binary-relations",
 			"curriculum_path": null,
-			"file": "Bits/Checking relation properties.md"
+			"file": "Bits/Checking relation properties.md",
+			"concludes": "rel-checking"
 		},
 		"cyclic-groups-classification": {
 			"title": "Classification of cyclic groups",
 			"role": "bit",
 			"group": "isomorphisms",
 			"curriculum_path": null,
-			"file": "Bits/Classification of cyclic groups.md"
+			"file": "Bits/Classification of cyclic groups.md",
+			"concludes": "iso-cyclic"
 		},
 		"complement-of-a-set": {
 			"title": "Complement of a set",
 			"role": "bit",
 			"group": "sets",
 			"curriculum_path": null,
-			"file": "Bits/Complement of a set.md"
+			"file": "Bits/Complement of a set.md",
+			"concludes": "set-difference-complement"
 		},
 		"composition-preserves-injectivity": {
 			"title": "Composition preserves injectivity",
 			"role": "bit",
 			"group": "functions-i",
 			"curriculum_path": null,
-			"file": "Bits/Composition preserves injectivity.md"
+			"file": "Bits/Composition preserves injectivity.md",
+			"concludes": "fn-composition-preserves"
 		},
 		"composition-preserves-surjectivity": {
 			"title": "Composition preserves surjectivity",
 			"role": "bit",
 			"group": "functions-i",
 			"curriculum_path": null,
-			"file": "Bits/Composition preserves surjectivity.md"
+			"file": "Bits/Composition preserves surjectivity.md",
+			"concludes": "fn-composition-preserves"
 		},
 		"congruence-classes-and-zn": {
 			"title": "Congruence classes and Zn",
@@ -182,28 +197,32 @@
 			"role": "bit",
 			"group": "propositional-logic",
 			"curriculum_path": null,
-			"file": "Bits/Conjunction and disjunction.md"
+			"file": "Bits/Conjunction and disjunction.md",
+			"concludes": "prop-connectives"
 		},
 		"contradiction-is-not-constructive": {
 			"title": "Contradiction is not constructive",
 			"role": "bit",
 			"group": "proof-techniques",
 			"curriculum_path": null,
-			"file": "Bits/Contradiction is not constructive.md"
+			"file": "Bits/Contradiction is not constructive.md",
+			"concludes": "pf-contradiction"
 		},
 		"contrapositive-of-an-implication": {
 			"title": "Contrapositive of an implication",
 			"role": "bit",
 			"group": "quantifiers-and-implications",
 			"curriculum_path": null,
-			"file": "Bits/Contrapositive of an implication.md"
+			"file": "Bits/Contrapositive of an implication.md",
+			"concludes": "impl-contrapositive"
 		},
 		"converse-of-an-implication": {
 			"title": "Converse of an implication",
 			"role": "bit",
 			"group": "quantifiers-and-implications",
 			"curriculum_path": null,
-			"file": "Bits/Converse of an implication.md"
+			"file": "Bits/Converse of an implication.md",
+			"concludes": "impl-converse"
 		},
 		"coprime-divides-product": {
 			"title": "Coprime divides product",
@@ -218,35 +237,40 @@
 			"role": "bit",
 			"group": "functions-ii",
 			"curriculum_path": null,
-			"file": "Bits/Countable sets.md"
+			"file": "Bits/Countable sets.md",
+			"concludes": "card-countable"
 		},
 		"cyclic-group-definition": {
 			"title": "Cyclic groups",
 			"role": "bit",
 			"group": "cyclic-groups",
 			"curriculum_path": null,
-			"file": "Bits/Cyclic groups.md"
+			"file": "Bits/Cyclic groups.md",
+			"concludes": "cyc-def"
 		},
 		"cyclic-subgroup-is-subgroup": {
 			"title": "Cyclic subgroup is a subgroup",
 			"role": "bit",
 			"group": "cyclic-groups",
 			"curriculum_path": null,
-			"file": "Bits/Cyclic subgroup is a subgroup.md"
+			"file": "Bits/Cyclic subgroup is a subgroup.md",
+			"concludes": "cyc-def"
 		},
 		"de-morgans-laws": {
 			"title": "De Morgan's laws",
 			"role": "bit",
 			"group": "propositional-logic",
 			"curriculum_path": null,
-			"file": "Bits/De Morgans laws.md"
+			"file": "Bits/De Morgans laws.md",
+			"concludes": "prop-de-morgan"
 		},
 		"definitions-vs-intuition": {
 			"title": "Definitions vs intuition",
 			"role": "bit",
 			"group": "reading-mathematics",
 			"curriculum_path": null,
-			"file": "Bits/Definitions vs intuition.md"
+			"file": "Bits/Definitions vs intuition.md",
+			"concludes": "read-definition"
 		},
 		"divisibility-definition": {
 			"title": "Divisibility definition",
@@ -269,35 +293,40 @@
 			"role": "bit",
 			"group": "functions-i",
 			"curriculum_path": null,
-			"file": "Bits/Domain codomain and range.md"
+			"file": "Bits/Domain codomain and range.md",
+			"concludes": "fn-image"
 		},
 		"doubly-quantified-statements": {
 			"title": "Doubly quantified statements",
 			"role": "bit",
 			"group": "quantifiers-and-implications",
 			"curriculum_path": null,
-			"file": "Bits/Doubly quantified statements.md"
+			"file": "Bits/Doubly quantified statements.md",
+			"concludes": "quant-order"
 		},
 		"cardinality-via-bijection": {
 			"title": "Equal cardinality via bijection",
 			"role": "bit",
 			"group": "functions-ii",
 			"curriculum_path": null,
-			"file": "Bits/Equal cardinality via bijection.md"
+			"file": "Bits/Equal cardinality via bijection.md",
+			"concludes": "card-equal"
 		},
 		"equivalence-classes": {
 			"title": "Equivalence classes",
 			"role": "bit",
 			"group": "equivalence-relations",
 			"curriculum_path": null,
-			"file": "Bits/Equivalence classes.md"
+			"file": "Bits/Equivalence classes.md",
+			"concludes": "eqv-classes"
 		},
 		"equivalence-relations-partition-a-set": {
 			"title": "Equivalence relations partition a set",
 			"role": "bit",
 			"group": "equivalence-relations",
 			"curriculum_path": null,
-			"file": "Bits/Equivalence relations partition a set.md"
+			"file": "Bits/Equivalence relations partition a set.md",
+			"concludes": "eqv-partition"
 		},
 		"euclidean-algorithm": {
 			"title": "Euclidean Algorithm",
@@ -1637,14 +1666,16 @@
 			"role": "bit",
 			"group": "functions-ii",
 			"curriculum_path": null,
-			"file": "Bits/Function composition.md"
+			"file": "Bits/Function composition.md",
+			"concludes": "fn-composition"
 		},
 		"function-notation": {
 			"title": "Function notation and data",
 			"role": "bit",
 			"group": "functions-i",
 			"curriculum_path": null,
-			"file": "Bits/Function notation and data.md"
+			"file": "Bits/Function notation and data.md",
+			"concludes": "fn-def"
 		},
 		"gcd-definition": {
 			"title": "GCD definition and coprimality",
@@ -1667,91 +1698,104 @@
 			"role": "bit",
 			"group": "reading-mathematics",
 			"curriculum_path": null,
-			"file": "Bits/Generality in proofs.md"
+			"file": "Bits/Generality in proofs.md",
+			"concludes": "read-proof-generality"
 		},
 		"generalized-induction": {
 			"title": "Generalized induction",
 			"role": "bit",
 			"group": "strong-induction",
 			"curriculum_path": null,
-			"file": "Bits/Generalized induction.md"
+			"file": "Bits/Generalized induction.md",
+			"concludes": "sind-generalized"
 		},
 		"group-definition": {
 			"title": "Group definition",
 			"role": "bit",
 			"group": "groups-first-principles",
 			"curriculum_path": null,
-			"file": "Bits/Group definition.md"
+			"file": "Bits/Group definition.md",
+			"concludes": "grp-def"
 		},
 		"group-homomorphism-definition": {
 			"title": "Group homomorphism",
 			"role": "bit",
 			"group": "homomorphisms",
 			"curriculum_path": null,
-			"file": "Bits/Group homomorphism.md"
+			"file": "Bits/Group homomorphism.md",
+			"concludes": "hom-def"
 		},
 		"group-order-and-element-order": {
 			"title": "Group order and element order",
 			"role": "bit",
 			"group": "subgroups-and-order",
 			"curriculum_path": null,
-			"file": "Bits/Group order and element order.md"
+			"file": "Bits/Group order and element order.md",
+			"concludes": "sub-order"
 		},
 		"homomorphism-well-definedness": {
 			"title": "Well-definedness of homomorphisms",
 			"role": "bit",
 			"group": "homomorphisms",
 			"curriculum_path": null,
-			"file": "Bits/Homomorphism well-definedness.md"
+			"file": "Bits/Homomorphism well-definedness.md",
+			"concludes": "hom-def"
 		},
 		"hypothesis-and-conclusion": {
 			"title": "Hypothesis and conclusion",
 			"role": "bit",
 			"group": "reading-mathematics",
 			"curriculum_path": null,
-			"file": "Bits/Hypothesis and conclusion.md"
+			"file": "Bits/Hypothesis and conclusion.md",
+			"concludes": "read-hypothesis-conclusion"
 		},
 		"if-and-only-if": {
 			"title": "If and only if",
 			"role": "bit",
 			"group": "quantifiers-and-implications",
 			"curriculum_path": null,
-			"file": "Bits/If and only if.md"
+			"file": "Bits/If and only if.md",
+			"concludes": "impl-iff"
 		},
 		"image-of-a-set": {
 			"title": "Image of a set",
 			"role": "bit",
 			"group": "functions-i",
 			"curriculum_path": null,
-			"file": "Bits/Image of a set.md"
+			"file": "Bits/Image of a set.md",
+			"concludes": "fn-image"
 		},
 		"induction-example-l-tiling": {
 			"title": "Induction example: L-tiling",
 			"role": "bit",
 			"group": "mathematical-induction",
 			"curriculum_path": null,
-			"file": "Bits/Induction example L-tiling.md"
+			"file": "Bits/Induction example L-tiling.md",
+			"concludes": "ind-proof-format"
 		},
 		"induction-example-divisibility": {
 			"title": "Induction example: divisibility",
 			"role": "bit",
 			"group": "mathematical-induction",
 			"curriculum_path": null,
-			"file": "Bits/Induction example divisibility.md"
+			"file": "Bits/Induction example divisibility.md",
+			"concludes": "ind-proof-format"
 		},
 		"induction-example-inequality": {
 			"title": "Induction example: inequality",
 			"role": "bit",
 			"group": "mathematical-induction",
 			"curriculum_path": null,
-			"file": "Bits/Induction example inequality.md"
+			"file": "Bits/Induction example inequality.md",
+			"concludes": "ind-proof-format"
 		},
 		"infinite-sets-surprise": {
 			"title": "Infinite sets can match their subsets",
 			"role": "bit",
 			"group": "functions-ii",
 			"curriculum_path": null,
-			"file": "Bits/Infinite sets can match their subsets.md"
+			"file": "Bits/Infinite sets can match their subsets.md",
+			"concludes": "card-equal"
 		},
 		"infinitely-many-primes": {
 			"title": "Infinitely many primes",
@@ -1766,28 +1810,32 @@
 			"role": "bit",
 			"group": "functions-i",
 			"curriculum_path": null,
-			"file": "Bits/Injective functions.md"
+			"file": "Bits/Injective functions.md",
+			"concludes": "fn-injective"
 		},
 		"inverse-functions": {
 			"title": "Inverse functions",
 			"role": "bit",
 			"group": "functions-ii",
 			"curriculum_path": null,
-			"file": "Bits/Inverse functions.md"
+			"file": "Bits/Inverse functions.md",
+			"concludes": "fn-inverse-function"
 		},
 		"inverse-with-respect-to-operator": {
 			"title": "Inverse with respect to an operator",
 			"role": "bit",
 			"group": "functions-ii",
 			"curriculum_path": null,
-			"file": "Bits/Inverse with respect to an operator.md"
+			"file": "Bits/Inverse with respect to an operator.md",
+			"concludes": "fn-operator-inverse"
 		},
 		"invertibility-requires-bijectivity": {
 			"title": "Invertibility requires bijectivity",
 			"role": "bit",
 			"group": "functions-ii",
 			"curriculum_path": null,
-			"file": "Bits/Invertibility requires bijectivity.md"
+			"file": "Bits/Invertibility requires bijectivity.md",
+			"concludes": "fn-invertible-iff-bijective"
 		},
 		"irrationality-via-fta": {
 			"title": "Irrationality via FTA",
@@ -1802,28 +1850,32 @@
 			"role": "bit",
 			"group": "isomorphisms",
 			"curriculum_path": null,
-			"file": "Bits/Isomorphism definition.md"
+			"file": "Bits/Isomorphism definition.md",
+			"concludes": "iso-def"
 		},
 		"isomorphism-example": {
 			"title": "Isomorphism example: three groups of order 2",
 			"role": "bit",
 			"group": "isomorphisms",
 			"curriculum_path": null,
-			"file": "Bits/Isomorphism example three groups of order 2.md"
+			"file": "Bits/Isomorphism example three groups of order 2.md",
+			"concludes": "iso-def"
 		},
 		"kernel-and-image-example": {
 			"title": "Kernel and image example",
 			"role": "bit",
 			"group": "homomorphisms",
 			"curriculum_path": null,
-			"file": "Bits/Kernel and image example.md"
+			"file": "Bits/Kernel and image example.md",
+			"concludes": "hom-kernel"
 		},
 		"kernel-and-image": {
 			"title": "Kernel and image",
 			"role": "bit",
 			"group": "homomorphisms",
 			"curriculum_path": null,
-			"file": "Bits/Kernel and image.md"
+			"file": "Bits/Kernel and image.md",
+			"concludes": "hom-kernel"
 		},
 		"lde-general-solution": {
 			"title": "LDE general solution",
@@ -1878,42 +1930,48 @@
 			"role": "bit",
 			"group": "quantifiers-and-implications",
 			"curriculum_path": null,
-			"file": "Bits/Math vs English NOT.md"
+			"file": "Bits/Math vs English NOT.md",
+			"concludes": "quant-negation"
 		},
 		"math-vs-english-or": {
 			"title": "Math vs English: OR",
 			"role": "bit",
 			"group": "quantifiers-and-implications",
 			"curriculum_path": null,
-			"file": "Bits/Math vs English OR.md"
+			"file": "Bits/Math vs English OR.md",
+			"concludes": "prop-connectives"
 		},
 		"math-vs-english-implication": {
 			"title": "Math vs English: implication",
 			"role": "bit",
 			"group": "quantifiers-and-implications",
 			"curriculum_path": null,
-			"file": "Bits/Math vs English implication.md"
+			"file": "Bits/Math vs English implication.md",
+			"concludes": "impl-converse"
 		},
 		"mathematical-results-are-infallible": {
 			"title": "Mathematical results are infallible",
 			"role": "bit",
 			"group": "reading-mathematics",
 			"curriculum_path": null,
-			"file": "Bits/Mathematical results are infallible.md"
+			"file": "Bits/Mathematical results are infallible.md",
+			"concludes": "read-proof"
 		},
 		"maximal-and-minimal-elements": {
 			"title": "Maximal and minimal elements",
 			"role": "bit",
 			"group": "order-relations",
 			"curriculum_path": null,
-			"file": "Bits/Maximal and minimal elements.md"
+			"file": "Bits/Maximal and minimal elements.md",
+			"concludes": "ord-max"
 		},
 		"maximum-vs-maximal": {
 			"title": "Maximum vs maximal",
 			"role": "bit",
 			"group": "order-relations",
 			"curriculum_path": null,
-			"file": "Bits/Maximum vs maximal.md"
+			"file": "Bits/Maximum vs maximal.md",
+			"concludes": "ord-max"
 		},
 		"modular-cancellation-lemma": {
 			"title": "Modular cancellation lemma",
@@ -1935,77 +1993,88 @@
 			"role": "bit",
 			"group": "quantifiers-and-implications",
 			"curriculum_path": null,
-			"file": "Bits/Necessary and sufficient conditions.md"
+			"file": "Bits/Necessary and sufficient conditions.md",
+			"concludes": "impl-nec-suff"
 		},
 		"negating-an-implication": {
 			"title": "Negating an implication",
 			"role": "bit",
 			"group": "quantifiers-and-implications",
 			"curriculum_path": null,
-			"file": "Bits/Negating an implication.md"
+			"file": "Bits/Negating an implication.md",
+			"concludes": "impl-negation"
 		},
 		"negating-existential-quantifier": {
 			"title": "Negating the existential quantifier",
 			"role": "bit",
 			"group": "quantifiers-and-implications",
 			"curriculum_path": null,
-			"file": "Bits/Negating the existential quantifier.md"
+			"file": "Bits/Negating the existential quantifier.md",
+			"concludes": "quant-negation"
 		},
 		"negating-universal-quantifier": {
 			"title": "Negating the universal quantifier",
 			"role": "bit",
 			"group": "quantifiers-and-implications",
 			"curriculum_path": null,
-			"file": "Bits/Negating the universal quantifier.md"
+			"file": "Bits/Negating the universal quantifier.md",
+			"concludes": "quant-negation"
 		},
 		"negation": {
 			"title": "Negation",
 			"role": "bit",
 			"group": "propositional-logic",
 			"curriculum_path": null,
-			"file": "Bits/Negation.md"
+			"file": "Bits/Negation.md",
+			"concludes": "prop-connectives"
 		},
 		"order-divides-exponent": {
 			"title": "Order divides exponent",
 			"role": "bit",
 			"group": "subgroups-and-order",
 			"curriculum_path": null,
-			"file": "Bits/Order divides exponent.md"
+			"file": "Bits/Order divides exponent.md",
+			"concludes": "sub-order-divides"
 		},
 		"order-of-a-power": {
 			"title": "Order of a power",
 			"role": "bit",
 			"group": "subgroups-and-order",
 			"curriculum_path": null,
-			"file": "Bits/Order of a power.md"
+			"file": "Bits/Order of a power.md",
+			"concludes": "sub-order-power"
 		},
 		"posets": {
 			"title": "Partially ordered sets (posets)",
 			"role": "bit",
 			"group": "order-relations",
 			"curriculum_path": null,
-			"file": "Bits/Partially ordered sets.md"
+			"file": "Bits/Partially ordered sets.md",
+			"concludes": "ord-def"
 		},
 		"power-set": {
 			"title": "Power set",
 			"role": "bit",
 			"group": "functions-ii",
 			"curriculum_path": null,
-			"file": "Bits/Power set.md"
+			"file": "Bits/Power set.md",
+			"concludes": "card-power-set"
 		},
 		"predicates": {
 			"title": "Predicates",
 			"role": "bit",
 			"group": "propositional-logic",
 			"curriculum_path": null,
-			"file": "Bits/Predicates.md"
+			"file": "Bits/Predicates.md",
+			"concludes": "prop-predicate"
 		},
 		"preimage-of-a-set": {
 			"title": "Preimage of a set",
 			"role": "bit",
 			"group": "functions-i",
 			"curriculum_path": null,
-			"file": "Bits/Preimage of a set.md"
+			"file": "Bits/Preimage of a set.md",
+			"concludes": "fn-preimage"
 		},
 		"prime-definition": {
 			"title": "Prime definition",
@@ -2028,91 +2097,104 @@
 			"role": "bit",
 			"group": "mathematical-induction",
 			"curriculum_path": null,
-			"file": "Bits/Principle of Mathematical Induction.md"
+			"file": "Bits/Principle of Mathematical Induction.md",
+			"concludes": "ind-principle"
 		},
 		"structural-induction-principle": {
 			"title": "Principle of structural induction",
 			"role": "bit",
 			"group": "recursion-and-structural-induction",
 			"curriculum_path": null,
-			"file": "Bits/Principle of structural induction.md"
+			"file": "Bits/Principle of structural induction.md",
+			"concludes": "rec-structural-induction"
 		},
 		"proof-by-contradiction": {
 			"title": "Proof by contradiction",
 			"role": "bit",
 			"group": "proof-techniques",
 			"curriculum_path": null,
-			"file": "Bits/Proof by contradiction.md"
+			"file": "Bits/Proof by contradiction.md",
+			"concludes": "pf-contradiction"
 		},
 		"proof-by-contrapositive": {
 			"title": "Proof by contrapositive",
 			"role": "bit",
 			"group": "quantifiers-and-implications",
 			"curriculum_path": null,
-			"file": "Bits/Proof by contrapositive.md"
+			"file": "Bits/Proof by contrapositive.md",
+			"concludes": "impl-contrapositive-proof"
 		},
 		"homomorphism-properties": {
 			"title": "Properties of homomorphisms",
 			"role": "bit",
 			"group": "homomorphisms",
 			"curriculum_path": null,
-			"file": "Bits/Properties of homomorphisms.md"
+			"file": "Bits/Properties of homomorphisms.md",
+			"concludes": "hom-properties"
 		},
 		"isomorphism-properties": {
 			"title": "Properties of isomorphisms",
 			"role": "bit",
 			"group": "isomorphisms",
 			"curriculum_path": null,
-			"file": "Bits/Properties of isomorphisms.md"
+			"file": "Bits/Properties of isomorphisms.md",
+			"concludes": "iso-invariants"
 		},
 		"proving-injectivity": {
 			"title": "Proving and disproving injectivity",
 			"role": "bit",
 			"group": "functions-i",
 			"curriculum_path": null,
-			"file": "Bits/Proving and disproving injectivity.md"
+			"file": "Bits/Proving and disproving injectivity.md",
+			"concludes": "fn-injective"
 		},
 		"proving-surjectivity": {
 			"title": "Proving and disproving surjectivity",
 			"role": "bit",
 			"group": "functions-i",
 			"curriculum_path": null,
-			"file": "Bits/Proving and disproving surjectivity.md"
+			"file": "Bits/Proving and disproving surjectivity.md",
+			"concludes": "fn-surjective"
 		},
 		"proving-quantified-statements": {
 			"title": "Proving quantified statements",
 			"role": "bit",
 			"group": "quantifiers-and-implications",
 			"curriculum_path": null,
-			"file": "Bits/Proving quantified statements.md"
+			"file": "Bits/Proving quantified statements.md",
+			"concludes": "quant-proof-methods"
 		},
 		"proving-vs-applying": {
 			"title": "Proving vs applying a theorem",
 			"role": "bit",
 			"group": "reading-mathematics",
 			"curriculum_path": null,
-			"file": "Bits/Proving vs applying a theorem.md"
+			"file": "Bits/Proving vs applying a theorem.md",
+			"concludes": "read-proving-vs-applying"
 		},
 		"q-star-is-a-group": {
 			"title": "Q* is a group under multiplication",
 			"role": "bit",
 			"group": "groups-first-principles",
 			"curriculum_path": null,
-			"file": "Bits/Q star is a group.md"
+			"file": "Bits/Q star is a group.md",
+			"concludes": "grp-def"
 		},
 		"quantifier-order-matters": {
 			"title": "Quantifier order matters",
 			"role": "bit",
 			"group": "quantifiers-and-implications",
 			"curriculum_path": null,
-			"file": "Bits/Quantifier order matters.md"
+			"file": "Bits/Quantifier order matters.md",
+			"concludes": "quant-order"
 		},
 		"quantifiers-turn-predicates-into-propositions": {
 			"title": "Quantifiers turn predicates into propositions",
 			"role": "bit",
 			"group": "quantifiers-and-implications",
 			"curriculum_path": null,
-			"file": "Bits/Quantifiers turn predicates into propositions.md"
+			"file": "Bits/Quantifiers turn predicates into propositions.md",
+			"concludes": "quant-forall"
 		},
 		"reading-math-is-different": {
 			"title": "Reading math is different",
@@ -2126,273 +2208,312 @@
 			"role": "bit",
 			"group": "recursion-and-structural-induction",
 			"curriculum_path": null,
-			"file": "Bits/Recursive definitions.md"
+			"file": "Bits/Recursive definitions.md",
+			"concludes": "rec-recursive-def"
 		},
 		"relation-properties-reflexive-symmetric": {
 			"title": "Reflexive, irreflexive, symmetric, anti-symmetric",
 			"role": "bit",
 			"group": "binary-relations",
 			"curriculum_path": null,
-			"file": "Bits/Reflexive irreflexive symmetric anti-symmetric.md"
+			"file": "Bits/Reflexive irreflexive symmetric anti-symmetric.md",
+			"concludes": "rel-properties"
 		},
 		"relations-on-a-set": {
 			"title": "Relations on a set",
 			"role": "bit",
 			"group": "binary-relations",
 			"curriculum_path": null,
-			"file": "Bits/Relations on a set.md"
+			"file": "Bits/Relations on a set.md",
+			"concludes": "rel-def"
 		},
 		"self-explanation-training": {
 			"title": "Self-explanation training",
 			"role": "bit",
 			"group": "reading-mathematics",
 			"curriculum_path": null,
-			"file": "Bits/Self-explanation training.md"
+			"file": "Bits/Self-explanation training.md",
+			"concludes": "read-self-explanation"
 		},
 		"self-explanation-vs-paraphrasing": {
 			"title": "Self-explanation vs paraphrasing and monitoring",
 			"role": "bit",
 			"group": "reading-mathematics",
 			"curriculum_path": null,
-			"file": "Bits/Self-explanation vs paraphrasing and monitoring.md"
+			"file": "Bits/Self-explanation vs paraphrasing and monitoring.md",
+			"concludes": "read-self-explanation"
 		},
 		"set-difference": {
 			"title": "Set difference",
 			"role": "bit",
 			"group": "sets",
 			"curriculum_path": null,
-			"file": "Bits/Set difference.md"
+			"file": "Bits/Set difference.md",
+			"concludes": "set-difference-complement"
 		},
 		"set-equality-via-double-inclusion": {
 			"title": "Set equality via double inclusion",
 			"role": "bit",
 			"group": "sets",
 			"curriculum_path": null,
-			"file": "Bits/Set equality via double inclusion.md"
+			"file": "Bits/Set equality via double inclusion.md",
+			"concludes": "set-double-inclusion"
 		},
 		"set-notation": {
 			"title": "Set notation",
 			"role": "bit",
 			"group": "sets",
 			"curriculum_path": null,
-			"file": "Bits/Set notation.md"
+			"file": "Bits/Set notation.md",
+			"concludes": "set-def"
 		},
 		"set-builder-notation": {
 			"title": "Set-builder notation",
 			"role": "bit",
 			"group": "sets",
 			"curriculum_path": null,
-			"file": "Bits/Set-builder notation.md"
+			"file": "Bits/Set-builder notation.md",
+			"concludes": "set-builder"
 		},
 		"sets-can-contain-anything": {
 			"title": "Sets can contain anything",
 			"role": "bit",
 			"group": "sets",
 			"curriculum_path": null,
-			"file": "Bits/Sets can contain anything.md"
+			"file": "Bits/Sets can contain anything.md",
+			"concludes": "set-def"
 		},
 		"sigma-notation": {
 			"title": "Sigma notation",
 			"role": "bit",
 			"group": "summation-notation",
 			"curriculum_path": null,
-			"file": "Bits/Sigma notation.md"
+			"file": "Bits/Sigma notation.md",
+			"concludes": "sum-sigma"
 		},
 		"standard-number-sets": {
 			"title": "Standard number sets",
 			"role": "bit",
 			"group": "sets",
 			"curriculum_path": null,
-			"file": "Bits/Standard number sets.md"
+			"file": "Bits/Standard number sets.md",
+			"concludes": "set-number-sets"
 		},
 		"strong-induction-equivalence": {
 			"title": "Strong induction equivalence",
 			"role": "bit",
 			"group": "strong-induction",
 			"curriculum_path": null,
-			"file": "Bits/Strong induction equivalence.md"
+			"file": "Bits/Strong induction equivalence.md",
+			"concludes": "sind-principle"
 		},
 		"strong-induction-postage-stamps": {
 			"title": "Strong induction postage stamps",
 			"role": "bit",
 			"group": "strong-induction",
 			"curriculum_path": null,
-			"file": "Bits/Strong induction postage stamps.md"
+			"file": "Bits/Strong induction postage stamps.md",
+			"concludes": "sind-postage"
 		},
 		"strong-induction-principle": {
 			"title": "Strong induction",
 			"role": "bit",
 			"group": "strong-induction",
 			"curriculum_path": null,
-			"file": "Bits/Strong induction.md"
+			"file": "Bits/Strong induction.md",
+			"concludes": "sind-principle"
 		},
 		"structural-induction-example-divisibility": {
 			"title": "Structural induction example: divisibility",
 			"role": "bit",
 			"group": "recursion-and-structural-induction",
 			"curriculum_path": null,
-			"file": "Bits/Structural induction example divisibility.md"
+			"file": "Bits/Structural induction example divisibility.md",
+			"concludes": "rec-structural-induction"
 		},
 		"subgroup-definition": {
 			"title": "Subgroup definition",
 			"role": "bit",
 			"group": "subgroups-and-order",
 			"curriculum_path": null,
-			"file": "Bits/Subgroup definition.md"
+			"file": "Bits/Subgroup definition.md",
+			"concludes": "sub-def"
 		},
 		"subgroup-test-example": {
 			"title": "Subgroup test example: centralizer",
 			"role": "bit",
 			"group": "subgroups-and-order",
 			"curriculum_path": null,
-			"file": "Bits/Subgroup test example centralizer.md"
+			"file": "Bits/Subgroup test example centralizer.md",
+			"concludes": "sub-test"
 		},
 		"subgroup-test": {
 			"title": "Subgroup test",
 			"role": "bit",
 			"group": "subgroups-and-order",
 			"curriculum_path": null,
-			"file": "Bits/Subgroup test.md"
+			"file": "Bits/Subgroup test.md",
+			"concludes": "sub-test"
 		},
 		"subsets": {
 			"title": "Subsets",
 			"role": "bit",
 			"group": "sets",
 			"curriculum_path": null,
-			"file": "Bits/Subsets.md"
+			"file": "Bits/Subsets.md",
+			"concludes": "set-subset"
 		},
 		"summation-identity-example": {
 			"title": "Summation identity via induction",
 			"role": "bit",
 			"group": "summation-notation",
 			"curriculum_path": null,
-			"file": "Bits/Summation identity via induction.md"
+			"file": "Bits/Summation identity via induction.md",
+			"concludes": "sum-induction"
 		},
 		"supremum-and-infimum": {
 			"title": "Supremum and infimum",
 			"role": "bit",
 			"group": "order-relations",
 			"curriculum_path": null,
-			"file": "Bits/Supremum and infimum.md"
+			"file": "Bits/Supremum and infimum.md",
+			"concludes": "ord-sup-inf"
 		},
 		"surjective-functions": {
 			"title": "Surjective functions",
 			"role": "bit",
 			"group": "functions-i",
 			"curriculum_path": null,
-			"file": "Bits/Surjective functions.md"
+			"file": "Bits/Surjective functions.md",
+			"concludes": "fn-surjective"
 		},
 		"fibonacci-sequence": {
 			"title": "The Fibonacci sequence",
 			"role": "bit",
 			"group": "recursion-and-structural-induction",
 			"curriculum_path": null,
-			"file": "Bits/The Fibonacci sequence.md"
+			"file": "Bits/The Fibonacci sequence.md",
+			"concludes": "rec-fibonacci"
 		},
 		"dihedral-group": {
 			"title": "The dihedral group",
 			"role": "bit",
 			"group": "groups-first-principles",
 			"curriculum_path": null,
-			"file": "Bits/The dihedral group.md"
+			"file": "Bits/The dihedral group.md",
+			"concludes": "grp-dihedral"
 		},
 		"existential-quantifier": {
 			"title": "The existential quantifier",
 			"role": "bit",
 			"group": "quantifiers-and-implications",
 			"curriculum_path": null,
-			"file": "Bits/The existential quantifier.md"
+			"file": "Bits/The existential quantifier.md",
+			"concludes": "quant-exists"
 		},
 		"integers-are-countable": {
 			"title": "The integers are countable",
 			"role": "bit",
 			"group": "functions-ii",
 			"curriculum_path": null,
-			"file": "Bits/The integers are countable.md"
+			"file": "Bits/The integers are countable.md",
+			"concludes": "card-z-q-countable"
 		},
 		"irrationality-of-sqrt-2": {
 			"title": "The irrationality of √2",
 			"role": "bit",
 			"group": "proof-techniques",
 			"curriculum_path": null,
-			"file": "Bits/The irrationality of sqrt 2.md"
+			"file": "Bits/The irrationality of sqrt 2.md",
+			"concludes": "pf-sqrt2"
 		},
 		"rationals-are-countable": {
 			"title": "The rationals are countable",
 			"role": "bit",
 			"group": "functions-ii",
 			"curriculum_path": null,
-			"file": "Bits/The rationals are countable.md"
+			"file": "Bits/The rationals are countable.md",
+			"concludes": "card-z-q-countable"
 		},
 		"reals-are-uncountable": {
 			"title": "The reals are uncountable",
 			"role": "bit",
 			"group": "functions-ii",
 			"curriculum_path": null,
-			"file": "Bits/The reals are uncountable.md"
+			"file": "Bits/The reals are uncountable.md",
+			"concludes": "card-reals-uncountable"
 		},
 		"symmetric-group": {
 			"title": "The symmetric group",
 			"role": "bit",
 			"group": "groups-first-principles",
 			"curriculum_path": null,
-			"file": "Bits/The symmetric group.md"
+			"file": "Bits/The symmetric group.md",
+			"concludes": "grp-symmetric"
 		},
 		"universal-quantifier": {
 			"title": "The universal quantifier",
 			"role": "bit",
 			"group": "quantifiers-and-implications",
 			"curriculum_path": null,
-			"file": "Bits/The universal quantifier.md"
+			"file": "Bits/The universal quantifier.md",
+			"concludes": "quant-forall"
 		},
 		"theorems-and-friends": {
 			"title": "Theorems and friends",
 			"role": "bit",
 			"group": "reading-mathematics",
 			"curriculum_path": null,
-			"file": "Bits/Theorems and friends.md"
+			"file": "Bits/Theorems and friends.md",
+			"concludes": "read-kinds-of-results"
 		},
 		"no-set-of-all-sets": {
 			"title": "There is no set of all sets",
 			"role": "bit",
 			"group": "functions-ii",
 			"curriculum_path": null,
-			"file": "Bits/There is no set of all sets.md"
+			"file": "Bits/There is no set of all sets.md",
+			"concludes": "card-cantor"
 		},
 		"relation-properties-transitive-total": {
 			"title": "Transitive, total, left-total, functional",
 			"role": "bit",
 			"group": "binary-relations",
 			"curriculum_path": null,
-			"file": "Bits/Transitive total left-total functional.md"
+			"file": "Bits/Transitive total left-total functional.md",
+			"concludes": "rel-left-total-functional"
 		},
 		"truth-tables": {
 			"title": "Truth tables",
 			"role": "bit",
 			"group": "propositional-logic",
 			"curriculum_path": null,
-			"file": "Bits/Truth tables.md"
+			"file": "Bits/Truth tables.md",
+			"concludes": "prop-truth-tables"
 		},
 		"union-and-intersection": {
 			"title": "Union and intersection",
 			"role": "bit",
 			"group": "sets",
 			"curriculum_path": null,
-			"file": "Bits/Union and intersection.md"
+			"file": "Bits/Union and intersection.md",
+			"concludes": "set-union-intersection"
 		},
 		"upper-and-lower-bounds": {
 			"title": "Upper and lower bounds",
 			"role": "bit",
 			"group": "order-relations",
 			"curriculum_path": null,
-			"file": "Bits/Upper and lower bounds.md"
+			"file": "Bits/Upper and lower bounds.md",
+			"concludes": "ord-sup-inf"
 		},
 		"vacuous-truth": {
 			"title": "Vacuous truth",
 			"role": "bit",
 			"group": "quantifiers-and-implications",
 			"curriculum_path": null,
-			"file": "Bits/Vacuous truth.md"
+			"file": "Bits/Vacuous truth.md",
+			"concludes": "impl-vacuous"
 		},
 		"well-ordering-principle": {
 			"title": "Well-Ordering Principle",
@@ -2407,84 +2528,96 @@
 			"role": "bit",
 			"group": "binary-relations",
 			"curriculum_path": null,
-			"file": "Bits/What is a binary relation.md"
+			"file": "Bits/What is a binary relation.md",
+			"concludes": "rel-def"
 		},
 		"what-is-a-definition": {
 			"title": "What is a definition?",
 			"role": "bit",
 			"group": "reading-mathematics",
 			"curriculum_path": null,
-			"file": "Bits/What is a definition.md"
+			"file": "Bits/What is a definition.md",
+			"concludes": "read-definition"
 		},
 		"what-is-a-proof": {
 			"title": "What is a proof?",
 			"role": "bit",
 			"group": "reading-mathematics",
 			"curriculum_path": null,
-			"file": "Bits/What is a proof.md"
+			"file": "Bits/What is a proof.md",
+			"concludes": "read-proof"
 		},
 		"what-is-a-proposition": {
 			"title": "What is a proposition?",
 			"role": "bit",
 			"group": "propositional-logic",
 			"curriculum_path": null,
-			"file": "Bits/What is a proposition.md"
+			"file": "Bits/What is a proposition.md",
+			"concludes": "prop-proposition"
 		},
 		"what-is-a-set": {
 			"title": "What is a set?",
 			"role": "bit",
 			"group": "sets",
 			"curriculum_path": null,
-			"file": "Bits/What is a set.md"
+			"file": "Bits/What is a set.md",
+			"concludes": "set-def"
 		},
 		"what-is-an-equivalence-relation": {
 			"title": "What is an equivalence relation?",
 			"role": "bit",
 			"group": "equivalence-relations",
 			"curriculum_path": null,
-			"file": "Bits/What is an equivalence relation.md"
+			"file": "Bits/What is an equivalence relation.md",
+			"concludes": "eqv-def"
 		},
 		"what-is-an-implication": {
 			"title": "What is an implication?",
 			"role": "bit",
 			"group": "quantifiers-and-implications",
 			"curriculum_path": null,
-			"file": "Bits/What is an implication.md"
+			"file": "Bits/What is an implication.md",
+			"concludes": "impl-def"
 		},
 		"what-is-an-order-relation": {
 			"title": "What is an order relation?",
 			"role": "bit",
 			"group": "order-relations",
 			"curriculum_path": null,
-			"file": "Bits/What is an order relation.md"
+			"file": "Bits/What is an order relation.md",
+			"concludes": "ord-def"
 		},
 		"when-are-functions-equal": {
 			"title": "When are functions equal?",
 			"role": "bit",
 			"group": "functions-i",
 			"curriculum_path": null,
-			"file": "Bits/When are functions equal.md"
+			"file": "Bits/When are functions equal.md",
+			"concludes": "fn-equality"
 		},
 		"why-diagonalization-fails-for-rationals": {
 			"title": "Why diagonalization fails for Q",
 			"role": "bit",
 			"group": "functions-ii",
 			"curriculum_path": null,
-			"file": "Bits/Why diagonalization fails for Q.md"
+			"file": "Bits/Why diagonalization fails for Q.md",
+			"concludes": "card-reals-uncountable"
 		},
 		"working-with-a-definition": {
 			"title": "Working with a definition",
 			"role": "bit",
 			"group": "reading-mathematics",
 			"curriculum_path": null,
-			"file": "Bits/Working with a definition.md"
+			"file": "Bits/Working with a definition.md",
+			"concludes": "read-examples-nonexamples"
 		},
 		"zn-is-a-group": {
 			"title": "Z_n is a group under addition",
 			"role": "bit",
 			"group": "groups-first-principles",
 			"curriculum_path": null,
-			"file": "Bits/Zn is a group.md"
+			"file": "Bits/Zn is a group.md",
+			"concludes": "grp-zn"
 		}
 	},
 	"edges": [

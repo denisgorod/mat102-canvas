@@ -5,6 +5,7 @@ role: bit
 group: cyclic-groups
 curriculum_path: null
 learning_objectives: []
+concludes: cyc-def
 children:
   - id: cyclic-subgroup-is-subgroup
     question: "Is ⟨g⟩ always a subgroup?"

@@ -5,6 +5,7 @@ role: bit
 group: order-relations
 curriculum_path: null
 learning_objectives: []
+concludes: ord-def
 children:
   - id: maximal-and-minimal-elements
     question: "Which elements are 'at the top' of a partial order?"

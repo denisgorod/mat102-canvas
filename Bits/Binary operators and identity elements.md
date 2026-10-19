@@ -5,6 +5,7 @@ role: bit
 group: functions-ii
 curriculum_path: null
 learning_objectives: []
+concludes: fn-binary-operator
 children:
   - id: group-definition
     question: "What if we require associativity, identity, and inverses all at once?"

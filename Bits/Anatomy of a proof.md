@@ -5,6 +5,7 @@ role: bit
 group: reading-mathematics
 curriculum_path: null
 learning_objectives: []
+concludes: read-direct-proof
 children:
   - id: proving-vs-applying
     question: "Is proving a theorem the same as applying it?"

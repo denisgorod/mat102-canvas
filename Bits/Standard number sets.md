@@ -5,6 +5,7 @@ role: bit
 group: sets
 curriculum_path: null
 learning_objectives: []
+concludes: set-number-sets
 children:
   - id: irrationality-of-sqrt-2
     question: "Are there numbers that aren't rational?"

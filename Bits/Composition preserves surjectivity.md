@@ -5,6 +5,7 @@ role: bit
 group: functions-i
 curriculum_path: null
 learning_objectives: []
+concludes: fn-composition-preserves
 children:
   - id: ex-composition-surjectivity
     question: "If the composition is surjective, must the parts be?"

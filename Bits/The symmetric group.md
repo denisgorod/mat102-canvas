@@ -5,6 +5,7 @@ role: bit
 group: groups-first-principles
 curriculum_path: null
 learning_objectives: []
+concludes: grp-symmetric
 children:
   - id: dihedral-group
     question: "Are there other natural non-abelian groups?"

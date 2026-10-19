@@ -5,6 +5,7 @@ role: bit
 group: binary-relations
 curriculum_path: null
 learning_objectives: []
+concludes: rel-left-total-functional
 children:
   - id: checking-relation-properties
     question: "How do I check these properties in practice?"

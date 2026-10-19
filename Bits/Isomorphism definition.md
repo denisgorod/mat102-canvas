@@ -5,6 +5,7 @@ role: bit
 group: isomorphisms
 curriculum_path: null
 learning_objectives: []
+concludes: iso-def
 children:
   - id: isomorphism-example
     question: "What does an isomorphism look like concretely?"

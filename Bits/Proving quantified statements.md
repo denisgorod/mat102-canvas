@@ -5,6 +5,7 @@ role: bit
 group: quantifiers-and-implications
 curriculum_path: null
 learning_objectives: []
+concludes: quant-proof-methods
 children:
   - id: ex-polynomial-quantifiers
     question: "Can I evaluate quantified statements about polynomials?"

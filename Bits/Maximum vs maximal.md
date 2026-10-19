@@ -5,6 +5,7 @@ role: bit
 group: order-relations
 curriculum_path: null
 learning_objectives: []
+concludes: ord-max
 children:
   - id: ex-no-maximum
     question: "Can a poset have maximal elements but no maximum?"

@@ -5,6 +5,7 @@ role: bit
 group: quantifiers-and-implications
 curriculum_path: null
 learning_objectives: []
+concludes: impl-def
 children:
   - id: vacuous-truth
     question: "Why is 'if pigs fly then the sky is black' true?"

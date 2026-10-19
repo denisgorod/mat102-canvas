@@ -5,6 +5,7 @@ role: bit
 group: groups-first-principles
 curriculum_path: null
 learning_objectives: []
+concludes: grp-properties
 children:
   - id: group-order-and-element-order
     question: "Can we measure the 'size' of a group or an element?"

@@ -5,6 +5,7 @@ role: bit
 group: order-relations
 curriculum_path: null
 learning_objectives: []
+concludes: ord-sup-inf
 children:
   - id: supremum-and-infimum
     question: "Is there a 'best' upper or lower bound?"

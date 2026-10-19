@@ -5,6 +5,7 @@ role: bit
 group: homomorphisms
 curriculum_path: null
 learning_objectives: []
+concludes: hom-def
 children:
   - id: homomorphism-well-definedness
     question: "How do I check a homomorphism is well-defined on equivalence classes?"

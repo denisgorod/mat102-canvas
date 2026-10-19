@@ -5,6 +5,7 @@ role: bit
 group: sets
 curriculum_path: null
 learning_objectives: []
+concludes: set-def
 children: []
 parents:
   - set-notation

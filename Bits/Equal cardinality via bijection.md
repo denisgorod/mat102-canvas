@@ -5,6 +5,7 @@ role: bit
 group: functions-ii
 curriculum_path: null
 learning_objectives: []
+concludes: card-equal
 children:
   - id: infinite-sets-surprise
     question: "Can an infinite set have the same cardinality as a proper subset?"

@@ -5,6 +5,7 @@ role: bit
 group: propositional-logic
 curriculum_path: null
 learning_objectives: []
+concludes: prop-truth-tables
 children:
   - id: de-morgans-laws
     question: "What happens when I negate an AND or an OR?"

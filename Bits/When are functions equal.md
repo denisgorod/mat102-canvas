@@ -5,6 +5,7 @@ role: bit
 group: functions-i
 curriculum_path: null
 learning_objectives: []
+concludes: fn-equality
 children:
   - id: ex-which-functions-equal
     question: "Can two functions with the same rule but different data be equal?"

@@ -1,5 +1,169 @@
 {
 	"nodes": {
+		"card-cantor": {
+			"title": "Cantor's theorem",
+			"role": "theorem",
+			"subject": "functions",
+			"topic": "functions-ii",
+			"statement": "For every set S there is no surjection S → P(S), while x ↦ {x} is an injection, so |S| < |P(S)|; consequently there is no set of all sets.",
+			"file": "Hierarchy/card-cantor.md",
+			"depends_on": [
+				"card-power-set",
+				"card-equal"
+			],
+			"inquiry_sources": [
+				"cantors-theorem",
+				"no-set-of-all-sets"
+			]
+		},
+		"card-countable-closure": {
+			"title": "Products and countable unions of countable sets",
+			"role": "theorem",
+			"subject": "functions",
+			"topic": "functions-ii",
+			"statement": "If A and B are countable then A × B is countable, so every finite product of countable sets is countable; and the union of countably many countable sets is countable.",
+			"file": "Hierarchy/card-countable-closure.md",
+			"depends_on": [
+				"card-countable",
+				"prime-fta"
+			],
+			"inquiry_sources": []
+		},
+		"card-countable": {
+			"title": "Countable sets",
+			"role": "definition",
+			"subject": "functions",
+			"topic": "functions-ii",
+			"statement": "S is countable if there is an injection S → ℕ, countably infinite if there is a bijection S → ℕ; finite sets are countable, and a non-empty countable set is the range of a sequence s₀, s₁, s₂, ….",
+			"file": "Hierarchy/card-countable.md",
+			"depends_on": [
+				"card-equal"
+			],
+			"inquiry_sources": [
+				"countable-sets"
+			]
+		},
+		"card-csb": {
+			"title": "Cantor–Schröder–Bernstein theorem",
+			"role": "theorem",
+			"subject": "functions",
+			"topic": "functions-ii",
+			"statement": "If there are injections f: A → B and g: B → A then there is a bijection A → B; that is, |A| ≤ |B| and |B| ≤ |A| together imply |A| = |B|.",
+			"file": "Hierarchy/card-csb.md",
+			"depends_on": [
+				"card-equal",
+				"set-difference-complement"
+			],
+			"inquiry_sources": [
+				"cantor-schroder-bernstein"
+			]
+		},
+		"card-equal": {
+			"title": "Equal cardinality",
+			"role": "definition",
+			"subject": "functions",
+			"topic": "functions-ii",
+			"statement": "For sets S and T, |S| = |T| means there exists a bijection S → T; equal cardinality is reflexive, symmetric and transitive, and |S| < |T| means |S| ≤ |T| but not |S| = |T|.",
+			"file": "Hierarchy/card-equal.md",
+			"depends_on": [
+				"card-leq",
+				"fn-invertible-iff-bijective",
+				"rel-properties"
+			],
+			"inquiry_sources": [
+				"cardinality-via-bijection",
+				"infinite-sets-surprise"
+			]
+		},
+		"card-leq": {
+			"title": "Comparing cardinalities",
+			"role": "definition",
+			"subject": "functions",
+			"topic": "functions-ii",
+			"statement": "For sets S and T, |S| ≤ |T| means there exists an injection S → T; this comparison is reflexive and transitive, and S ⊆ T implies |S| ≤ |T| via the inclusion map.",
+			"file": "Hierarchy/card-leq.md",
+			"depends_on": [
+				"fn-composition-preserves"
+			],
+			"inquiry_sources": [
+				"cardinality-definition"
+			]
+		},
+		"card-power-set": {
+			"title": "Power set",
+			"role": "definition",
+			"subject": "functions",
+			"topic": "functions-ii",
+			"statement": "The power set P(S) is the set of all subsets of S; U ↦ (indicator function of U) is a bijection from P(S) to the functions S → {0, 1}, so |P(S)| = 2ⁿ if S has n elements.",
+			"file": "Hierarchy/card-power-set.md",
+			"depends_on": [
+				"fn-bijective"
+			],
+			"inquiry_sources": [
+				"power-set"
+			]
+		},
+		"card-reals-uncountable": {
+			"title": "ℝ is uncountable",
+			"role": "theorem",
+			"subject": "functions",
+			"topic": "functions-ii",
+			"statement": "ℝ is uncountable (|ℕ| < |ℝ|): for r₁, r₂, … in [0, 1] with fixed decimal expansions, s = 0.s₁s₂… with sᵢ = 2 if rᵢ has i-th digit 1, else 1, lies in [0, 1] but is no rᵢ.",
+			"file": "Hierarchy/card-reals-uncountable.md",
+			"depends_on": [
+				"card-countable"
+			],
+			"inquiry_sources": [
+				"reals-are-uncountable",
+				"why-diagonalization-fails-for-rationals"
+			]
+		},
+		"card-z-q-countable": {
+			"title": "ℤ and ℚ are countably infinite",
+			"role": "theorem",
+			"subject": "functions",
+			"topic": "functions-ii",
+			"statement": "|ℤ| = |ℚ| = |ℕ|: n ↦ (|n|, sgn(n) + 1) injects ℤ into ℕ × ℕ, and r ↦ (qr, q), with q the least positive integer such that qr ∈ ℤ, injects ℚ into ℤ × ℤ⁺.",
+			"file": "Hierarchy/card-z-q-countable.md",
+			"depends_on": [
+				"card-countable-closure",
+				"card-csb"
+			],
+			"inquiry_sources": [
+				"integers-are-countable",
+				"rationals-are-countable"
+			]
+		},
+		"cyc-def": {
+			"title": "Cyclic subgroups and cyclic groups",
+			"role": "definition",
+			"subject": "group-theory",
+			"topic": "cyclic-groups",
+			"statement": "For g ∈ G, ⟨g⟩ = {gᵏ : k ∈ ℤ} is the smallest subgroup of G containing g, and |⟨g⟩| = |g|; G is cyclic, with generator g, if G = ⟨g⟩, and every cyclic group is abelian.",
+			"file": "Hierarchy/cyc-def.md",
+			"depends_on": [
+				"grp-abelian",
+				"sub-test",
+				"sub-order-divides"
+			],
+			"inquiry_sources": [
+				"cyclic-group-definition",
+				"cyclic-subgroup-is-subgroup"
+			]
+		},
+		"cyc-subgroups": {
+			"title": "Subgroups of cyclic groups are cyclic",
+			"role": "theorem",
+			"subject": "group-theory",
+			"topic": "cyclic-groups",
+			"statement": "Every subgroup H ≠ {e} of G = ⟨g⟩ is ⟨gᵐ⟩ for the least m ∈ ℤ⁺ with gᵐ ∈ H, so subgroups of cyclic groups are cyclic; if |g| = n, ⟨gᵏ⟩ = ⟨gᵈ⟩ with d = gcd(k, n).",
+			"file": "Hierarchy/cyc-subgroups.md",
+			"depends_on": [
+				"cyc-def",
+				"gcd-bezout"
+			],
+			"inquiry_sources": []
+		},
 		"div-def": {
 			"title": "Divisibility",
 			"role": "definition",
@@ -24,6 +188,243 @@
 			],
 			"inquiry_sources": [
 				"basic-divisibility-properties"
+			]
+		},
+		"eqv-classes": {
+			"title": "Equivalence classes and quotient set",
+			"role": "definition",
+			"subject": "relations",
+			"topic": "equivalence-relations",
+			"statement": "For an equivalence relation ∼ on a set A, the equivalence class of a ∈ A is [a] = {x ∈ A : x ∼ a}, and the quotient A/∼ is the set of all equivalence classes.",
+			"file": "Hierarchy/eqv-classes.md",
+			"depends_on": [
+				"eqv-def"
+			],
+			"inquiry_sources": [
+				"equivalence-classes"
+			]
+		},
+		"eqv-def": {
+			"title": "Equivalence relation",
+			"role": "definition",
+			"subject": "relations",
+			"topic": "equivalence-relations",
+			"statement": "A relation ∼ on a set A is an equivalence relation if it is reflexive, symmetric, and transitive.",
+			"file": "Hierarchy/eqv-def.md",
+			"depends_on": [
+				"rel-properties"
+			],
+			"inquiry_sources": [
+				"what-is-an-equivalence-relation"
+			]
+		},
+		"eqv-partition": {
+			"title": "Equivalence classes partition the set",
+			"role": "theorem",
+			"subject": "relations",
+			"topic": "equivalence-relations",
+			"statement": "For an equivalence relation ∼ on A and a, b ∈ A: a ∈ [a]; [a] = [b] ⟺ a ∼ b; [a] ∩ [b] = ∅ ⟺ a ≁ b. Thus classes are non-empty, pairwise disjoint and cover A.",
+			"file": "Hierarchy/eqv-partition.md",
+			"depends_on": [
+				"eqv-classes",
+				"set-double-inclusion",
+				"set-union-intersection"
+			],
+			"inquiry_sources": [
+				"equivalence-relations-partition-a-set"
+			]
+		},
+		"fn-bijective": {
+			"title": "Bijective function",
+			"role": "definition",
+			"subject": "functions",
+			"topic": "functions-i",
+			"statement": "A function f: A → B is bijective (a bijection) if it is both injective and surjective, i.e. every t ∈ B equals f(s) for exactly one s ∈ A.",
+			"file": "Hierarchy/fn-bijective.md",
+			"depends_on": [
+				"fn-injective",
+				"fn-surjective"
+			],
+			"inquiry_sources": [
+				"bijective-functions"
+			]
+		},
+		"fn-binary-operator": {
+			"title": "Binary operator and identity element",
+			"role": "definition",
+			"subject": "functions",
+			"topic": "functions-ii",
+			"statement": "A binary operator on S is a function ∗: S × S → S; an identity element for ∗ is an e ∈ S with e ∗ a = a ∗ e = a for all a ∈ S.",
+			"file": "Hierarchy/fn-binary-operator.md",
+			"depends_on": [
+				"fn-def"
+			],
+			"inquiry_sources": [
+				"binary-operator-identity"
+			]
+		},
+		"fn-composition-preserves": {
+			"title": "Composites of injections, surjections and bijections",
+			"role": "theorem",
+			"subject": "functions",
+			"topic": "functions-i",
+			"statement": "For f: A → B and g: B → C: if f and g are injective so is g ∘ f, if f and g are surjective so is g ∘ f, so a composite of bijections is a bijection.",
+			"file": "Hierarchy/fn-composition-preserves.md",
+			"depends_on": [
+				"fn-composition",
+				"fn-bijective"
+			],
+			"inquiry_sources": [
+				"composition-preserves-injectivity",
+				"composition-preserves-surjectivity"
+			]
+		},
+		"fn-composition": {
+			"title": "Function composition and identity functions",
+			"role": "definition",
+			"subject": "functions",
+			"topic": "functions-i",
+			"statement": "For f: A → B and g: B → C, (g ∘ f)(x) = g(f(x)) defines g ∘ f: A → C; composition is associative, and id_A(x) = x satisfies f ∘ id_A = f = id_B ∘ f.",
+			"file": "Hierarchy/fn-composition.md",
+			"depends_on": [
+				"fn-equality"
+			],
+			"inquiry_sources": [
+				"function-composition"
+			]
+		},
+		"fn-def": {
+			"title": "Function",
+			"role": "definition",
+			"subject": "functions",
+			"topic": "functions-i",
+			"statement": "A function f: A → B is a left-total, functional relation between A and B, so each a ∈ A is related to exactly one element f(a) ∈ B; its graph is Γ(f) = {(a, f(a)) : a ∈ A}.",
+			"file": "Hierarchy/fn-def.md",
+			"depends_on": [
+				"rel-left-total-functional"
+			],
+			"inquiry_sources": [
+				"function-as-relation",
+				"function-notation"
+			]
+		},
+		"fn-equality": {
+			"title": "Equality of functions",
+			"role": "definition",
+			"subject": "functions",
+			"topic": "functions-i",
+			"statement": "Functions f: A → B and g: C → D are equal if and only if A = C, B = D and f(a) = g(a) for every a ∈ A, so changing only the codomain gives a different function.",
+			"file": "Hierarchy/fn-equality.md",
+			"depends_on": [
+				"fn-def"
+			],
+			"inquiry_sources": [
+				"when-are-functions-equal"
+			]
+		},
+		"fn-image": {
+			"title": "Image of a set and range",
+			"role": "definition",
+			"subject": "functions",
+			"topic": "functions-i",
+			"statement": "For a function f: A → B and U ⊆ A, the image of U is f(U) = {f(x) : x ∈ U} ⊆ B, and the range of f is f(A), which need not equal the codomain B.",
+			"file": "Hierarchy/fn-image.md",
+			"depends_on": [
+				"fn-def",
+				"set-union-intersection"
+			],
+			"inquiry_sources": [
+				"domain-codomain-range",
+				"image-of-a-set"
+			]
+		},
+		"fn-injective": {
+			"title": "Injective function",
+			"role": "definition",
+			"subject": "functions",
+			"topic": "functions-i",
+			"statement": "A function f: A → B is injective (one-to-one) if f(s₁) = f(s₂) implies s₁ = s₂ for all s₁, s₂ ∈ A; it fails to be injective exactly when some s₁ ≠ s₂ in A have f(s₁) = f(s₂).",
+			"file": "Hierarchy/fn-injective.md",
+			"depends_on": [
+				"fn-def"
+			],
+			"inquiry_sources": [
+				"injective-functions",
+				"proving-injectivity"
+			]
+		},
+		"fn-inverse-function": {
+			"title": "Inverse function",
+			"role": "definition",
+			"subject": "functions",
+			"topic": "functions-ii",
+			"statement": "f: A → B is invertible if some g: B → A has g ∘ f = id_A and f ∘ g = id_B; such g is unique, written f⁻¹, and for A = B is f's inverse under composition.",
+			"file": "Hierarchy/fn-inverse-function.md",
+			"depends_on": [
+				"fn-composition",
+				"fn-operator-inverse"
+			],
+			"inquiry_sources": [
+				"inverse-functions"
+			]
+		},
+		"fn-invertible-iff-bijective": {
+			"title": "Invertible iff bijective",
+			"role": "theorem",
+			"subject": "functions",
+			"topic": "functions-ii",
+			"statement": "A function f: A → B is invertible if and only if it is bijective, in which case f⁻¹(t) is the unique s ∈ A with f(s) = t and f⁻¹: B → A is itself a bijection.",
+			"file": "Hierarchy/fn-invertible-iff-bijective.md",
+			"depends_on": [
+				"fn-inverse-function",
+				"fn-bijective"
+			],
+			"inquiry_sources": [
+				"invertibility-requires-bijectivity"
+			]
+		},
+		"fn-operator-inverse": {
+			"title": "Inverse with respect to an operator",
+			"role": "definition",
+			"subject": "functions",
+			"topic": "functions-ii",
+			"statement": "For a binary operator ∗ on S with identity e, an inverse of a ∈ S is b ∈ S with a ∗ b = b ∗ a = e, written a⁻¹; 0 has none under × on ℝ.",
+			"file": "Hierarchy/fn-operator-inverse.md",
+			"depends_on": [
+				"fn-binary-operator"
+			],
+			"inquiry_sources": [
+				"inverse-with-respect-to-operator"
+			]
+		},
+		"fn-preimage": {
+			"title": "Preimage of a set",
+			"role": "definition",
+			"subject": "functions",
+			"topic": "functions-i",
+			"statement": "For a function f: A → B and V ⊆ B, the preimage of V is f⁻¹(V) = {x ∈ A : f(x) ∈ V} ⊆ A, defined for every function whether or not f has an inverse.",
+			"file": "Hierarchy/fn-preimage.md",
+			"depends_on": [
+				"fn-def",
+				"set-union-intersection"
+			],
+			"inquiry_sources": [
+				"preimage-of-a-set"
+			]
+		},
+		"fn-surjective": {
+			"title": "Surjective function",
+			"role": "definition",
+			"subject": "functions",
+			"topic": "functions-i",
+			"statement": "A function f: A → B is surjective (onto) if every t ∈ B is f(s) for some s ∈ A, i.e. f(A) = B; otherwise some t ∈ B is f(s) for no s ∈ A.",
+			"file": "Hierarchy/fn-surjective.md",
+			"depends_on": [
+				"fn-image"
+			],
+			"inquiry_sources": [
+				"proving-surjectivity",
+				"surjective-functions"
 			]
 		},
 		"gcd-bezout-cor": {
@@ -113,6 +514,342 @@
 			"depends_on": [],
 			"inquiry_sources": [
 				"well-ordering-principle"
+			]
+		},
+		"grp-abelian": {
+			"title": "Abelian groups",
+			"role": "definition",
+			"subject": "group-theory",
+			"topic": "groups-first-principles",
+			"statement": "A group G is abelian (commutative) if ab = ba for all a, b ∈ G; equivalently, (ab)⁻¹ = a⁻¹b⁻¹ for all a, b ∈ G.",
+			"file": "Hierarchy/grp-abelian.md",
+			"depends_on": [
+				"grp-properties"
+			],
+			"inquiry_sources": [
+				"abelian-groups"
+			]
+		},
+		"grp-def": {
+			"title": "Group",
+			"role": "definition",
+			"subject": "group-theory",
+			"topic": "groups-first-principles",
+			"statement": "A group (G, ·) is a set G with an associative binary operator · having an identity e (e·a = a·e = a) and giving each a ∈ G an inverse a⁻¹ ∈ G with a·a⁻¹ = a⁻¹·a = e.",
+			"file": "Hierarchy/grp-def.md",
+			"depends_on": [
+				"fn-operator-inverse"
+			],
+			"inquiry_sources": [
+				"group-definition",
+				"q-star-is-a-group"
+			]
+		},
+		"grp-dihedral": {
+			"title": "The dihedral group Dₙ",
+			"role": "object",
+			"subject": "group-theory",
+			"topic": "groups-first-principles",
+			"statement": "The symmetries of a regular n-gon (n ≥ 3) form a non-abelian group Dₙ of 2n elements rⁱ, srⁱ (0 ≤ i < n), for r the 2π/n rotation, s a reflection; rⁿ = s² = e, sr = r⁻¹s.",
+			"file": "Hierarchy/grp-dihedral.md",
+			"depends_on": [
+				"grp-abelian",
+				"fn-composition"
+			],
+			"inquiry_sources": [
+				"dihedral-group"
+			]
+		},
+		"grp-properties": {
+			"title": "Basic properties of groups",
+			"role": "theorem",
+			"subject": "group-theory",
+			"topic": "groups-first-principles",
+			"statement": "In a group the identity and each inverse are unique; ab = ac or ba = ca implies b = c; (a⁻¹)⁻¹ = a; and (a₁⋯aₖ)⁻¹ = aₖ⁻¹⋯a₁⁻¹, so (ab)⁻¹ = b⁻¹a⁻¹ and (aⁿ)⁻¹ = (a⁻¹)ⁿ = a⁻ⁿ.",
+			"file": "Hierarchy/grp-properties.md",
+			"depends_on": [
+				"grp-def",
+				"ind-principle"
+			],
+			"inquiry_sources": [
+				"basic-group-properties"
+			]
+		},
+		"grp-symmetric": {
+			"title": "The symmetric group Sₙ",
+			"role": "object",
+			"subject": "group-theory",
+			"topic": "groups-first-principles",
+			"statement": "For a set X, the bijections X → X form a group S_X under composition, with identity id_X and inverses the inverse functions; Sₙ = S_X for X = {1, …, n} is abelian iff n ≤ 2.",
+			"file": "Hierarchy/grp-symmetric.md",
+			"depends_on": [
+				"grp-abelian",
+				"fn-composition-preserves",
+				"fn-invertible-iff-bijective"
+			],
+			"inquiry_sources": [
+				"symmetric-group"
+			]
+		},
+		"grp-zn": {
+			"title": "The groups ℤₙ and ℤₙ*",
+			"role": "object",
+			"subject": "group-theory",
+			"topic": "groups-first-principles",
+			"statement": "(ℤₙ, +) is an abelian group of order n with identity [0] and −[a] = [n−a]; under multiplication, ℤₙ* = {[a] : gcd(a, n) = 1} is an abelian group and ℤₙ is not a group if n ≥ 2.",
+			"file": "Hierarchy/grp-zn.md",
+			"depends_on": [
+				"grp-abelian",
+				"mod-inverses"
+			],
+			"inquiry_sources": [
+				"zn-is-a-group"
+			]
+		},
+		"hom-def": {
+			"title": "Group homomorphism",
+			"role": "definition",
+			"subject": "group-theory",
+			"topic": "homomorphisms",
+			"statement": "For groups (G, ·) and (H, ⋆), a function φ: G → H is a homomorphism if φ(x·y) = φ(x) ⋆ φ(y) for all x, y ∈ G.",
+			"file": "Hierarchy/hom-def.md",
+			"depends_on": [
+				"grp-def"
+			],
+			"inquiry_sources": [
+				"group-homomorphism-definition",
+				"homomorphism-well-definedness"
+			]
+		},
+		"hom-kernel": {
+			"title": "Kernel and image",
+			"role": "definition",
+			"subject": "group-theory",
+			"topic": "homomorphisms",
+			"statement": "For a homomorphism φ: G → H, ker φ = {g ∈ G : φ(g) = e_H} is a subgroup of G, im φ = φ(G) is a subgroup of H, and φ is injective iff ker φ = {e_G}.",
+			"file": "Hierarchy/hom-kernel.md",
+			"depends_on": [
+				"hom-properties",
+				"fn-injective"
+			],
+			"inquiry_sources": [
+				"kernel-and-image-example",
+				"kernel-and-image"
+			]
+		},
+		"hom-properties": {
+			"title": "Properties of homomorphisms",
+			"role": "theorem",
+			"subject": "group-theory",
+			"topic": "homomorphisms",
+			"statement": "For a homomorphism φ: G → H, φ(e_G) = e_H, φ(gⁿ) = φ(g)ⁿ (n ∈ ℤ), |φ(g)| divides |g| if finite, φ(K) ≤ H for K ≤ G, cyclic (abelian) if K is; φ⁻¹(L) ≤ G for L ≤ H.",
+			"file": "Hierarchy/hom-properties.md",
+			"depends_on": [
+				"hom-def",
+				"cyc-def",
+				"fn-image",
+				"fn-preimage"
+			],
+			"inquiry_sources": [
+				"homomorphism-properties"
+			]
+		},
+		"impl-contrapositive-proof": {
+			"title": "Proof by contrapositive",
+			"role": "application",
+			"subject": "quantifiers-and-implications",
+			"topic": "quantifiers-and-implications",
+			"statement": "To prove P ⟹ Q it suffices to prove ¬Q ⟹ ¬P; e.g. for n ∈ ℤ, n² even ⟹ n even, because odd n = 2k + 1 gives n² = 2(2k² + 2k) + 1, which is odd.",
+			"file": "Hierarchy/impl-contrapositive-proof.md",
+			"depends_on": [
+				"impl-contrapositive",
+				"read-even-odd",
+				"gcd-division-algorithm"
+			],
+			"inquiry_sources": [
+				"proof-by-contrapositive"
+			]
+		},
+		"impl-contrapositive": {
+			"title": "Contrapositive of an implication",
+			"role": "theorem",
+			"subject": "quantifiers-and-implications",
+			"topic": "quantifiers-and-implications",
+			"statement": "For propositions P and Q, the contrapositive ¬Q ⟹ ¬P of P ⟹ Q is logically equivalent to it: the two have the same truth value in every case.",
+			"file": "Hierarchy/impl-contrapositive.md",
+			"depends_on": [
+				"impl-def"
+			],
+			"inquiry_sources": [
+				"contrapositive-of-an-implication"
+			]
+		},
+		"impl-converse": {
+			"title": "Converse of an implication",
+			"role": "definition",
+			"subject": "quantifiers-and-implications",
+			"topic": "quantifiers-and-implications",
+			"statement": "The converse of P ⟹ Q is Q ⟹ P; it is not logically equivalent to P ⟹ Q, so a true implication can have a false converse.",
+			"file": "Hierarchy/impl-converse.md",
+			"depends_on": [
+				"impl-def"
+			],
+			"inquiry_sources": [
+				"converse-of-an-implication",
+				"math-vs-english-implication"
+			]
+		},
+		"impl-def": {
+			"title": "Implication",
+			"role": "definition",
+			"subject": "quantifiers-and-implications",
+			"topic": "quantifiers-and-implications",
+			"statement": "For propositions P and Q, the implication P ⟹ Q ('if P then Q', with hypothesis P and conclusion Q) is false when P is true and Q is false, and true in the other three cases.",
+			"file": "Hierarchy/impl-def.md",
+			"depends_on": [
+				"read-hypothesis-conclusion",
+				"prop-truth-tables"
+			],
+			"inquiry_sources": [
+				"what-is-an-implication"
+			]
+		},
+		"impl-iff": {
+			"title": "If and only if",
+			"role": "definition",
+			"subject": "quantifiers-and-implications",
+			"topic": "quantifiers-and-implications",
+			"statement": "P ⟺ Q ('P if and only if Q') means (P ⟹ Q) ∧ (Q ⟹ P); it is true exactly when P and Q have the same truth value, so proving it requires proving both directions.",
+			"file": "Hierarchy/impl-iff.md",
+			"depends_on": [
+				"impl-converse"
+			],
+			"inquiry_sources": [
+				"if-and-only-if"
+			]
+		},
+		"impl-nec-suff": {
+			"title": "Necessary and sufficient conditions",
+			"role": "definition",
+			"subject": "quantifiers-and-implications",
+			"topic": "quantifiers-and-implications",
+			"statement": "'P is sufficient for Q' means P ⟹ Q, 'P is necessary for Q' means Q ⟹ P, and 'P is necessary and sufficient for Q' means P ⟺ Q.",
+			"file": "Hierarchy/impl-nec-suff.md",
+			"depends_on": [
+				"impl-iff"
+			],
+			"inquiry_sources": [
+				"necessary-and-sufficient-conditions"
+			]
+		},
+		"impl-negation": {
+			"title": "Negating an implication",
+			"role": "theorem",
+			"subject": "quantifiers-and-implications",
+			"topic": "quantifiers-and-implications",
+			"statement": "¬(P ⟹ Q) is logically equivalent to P ∧ ¬Q, so ¬(∀x ∈ S, P(x) ⟹ Q(x)) is equivalent to ∃x ∈ S, P(x) ∧ ¬Q(x): a universal implication is refuted by one counterexample.",
+			"file": "Hierarchy/impl-negation.md",
+			"depends_on": [
+				"impl-def",
+				"quant-negation"
+			],
+			"inquiry_sources": [
+				"negating-an-implication"
+			]
+		},
+		"impl-vacuous": {
+			"title": "Vacuous truth",
+			"role": "theorem",
+			"subject": "quantifiers-and-implications",
+			"topic": "quantifiers-and-implications",
+			"statement": "If P is false then P ⟹ Q is true whatever Q is; in particular ∀x ∈ ∅, P(x) is true for every predicate P, since no element can fail P.",
+			"file": "Hierarchy/impl-vacuous.md",
+			"depends_on": [
+				"impl-def",
+				"quant-forall"
+			],
+			"inquiry_sources": [
+				"vacuous-truth"
+			]
+		},
+		"ind-principle": {
+			"title": "Principle of Mathematical Induction",
+			"role": "theorem",
+			"subject": "induction",
+			"topic": "mathematical-induction",
+			"statement": "If P(n) is a predicate on ℤ⁺ such that P(1) is true and P(k) ⟹ P(k + 1) for every k ∈ ℤ⁺, then P(n) is true for every n ∈ ℤ⁺.",
+			"file": "Hierarchy/ind-principle.md",
+			"depends_on": [
+				"gcd-wop"
+			],
+			"inquiry_sources": [
+				"principle-of-induction"
+			]
+		},
+		"ind-proof-format": {
+			"title": "Writing a proof by induction",
+			"role": "application",
+			"subject": "induction",
+			"topic": "mathematical-induction",
+			"statement": "To prove P(n) for all n ∈ ℤ⁺, verify P(1), assume P(k) for arbitrary k and derive P(k + 1); e.g. 5 ∣ 6ⁿ − 1, since 6ᵏ − 1 = 5d gives 6ᵏ⁺¹ − 1 = 5(6ᵏ + d).",
+			"file": "Hierarchy/ind-proof-format.md",
+			"depends_on": [
+				"ind-principle",
+				"div-def"
+			],
+			"inquiry_sources": [
+				"induction-example-l-tiling",
+				"induction-example-divisibility",
+				"induction-example-inequality"
+			]
+		},
+		"iso-cyclic": {
+			"title": "Classification of cyclic groups",
+			"role": "theorem",
+			"subject": "group-theory",
+			"topic": "isomorphisms",
+			"statement": "If G = ⟨g⟩ is infinite, k ↦ gᵏ is an isomorphism ℤ → G; if |G| = n, [k]ₙ ↦ gᵏ is one ℤₙ → G. So every cyclic group is isomorphic to ℤ or to exactly one ℤₙ.",
+			"file": "Hierarchy/iso-cyclic.md",
+			"depends_on": [
+				"iso-invariants",
+				"grp-zn"
+			],
+			"inquiry_sources": [
+				"cyclic-groups-classification"
+			]
+		},
+		"iso-def": {
+			"title": "Isomorphism",
+			"role": "definition",
+			"subject": "group-theory",
+			"topic": "isomorphisms",
+			"statement": "An isomorphism is a bijective homomorphism; G ≅ H if one G → H exists. Identities, inverses and composites of isomorphisms are isomorphisms, so ≅ is reflexive, symmetric and transitive, and automorphisms of G form a group Aut(G) under composition.",
+			"file": "Hierarchy/iso-def.md",
+			"depends_on": [
+				"hom-def",
+				"fn-composition-preserves",
+				"fn-invertible-iff-bijective",
+				"eqv-def"
+			],
+			"inquiry_sources": [
+				"isomorphism-definition",
+				"isomorphism-example"
+			]
+		},
+		"iso-invariants": {
+			"title": "Isomorphism invariants",
+			"role": "theorem",
+			"subject": "group-theory",
+			"topic": "isomorphisms",
+			"statement": "If φ: G → H is an isomorphism, |G| = |H|, |φ(g)| = |g|, K ≅ φ(K) ≤ H for K ≤ G, and G is abelian (cyclic) iff H is; groups differing in any of these are not isomorphic.",
+			"file": "Hierarchy/iso-invariants.md",
+			"depends_on": [
+				"iso-def",
+				"hom-properties",
+				"card-equal"
+			],
+			"inquiry_sources": [
+				"isomorphism-properties"
 			]
 		},
 		"lde-def": {
@@ -210,7 +947,8 @@
 			"statement": "For fixed n, ≡ (mod n) is reflexive, symmetric, and transitive, so it partitions ℤ into n congruence classes.",
 			"file": "Hierarchy/mod-equivalence.md",
 			"depends_on": [
-				"mod-congruence-def"
+				"mod-congruence-def",
+				"eqv-partition"
 			],
 			"inquiry_sources": [
 				"congruence-is-equivalence-relation"
@@ -259,6 +997,81 @@
 				"congruence-classes-and-zn"
 			]
 		},
+		"ord-def": {
+			"title": "Partial and total orders (posets)",
+			"role": "definition",
+			"subject": "relations",
+			"topic": "order-relations",
+			"statement": "⪯ on A is a (weak) partial order if reflexive, anti-symmetric and transitive, a strong order if irreflexive, anti-symmetric and transitive, and total (linear) if any two distinct elements are comparable; a set with a partial order is a poset.",
+			"file": "Hierarchy/ord-def.md",
+			"depends_on": [
+				"rel-properties"
+			],
+			"inquiry_sources": [
+				"posets",
+				"what-is-an-order-relation"
+			]
+		},
+		"ord-max": {
+			"title": "Maximal elements and the maximum",
+			"role": "definition",
+			"subject": "relations",
+			"topic": "order-relations",
+			"statement": "In a poset, a is maximal if a ⪯ x ⟹ x = a, minimal if x ⪯ a ⟹ x = a, the maximum if x ⪯ a ∀x (dually, minimum); a maximum is unique and maximal, not conversely.",
+			"file": "Hierarchy/ord-max.md",
+			"depends_on": [
+				"ord-def"
+			],
+			"inquiry_sources": [
+				"maximal-and-minimal-elements",
+				"maximum-vs-maximal"
+			]
+		},
+		"ord-sup-inf": {
+			"title": "Bounds, supremum and infimum",
+			"role": "definition",
+			"subject": "relations",
+			"topic": "order-relations",
+			"statement": "In a poset (A, ⪯), U is an upper bound of S ⊆ A if x ⪯ U ∀x ∈ S; a supremum is an upper bound ⪯ all others, and is unique; lower bounds and infima are dual.",
+			"file": "Hierarchy/ord-sup-inf.md",
+			"depends_on": [
+				"ord-def"
+			],
+			"inquiry_sources": [
+				"supremum-and-infimum",
+				"upper-and-lower-bounds"
+			]
+		},
+		"pf-contradiction": {
+			"title": "Proof by contradiction",
+			"role": "objective",
+			"subject": "relations",
+			"topic": "proof-techniques",
+			"statement": "To prove a statement T, assume ¬T and derive a contradiction R ∧ ¬R; this is valid because ¬T ⟹ (R ∧ ¬R) is logically equivalent to T, and it may prove that something exists without identifying it.",
+			"file": "Hierarchy/pf-contradiction.md",
+			"depends_on": [
+				"impl-def"
+			],
+			"inquiry_sources": [
+				"contradiction-is-not-constructive",
+				"proof-by-contradiction"
+			]
+		},
+		"pf-sqrt2": {
+			"title": "√2 is irrational",
+			"role": "theorem",
+			"subject": "relations",
+			"topic": "proof-techniques",
+			"statement": "√2 is irrational: there are no integers p, q with q ≠ 0 and p² = 2q².",
+			"file": "Hierarchy/pf-sqrt2.md",
+			"depends_on": [
+				"pf-contradiction",
+				"impl-contrapositive-proof"
+			],
+			"inquiry_sources": [
+				"irrationality-of-sqrt-2"
+			]
+		},
 		"prime-def": {
 			"title": "Prime and composite integers",
 			"role": "definition",
@@ -282,7 +1095,8 @@
 			"file": "Hierarchy/prime-euclid-lemma.md",
 			"depends_on": [
 				"prime-def",
-				"gcd-bezout-cor"
+				"gcd-bezout-cor",
+				"ind-principle"
 			],
 			"inquiry_sources": [
 				"prime-divisibility-property"
@@ -296,8 +1110,7 @@
 			"statement": "Every integer n > 1 is a product of primes, and that factorisation is unique up to the order of the factors.",
 			"file": "Hierarchy/prime-fta.md",
 			"depends_on": [
-				"prime-euclid-lemma",
-				"gcd-wop"
+				"prime-euclid-lemma"
 			],
 			"inquiry_sources": [
 				"fta-existence",
@@ -318,12 +1131,841 @@
 			"inquiry_sources": [
 				"infinitely-many-primes"
 			]
+		},
+		"prop-connectives": {
+			"title": "Conjunction, disjunction and negation",
+			"role": "definition",
+			"subject": "sets-and-propositions",
+			"topic": "propositional-logic",
+			"statement": "For propositions P and Q, the conjunction P ∧ Q is true exactly when both are true, the disjunction P ∨ Q exactly when at least one is true (inclusive or), and the negation ¬P exactly when P is false.",
+			"file": "Hierarchy/prop-connectives.md",
+			"depends_on": [
+				"prop-proposition"
+			],
+			"inquiry_sources": [
+				"conjunction-and-disjunction",
+				"math-vs-english-or",
+				"negation"
+			]
+		},
+		"prop-de-morgan": {
+			"title": "De Morgan's laws",
+			"role": "theorem",
+			"subject": "sets-and-propositions",
+			"topic": "propositional-logic",
+			"statement": "For all propositions P and Q, ¬(P ∧ Q) is logically equivalent to ¬P ∨ ¬Q, and ¬(P ∨ Q) is logically equivalent to ¬P ∧ ¬Q.",
+			"file": "Hierarchy/prop-de-morgan.md",
+			"depends_on": [
+				"prop-truth-tables"
+			],
+			"inquiry_sources": [
+				"de-morgans-laws"
+			]
+		},
+		"prop-predicate": {
+			"title": "Predicates",
+			"role": "definition",
+			"subject": "sets-and-propositions",
+			"topic": "propositional-logic",
+			"statement": "A predicate P(x) is a statement containing a variable x whose truth value depends on x; substituting a value for x yields a proposition, so x² > π is a predicate and 2² > π a true proposition.",
+			"file": "Hierarchy/prop-predicate.md",
+			"depends_on": [
+				"prop-proposition"
+			],
+			"inquiry_sources": [
+				"predicates"
+			]
+		},
+		"prop-proposition": {
+			"title": "Propositions",
+			"role": "definition",
+			"subject": "sets-and-propositions",
+			"topic": "propositional-logic",
+			"statement": "A proposition is a statement with a definite truth value: it is either true or false, never both and never neither, whether or not that value is currently known.",
+			"file": "Hierarchy/prop-proposition.md",
+			"depends_on": [],
+			"inquiry_sources": [
+				"what-is-a-proposition"
+			]
+		},
+		"prop-truth-tables": {
+			"title": "Truth tables and logical equivalence",
+			"role": "definition",
+			"subject": "sets-and-propositions",
+			"topic": "propositional-logic",
+			"statement": "A truth table lists the truth value of a compound proposition under each of the 2ⁿ assignments of T/F to its n component propositions; two compound propositions are logically equivalent when their truth tables agree in every row.",
+			"file": "Hierarchy/prop-truth-tables.md",
+			"depends_on": [
+				"prop-connectives"
+			],
+			"inquiry_sources": [
+				"truth-tables"
+			]
+		},
+		"quant-exists": {
+			"title": "Existential quantifier",
+			"role": "definition",
+			"subject": "quantifiers-and-implications",
+			"topic": "quantifiers-and-implications",
+			"statement": "For a set S and predicate P(x), the proposition ∃x ∈ S, P(x) ('there exists x in S such that P(x)') is true exactly when P(x) is true for at least one x ∈ S.",
+			"file": "Hierarchy/quant-exists.md",
+			"depends_on": [
+				"prop-predicate",
+				"set-def"
+			],
+			"inquiry_sources": [
+				"existential-quantifier"
+			]
+		},
+		"quant-forall": {
+			"title": "Universal quantifier",
+			"role": "definition",
+			"subject": "quantifiers-and-implications",
+			"topic": "quantifiers-and-implications",
+			"statement": "For a set S and predicate P(x), the proposition ∀x ∈ S, P(x) ('for all x in S') is true exactly when P(x) is true for every x ∈ S; one x ∈ S with P(x) false makes it false.",
+			"file": "Hierarchy/quant-forall.md",
+			"depends_on": [
+				"prop-predicate",
+				"set-def"
+			],
+			"inquiry_sources": [
+				"quantifiers-turn-predicates-into-propositions",
+				"universal-quantifier"
+			]
+		},
+		"quant-negation": {
+			"title": "Negating quantifiers",
+			"role": "theorem",
+			"subject": "quantifiers-and-implications",
+			"topic": "quantifiers-and-implications",
+			"statement": "For a set S and predicate P(x), ¬(∀x ∈ S, P(x)) is equivalent to ∃x ∈ S, ¬P(x), and ¬(∃x ∈ S, P(x)) to ∀x ∈ S, ¬P(x); nested quantifiers are negated one by one, left to right, keeping domains.",
+			"file": "Hierarchy/quant-negation.md",
+			"depends_on": [
+				"quant-forall",
+				"quant-exists",
+				"prop-connectives"
+			],
+			"inquiry_sources": [
+				"math-vs-english-not",
+				"negating-existential-quantifier",
+				"negating-universal-quantifier"
+			]
+		},
+		"quant-order": {
+			"title": "Order of quantifiers",
+			"role": "theorem",
+			"subject": "quantifiers-and-implications",
+			"topic": "quantifiers-and-implications",
+			"statement": "Adjacent quantifiers of the same kind commute, but ∃y ∀x P(x, y) implies ∀x ∃y P(x, y), not conversely: over ℝ, ∀x ∃y, x + y = 0 is true while ∃y ∀x, x + y = 0 is false.",
+			"file": "Hierarchy/quant-order.md",
+			"depends_on": [
+				"quant-forall",
+				"quant-exists"
+			],
+			"inquiry_sources": [
+				"doubly-quantified-statements",
+				"quantifier-order-matters"
+			]
+		},
+		"quant-proof-methods": {
+			"title": "Proving quantified statements",
+			"role": "objective",
+			"subject": "quantifiers-and-implications",
+			"topic": "quantifiers-and-implications",
+			"statement": "To prove ∀x ∈ S, P(x), fix an arbitrary x ∈ S and prove P(x) using only that x ∈ S; to prove ∃x ∈ S, P(x), exhibit one specific witness x₀ ∈ S and verify P(x₀).",
+			"file": "Hierarchy/quant-proof-methods.md",
+			"depends_on": [
+				"quant-forall",
+				"quant-exists",
+				"read-proof-generality"
+			],
+			"inquiry_sources": [
+				"proving-quantified-statements"
+			]
+		},
+		"read-definition": {
+			"title": "Mathematical definition",
+			"role": "definition",
+			"subject": "reading-mathematics",
+			"topic": "reading-mathematics",
+			"statement": "A mathematical definition is a complete, precise criterion: an object has the defined property exactly when it satisfies the condition, so every case, edge cases included, is settled by that condition (or a logically equivalent one), not by intuition.",
+			"file": "Hierarchy/read-definition.md",
+			"depends_on": [],
+			"inquiry_sources": [
+				"definitions-vs-intuition",
+				"what-is-a-definition"
+			]
+		},
+		"read-direct-proof": {
+			"title": "Anatomy of a direct proof",
+			"role": "objective",
+			"subject": "reading-mathematics",
+			"topic": "reading-mathematics",
+			"statement": "A direct proof of 'if H then C' assumes H for arbitrary objects, unpacks definitions, computes until C's defining form appears, states C and ends with □, explaining each step in words; e.g. ab = (2m₁)(2m₂) = 2(2m₁m₂) is even.",
+			"file": "Hierarchy/read-direct-proof.md",
+			"depends_on": [
+				"read-proof",
+				"read-even-odd"
+			],
+			"inquiry_sources": [
+				"anatomy-of-a-proof"
+			]
+		},
+		"read-even-odd": {
+			"title": "Even and odd integers",
+			"role": "definition",
+			"subject": "reading-mathematics",
+			"topic": "reading-mathematics",
+			"statement": "An integer n is even if n = 2m for some m ∈ ℤ, and odd if n = 2m + 1 for some m ∈ ℤ; e.g. 0 = 2·0 is even, −7 = 2·(−4) + 1 is odd.",
+			"file": "Hierarchy/read-even-odd.md",
+			"depends_on": [],
+			"inquiry_sources": []
+		},
+		"read-examples-nonexamples": {
+			"title": "Examples and non-examples",
+			"role": "objective",
+			"subject": "reading-mathematics",
+			"topic": "reading-mathematics",
+			"statement": "After reading a new definition, test it on a deliberately varied sample: several objects satisfying it, at least one that does not, and edge cases such as 0, negatives and extremes, deciding each strictly by the condition and stating why.",
+			"file": "Hierarchy/read-examples-nonexamples.md",
+			"depends_on": [
+				"read-definition"
+			],
+			"inquiry_sources": [
+				"working-with-a-definition"
+			]
+		},
+		"read-hypothesis-conclusion": {
+			"title": "Hypothesis and conclusion",
+			"role": "definition",
+			"subject": "reading-mathematics",
+			"topic": "reading-mathematics",
+			"statement": "Every mathematical result has a hypothesis (the conditions assumed) and a conclusion (guaranteed whenever they hold), e.g. 'if a and b are even integers, then ab is even'; it asserts nothing where its hypothesis fails, and may leave it implicit.",
+			"file": "Hierarchy/read-hypothesis-conclusion.md",
+			"depends_on": [
+				"read-kinds-of-results"
+			],
+			"inquiry_sources": [
+				"hypothesis-and-conclusion"
+			]
+		},
+		"read-kinds-of-results": {
+			"title": "Lemma, proposition, theorem, corollary",
+			"role": "definition",
+			"subject": "reading-mathematics",
+			"topic": "reading-mathematics",
+			"statement": "Mathematical results are precise claims about defined objects, labelled by role: lemma, a stepping stone to a larger result; proposition, a useful result of moderate importance; theorem, a major or central result; corollary, an almost immediate consequence of a theorem.",
+			"file": "Hierarchy/read-kinds-of-results.md",
+			"depends_on": [
+				"read-definition"
+			],
+			"inquiry_sources": [
+				"theorems-and-friends"
+			]
+		},
+		"read-proof-generality": {
+			"title": "Generality in proofs",
+			"role": "objective",
+			"subject": "reading-mathematics",
+			"topic": "reading-mathematics",
+			"statement": "Reasoning about arbitrary objects, using only what the hypothesis grants, proves a result for all objects satisfying it; checking particular values does not. Unneeded hypotheses can be dropped: if a is even, ab is even for every integer b.",
+			"file": "Hierarchy/read-proof-generality.md",
+			"depends_on": [
+				"read-direct-proof"
+			],
+			"inquiry_sources": [
+				"generality-in-proofs"
+			]
+		},
+		"read-proof": {
+			"title": "Proof",
+			"role": "definition",
+			"subject": "reading-mathematics",
+			"topic": "reading-mathematics",
+			"statement": "A proof is a finite chain of statements from hypothesis to conclusion, each justified by the hypothesis, a definition, an axiom, a previously proven result, or logical deduction from earlier lines; it makes the result certain wherever the hypothesis holds.",
+			"file": "Hierarchy/read-proof.md",
+			"depends_on": [
+				"read-hypothesis-conclusion"
+			],
+			"inquiry_sources": [
+				"mathematical-results-are-infallible",
+				"what-is-a-proof"
+			]
+		},
+		"read-proving-vs-applying": {
+			"title": "Proving vs applying a theorem",
+			"role": "objective",
+			"subject": "reading-mathematics",
+			"topic": "reading-mathematics",
+			"statement": "To prove a result, assume its hypothesis and derive its conclusion, without asking whether the hypothesis holds for anything; to apply it, first verify its hypothesis for the particular objects at hand, and only then assert the conclusion for them.",
+			"file": "Hierarchy/read-proving-vs-applying.md",
+			"depends_on": [
+				"read-proof"
+			],
+			"inquiry_sources": [
+				"proving-vs-applying"
+			]
+		},
+		"read-self-explanation": {
+			"title": "Self-explanation",
+			"role": "objective",
+			"subject": "reading-mathematics",
+			"topic": "reading-mathematics",
+			"statement": "To self-explain a proof, after each line identify its main idea, how it follows from earlier lines, definitions or known results, and what question it raises; paraphrasing (restating) or monitoring (noting understanding) adds no logical connection and is not self-explanation.",
+			"file": "Hierarchy/read-self-explanation.md",
+			"depends_on": [
+				"read-proof"
+			],
+			"inquiry_sources": [
+				"self-explanation-training",
+				"self-explanation-vs-paraphrasing"
+			]
+		},
+		"rec-fibonacci": {
+			"title": "The Fibonacci sequence",
+			"role": "object",
+			"subject": "induction",
+			"topic": "recursion-and-structural-induction",
+			"statement": "The Fibonacci sequence, x₁ = x₂ = 1 and xₙ = xₙ₋₁ + xₙ₋₂ for n ≥ 3, satisfies xₙ = (αⁿ − βⁿ)/√5 for every n ∈ ℤ⁺, where α = (1 + √5)/2, β = (1 − √5)/2.",
+			"file": "Hierarchy/rec-fibonacci.md",
+			"depends_on": [
+				"rec-recursive-def",
+				"sind-principle"
+			],
+			"inquiry_sources": [
+				"fibonacci-sequence"
+			]
+		},
+		"rec-recursive-def": {
+			"title": "Recursive definitions",
+			"role": "definition",
+			"subject": "induction",
+			"topic": "recursion-and-structural-induction",
+			"statement": "A recursive definition of a set S gives basis elements and constructors; S consists exactly of the elements obtained from the basis by finitely many constructor applications. A recursive sequence fixes initial terms and defines later terms from earlier ones.",
+			"file": "Hierarchy/rec-recursive-def.md",
+			"depends_on": [],
+			"inquiry_sources": [
+				"recursive-definitions"
+			]
+		},
+		"rec-structural-induction": {
+			"title": "Principle of Structural Induction",
+			"role": "theorem",
+			"subject": "induction",
+			"topic": "recursion-and-structural-induction",
+			"statement": "Let S be recursively defined; if P(b) holds for every basis element b and, for each constructor, P holds for the output whenever it holds for all inputs, then P(s) holds for every s ∈ S.",
+			"file": "Hierarchy/rec-structural-induction.md",
+			"depends_on": [
+				"rec-recursive-def",
+				"sind-principle"
+			],
+			"inquiry_sources": [
+				"structural-induction-principle",
+				"structural-induction-example-divisibility"
+			]
+		},
+		"rel-checking": {
+			"title": "Verifying and refuting relation properties",
+			"role": "application",
+			"subject": "relations",
+			"topic": "binary-relations",
+			"statement": "Each relation property is universally quantified, so it is verified by a proof for arbitrary elements and refuted by one counterexample; e.g. a ∼ b ⟺ ab > 1 on ℝ⁺ is symmetric but not reflexive, total, or transitive.",
+			"file": "Hierarchy/rel-checking.md",
+			"depends_on": [
+				"rel-properties",
+				"quant-proof-methods",
+				"quant-negation"
+			],
+			"inquiry_sources": [
+				"checking-relation-properties"
+			]
+		},
+		"rel-def": {
+			"title": "Binary relation",
+			"role": "definition",
+			"subject": "relations",
+			"topic": "binary-relations",
+			"statement": "A binary relation R between sets A and B is a subset of A × B, with aRb meaning (a, b) ∈ R; A is its domain, B its codomain; if B = A, R is a relation on A.",
+			"file": "Hierarchy/rel-def.md",
+			"depends_on": [
+				"set-cartesian-product",
+				"set-subset"
+			],
+			"inquiry_sources": [
+				"relations-on-a-set",
+				"what-is-a-binary-relation"
+			]
+		},
+		"rel-left-total-functional": {
+			"title": "Left-total and functional relations",
+			"role": "definition",
+			"subject": "relations",
+			"topic": "binary-relations",
+			"statement": "R ⊆ A×B is left-total if each a ∈ A has some b ∈ B with aRb, and functional if aRb ∧ aRc ⟹ b=c (∀a ∈ A, b,c ∈ B): at least one, respectively at most one, partner.",
+			"file": "Hierarchy/rel-left-total-functional.md",
+			"depends_on": [
+				"rel-def"
+			],
+			"inquiry_sources": [
+				"relation-properties-transitive-total"
+			]
+		},
+		"rel-properties": {
+			"title": "Properties of relations on a set",
+			"role": "definition",
+			"subject": "relations",
+			"topic": "binary-relations",
+			"statement": "R on A is reflexive if aRa, irreflexive if ¬aRa, symmetric if aRb ⟹ bRa, anti-symmetric if aRb ∧ bRa ⟹ a=b, transitive if aRb ∧ bRc ⟹ aRc, total if a=b ∨ aRb ∨ bRa (∀a,b,c ∈ A).",
+			"file": "Hierarchy/rel-properties.md",
+			"depends_on": [
+				"rel-def"
+			],
+			"inquiry_sources": [
+				"relation-properties-reflexive-symmetric"
+			]
+		},
+		"set-builder": {
+			"title": "Set-builder notation",
+			"role": "definition",
+			"subject": "sets-and-propositions",
+			"topic": "sets",
+			"statement": "For a set U and predicate P(x), {x ∈ U : P(x)} is the set of x ∈ U with P(x) true; generally, {expression : conditions} is the set of values the expression takes as its variables satisfy the conditions.",
+			"file": "Hierarchy/set-builder.md",
+			"depends_on": [
+				"set-def",
+				"prop-predicate"
+			],
+			"inquiry_sources": [
+				"set-builder-notation"
+			]
+		},
+		"set-cartesian-product": {
+			"title": "Cartesian product",
+			"role": "definition",
+			"subject": "sets-and-propositions",
+			"topic": "sets",
+			"statement": "For sets A and B, the Cartesian product A × B = {(a, b) : a ∈ A, b ∈ B} consists of ordered pairs, where (a, b) = (c, d) exactly when a = c and b = d.",
+			"file": "Hierarchy/set-cartesian-product.md",
+			"depends_on": [
+				"set-builder"
+			],
+			"inquiry_sources": [
+				"cartesian-product"
+			]
+		},
+		"set-def": {
+			"title": "Sets, elements and the empty set",
+			"role": "definition",
+			"subject": "sets-and-propositions",
+			"topic": "sets",
+			"statement": "A set is an unordered collection of well-defined, distinct objects, its elements (x ∈ S: x is an element of S); two sets are equal exactly when they have the same elements, and the empty set ∅ has none.",
+			"file": "Hierarchy/set-def.md",
+			"depends_on": [],
+			"inquiry_sources": [
+				"set-notation",
+				"sets-can-contain-anything",
+				"what-is-a-set"
+			]
+		},
+		"set-difference-complement": {
+			"title": "Set difference and complement",
+			"role": "definition",
+			"subject": "sets-and-propositions",
+			"topic": "sets",
+			"statement": "For sets S and T, the difference is S ∖ T = {x ∈ S : x ∉ T}; for a universe of discourse U and A ⊆ U, the complement of A is Aᶜ = U ∖ A.",
+			"file": "Hierarchy/set-difference-complement.md",
+			"depends_on": [
+				"set-builder",
+				"set-subset",
+				"prop-connectives"
+			],
+			"inquiry_sources": [
+				"complement-of-a-set",
+				"set-difference"
+			]
+		},
+		"set-double-inclusion": {
+			"title": "Set equality by double inclusion",
+			"role": "theorem",
+			"subject": "sets-and-propositions",
+			"topic": "sets",
+			"statement": "For sets S and T, S = T if and only if S ⊆ T and T ⊆ S, so an equality of sets is proved by establishing the two inclusions separately.",
+			"file": "Hierarchy/set-double-inclusion.md",
+			"depends_on": [
+				"set-subset"
+			],
+			"inquiry_sources": [
+				"set-equality-via-double-inclusion"
+			]
+		},
+		"set-number-sets": {
+			"title": "Standard number sets",
+			"role": "object",
+			"subject": "sets-and-propositions",
+			"topic": "sets",
+			"statement": "ℤ⁺ = {1, 2, 3, …} ⊆ ℤ* = {0, 1, 2, …} ⊆ ℤ ⊆ ℚ = {a/b : a, b ∈ ℤ, b ≠ 0} ⊆ ℝ are the positive integers, non-negative integers, integers, rationals and reals.",
+			"file": "Hierarchy/set-number-sets.md",
+			"depends_on": [
+				"set-builder",
+				"set-subset"
+			],
+			"inquiry_sources": [
+				"standard-number-sets"
+			]
+		},
+		"set-subset": {
+			"title": "Subsets",
+			"role": "definition",
+			"subject": "sets-and-propositions",
+			"topic": "sets",
+			"statement": "For sets S and T, S is a subset of T (S ⊆ T) when every element of S is in T, proved by showing each x ∈ S lies in T; thus S ⊆ S and ∅ ⊆ S.",
+			"file": "Hierarchy/set-subset.md",
+			"depends_on": [
+				"set-def"
+			],
+			"inquiry_sources": [
+				"subsets"
+			]
+		},
+		"set-union-intersection": {
+			"title": "Union and intersection",
+			"role": "definition",
+			"subject": "sets-and-propositions",
+			"topic": "sets",
+			"statement": "For sets S and T, the union S ∪ T = {x : x ∈ S or x ∈ T}, with inclusive or, and the intersection S ∩ T = {x : x ∈ S and x ∈ T}.",
+			"file": "Hierarchy/set-union-intersection.md",
+			"depends_on": [
+				"set-builder",
+				"prop-connectives"
+			],
+			"inquiry_sources": [
+				"union-and-intersection"
+			]
+		},
+		"sind-generalized": {
+			"title": "Induction from any base and step",
+			"role": "theorem",
+			"subject": "induction",
+			"topic": "strong-induction",
+			"statement": "For a ∈ ℤ, d ∈ ℤ⁺: if P(a) holds and P(k) ⟹ P(k + d) for all k ∈ A = {a, a + d, …}, then P holds on A; d = 1 gives induction from base a.",
+			"file": "Hierarchy/sind-generalized.md",
+			"depends_on": [
+				"ind-principle"
+			],
+			"inquiry_sources": [
+				"generalized-induction"
+			]
+		},
+		"sind-postage": {
+			"title": "Postage with 3¢ and 5¢ stamps",
+			"role": "application",
+			"subject": "induction",
+			"topic": "strong-induction",
+			"statement": "Every integer n ≥ 8 is 3a + 5b with a, b ∈ ℤ*: 8 = 3 + 5, 9 = 3·3, 10 = 2·5, and k + 1 = (k − 2) + 3 for k ≥ 10.",
+			"file": "Hierarchy/sind-postage.md",
+			"depends_on": [
+				"sind-principle"
+			],
+			"inquiry_sources": [
+				"strong-induction-postage-stamps"
+			]
+		},
+		"sind-principle": {
+			"title": "Principle of Strong Induction",
+			"role": "theorem",
+			"subject": "induction",
+			"topic": "strong-induction",
+			"statement": "For integers n₀ ≤ n₁: if P(n₀), …, P(n₁) hold and P(n₀) ∧ ⋯ ∧ P(k) ⟹ P(k + 1) for all k ≥ n₁, then P(n) holds for all n ≥ n₀; it is equivalent to ordinary induction.",
+			"file": "Hierarchy/sind-principle.md",
+			"depends_on": [
+				"sind-generalized"
+			],
+			"inquiry_sources": [
+				"strong-induction-equivalence",
+				"strong-induction-principle"
+			]
+		},
+		"sub-def": {
+			"title": "Subgroup",
+			"role": "definition",
+			"subject": "group-theory",
+			"topic": "subgroups-and-order",
+			"statement": "A subset H of a group G is a subgroup, written H ≤ G, if H is a group under the operation of G; equivalently, e ∈ H and H is closed under products and inverses.",
+			"file": "Hierarchy/sub-def.md",
+			"depends_on": [
+				"grp-properties"
+			],
+			"inquiry_sources": [
+				"subgroup-definition"
+			]
+		},
+		"sub-order-divides": {
+			"title": "Order divides exponent",
+			"role": "theorem",
+			"subject": "group-theory",
+			"topic": "subgroups-and-order",
+			"statement": "If |g| = n is finite, gᵏ = e iff n ∣ k, and gⁱ = gʲ iff i ≡ j (mod n), so e, g, …, gⁿ⁻¹ are distinct; if |g| = ∞, distinct exponents give distinct powers.",
+			"file": "Hierarchy/sub-order-divides.md",
+			"depends_on": [
+				"sub-order",
+				"mod-congruence-def"
+			],
+			"inquiry_sources": [
+				"order-divides-exponent"
+			]
+		},
+		"sub-order-power": {
+			"title": "Order of a power",
+			"role": "theorem",
+			"subject": "group-theory",
+			"topic": "subgroups-and-order",
+			"statement": "If g ∈ G has finite order n and k ∈ ℤ, then |gᵏ| = n / gcd(n, k); in particular |gᵏ| divides n, and gᵏ has order n if and only if gcd(n, k) = 1.",
+			"file": "Hierarchy/sub-order-power.md",
+			"depends_on": [
+				"sub-order-divides",
+				"gcd-bezout-cor"
+			],
+			"inquiry_sources": [
+				"order-of-a-power"
+			]
+		},
+		"sub-order": {
+			"title": "Order of a group and of an element",
+			"role": "definition",
+			"subject": "group-theory",
+			"topic": "subgroups-and-order",
+			"statement": "The order |G| of a group is its number of elements; the order |g| of g ∈ G is the least n ∈ ℤ⁺ with gⁿ = e, or |g| = ∞ if no positive power of g equals e.",
+			"file": "Hierarchy/sub-order.md",
+			"depends_on": [
+				"grp-def"
+			],
+			"inquiry_sources": [
+				"group-order-and-element-order"
+			]
+		},
+		"sub-test": {
+			"title": "Subgroup test",
+			"role": "theorem",
+			"subject": "group-theory",
+			"topic": "subgroups-and-order",
+			"statement": "A nonempty subset H of a group G is a subgroup if and only if ab⁻¹ ∈ H for all a, b ∈ H, and also if and only if H is closed under products and inverses.",
+			"file": "Hierarchy/sub-test.md",
+			"depends_on": [
+				"sub-def"
+			],
+			"inquiry_sources": [
+				"subgroup-test-example",
+				"subgroup-test"
+			]
+		},
+		"sum-induction": {
+			"title": "Proving summation identities by induction",
+			"role": "application",
+			"subject": "induction",
+			"topic": "summation-notation",
+			"statement": "To prove ∑ₖ₌₁ⁿ aₖ = F(n) for all n ∈ ℤ⁺, check a₁ = F(1) and, peeling off the last term, show F(k) + aₖ₊₁ = F(k + 1); for example ∑ₖ₌₁ⁿ 1/(k(k + 1)) = n/(n + 1).",
+			"file": "Hierarchy/sum-induction.md",
+			"depends_on": [
+				"ind-principle",
+				"sum-sigma"
+			],
+			"inquiry_sources": [
+				"summation-identity-example"
+			]
+		},
+		"sum-sigma": {
+			"title": "Sigma notation",
+			"role": "definition",
+			"subject": "induction",
+			"topic": "summation-notation",
+			"statement": "For integers n ≤ m, ∑ᵢ₌ₙᵐ rᵢ = rₙ + rₙ₊₁ + ⋯ + rₘ, with dummy index i, bounds n and m, and summand rᵢ; recursively, ∑ᵢ₌ₙⁿ rᵢ = rₙ and ∑ᵢ₌ₙᵐ⁺¹ rᵢ = ∑ᵢ₌ₙᵐ rᵢ + rₘ₊₁.",
+			"file": "Hierarchy/sum-sigma.md",
+			"depends_on": [],
+			"inquiry_sources": [
+				"sigma-notation"
+			]
 		}
 	},
 	"edges": [
 		{
+			"from": "card-power-set",
+			"to": "card-cantor"
+		},
+		{
+			"from": "card-equal",
+			"to": "card-cantor"
+		},
+		{
+			"from": "card-countable",
+			"to": "card-countable-closure"
+		},
+		{
+			"from": "prime-fta",
+			"to": "card-countable-closure"
+		},
+		{
+			"from": "card-equal",
+			"to": "card-countable"
+		},
+		{
+			"from": "card-equal",
+			"to": "card-csb"
+		},
+		{
+			"from": "set-difference-complement",
+			"to": "card-csb"
+		},
+		{
+			"from": "card-leq",
+			"to": "card-equal"
+		},
+		{
+			"from": "fn-invertible-iff-bijective",
+			"to": "card-equal"
+		},
+		{
+			"from": "rel-properties",
+			"to": "card-equal"
+		},
+		{
+			"from": "fn-composition-preserves",
+			"to": "card-leq"
+		},
+		{
+			"from": "fn-bijective",
+			"to": "card-power-set"
+		},
+		{
+			"from": "card-countable",
+			"to": "card-reals-uncountable"
+		},
+		{
+			"from": "card-countable-closure",
+			"to": "card-z-q-countable"
+		},
+		{
+			"from": "card-csb",
+			"to": "card-z-q-countable"
+		},
+		{
+			"from": "grp-abelian",
+			"to": "cyc-def"
+		},
+		{
+			"from": "sub-test",
+			"to": "cyc-def"
+		},
+		{
+			"from": "sub-order-divides",
+			"to": "cyc-def"
+		},
+		{
+			"from": "cyc-def",
+			"to": "cyc-subgroups"
+		},
+		{
+			"from": "gcd-bezout",
+			"to": "cyc-subgroups"
+		},
+		{
 			"from": "div-def",
 			"to": "div-properties"
+		},
+		{
+			"from": "eqv-def",
+			"to": "eqv-classes"
+		},
+		{
+			"from": "rel-properties",
+			"to": "eqv-def"
+		},
+		{
+			"from": "eqv-classes",
+			"to": "eqv-partition"
+		},
+		{
+			"from": "set-double-inclusion",
+			"to": "eqv-partition"
+		},
+		{
+			"from": "set-union-intersection",
+			"to": "eqv-partition"
+		},
+		{
+			"from": "fn-injective",
+			"to": "fn-bijective"
+		},
+		{
+			"from": "fn-surjective",
+			"to": "fn-bijective"
+		},
+		{
+			"from": "fn-def",
+			"to": "fn-binary-operator"
+		},
+		{
+			"from": "fn-composition",
+			"to": "fn-composition-preserves"
+		},
+		{
+			"from": "fn-bijective",
+			"to": "fn-composition-preserves"
+		},
+		{
+			"from": "fn-equality",
+			"to": "fn-composition"
+		},
+		{
+			"from": "rel-left-total-functional",
+			"to": "fn-def"
+		},
+		{
+			"from": "fn-def",
+			"to": "fn-equality"
+		},
+		{
+			"from": "fn-def",
+			"to": "fn-image"
+		},
+		{
+			"from": "set-union-intersection",
+			"to": "fn-image"
+		},
+		{
+			"from": "fn-def",
+			"to": "fn-injective"
+		},
+		{
+			"from": "fn-composition",
+			"to": "fn-inverse-function"
+		},
+		{
+			"from": "fn-operator-inverse",
+			"to": "fn-inverse-function"
+		},
+		{
+			"from": "fn-inverse-function",
+			"to": "fn-invertible-iff-bijective"
+		},
+		{
+			"from": "fn-bijective",
+			"to": "fn-invertible-iff-bijective"
+		},
+		{
+			"from": "fn-binary-operator",
+			"to": "fn-operator-inverse"
+		},
+		{
+			"from": "fn-def",
+			"to": "fn-preimage"
+		},
+		{
+			"from": "set-union-intersection",
+			"to": "fn-preimage"
+		},
+		{
+			"from": "fn-image",
+			"to": "fn-surjective"
 		},
 		{
 			"from": "gcd-bezout",
@@ -356,6 +1998,178 @@
 		{
 			"from": "gcd-def",
 			"to": "gcd-euclidean"
+		},
+		{
+			"from": "grp-properties",
+			"to": "grp-abelian"
+		},
+		{
+			"from": "fn-operator-inverse",
+			"to": "grp-def"
+		},
+		{
+			"from": "grp-abelian",
+			"to": "grp-dihedral"
+		},
+		{
+			"from": "fn-composition",
+			"to": "grp-dihedral"
+		},
+		{
+			"from": "grp-def",
+			"to": "grp-properties"
+		},
+		{
+			"from": "ind-principle",
+			"to": "grp-properties"
+		},
+		{
+			"from": "grp-abelian",
+			"to": "grp-symmetric"
+		},
+		{
+			"from": "fn-composition-preserves",
+			"to": "grp-symmetric"
+		},
+		{
+			"from": "fn-invertible-iff-bijective",
+			"to": "grp-symmetric"
+		},
+		{
+			"from": "grp-abelian",
+			"to": "grp-zn"
+		},
+		{
+			"from": "mod-inverses",
+			"to": "grp-zn"
+		},
+		{
+			"from": "grp-def",
+			"to": "hom-def"
+		},
+		{
+			"from": "hom-properties",
+			"to": "hom-kernel"
+		},
+		{
+			"from": "fn-injective",
+			"to": "hom-kernel"
+		},
+		{
+			"from": "hom-def",
+			"to": "hom-properties"
+		},
+		{
+			"from": "cyc-def",
+			"to": "hom-properties"
+		},
+		{
+			"from": "fn-image",
+			"to": "hom-properties"
+		},
+		{
+			"from": "fn-preimage",
+			"to": "hom-properties"
+		},
+		{
+			"from": "impl-contrapositive",
+			"to": "impl-contrapositive-proof"
+		},
+		{
+			"from": "read-even-odd",
+			"to": "impl-contrapositive-proof"
+		},
+		{
+			"from": "gcd-division-algorithm",
+			"to": "impl-contrapositive-proof"
+		},
+		{
+			"from": "impl-def",
+			"to": "impl-contrapositive"
+		},
+		{
+			"from": "impl-def",
+			"to": "impl-converse"
+		},
+		{
+			"from": "read-hypothesis-conclusion",
+			"to": "impl-def"
+		},
+		{
+			"from": "prop-truth-tables",
+			"to": "impl-def"
+		},
+		{
+			"from": "impl-converse",
+			"to": "impl-iff"
+		},
+		{
+			"from": "impl-iff",
+			"to": "impl-nec-suff"
+		},
+		{
+			"from": "impl-def",
+			"to": "impl-negation"
+		},
+		{
+			"from": "quant-negation",
+			"to": "impl-negation"
+		},
+		{
+			"from": "impl-def",
+			"to": "impl-vacuous"
+		},
+		{
+			"from": "quant-forall",
+			"to": "impl-vacuous"
+		},
+		{
+			"from": "gcd-wop",
+			"to": "ind-principle"
+		},
+		{
+			"from": "ind-principle",
+			"to": "ind-proof-format"
+		},
+		{
+			"from": "div-def",
+			"to": "ind-proof-format"
+		},
+		{
+			"from": "iso-invariants",
+			"to": "iso-cyclic"
+		},
+		{
+			"from": "grp-zn",
+			"to": "iso-cyclic"
+		},
+		{
+			"from": "hom-def",
+			"to": "iso-def"
+		},
+		{
+			"from": "fn-composition-preserves",
+			"to": "iso-def"
+		},
+		{
+			"from": "fn-invertible-iff-bijective",
+			"to": "iso-def"
+		},
+		{
+			"from": "eqv-def",
+			"to": "iso-def"
+		},
+		{
+			"from": "iso-def",
+			"to": "iso-invariants"
+		},
+		{
+			"from": "hom-properties",
+			"to": "iso-invariants"
+		},
+		{
+			"from": "card-equal",
+			"to": "iso-invariants"
 		},
 		{
 			"from": "div-def",
@@ -394,6 +2208,10 @@
 			"to": "mod-equivalence"
 		},
 		{
+			"from": "eqv-partition",
+			"to": "mod-equivalence"
+		},
+		{
 			"from": "mod-zn",
 			"to": "mod-inverses"
 		},
@@ -410,6 +2228,30 @@
 			"to": "mod-zn"
 		},
 		{
+			"from": "rel-properties",
+			"to": "ord-def"
+		},
+		{
+			"from": "ord-def",
+			"to": "ord-max"
+		},
+		{
+			"from": "ord-def",
+			"to": "ord-sup-inf"
+		},
+		{
+			"from": "impl-def",
+			"to": "pf-contradiction"
+		},
+		{
+			"from": "pf-contradiction",
+			"to": "pf-sqrt2"
+		},
+		{
+			"from": "impl-contrapositive-proof",
+			"to": "pf-sqrt2"
+		},
+		{
 			"from": "div-def",
 			"to": "prime-def"
 		},
@@ -422,16 +2264,256 @@
 			"to": "prime-euclid-lemma"
 		},
 		{
-			"from": "prime-euclid-lemma",
-			"to": "prime-fta"
+			"from": "ind-principle",
+			"to": "prime-euclid-lemma"
 		},
 		{
-			"from": "gcd-wop",
+			"from": "prime-euclid-lemma",
 			"to": "prime-fta"
 		},
 		{
 			"from": "prime-fta",
 			"to": "prime-infinitude"
+		},
+		{
+			"from": "prop-proposition",
+			"to": "prop-connectives"
+		},
+		{
+			"from": "prop-truth-tables",
+			"to": "prop-de-morgan"
+		},
+		{
+			"from": "prop-proposition",
+			"to": "prop-predicate"
+		},
+		{
+			"from": "prop-connectives",
+			"to": "prop-truth-tables"
+		},
+		{
+			"from": "prop-predicate",
+			"to": "quant-exists"
+		},
+		{
+			"from": "set-def",
+			"to": "quant-exists"
+		},
+		{
+			"from": "prop-predicate",
+			"to": "quant-forall"
+		},
+		{
+			"from": "set-def",
+			"to": "quant-forall"
+		},
+		{
+			"from": "quant-forall",
+			"to": "quant-negation"
+		},
+		{
+			"from": "quant-exists",
+			"to": "quant-negation"
+		},
+		{
+			"from": "prop-connectives",
+			"to": "quant-negation"
+		},
+		{
+			"from": "quant-forall",
+			"to": "quant-order"
+		},
+		{
+			"from": "quant-exists",
+			"to": "quant-order"
+		},
+		{
+			"from": "quant-forall",
+			"to": "quant-proof-methods"
+		},
+		{
+			"from": "quant-exists",
+			"to": "quant-proof-methods"
+		},
+		{
+			"from": "read-proof-generality",
+			"to": "quant-proof-methods"
+		},
+		{
+			"from": "read-proof",
+			"to": "read-direct-proof"
+		},
+		{
+			"from": "read-even-odd",
+			"to": "read-direct-proof"
+		},
+		{
+			"from": "read-definition",
+			"to": "read-examples-nonexamples"
+		},
+		{
+			"from": "read-kinds-of-results",
+			"to": "read-hypothesis-conclusion"
+		},
+		{
+			"from": "read-definition",
+			"to": "read-kinds-of-results"
+		},
+		{
+			"from": "read-direct-proof",
+			"to": "read-proof-generality"
+		},
+		{
+			"from": "read-hypothesis-conclusion",
+			"to": "read-proof"
+		},
+		{
+			"from": "read-proof",
+			"to": "read-proving-vs-applying"
+		},
+		{
+			"from": "read-proof",
+			"to": "read-self-explanation"
+		},
+		{
+			"from": "rec-recursive-def",
+			"to": "rec-fibonacci"
+		},
+		{
+			"from": "sind-principle",
+			"to": "rec-fibonacci"
+		},
+		{
+			"from": "rec-recursive-def",
+			"to": "rec-structural-induction"
+		},
+		{
+			"from": "sind-principle",
+			"to": "rec-structural-induction"
+		},
+		{
+			"from": "rel-properties",
+			"to": "rel-checking"
+		},
+		{
+			"from": "quant-proof-methods",
+			"to": "rel-checking"
+		},
+		{
+			"from": "quant-negation",
+			"to": "rel-checking"
+		},
+		{
+			"from": "set-cartesian-product",
+			"to": "rel-def"
+		},
+		{
+			"from": "set-subset",
+			"to": "rel-def"
+		},
+		{
+			"from": "rel-def",
+			"to": "rel-left-total-functional"
+		},
+		{
+			"from": "rel-def",
+			"to": "rel-properties"
+		},
+		{
+			"from": "set-def",
+			"to": "set-builder"
+		},
+		{
+			"from": "prop-predicate",
+			"to": "set-builder"
+		},
+		{
+			"from": "set-builder",
+			"to": "set-cartesian-product"
+		},
+		{
+			"from": "set-builder",
+			"to": "set-difference-complement"
+		},
+		{
+			"from": "set-subset",
+			"to": "set-difference-complement"
+		},
+		{
+			"from": "prop-connectives",
+			"to": "set-difference-complement"
+		},
+		{
+			"from": "set-subset",
+			"to": "set-double-inclusion"
+		},
+		{
+			"from": "set-builder",
+			"to": "set-number-sets"
+		},
+		{
+			"from": "set-subset",
+			"to": "set-number-sets"
+		},
+		{
+			"from": "set-def",
+			"to": "set-subset"
+		},
+		{
+			"from": "set-builder",
+			"to": "set-union-intersection"
+		},
+		{
+			"from": "prop-connectives",
+			"to": "set-union-intersection"
+		},
+		{
+			"from": "ind-principle",
+			"to": "sind-generalized"
+		},
+		{
+			"from": "sind-principle",
+			"to": "sind-postage"
+		},
+		{
+			"from": "sind-generalized",
+			"to": "sind-principle"
+		},
+		{
+			"from": "grp-properties",
+			"to": "sub-def"
+		},
+		{
+			"from": "sub-order",
+			"to": "sub-order-divides"
+		},
+		{
+			"from": "mod-congruence-def",
+			"to": "sub-order-divides"
+		},
+		{
+			"from": "sub-order-divides",
+			"to": "sub-order-power"
+		},
+		{
+			"from": "gcd-bezout-cor",
+			"to": "sub-order-power"
+		},
+		{
+			"from": "grp-def",
+			"to": "sub-order"
+		},
+		{
+			"from": "sub-def",
+			"to": "sub-test"
+		},
+		{
+			"from": "ind-principle",
+			"to": "sum-induction"
+		},
+		{
+			"from": "sum-sigma",
+			"to": "sum-induction"
 		}
 	]
 }

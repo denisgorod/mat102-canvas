@@ -5,6 +5,7 @@ role: bit
 group: order-relations
 curriculum_path: null
 learning_objectives: []
+concludes: ord-def
 children:
   - id: posets
     question: "What is a set equipped with a partial order called?"

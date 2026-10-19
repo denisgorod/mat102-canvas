@@ -5,6 +5,7 @@ role: bit
 group: quantifiers-and-implications
 curriculum_path: null
 learning_objectives: []
+concludes: impl-contrapositive-proof
 children:
   - id: proof-by-contradiction
     question: "Is there a proof technique even stronger than contrapositive?"

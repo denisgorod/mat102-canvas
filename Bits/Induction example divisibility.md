@@ -5,6 +5,7 @@ role: bit
 group: mathematical-induction
 curriculum_path: null
 learning_objectives: []
+concludes: ind-proof-format
 parents:
   - induction-example-inequality
 children:

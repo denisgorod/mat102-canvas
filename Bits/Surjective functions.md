@@ -5,6 +5,7 @@ role: bit
 group: functions-i
 curriculum_path: null
 learning_objectives: []
+concludes: fn-surjective
 children:
   - id: proving-surjectivity
     question: "How do I prove a function is surjective?"

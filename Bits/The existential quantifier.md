@@ -5,6 +5,7 @@ role: bit
 group: quantifiers-and-implications
 curriculum_path: null
 learning_objectives: []
+concludes: quant-exists
 children:
   - id: proving-quantified-statements
     question: "How do I prove that something exists?"
