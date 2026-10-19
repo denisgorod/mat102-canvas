@@ -51,7 +51,8 @@
 			"statement": "If there are injections f: A → B and g: B → A then there is a bijection A → B; that is, |A| ≤ |B| and |B| ≤ |A| together imply |A| = |B|.",
 			"file": "Hierarchy/card-csb.md",
 			"depends_on": [
-				"card-equal"
+				"card-equal",
+				"set-difference-complement"
 			],
 			"inquiry_sources": [
 				"cantor-schroder-bernstein"
@@ -226,7 +227,8 @@
 			"file": "Hierarchy/eqv-partition.md",
 			"depends_on": [
 				"eqv-classes",
-				"set-double-inclusion"
+				"set-double-inclusion",
+				"set-union-intersection"
 			],
 			"inquiry_sources": [
 				"equivalence-relations-partition-a-set"
@@ -328,7 +330,8 @@
 			"statement": "For a function f: A → B and U ⊆ A, the image of U is f(U) = {f(x) : x ∈ U} ⊆ B, and the range of f is f(A), which need not equal the codomain B.",
 			"file": "Hierarchy/fn-image.md",
 			"depends_on": [
-				"fn-def"
+				"fn-def",
+				"set-union-intersection"
 			],
 			"inquiry_sources": [
 				"domain-codomain-range",
@@ -402,7 +405,8 @@
 			"statement": "For a function f: A → B and V ⊆ B, the preimage of V is f⁻¹(V) = {x ∈ A : f(x) ∈ V} ⊆ A, defined for every function whether or not f has an inverse.",
 			"file": "Hierarchy/fn-preimage.md",
 			"depends_on": [
-				"fn-def"
+				"fn-def",
+				"set-union-intersection"
 			],
 			"inquiry_sources": [
 				"preimage-of-a-set"
@@ -1808,6 +1812,10 @@
 			"to": "card-csb"
 		},
 		{
+			"from": "set-difference-complement",
+			"to": "card-csb"
+		},
+		{
 			"from": "card-leq",
 			"to": "card-equal"
 		},
@@ -1880,6 +1888,10 @@
 			"to": "eqv-partition"
 		},
 		{
+			"from": "set-union-intersection",
+			"to": "eqv-partition"
+		},
+		{
 			"from": "fn-injective",
 			"to": "fn-bijective"
 		},
@@ -1916,6 +1928,10 @@
 			"to": "fn-image"
 		},
 		{
+			"from": "set-union-intersection",
+			"to": "fn-image"
+		},
+		{
 			"from": "fn-def",
 			"to": "fn-injective"
 		},
@@ -1941,6 +1957,10 @@
 		},
 		{
 			"from": "fn-def",
+			"to": "fn-preimage"
+		},
+		{
+			"from": "set-union-intersection",
 			"to": "fn-preimage"
 		},
 		{

@@ -123,8 +123,9 @@ depends_on: [gcd-wop, gcd-def]
 
 - **`statement`** — one sentence, plain Unicode, every hypothesis included, at most 40 words.
 - **`depends_on`** — the *direct* prerequisites: definitions and results the statement or proof
-  invokes, but not general logical vocabulary or proof methods, and not anything already implied
-  by another listed prerequisite. Every arrow on the review map is therefore one that no other
+  invokes. Not general logical vocabulary or proof methods; not notation used only to name a set
+  (∈, ⊆, the standard number sets, ℚ ∖ {0}, S ∩ ℤ⁺), though a set operation the node reasons
+  with does count; and not anything already implied by another listed prerequisite. Every arrow on the review map is therefore one that no other
   path gives you; what a node ultimately rests on is its full set of ancestors.
 - **Body** — 90–145 words in two or three callouts (`>[!d]` definition, `>[!t]` theorem,
   `>[!p]` proof ending in `$\square$`, `>[!e]` example, `>[!s]` method or application,

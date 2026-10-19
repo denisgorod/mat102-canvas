@@ -16,4 +16,4 @@ depends_on: [quant-forall, quant-exists, prop-connectives]
 > By the definitions of $\forall$, $\exists$, $\neg$: $\forall x\in S,\ P(x)$ fails exactly when some $x\in S$ has $\neg P(x)$ true, and $\exists x\in S,\ P(x)$ fails exactly when every $x\in S$ has $\neg P(x)$ true. Nested quantifiers: apply this outermost first. $\square$
 
 >[!e] Worked example
-> $\neg(\forall x\in\mathbb{R},\ x<x^2)$ is $\exists x\in\mathbb{R},\ x\ge x^2$, true at $x = \tfrac12$. With $G$ the glittering things, "all that glisters is not gold" means $\neg(\forall x\in G,\ \mathrm{gold}(x))$, not $\forall x\in G,\ \neg\,\mathrm{gold}(x)$.
+> $\neg(\forall x\in\mathbb{R},\ x\lt x^2)$ is $\exists x\in\mathbb{R},\ x\ge x^2$, true at $x = \tfrac12$. With $G$ the glittering things, "all that glisters is not gold" means $\neg(\forall x\in G,\ \mathrm{gold}(x))$, not $\forall x\in G,\ \neg\,\mathrm{gold}(x)$.
