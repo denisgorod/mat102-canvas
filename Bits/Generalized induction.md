@@ -23,7 +23,7 @@ $$P(10) \Rightarrow P(12) \Rightarrow P(14) \Rightarrow P(16) \Rightarrow \cdots
 
 and you reach every even integer $\geq 10$.
 
-**Another example:** Suppose you want to prove $P(n)$ for all integers $n \equiv 1 \pmod{5}$ (that is, all $n$ leaving remainder 1 when divided by 5). You'd start with the base case $P(1)$, then show $P(k) \Rightarrow P(k+5)$, creating the chain:
+**Another example:** Suppose you want to prove $P(n)$ for all integers $n \geq 1$ with $n \equiv 1 \pmod{5}$ (that is, all positive $n$ leaving remainder 1 when divided by 5). You'd start with the base case $P(1)$, then show $P(k) \Rightarrow P(k+5)$, creating the chain:
 $$P(1) \Rightarrow P(6) \Rightarrow P(11) \Rightarrow P(16) \Rightarrow \cdots$$
 
 In both cases, you can think of this as a substitution of the standard induction. For example, if you're proving $P(n)$ for even $n \geq 10$, define $Q(m) = P(10 + 2m)$. Then you're really doing standard induction on $Q(m)$ for $m \geq 0$. The base case becomes $Q(0) = P(10)$, and the induction step becomes $Q(m) \Rightarrow Q(m+1)$, which translates to $P(10+2m) \Rightarrow P(10+2(m+1)) = P(12+2m)$.

@@ -16,7 +16,7 @@ For each pair of sets, construct an explicit bijection and verify that it is bot
 
 (b) Between $\mathbb{Q}$ and $\mathbb{Q} \cup \{\pi, \sqrt{2}\}$.
 
-(c) Between the dyadic rationals $D = \left\{ \frac{1}{2^n} : n \in \mathbb{Z}^+ \right\}$ and $\mathbb{Q}$.
+(c) Between $D = \left\{ \frac{1}{2^n} : n \in \mathbb{Z}^+ \right\}$ and $\mathbb{Q}$.
 
 (d) Between the half-open interval $[0, 1)$ and the open interval $(0, 1)$.
 
