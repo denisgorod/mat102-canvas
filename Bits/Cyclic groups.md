@@ -36,7 +36,7 @@ The group $G$ is called **cyclic** if $G = \langle g \rangle$ for some $g \in G$
 
 2. $(\mathbb{Z}_4, +)$ also has the subgroup $H = \langle [2] \rangle = \{[0], [2]\}$, which is a proper subgroup.
 
-3. $(\mathbb{Z}, +) = \langle 1 \rangle$ is cyclic with generator 1. Also, $\langle -1 \rangle = \mathbb{Z}$ (the negative integers plus zero).
+3. $(\mathbb{Z}, +) = \langle 1 \rangle$ is cyclic with generator 1. Also, $\langle -1 \rangle = \mathbb{Z}$: the multiples $k \cdot (-1) = -k$ run over all integers, so $-1$ is a second generator.
 
 4. Not every group is cyclic. For example, $S_3$ (the symmetric group on 3 elements) has 6 elements, but no single element generates all of them. If $\sigma$ is a transposition, then $\langle \sigma \rangle = \{e, \sigma\}$ has only 2 elements.
 

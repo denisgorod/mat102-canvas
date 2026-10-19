@@ -19,9 +19,11 @@ parents:
 
 Now that you know what an identity element is, you can ask: given an operation and its identity, what element *undoes* the operation for a particular input?
 
-If $\circ$ is a binary operator with identity $\text{id}$, then the **inverse** of an element $x$ with respect to $\circ$ is an element $y$ such that:
+If $\circ$ is a binary operator with identity $\text{id}$, then an **inverse** of an element $x$ with respect to $\circ$ is an element $y$ such that:
 
-$$x \circ y = \text{id}$$
+$$x \circ y = \text{id} \quad \text{and} \quad y \circ x = \text{id}$$
+
+Both equations are required: for an operator such as function composition, the order matters. For addition and multiplication of numbers it does not, so one equation suffices.
 
 For addition, the identity is 0. The inverse of 2 is $-2$ because $2 + (-2) = 0$. The inverse of $-5$ is $5$ because $-5 + 5 = 0$. Generally, the inverse of $n$ under addition is $-n$.
 
@@ -29,7 +31,7 @@ For multiplication, the identity is 1. The inverse of 2 is $\frac{1}{2}$ because
 
 But here's a crucial observation: **not every element has an inverse.** Under multiplication, the number 0 has no inverse. There is no number $y$ such that $0 \times y = 1$, no matter what $y$ you choose. This is not a failure of the system — it's a feature. Not all elements need have inverses.
 
-When an element *does* have an inverse $y$, we sometimes write that inverse as $x^{-1}$ to mean "the element that, when combined with $x$ via $\circ$, gives the identity." The notation is a shorthand, not exponentiation.
+When an element *does* have an inverse $y$, we sometimes write that inverse as $x^{-1}$ to mean "the element that, combined with $x$ via $\circ$ on either side, gives the identity." The notation is a shorthand, not exponentiation.
 
 >[!idea]
->Given a binary operator $\circ$ with identity $\text{id}$, the inverse of $x$ is an element $y$ such that $x \circ y = \text{id}$. Not every element has an inverse; it depends on the operator and the set.
+>Given a binary operator $\circ$ with identity $\text{id}$, an inverse of $x$ is an element $y$ such that $x \circ y = y \circ x = \text{id}$. Not every element has an inverse; it depends on the operator and the set.

@@ -35,7 +35,7 @@ Let's check these against our examples:
 - Less than ($<$) is irreflexive ($a \not< a$) and not symmetric ($2 < 4$ but $4 \not< 2$).
 - Less than or equal ($\leq$) is reflexive ($a \leq a$) and anti-symmetric ($a \leq b$ and $b \leq a$ implies $a = b$).
 
-Note: symmetric and anti-symmetric are *not* negations of each other — a relation can be both (only equality), neither, or one but not the other.
+Note: symmetric and anti-symmetric are *not* negations of each other — a relation can be both (exactly when it relates each element at most to itself, as equality and the empty relation do), neither, or one but not the other.
 
 >[!idea]
 > Properties like reflexivity, symmetry, and anti-symmetry let us classify relations by their structure.

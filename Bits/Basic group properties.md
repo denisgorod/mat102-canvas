@@ -24,7 +24,7 @@ Now that you have the definition of a group, you can prove things that are *true
 
 **Proposition (Uniqueness of identity):** The identity element $e$ is unique. If $e'$ also satisfies $e' \cdot a = a \cdot e' = a$ for all $a \in G$, then $e' = e$.
 
-*Proof:* Apply the definition with $a = e$: $e' \cdot e = e'$. But also $e' \cdot e = e$ (because $e$ is the identity). So $e' = e$.
+*Proof:* Apply the property of $e'$ with $a = e$: $e' \cdot e = e$. But also $e' \cdot e = e'$ (because $e$ is the identity). So $e' = e$.
 
 **Proposition (Cancellation):** If $a \cdot b = a \cdot c$, then $b = c$ (left cancellation). Similarly, $b \cdot a = c \cdot a$ implies $b = c$ (right cancellation).
 

@@ -15,7 +15,7 @@ parents:
   - set-builder-notation
 ---
 
-You've now seen several infinite cardinalities: $|\mathbb{N}|$, $|\mathbb{Z}|$, $|\mathbb{Q}|$, and $|\mathbb{R}|$. You might wonder: is $|\mathbb{R}|$ the largest cardinality, or can you construct something even bigger?
+You've now seen two infinite cardinalities: $|\mathbb{N}| = |\mathbb{Z}| = |\mathbb{Q}|$, and the strictly larger $|\mathbb{R}|$. You might wonder: is $|\mathbb{R}|$ the largest cardinality, or can you construct something even bigger?
 
 The answer comes from the **power set** — the set of all subsets.
 

@@ -27,7 +27,7 @@ If you want to say a predicate is true for *every* element of a set, you use the
 
 A useful mnemonic: $\forall$ is an upside-down A, for "All."
 
-Example: $\forall x \in \mathbb{Z}^+,\, x^2 \geq 0$ says "every non-negative integer has a non-negative square" — true.
+Example: $\forall x \in \mathbb{Z}^+,\, x^2 \geq 0$ says "every positive integer has a non-negative square" — true.
 
 Another example: $\forall x \in \mathbb{Z}^+,\, x > 10$ says "every positive integer is greater than 10" — false, because $x = 1$ is a counterexample.
 
