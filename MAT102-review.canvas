@@ -1671,6 +1671,14 @@
 		},
 		{
 			"id": "dep-6",
+			"fromNode": "set-difference-complement",
+			"fromSide": "bottom",
+			"toNode": "card-csb",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-7",
 			"fromNode": "card-leq",
 			"fromSide": "right",
 			"toNode": "card-equal",
@@ -1678,7 +1686,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-7",
+			"id": "dep-8",
 			"fromNode": "fn-invertible-iff-bijective",
 			"fromSide": "right",
 			"toNode": "card-equal",
@@ -1686,7 +1694,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-8",
+			"id": "dep-9",
 			"fromNode": "rel-properties",
 			"fromSide": "bottom",
 			"toNode": "card-equal",
@@ -1694,7 +1702,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-9",
+			"id": "dep-10",
 			"fromNode": "fn-composition-preserves",
 			"fromSide": "bottom",
 			"toNode": "card-leq",
@@ -1702,7 +1710,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-10",
+			"id": "dep-11",
 			"fromNode": "fn-bijective",
 			"fromSide": "bottom",
 			"toNode": "card-power-set",
@@ -1710,7 +1718,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-11",
+			"id": "dep-12",
 			"fromNode": "card-countable",
 			"fromSide": "right",
 			"toNode": "card-reals-uncountable",
@@ -1718,7 +1726,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-12",
+			"id": "dep-13",
 			"fromNode": "card-countable-closure",
 			"fromSide": "right",
 			"toNode": "card-z-q-countable",
@@ -1726,7 +1734,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-13",
+			"id": "dep-14",
 			"fromNode": "card-csb",
 			"fromSide": "right",
 			"toNode": "card-z-q-countable",
@@ -1734,16 +1742,8 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-14",
-			"fromNode": "grp-abelian",
-			"fromSide": "bottom",
-			"toNode": "cyc-def",
-			"toSide": "top",
-			"edge_type": "depends_on"
-		},
-		{
 			"id": "dep-15",
-			"fromNode": "sub-test",
+			"fromNode": "grp-abelian",
 			"fromSide": "bottom",
 			"toNode": "cyc-def",
 			"toSide": "top",
@@ -1751,7 +1751,7 @@
 		},
 		{
 			"id": "dep-16",
-			"fromNode": "sub-order-divides",
+			"fromNode": "sub-test",
 			"fromSide": "bottom",
 			"toNode": "cyc-def",
 			"toSide": "top",
@@ -1759,6 +1759,14 @@
 		},
 		{
 			"id": "dep-17",
+			"fromNode": "sub-order-divides",
+			"fromSide": "bottom",
+			"toNode": "cyc-def",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-18",
 			"fromNode": "cyc-def",
 			"fromSide": "right",
 			"toNode": "cyc-subgroups",
@@ -1766,7 +1774,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-18",
+			"id": "dep-19",
 			"fromNode": "gcd-bezout",
 			"fromSide": "bottom",
 			"toNode": "cyc-subgroups",
@@ -1774,7 +1782,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-19",
+			"id": "dep-20",
 			"fromNode": "div-def",
 			"fromSide": "right",
 			"toNode": "div-properties",
@@ -1782,7 +1790,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-20",
+			"id": "dep-21",
 			"fromNode": "eqv-def",
 			"fromSide": "right",
 			"toNode": "eqv-classes",
@@ -1790,7 +1798,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-21",
+			"id": "dep-22",
 			"fromNode": "rel-properties",
 			"fromSide": "bottom",
 			"toNode": "eqv-def",
@@ -1798,7 +1806,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-22",
+			"id": "dep-23",
 			"fromNode": "eqv-classes",
 			"fromSide": "right",
 			"toNode": "eqv-partition",
@@ -1806,7 +1814,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-23",
+			"id": "dep-24",
 			"fromNode": "set-double-inclusion",
 			"fromSide": "bottom",
 			"toNode": "eqv-partition",
@@ -1814,7 +1822,15 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-24",
+			"id": "dep-25",
+			"fromNode": "set-union-intersection",
+			"fromSide": "bottom",
+			"toNode": "eqv-partition",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-26",
 			"fromNode": "fn-injective",
 			"fromSide": "right",
 			"toNode": "fn-bijective",
@@ -1822,7 +1838,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-25",
+			"id": "dep-27",
 			"fromNode": "fn-surjective",
 			"fromSide": "right",
 			"toNode": "fn-bijective",
@@ -1830,7 +1846,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-26",
+			"id": "dep-28",
 			"fromNode": "fn-def",
 			"fromSide": "bottom",
 			"toNode": "fn-binary-operator",
@@ -1838,7 +1854,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-27",
+			"id": "dep-29",
 			"fromNode": "fn-composition",
 			"fromSide": "right",
 			"toNode": "fn-composition-preserves",
@@ -1846,7 +1862,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-28",
+			"id": "dep-30",
 			"fromNode": "fn-bijective",
 			"fromSide": "right",
 			"toNode": "fn-composition-preserves",
@@ -1854,7 +1870,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-29",
+			"id": "dep-31",
 			"fromNode": "fn-equality",
 			"fromSide": "right",
 			"toNode": "fn-composition",
@@ -1862,7 +1878,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-30",
+			"id": "dep-32",
 			"fromNode": "rel-left-total-functional",
 			"fromSide": "bottom",
 			"toNode": "fn-def",
@@ -1870,7 +1886,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-31",
+			"id": "dep-33",
 			"fromNode": "fn-def",
 			"fromSide": "right",
 			"toNode": "fn-equality",
@@ -1878,7 +1894,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-32",
+			"id": "dep-34",
 			"fromNode": "fn-def",
 			"fromSide": "right",
 			"toNode": "fn-image",
@@ -1886,7 +1902,15 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-33",
+			"id": "dep-35",
+			"fromNode": "set-union-intersection",
+			"fromSide": "bottom",
+			"toNode": "fn-image",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-36",
 			"fromNode": "fn-def",
 			"fromSide": "right",
 			"toNode": "fn-injective",
@@ -1894,7 +1918,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-34",
+			"id": "dep-37",
 			"fromNode": "fn-composition",
 			"fromSide": "bottom",
 			"toNode": "fn-inverse-function",
@@ -1902,7 +1926,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-35",
+			"id": "dep-38",
 			"fromNode": "fn-operator-inverse",
 			"fromSide": "right",
 			"toNode": "fn-inverse-function",
@@ -1910,7 +1934,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-36",
+			"id": "dep-39",
 			"fromNode": "fn-inverse-function",
 			"fromSide": "right",
 			"toNode": "fn-invertible-iff-bijective",
@@ -1918,7 +1942,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-37",
+			"id": "dep-40",
 			"fromNode": "fn-bijective",
 			"fromSide": "bottom",
 			"toNode": "fn-invertible-iff-bijective",
@@ -1926,7 +1950,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-38",
+			"id": "dep-41",
 			"fromNode": "fn-binary-operator",
 			"fromSide": "right",
 			"toNode": "fn-operator-inverse",
@@ -1934,7 +1958,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-39",
+			"id": "dep-42",
 			"fromNode": "fn-def",
 			"fromSide": "right",
 			"toNode": "fn-preimage",
@@ -1942,7 +1966,15 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-40",
+			"id": "dep-43",
+			"fromNode": "set-union-intersection",
+			"fromSide": "bottom",
+			"toNode": "fn-preimage",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-44",
 			"fromNode": "fn-image",
 			"fromSide": "right",
 			"toNode": "fn-surjective",
@@ -1950,7 +1982,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-41",
+			"id": "dep-45",
 			"fromNode": "gcd-bezout",
 			"fromSide": "right",
 			"toNode": "gcd-bezout-cor",
@@ -1958,7 +1990,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-42",
+			"id": "dep-46",
 			"fromNode": "div-properties",
 			"fromSide": "bottom",
 			"toNode": "gcd-bezout-cor",
@@ -1966,42 +1998,10 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-43",
-			"fromNode": "gcd-wop",
-			"fromSide": "right",
-			"toNode": "gcd-bezout",
-			"toSide": "left",
-			"edge_type": "depends_on"
-		},
-		{
-			"id": "dep-44",
-			"fromNode": "gcd-def",
-			"fromSide": "right",
-			"toNode": "gcd-bezout",
-			"toSide": "left",
-			"edge_type": "depends_on"
-		},
-		{
-			"id": "dep-45",
-			"fromNode": "div-def",
-			"fromSide": "bottom",
-			"toNode": "gcd-def",
-			"toSide": "top",
-			"edge_type": "depends_on"
-		},
-		{
-			"id": "dep-46",
-			"fromNode": "gcd-wop",
-			"fromSide": "right",
-			"toNode": "gcd-division-algorithm",
-			"toSide": "left",
-			"edge_type": "depends_on"
-		},
-		{
 			"id": "dep-47",
-			"fromNode": "gcd-division-algorithm",
+			"fromNode": "gcd-wop",
 			"fromSide": "right",
-			"toNode": "gcd-euclidean",
+			"toNode": "gcd-bezout",
 			"toSide": "left",
 			"edge_type": "depends_on"
 		},
@@ -2009,12 +2009,44 @@
 			"id": "dep-48",
 			"fromNode": "gcd-def",
 			"fromSide": "right",
-			"toNode": "gcd-euclidean",
+			"toNode": "gcd-bezout",
 			"toSide": "left",
 			"edge_type": "depends_on"
 		},
 		{
 			"id": "dep-49",
+			"fromNode": "div-def",
+			"fromSide": "bottom",
+			"toNode": "gcd-def",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-50",
+			"fromNode": "gcd-wop",
+			"fromSide": "right",
+			"toNode": "gcd-division-algorithm",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-51",
+			"fromNode": "gcd-division-algorithm",
+			"fromSide": "right",
+			"toNode": "gcd-euclidean",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-52",
+			"fromNode": "gcd-def",
+			"fromSide": "right",
+			"toNode": "gcd-euclidean",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-53",
 			"fromNode": "grp-properties",
 			"fromSide": "right",
 			"toNode": "grp-abelian",
@@ -2022,7 +2054,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-50",
+			"id": "dep-54",
 			"fromNode": "fn-operator-inverse",
 			"fromSide": "bottom",
 			"toNode": "grp-def",
@@ -2030,7 +2062,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-51",
+			"id": "dep-55",
 			"fromNode": "grp-abelian",
 			"fromSide": "right",
 			"toNode": "grp-dihedral",
@@ -2038,7 +2070,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-52",
+			"id": "dep-56",
 			"fromNode": "fn-composition",
 			"fromSide": "bottom",
 			"toNode": "grp-dihedral",
@@ -2046,7 +2078,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-53",
+			"id": "dep-57",
 			"fromNode": "grp-def",
 			"fromSide": "right",
 			"toNode": "grp-properties",
@@ -2054,7 +2086,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-54",
+			"id": "dep-58",
 			"fromNode": "ind-principle",
 			"fromSide": "bottom",
 			"toNode": "grp-properties",
@@ -2062,7 +2094,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-55",
+			"id": "dep-59",
 			"fromNode": "grp-abelian",
 			"fromSide": "right",
 			"toNode": "grp-symmetric",
@@ -2070,7 +2102,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-56",
+			"id": "dep-60",
 			"fromNode": "fn-composition-preserves",
 			"fromSide": "bottom",
 			"toNode": "grp-symmetric",
@@ -2078,7 +2110,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-57",
+			"id": "dep-61",
 			"fromNode": "fn-invertible-iff-bijective",
 			"fromSide": "bottom",
 			"toNode": "grp-symmetric",
@@ -2086,7 +2118,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-58",
+			"id": "dep-62",
 			"fromNode": "grp-abelian",
 			"fromSide": "right",
 			"toNode": "grp-zn",
@@ -2094,7 +2126,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-59",
+			"id": "dep-63",
 			"fromNode": "mod-inverses",
 			"fromSide": "bottom",
 			"toNode": "grp-zn",
@@ -2102,7 +2134,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-60",
+			"id": "dep-64",
 			"fromNode": "grp-def",
 			"fromSide": "bottom",
 			"toNode": "hom-def",
@@ -2110,7 +2142,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-61",
+			"id": "dep-65",
 			"fromNode": "hom-properties",
 			"fromSide": "right",
 			"toNode": "hom-kernel",
@@ -2118,7 +2150,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-62",
+			"id": "dep-66",
 			"fromNode": "fn-injective",
 			"fromSide": "bottom",
 			"toNode": "hom-kernel",
@@ -2126,7 +2158,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-63",
+			"id": "dep-67",
 			"fromNode": "hom-def",
 			"fromSide": "right",
 			"toNode": "hom-properties",
@@ -2134,7 +2166,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-64",
+			"id": "dep-68",
 			"fromNode": "cyc-def",
 			"fromSide": "bottom",
 			"toNode": "hom-properties",
@@ -2142,7 +2174,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-65",
+			"id": "dep-69",
 			"fromNode": "fn-image",
 			"fromSide": "bottom",
 			"toNode": "hom-properties",
@@ -2150,7 +2182,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-66",
+			"id": "dep-70",
 			"fromNode": "fn-preimage",
 			"fromSide": "bottom",
 			"toNode": "hom-properties",
@@ -2158,7 +2190,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-67",
+			"id": "dep-71",
 			"fromNode": "impl-contrapositive",
 			"fromSide": "right",
 			"toNode": "impl-contrapositive-proof",
@@ -2166,7 +2198,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-68",
+			"id": "dep-72",
 			"fromNode": "read-even-odd",
 			"fromSide": "bottom",
 			"toNode": "impl-contrapositive-proof",
@@ -2174,7 +2206,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-69",
+			"id": "dep-73",
 			"fromNode": "gcd-division-algorithm",
 			"fromSide": "bottom",
 			"toNode": "impl-contrapositive-proof",
@@ -2182,7 +2214,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-70",
+			"id": "dep-74",
 			"fromNode": "impl-def",
 			"fromSide": "right",
 			"toNode": "impl-contrapositive",
@@ -2190,7 +2222,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-71",
+			"id": "dep-75",
 			"fromNode": "impl-def",
 			"fromSide": "right",
 			"toNode": "impl-converse",
@@ -2198,7 +2230,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-72",
+			"id": "dep-76",
 			"fromNode": "read-hypothesis-conclusion",
 			"fromSide": "bottom",
 			"toNode": "impl-def",
@@ -2206,7 +2238,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-73",
+			"id": "dep-77",
 			"fromNode": "prop-truth-tables",
 			"fromSide": "bottom",
 			"toNode": "impl-def",
@@ -2214,7 +2246,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-74",
+			"id": "dep-78",
 			"fromNode": "impl-converse",
 			"fromSide": "right",
 			"toNode": "impl-iff",
@@ -2222,7 +2254,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-75",
+			"id": "dep-79",
 			"fromNode": "impl-iff",
 			"fromSide": "right",
 			"toNode": "impl-nec-suff",
@@ -2230,7 +2262,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-76",
+			"id": "dep-80",
 			"fromNode": "impl-def",
 			"fromSide": "right",
 			"toNode": "impl-negation",
@@ -2238,7 +2270,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-77",
+			"id": "dep-81",
 			"fromNode": "quant-negation",
 			"fromSide": "right",
 			"toNode": "impl-negation",
@@ -2246,7 +2278,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-78",
+			"id": "dep-82",
 			"fromNode": "impl-def",
 			"fromSide": "right",
 			"toNode": "impl-vacuous",
@@ -2254,7 +2286,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-79",
+			"id": "dep-83",
 			"fromNode": "quant-forall",
 			"fromSide": "right",
 			"toNode": "impl-vacuous",
@@ -2262,7 +2294,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-80",
+			"id": "dep-84",
 			"fromNode": "gcd-wop",
 			"fromSide": "bottom",
 			"toNode": "ind-principle",
@@ -2270,7 +2302,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-81",
+			"id": "dep-85",
 			"fromNode": "ind-principle",
 			"fromSide": "right",
 			"toNode": "ind-proof-format",
@@ -2278,7 +2310,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-82",
+			"id": "dep-86",
 			"fromNode": "div-def",
 			"fromSide": "bottom",
 			"toNode": "ind-proof-format",
@@ -2286,7 +2318,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-83",
+			"id": "dep-87",
 			"fromNode": "iso-invariants",
 			"fromSide": "right",
 			"toNode": "iso-cyclic",
@@ -2294,7 +2326,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-84",
+			"id": "dep-88",
 			"fromNode": "grp-zn",
 			"fromSide": "bottom",
 			"toNode": "iso-cyclic",
@@ -2302,7 +2334,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-85",
+			"id": "dep-89",
 			"fromNode": "hom-def",
 			"fromSide": "bottom",
 			"toNode": "iso-def",
@@ -2310,7 +2342,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-86",
+			"id": "dep-90",
 			"fromNode": "fn-composition-preserves",
 			"fromSide": "bottom",
 			"toNode": "iso-def",
@@ -2318,7 +2350,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-87",
+			"id": "dep-91",
 			"fromNode": "fn-invertible-iff-bijective",
 			"fromSide": "bottom",
 			"toNode": "iso-def",
@@ -2326,7 +2358,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-88",
+			"id": "dep-92",
 			"fromNode": "eqv-def",
 			"fromSide": "bottom",
 			"toNode": "iso-def",
@@ -2334,7 +2366,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-89",
+			"id": "dep-93",
 			"fromNode": "iso-def",
 			"fromSide": "right",
 			"toNode": "iso-invariants",
@@ -2342,7 +2374,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-90",
+			"id": "dep-94",
 			"fromNode": "hom-properties",
 			"fromSide": "bottom",
 			"toNode": "iso-invariants",
@@ -2350,7 +2382,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-91",
+			"id": "dep-95",
 			"fromNode": "card-equal",
 			"fromSide": "bottom",
 			"toNode": "iso-invariants",
@@ -2358,7 +2390,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-92",
+			"id": "dep-96",
 			"fromNode": "div-def",
 			"fromSide": "bottom",
 			"toNode": "lde-def",
@@ -2366,7 +2398,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-93",
+			"id": "dep-97",
 			"fromNode": "lde-solvable",
 			"fromSide": "right",
 			"toNode": "lde-general",
@@ -2374,7 +2406,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-94",
+			"id": "dep-98",
 			"fromNode": "lde-general",
 			"fromSide": "right",
 			"toNode": "lde-nonneg",
@@ -2382,7 +2414,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-95",
+			"id": "dep-99",
 			"fromNode": "lde-def",
 			"fromSide": "right",
 			"toNode": "lde-solvable",
@@ -2390,7 +2422,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-96",
+			"id": "dep-100",
 			"fromNode": "gcd-bezout-cor",
 			"fromSide": "bottom",
 			"toNode": "lde-solvable",
@@ -2398,7 +2430,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-97",
+			"id": "dep-101",
 			"fromNode": "mod-equivalence",
 			"fromSide": "right",
 			"toNode": "mod-arithmetic",
@@ -2406,7 +2438,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-98",
+			"id": "dep-102",
 			"fromNode": "div-def",
 			"fromSide": "bottom",
 			"toNode": "mod-congruence-def",
@@ -2414,7 +2446,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-99",
+			"id": "dep-103",
 			"fromNode": "gcd-division-algorithm",
 			"fromSide": "bottom",
 			"toNode": "mod-congruence-def",
@@ -2422,7 +2454,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-100",
+			"id": "dep-104",
 			"fromNode": "mod-congruence-def",
 			"fromSide": "right",
 			"toNode": "mod-equivalence",
@@ -2430,7 +2462,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-101",
+			"id": "dep-105",
 			"fromNode": "eqv-partition",
 			"fromSide": "bottom",
 			"toNode": "mod-equivalence",
@@ -2438,7 +2470,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-102",
+			"id": "dep-106",
 			"fromNode": "mod-zn",
 			"fromSide": "right",
 			"toNode": "mod-inverses",
@@ -2446,7 +2478,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-103",
+			"id": "dep-107",
 			"fromNode": "gcd-bezout",
 			"fromSide": "bottom",
 			"toNode": "mod-inverses",
@@ -2454,7 +2486,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-104",
+			"id": "dep-108",
 			"fromNode": "mod-arithmetic",
 			"fromSide": "right",
 			"toNode": "mod-lastdigit",
@@ -2462,7 +2494,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-105",
+			"id": "dep-109",
 			"fromNode": "mod-arithmetic",
 			"fromSide": "right",
 			"toNode": "mod-zn",
@@ -2470,7 +2502,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-106",
+			"id": "dep-110",
 			"fromNode": "rel-properties",
 			"fromSide": "bottom",
 			"toNode": "ord-def",
@@ -2478,7 +2510,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-107",
+			"id": "dep-111",
 			"fromNode": "ord-def",
 			"fromSide": "right",
 			"toNode": "ord-max",
@@ -2486,7 +2518,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-108",
+			"id": "dep-112",
 			"fromNode": "ord-def",
 			"fromSide": "right",
 			"toNode": "ord-sup-inf",
@@ -2494,7 +2526,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-109",
+			"id": "dep-113",
 			"fromNode": "impl-def",
 			"fromSide": "bottom",
 			"toNode": "pf-contradiction",
@@ -2502,7 +2534,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-110",
+			"id": "dep-114",
 			"fromNode": "pf-contradiction",
 			"fromSide": "right",
 			"toNode": "pf-sqrt2",
@@ -2510,7 +2542,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-111",
+			"id": "dep-115",
 			"fromNode": "impl-contrapositive-proof",
 			"fromSide": "bottom",
 			"toNode": "pf-sqrt2",
@@ -2518,7 +2550,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-112",
+			"id": "dep-116",
 			"fromNode": "div-def",
 			"fromSide": "bottom",
 			"toNode": "prime-def",
@@ -2526,7 +2558,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-113",
+			"id": "dep-117",
 			"fromNode": "prime-def",
 			"fromSide": "right",
 			"toNode": "prime-euclid-lemma",
@@ -2534,7 +2566,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-114",
+			"id": "dep-118",
 			"fromNode": "gcd-bezout-cor",
 			"fromSide": "bottom",
 			"toNode": "prime-euclid-lemma",
@@ -2542,7 +2574,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-115",
+			"id": "dep-119",
 			"fromNode": "ind-principle",
 			"fromSide": "bottom",
 			"toNode": "prime-euclid-lemma",
@@ -2550,7 +2582,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-116",
+			"id": "dep-120",
 			"fromNode": "prime-euclid-lemma",
 			"fromSide": "right",
 			"toNode": "prime-fta",
@@ -2558,7 +2590,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-117",
+			"id": "dep-121",
 			"fromNode": "prime-fta",
 			"fromSide": "right",
 			"toNode": "prime-infinitude",
@@ -2566,7 +2598,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-118",
+			"id": "dep-122",
 			"fromNode": "prop-proposition",
 			"fromSide": "right",
 			"toNode": "prop-connectives",
@@ -2574,7 +2606,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-119",
+			"id": "dep-123",
 			"fromNode": "prop-truth-tables",
 			"fromSide": "right",
 			"toNode": "prop-de-morgan",
@@ -2582,7 +2614,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-120",
+			"id": "dep-124",
 			"fromNode": "prop-proposition",
 			"fromSide": "right",
 			"toNode": "prop-predicate",
@@ -2590,7 +2622,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-121",
+			"id": "dep-125",
 			"fromNode": "prop-connectives",
 			"fromSide": "right",
 			"toNode": "prop-truth-tables",
@@ -2598,39 +2630,39 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-122",
-			"fromNode": "prop-predicate",
-			"fromSide": "bottom",
-			"toNode": "quant-exists",
-			"toSide": "top",
-			"edge_type": "depends_on"
-		},
-		{
-			"id": "dep-123",
-			"fromNode": "set-def",
-			"fromSide": "bottom",
-			"toNode": "quant-exists",
-			"toSide": "top",
-			"edge_type": "depends_on"
-		},
-		{
-			"id": "dep-124",
-			"fromNode": "prop-predicate",
-			"fromSide": "bottom",
-			"toNode": "quant-forall",
-			"toSide": "top",
-			"edge_type": "depends_on"
-		},
-		{
-			"id": "dep-125",
-			"fromNode": "set-def",
-			"fromSide": "bottom",
-			"toNode": "quant-forall",
-			"toSide": "top",
-			"edge_type": "depends_on"
-		},
-		{
 			"id": "dep-126",
+			"fromNode": "prop-predicate",
+			"fromSide": "bottom",
+			"toNode": "quant-exists",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-127",
+			"fromNode": "set-def",
+			"fromSide": "bottom",
+			"toNode": "quant-exists",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-128",
+			"fromNode": "prop-predicate",
+			"fromSide": "bottom",
+			"toNode": "quant-forall",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-129",
+			"fromNode": "set-def",
+			"fromSide": "bottom",
+			"toNode": "quant-forall",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-130",
 			"fromNode": "quant-forall",
 			"fromSide": "right",
 			"toNode": "quant-negation",
@@ -2638,7 +2670,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-127",
+			"id": "dep-131",
 			"fromNode": "quant-exists",
 			"fromSide": "right",
 			"toNode": "quant-negation",
@@ -2646,7 +2678,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-128",
+			"id": "dep-132",
 			"fromNode": "prop-connectives",
 			"fromSide": "bottom",
 			"toNode": "quant-negation",
@@ -2654,39 +2686,39 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-129",
-			"fromNode": "quant-forall",
-			"fromSide": "right",
-			"toNode": "quant-order",
-			"toSide": "left",
-			"edge_type": "depends_on"
-		},
-		{
-			"id": "dep-130",
-			"fromNode": "quant-exists",
-			"fromSide": "right",
-			"toNode": "quant-order",
-			"toSide": "left",
-			"edge_type": "depends_on"
-		},
-		{
-			"id": "dep-131",
-			"fromNode": "quant-forall",
-			"fromSide": "right",
-			"toNode": "quant-proof-methods",
-			"toSide": "left",
-			"edge_type": "depends_on"
-		},
-		{
-			"id": "dep-132",
-			"fromNode": "quant-exists",
-			"fromSide": "right",
-			"toNode": "quant-proof-methods",
-			"toSide": "left",
-			"edge_type": "depends_on"
-		},
-		{
 			"id": "dep-133",
+			"fromNode": "quant-forall",
+			"fromSide": "right",
+			"toNode": "quant-order",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-134",
+			"fromNode": "quant-exists",
+			"fromSide": "right",
+			"toNode": "quant-order",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-135",
+			"fromNode": "quant-forall",
+			"fromSide": "right",
+			"toNode": "quant-proof-methods",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-136",
+			"fromNode": "quant-exists",
+			"fromSide": "right",
+			"toNode": "quant-proof-methods",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-137",
 			"fromNode": "read-proof-generality",
 			"fromSide": "bottom",
 			"toNode": "quant-proof-methods",
@@ -2694,7 +2726,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-134",
+			"id": "dep-138",
 			"fromNode": "read-proof",
 			"fromSide": "right",
 			"toNode": "read-direct-proof",
@@ -2702,7 +2734,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-135",
+			"id": "dep-139",
 			"fromNode": "read-even-odd",
 			"fromSide": "right",
 			"toNode": "read-direct-proof",
@@ -2710,7 +2742,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-136",
+			"id": "dep-140",
 			"fromNode": "read-definition",
 			"fromSide": "right",
 			"toNode": "read-examples-nonexamples",
@@ -2718,7 +2750,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-137",
+			"id": "dep-141",
 			"fromNode": "read-kinds-of-results",
 			"fromSide": "right",
 			"toNode": "read-hypothesis-conclusion",
@@ -2726,7 +2758,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-138",
+			"id": "dep-142",
 			"fromNode": "read-definition",
 			"fromSide": "right",
 			"toNode": "read-kinds-of-results",
@@ -2734,7 +2766,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-139",
+			"id": "dep-143",
 			"fromNode": "read-direct-proof",
 			"fromSide": "right",
 			"toNode": "read-proof-generality",
@@ -2742,7 +2774,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-140",
+			"id": "dep-144",
 			"fromNode": "read-hypothesis-conclusion",
 			"fromSide": "right",
 			"toNode": "read-proof",
@@ -2750,7 +2782,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-141",
+			"id": "dep-145",
 			"fromNode": "read-proof",
 			"fromSide": "right",
 			"toNode": "read-proving-vs-applying",
@@ -2758,7 +2790,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-142",
+			"id": "dep-146",
 			"fromNode": "read-proof",
 			"fromSide": "right",
 			"toNode": "read-self-explanation",
@@ -2766,39 +2798,39 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-143",
-			"fromNode": "rec-recursive-def",
-			"fromSide": "right",
-			"toNode": "rec-fibonacci",
-			"toSide": "left",
-			"edge_type": "depends_on"
-		},
-		{
-			"id": "dep-144",
-			"fromNode": "sind-principle",
-			"fromSide": "bottom",
-			"toNode": "rec-fibonacci",
-			"toSide": "top",
-			"edge_type": "depends_on"
-		},
-		{
-			"id": "dep-145",
-			"fromNode": "rec-recursive-def",
-			"fromSide": "right",
-			"toNode": "rec-structural-induction",
-			"toSide": "left",
-			"edge_type": "depends_on"
-		},
-		{
-			"id": "dep-146",
-			"fromNode": "sind-principle",
-			"fromSide": "bottom",
-			"toNode": "rec-structural-induction",
-			"toSide": "top",
-			"edge_type": "depends_on"
-		},
-		{
 			"id": "dep-147",
+			"fromNode": "rec-recursive-def",
+			"fromSide": "right",
+			"toNode": "rec-fibonacci",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-148",
+			"fromNode": "sind-principle",
+			"fromSide": "bottom",
+			"toNode": "rec-fibonacci",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-149",
+			"fromNode": "rec-recursive-def",
+			"fromSide": "right",
+			"toNode": "rec-structural-induction",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-150",
+			"fromNode": "sind-principle",
+			"fromSide": "bottom",
+			"toNode": "rec-structural-induction",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-151",
 			"fromNode": "rel-properties",
 			"fromSide": "right",
 			"toNode": "rel-checking",
@@ -2806,7 +2838,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-148",
+			"id": "dep-152",
 			"fromNode": "quant-proof-methods",
 			"fromSide": "bottom",
 			"toNode": "rel-checking",
@@ -2814,7 +2846,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-149",
+			"id": "dep-153",
 			"fromNode": "quant-negation",
 			"fromSide": "bottom",
 			"toNode": "rel-checking",
@@ -2822,7 +2854,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-150",
+			"id": "dep-154",
 			"fromNode": "set-cartesian-product",
 			"fromSide": "bottom",
 			"toNode": "rel-def",
@@ -2830,7 +2862,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-151",
+			"id": "dep-155",
 			"fromNode": "set-subset",
 			"fromSide": "bottom",
 			"toNode": "rel-def",
@@ -2838,7 +2870,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-152",
+			"id": "dep-156",
 			"fromNode": "rel-def",
 			"fromSide": "right",
 			"toNode": "rel-left-total-functional",
@@ -2846,7 +2878,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-153",
+			"id": "dep-157",
 			"fromNode": "rel-def",
 			"fromSide": "right",
 			"toNode": "rel-properties",
@@ -2854,7 +2886,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-154",
+			"id": "dep-158",
 			"fromNode": "set-def",
 			"fromSide": "right",
 			"toNode": "set-builder",
@@ -2862,7 +2894,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-155",
+			"id": "dep-159",
 			"fromNode": "prop-predicate",
 			"fromSide": "bottom",
 			"toNode": "set-builder",
@@ -2870,7 +2902,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-156",
+			"id": "dep-160",
 			"fromNode": "set-builder",
 			"fromSide": "right",
 			"toNode": "set-cartesian-product",
@@ -2878,42 +2910,10 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-157",
-			"fromNode": "set-builder",
-			"fromSide": "right",
-			"toNode": "set-difference-complement",
-			"toSide": "left",
-			"edge_type": "depends_on"
-		},
-		{
-			"id": "dep-158",
-			"fromNode": "set-subset",
-			"fromSide": "right",
-			"toNode": "set-difference-complement",
-			"toSide": "left",
-			"edge_type": "depends_on"
-		},
-		{
-			"id": "dep-159",
-			"fromNode": "prop-connectives",
-			"fromSide": "bottom",
-			"toNode": "set-difference-complement",
-			"toSide": "top",
-			"edge_type": "depends_on"
-		},
-		{
-			"id": "dep-160",
-			"fromNode": "set-subset",
-			"fromSide": "right",
-			"toNode": "set-double-inclusion",
-			"toSide": "left",
-			"edge_type": "depends_on"
-		},
-		{
 			"id": "dep-161",
 			"fromNode": "set-builder",
 			"fromSide": "right",
-			"toNode": "set-number-sets",
+			"toNode": "set-difference-complement",
 			"toSide": "left",
 			"edge_type": "depends_on"
 		},
@@ -2921,12 +2921,44 @@
 			"id": "dep-162",
 			"fromNode": "set-subset",
 			"fromSide": "right",
-			"toNode": "set-number-sets",
+			"toNode": "set-difference-complement",
 			"toSide": "left",
 			"edge_type": "depends_on"
 		},
 		{
 			"id": "dep-163",
+			"fromNode": "prop-connectives",
+			"fromSide": "bottom",
+			"toNode": "set-difference-complement",
+			"toSide": "top",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-164",
+			"fromNode": "set-subset",
+			"fromSide": "right",
+			"toNode": "set-double-inclusion",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-165",
+			"fromNode": "set-builder",
+			"fromSide": "right",
+			"toNode": "set-number-sets",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-166",
+			"fromNode": "set-subset",
+			"fromSide": "right",
+			"toNode": "set-number-sets",
+			"toSide": "left",
+			"edge_type": "depends_on"
+		},
+		{
+			"id": "dep-167",
 			"fromNode": "set-def",
 			"fromSide": "right",
 			"toNode": "set-subset",
@@ -2934,7 +2966,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-164",
+			"id": "dep-168",
 			"fromNode": "set-builder",
 			"fromSide": "right",
 			"toNode": "set-union-intersection",
@@ -2942,7 +2974,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-165",
+			"id": "dep-169",
 			"fromNode": "prop-connectives",
 			"fromSide": "bottom",
 			"toNode": "set-union-intersection",
@@ -2950,7 +2982,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-166",
+			"id": "dep-170",
 			"fromNode": "ind-principle",
 			"fromSide": "bottom",
 			"toNode": "sind-generalized",
@@ -2958,7 +2990,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-167",
+			"id": "dep-171",
 			"fromNode": "sind-principle",
 			"fromSide": "right",
 			"toNode": "sind-postage",
@@ -2966,7 +2998,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-168",
+			"id": "dep-172",
 			"fromNode": "sind-generalized",
 			"fromSide": "right",
 			"toNode": "sind-principle",
@@ -2974,7 +3006,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-169",
+			"id": "dep-173",
 			"fromNode": "grp-properties",
 			"fromSide": "bottom",
 			"toNode": "sub-def",
@@ -2982,7 +3014,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-170",
+			"id": "dep-174",
 			"fromNode": "sub-order",
 			"fromSide": "right",
 			"toNode": "sub-order-divides",
@@ -2990,7 +3022,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-171",
+			"id": "dep-175",
 			"fromNode": "mod-congruence-def",
 			"fromSide": "bottom",
 			"toNode": "sub-order-divides",
@@ -2998,7 +3030,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-172",
+			"id": "dep-176",
 			"fromNode": "sub-order-divides",
 			"fromSide": "right",
 			"toNode": "sub-order-power",
@@ -3006,7 +3038,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-173",
+			"id": "dep-177",
 			"fromNode": "gcd-bezout-cor",
 			"fromSide": "bottom",
 			"toNode": "sub-order-power",
@@ -3014,7 +3046,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-174",
+			"id": "dep-178",
 			"fromNode": "grp-def",
 			"fromSide": "bottom",
 			"toNode": "sub-order",
@@ -3022,7 +3054,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-175",
+			"id": "dep-179",
 			"fromNode": "sub-def",
 			"fromSide": "right",
 			"toNode": "sub-test",
@@ -3030,7 +3062,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-176",
+			"id": "dep-180",
 			"fromNode": "ind-principle",
 			"fromSide": "bottom",
 			"toNode": "sum-induction",
@@ -3038,7 +3070,7 @@
 			"edge_type": "depends_on"
 		},
 		{
-			"id": "dep-177",
+			"id": "dep-181",
 			"fromNode": "sum-sigma",
 			"fromSide": "right",
 			"toNode": "sum-induction",

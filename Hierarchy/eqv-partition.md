@@ -5,7 +5,7 @@ role: theorem
 subject: relations
 topic: equivalence-relations
 statement: "For an equivalence relation ∼ on A and a, b ∈ A: a ∈ [a]; [a] = [b] ⟺ a ∼ b; [a] ∩ [b] = ∅ ⟺ a ≁ b. Thus classes are non-empty, pairwise disjoint and cover A."
-depends_on: [eqv-classes, set-double-inclusion]
+depends_on: [eqv-classes, set-double-inclusion, set-union-intersection]
 ---
 >[!t] Theorem
 > Let $\sim$ be an equivalence relation on $A$ and $a, b \in A$: (1) $a \in [a]$; (2) $[a] = [b] \iff a \sim b$; (3) $[a] \cap [b] = \emptyset \iff a \not\sim b$. Hence the classes **partition** $A$: non-empty, pairwise disjoint if distinct, and covering $A$.

@@ -18,4 +18,4 @@ depends_on: [sub-order-divides, gcd-bezout-cor]
 > the last step since $\gcd(a,b)=1$ (coprime divides product). The least such $m$ is $a=n/d$, and $n=d\,|g^k|$ gives the rest. $\square$
 
 >[!e] Worked example
-> In $\mathbb{Z}_{12}$, $|[1]|=12$ and $[k]=k[1]$. Thus $|[8]|=12/\gcd(12,8)=3$ (multiples $[8],[4],[0]$), $|[9]|=12/3=4$, and $|[k]|=12$ exactly for $k\in\{1,5,7,11\}$, the $k$ coprime to $12$.
+> In $\mathbb{Z}_{12}$, $|[1]|=12$ and $[k]=k[1]$. Thus $|[8]|=12/\gcd(12,8)=3$ (multiples $[8],[4],[0]$), $|[9]|=12/3=4$, and $|[k]|=12$ exactly when $\gcd(k,12)=1$, i.e. for the classes $[1],[5],[7],[11]$.

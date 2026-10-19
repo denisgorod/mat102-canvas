@@ -5,7 +5,7 @@ role: theorem
 subject: functions
 topic: functions-ii
 statement: "If there are injections f: A → B and g: B → A then there is a bijection A → B; that is, |A| ≤ |B| and |B| ≤ |A| together imply |A| = |B|."
-depends_on: [card-equal]
+depends_on: [card-equal, set-difference-complement]
 ---
 >[!t] Theorem (Cantor–Schröder–Bernstein)
 > If $f : A \to B$ and $g : B \to A$ are injections, there is a bijection $A \to B$; that is, $|A| \le |B| \le |A|$ implies $|A| = |B|$.

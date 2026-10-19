@@ -5,7 +5,7 @@ role: definition
 subject: functions
 topic: functions-i
 statement: "For a function f: A → B and U ⊆ A, the image of U is f(U) = {f(x) : x ∈ U} ⊆ B, and the range of f is f(A), which need not equal the codomain B."
-depends_on: [fn-def]
+depends_on: [fn-def, set-union-intersection]
 ---
 >[!d] Definition
 > Let $f : A \to B$ and $U \subseteq A$. The **image** of $U$ is

@@ -5,7 +5,7 @@ role: definition
 subject: functions
 topic: functions-i
 statement: "For a function f: A → B and V ⊆ B, the preimage of V is f⁻¹(V) = {x ∈ A : f(x) ∈ V} ⊆ A, defined for every function whether or not f has an inverse."
-depends_on: [fn-def]
+depends_on: [fn-def, set-union-intersection]
 ---
 >[!d] Definition
 > Let $f : A \to B$ and $V \subseteq B$. The **preimage** (inverse image) of $V$ under $f$ is
