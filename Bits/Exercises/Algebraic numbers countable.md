@@ -19,4 +19,4 @@ You may use the following facts without proof:
 - The set $\mathbb{Q}[x]$ of all polynomials with rational coefficients is countable.
 
 >[!question] Exercise
->Express $A$ as a countable union of finite sets — the root sets of the nonzero $p \in \mathbb{Q}[x]$ — and use the proposition on countable unions. (Sending each algebraic number to a polynomial it satisfies is not injective: $\sqrt{2}$ and $-\sqrt{2}$ are both roots of $x^2 - 2$.)
+>Express $A$ as a countable union of finite sets — the root sets of the nonzero $p \in \mathbb{Q}[x]$ — and use the proposition on countable unions. (Sending each algebraic number to some polynomial it satisfies need not be injective: $\sqrt{2}$ and $-\sqrt{2}$ are both roots of $x^2 - 2$.)
