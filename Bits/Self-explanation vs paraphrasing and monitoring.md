@@ -13,7 +13,7 @@ parents:
 
 Not all forms of active reading are equally helpful. It's easy to confuse self-explanation with two weaker strategies: paraphrasing and monitoring. All three *look* like you're engaging with the text, but they have very different effects on understanding.
 
-**Paraphrasing** just restates in different words. You read "$a$, $b$, and $c$ are even integers" and write "$a$, $b$, and $c$ have to be positive or negative, even whole numbers." You've swapped vocabulary, but you haven't added any information. You haven't connected the line to the structure of the proof, to why those variables matter, or to how they relate to earlier steps. Paraphrasing can feel like you're working hard, but it doesn't deepen understanding.
+**Paraphrasing** just restates in different words. You read "$a$, $b$, and $c$ are even integers" and write "$a$, $b$, and $c$ are multiples of 2." You've swapped vocabulary, but you haven't added any information. You haven't connected the line to the structure of the proof, to why those variables matter, or to how they relate to earlier steps. Paraphrasing can feel like you're working hard, but it doesn't deepen understanding.
 
 **Monitoring** means noting that you've processed something. You read a line and think "OK, I understand that..." or "I see, so..." — you're describing your own thought process. You're aware of what you read, but you're not explaining *why* the line was necessary or how it contributes to the proof's logic. Monitoring shows effort, but it doesn't build connections.
 

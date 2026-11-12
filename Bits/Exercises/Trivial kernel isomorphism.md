@@ -24,7 +24,7 @@ This says that if a homomorphism has a trivial kernel, then the domain is isomor
 
 (d) Use the definition of isomorphism to conclude that $G \cong \varphi(G)$.
 
-**Application**: In a previous exercise, you showed that $\delta: \mathbb{Z} \to \mathbb{Z}_6$ defined by $\delta(n) = [2n]_6$ is a homomorphism with $\ker(\delta) = 2\mathbb{Z}$ (the even integers). Is $\mathbb{Z} \cong \delta(\mathbb{Z})$? Why or why not? What is $\delta(\mathbb{Z})$?
+**Application**: In a previous exercise, you showed that $\delta: \mathbb{Z} \to \mathbb{Z}_6$ defined by $\delta(n) = [2n]_6$ is a homomorphism with $\ker(\delta) = 3\mathbb{Z}$ (the multiples of 3). Is $\mathbb{Z} \cong \delta(\mathbb{Z})$? Why or why not? What is $\delta(\mathbb{Z})$?
 
 >[!question] Exercise
 > Prove that if $\ker(\varphi) = \{e_G\}$, then $G \cong \varphi(G)$.

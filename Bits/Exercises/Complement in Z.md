@@ -10,7 +10,7 @@ parents:
   - complement-of-a-set
 ---
 
-Let $U = \mathbb{Z}$ be the universe of discourse. Define $S$ to be the set of even integers and $T$ to be the set of non-negative integers (as in the previous exercise).
+Let $U = \mathbb{Z}$ be the universe of discourse. Define $T$ to be the set of even integers and $S$ to be the set of non-negative integers (as in the previous exercise).
 
 >[!question] Exercise
 > Find $S^c$ and $T^c$.

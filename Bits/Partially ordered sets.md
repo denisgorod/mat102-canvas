@@ -20,7 +20,7 @@ parents:
 
 A set $A$ together with a partial order relation $R$ is called a **partially ordered set**, or **poset** for short. We write posets as pairs $(A, R)$.
 
-Example: let $X$ be any set. Define a relation on $\mathcal{P}(X)$ (the power set) by $A\,R\,B$ if $A \subseteq B$. This is reflexive ($A \subseteq A$), anti-symmetric ($A \subseteq B$ and $B \subseteq A$ implies $A = B$), and transitive ($A \subseteq B$ and $B \subseteq C$ implies $A \subseteq C$). But it's not total: $\{1,2\}$ and $\{2,3\}$ satisfy neither inclusion.
+Example: let $X$ be any set. Define a relation on $\mathcal{P}(X)$ (the power set) by $A\,R\,B$ if $A \subseteq B$. This is reflexive ($A \subseteq A$), anti-symmetric ($A \subseteq B$ and $B \subseteq A$ implies $A = B$), and transitive ($A \subseteq B$ and $B \subseteq C$ implies $A \subseteq C$). But once $X$ has two distinct elements $x$ and $y$, it is not total: $\{x\}$ and $\{y\}$ satisfy neither inclusion. (For $X = \{1, 2, 3\}$, neither do $\{1,2\}$ and $\{2,3\}$.)
 
 Posets generalize the number line's ordering to settings where some elements are simply incomparable.
 

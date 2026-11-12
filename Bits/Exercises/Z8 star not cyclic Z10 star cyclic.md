@@ -10,7 +10,7 @@ parents:
   - cyclic-group-definition
 ---
 
-Not every group is cyclic. You're going to construct explicit examples of cyclic and nonabelian groups to see the difference.
+Not every group is cyclic. You're going to construct explicit examples of cyclic and non-cyclic groups to see the difference.
 
 **Part A: $\mathbb{Z}_8^*$ is NOT cyclic.**
 

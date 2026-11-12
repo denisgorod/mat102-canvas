@@ -15,4 +15,4 @@ Show that $|\mathbb{N} \times \mathbb{N}| = |\mathbb{N}|$.
 Recall that a set is countable if its cardinality is at most that of $\mathbb{N}$, and countably infinite if it has the same cardinality as $\mathbb{N}$.
 
 >[!question] Exercise
->Construct an explicit injection from $\mathbb{N} \times \mathbb{N}$ to $\mathbb{N}$. Then use the fact that $\mathbb{N} \subseteq \mathbb{N} \times \mathbb{N}$ to conclude equality.
+>Construct an explicit injection from $\mathbb{N} \times \mathbb{N}$ to $\mathbb{N}$. Then use the injection $n \mapsto (n, 0)$ from $\mathbb{N}$ to $\mathbb{N} \times \mathbb{N}$ and the Cantor–Schröder–Bernstein theorem to conclude equality.

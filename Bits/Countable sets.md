@@ -32,7 +32,7 @@ Now that you have a way to measure infinite sets, you can classify them. The mos
 
 Intuitively, a set is countable if you can list its elements — possibly in an infinite list $s_1, s_2, s_3, \ldots$ — where each element appears exactly once and each position in the list corresponds to a natural number.
 
-Every finite set is countable (vacuously, since you can't inject a finite set into $\mathbb{N}$ if it has more than one element... actually, you can, just map to $\{1, 2, \ldots, n\}$). Many infinite sets are countable: $\mathbb{N}$, $\mathbb{Z}$, the rationals $\mathbb{Q}$, even the set of all polynomials with rational coefficients.
+Every finite set is countable: list its elements as $a_1, \ldots, a_n$ and map $a_i \mapsto i$. Many infinite sets are countable: $\mathbb{N}$, $\mathbb{Z}$, the rationals $\mathbb{Q}$, even the set of all polynomials with rational coefficients.
 
 There is a powerful tool for detecting countability:
 

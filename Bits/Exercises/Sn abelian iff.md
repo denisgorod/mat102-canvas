@@ -16,7 +16,7 @@ You've seen that the symmetric group $S_n$ is the group of all permutations of $
 
 **The nonabelian case:** For $n \geq 3$, show that $S_n$ is nonabelian by finding two permutations that don't commute.
 
-A concrete approach: consider the three-cycles $(1 \, 2)$ and $(1 \, 2 \, 3)$. Compose them in both orders and show the results differ. (You can use cycle notation or write out the permutation explicitly.)
+A concrete approach: consider the transposition $(1 \, 2)$ and the three-cycle $(1 \, 2 \, 3)$. Compose them in both orders and show the results differ. (You can use cycle notation or write out the permutation explicitly.)
 
 Then argue: since $S_n$ contains $S_3$ as a subgroup (just act on elements $\{1, 2, 3\}$ and fix the rest), and $S_3$ is nonabelian, so is $S_n$ for all $n \geq 3$.
 

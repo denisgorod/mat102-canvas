@@ -14,21 +14,19 @@ You've seen examples of groups that are isomorphic and others that are not. Now 
 
 **Theorem**: The groups $(\mathbb{R}, +)$ and $(\mathbb{Q}, +)$ are not isomorphic.
 
-Suppose, for contradiction, that there exists an isomorphism $\varphi: \mathbb{R} \to \mathbb{Q}$.
+To show two groups are not isomorphic, find a property, stated using only the group operation, that one has and the other lacks. Halving will not do: every element of either group is twice some element, since $x = \tfrac{x}{2} + \tfrac{x}{2}$ with $\tfrac{x}{2}$ in the same group.
 
-Consider the equation $x + x = a$ in $\mathbb{R}$ for any $a \in \mathbb{R}$. This equation always has a solution: $x = a/2$.
+Instead, write $ma$ for $a + a + \cdots + a$ ($m$ terms) and $(-m)a = -(ma)$, and call two nonzero elements $a, b$ **commensurable** if $ma = nb$ for some nonzero integers $m, n$. For real numbers this says exactly that $a/b$ is rational.
 
-(a) Show that for any $a \in \mathbb{R}$, there exists $x \in \mathbb{R}$ such that $x + x = a$. What is $x$?
+(a) Show that any two nonzero elements of $(\mathbb{Q}, +)$ are commensurable: given $a = p/q$ and $b = r/s$, find nonzero integers $m, n$ with $ma = nb$.
 
-(b) Now apply $\varphi$ to both sides of the equation $x + x = a$. What equation do you get in $\mathbb{Q}$?
+(b) Let $\varphi: G \to H$ be an isomorphism. Show that $\varphi(ma) = m\,\varphi(a)$ for all $m \in \mathbb{Z}$ and $a \in G$, and that $\varphi(a) \neq 0$ whenever $a \neq 0$.
 
-(c) Use the fact that $\varphi$ is a homomorphism to rewrite your equation in terms of $\varphi(x)$ and $\varphi(a)$.
+(c) Deduce that if any two nonzero elements of $G$ are commensurable and $G \cong H$, then the same holds in $H$.
 
-(d) Show that the division-by-2 map on $\mathbb{Q}$ is surjective: for every $q \in \mathbb{Q}$, there exists $r \in \mathbb{Q}$ with $r + r = q$.
+(d) Show that $1$ and $\sqrt{2}$ are not commensurable in $(\mathbb{R}, +)$: if $m \cdot 1 = n\sqrt{2}$ with nonzero integers $m, n$, what would follow about $\sqrt{2}$?
 
-(e) Now derive a contradiction. If $\varphi$ is surjective, then $\varphi$ maps $\mathbb{R}$ onto all of $\mathbb{Q}$. But what does your work above say about which elements of $\mathbb{Q}$ can be reached by applying the division-by-2 map starting from arbitrary rationals?
-
-Hint: Think carefully about what rational numbers can be written as $p/q$ where both $p$ and $q$ are even, versus which rationals have an "odd part" somewhere in their numerator or denominator.
+(e) Conclude that $(\mathbb{R}, +) \not\cong (\mathbb{Q}, +)$.
 
 >[!question] Exercise
 > Prove that $(\mathbb{R}, +)$ and $(\mathbb{Q}, +)$ are not isomorphic.

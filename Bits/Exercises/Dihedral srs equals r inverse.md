@@ -15,7 +15,7 @@ Using this relation, derive another key identity: $srs = r^{-1}$.
 
 Work it out symbolically. Start with $sr = r^{-1}s$, multiply on the right by $s$, and see what you get. (Remember that $s^2 = e$, so $ss = e$.)
 
-Then verify this concretely for $D_3$ by explicit computation: compute $sr$, then multiply by $s$ on the left. Check that the result equals $r^{-1}$.
+Then verify this concretely for $D_3$ by explicit computation: compute $sr$, then multiply by $s$ on the right. Check that the result equals $r^{-1}$.
 
 >[!question] Exercise
 > Show that $srs = r^{-1}$ in $D_n$ for all $n \geq 3$. (Use the relation $sr = r^{-1}s$ and $s^2 = e$.)

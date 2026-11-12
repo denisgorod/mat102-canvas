@@ -32,7 +32,7 @@ The upper bounds are 72, 144, 216, ... Of these, 72 is the least — so $\sup(S)
 
 These concepts are *critical* in calculus and analysis. The **least upper bound property** of the real numbers $\mathbb{R}$ — that every non-empty bounded subset has a supremum — is the foundation of all analysis. It's what lets you prove intermediate value theorems, define integrals, and make sense of limits. Without it, the real numbers would lose their distinctive power.
 
-For now, notice that suprema and infima are unique when they exist (because the order is transitive), and they may not exist for every subset.
+For now, notice that suprema and infima are unique when they exist (because the order is anti-symmetric: two least upper bounds $s, s'$ satisfy $s \preceq s'$ and $s' \preceq s$, so $s = s'$), and they may not exist for every subset.
 
 >[!idea]
 > The supremum is the least upper bound and the infimum is the greatest lower bound. These concepts generalize min and max, and they're essential to rigorous analysis.

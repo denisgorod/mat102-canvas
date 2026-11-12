@@ -14,7 +14,7 @@ Not every element of $\mathbb{Z}_n$ has a multiplicative inverse modulo $n$. An 
 
 For example, in $\mathbb{Z}_{12}$, the units are $\{[1]_{12}, [5]_{12}, [7]_{12}, [11]_{12}\}$ — these are exactly the residues coprime to 12.
 
-**(a)** Show that the set of units $\mathbb{Z}_n^*$ is a group under multiplication modulo $n$. (Use the subgroup test, or verify the three axioms directly.)
+**(a)** Show that the set of units $\mathbb{Z}_n^*$ is a group under multiplication modulo $n$. (Verify closure and the three axioms directly. The subgroup test does not apply: $(\mathbb{Z}_n, \cdot)$ is not itself a group.)
 
 **(b)** Write out all elements of $\mathbb{Z}_{12}^*$ explicitly.
 

@@ -26,7 +26,7 @@ $$n \geq -\frac{x_0}{k_1} \quad \text{and} \quad n \leq \frac{y_0}{k_2}$$
 
 If the interval $[-x_0/k_1, y_0/k_2]$ contains integers, you have finitely many non-negative solutions. If the interval is empty or contains no integers, there are no non-negative solutions.
 
-**Example:** For $504x + 1155y = 42$ with general solution $x = -32 + 55n$ and $y = 14 - 24n$, you need $-32 + 55n \geq 0$ and $14 - 24n \geq 0$. This gives $32/55 < n < 14/24 \approx 0.58 < 0.58$, an empty interval. So there are no non-negative solutions.
+**Example:** For $504x + 1155y = 42$ with general solution $x = -32 + 55n$ and $y = 14 - 24n$, you need $-32 + 55n \geq 0$ and $14 - 24n \geq 0$. This gives $32/55 \leq n \leq 14/24$, that is, $0.5818\ldots \leq n \leq 0.5833\ldots$. The interval is not empty, but it contains no integer, so there are no non-negative solutions.
 
 >[!idea]
 >To find non-negative solutions to an LDE: constrain the general solution parameter $n$ so that both $x$ and $y$ are non-negative, then count integers in the resulting interval.

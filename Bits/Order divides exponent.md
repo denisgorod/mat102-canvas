@@ -29,7 +29,7 @@ Since $g^k = e$, we have $g^r = e$. But the order of $g$ is $n$, which means $g^
 **Proof of $(\Leftarrow)$:** Assume $n \mid k$, so $k = nq$ for some integer $q$. Then
 $$g^k = g^{nq} = (g^n)^q = e^q = e.$$
 
-This is a powerful criterion. It says that the divisors of $n$ are exactly the exponents that "hit" the identity. In $\mathbb{Z}_8$ under addition, the order of $[2]$ is 4, so $[2]^k = [0]$ precisely when $4 \mid k$, i.e., when $k \in \{\ldots, -4, 0, 4, 8, 12, \ldots\}$.
+This is a powerful criterion. It says that the multiples of $n$ are exactly the exponents that "hit" the identity. In $\mathbb{Z}_8$ under addition, the order of $[2]$ is 4, so $[2]^k = [0]$ precisely when $4 \mid k$, i.e., when $k \in \{\ldots, -4, 0, 4, 8, 12, \ldots\}$.
 
 The fact that divisibility determines which powers equal the identity reveals a deep connection between the arithmetic of exponents and the group structure itself.
 

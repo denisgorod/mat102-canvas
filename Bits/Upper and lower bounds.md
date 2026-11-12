@@ -30,7 +30,7 @@ The **lower bounds** of $S$ are all the positive integers dividing every element
 
 The **upper bounds** of $S$ are all positive integers divisible by every element of $S$. Since $\text{lcm}(8, 12, 36) = 72$, the upper bounds are 72, 144, 216, ...
 
-Now consider a different subset: $T = \{2, 3, 5\}$. These are pairwise coprime, so $\gcd(2, 3, 5) = 1$ — thus 1 is the only lower bound. But there is no upper bound within the divisibility order on $\mathbb{Z}^+$, because no single number is divisible by all three.
+Now consider a different subset: $T = \{2, 3, 5\}$. These are pairwise coprime, so $\gcd(2, 3, 5) = 1$ — thus 1 is the only lower bound. Its upper bounds are the multiples of $\text{lcm}(2, 3, 5) = 30$. In fact every finite subset of $(\mathbb{Z}^+, \mid)$ has upper bounds; an infinite one need not, since no positive integer is divisible by every prime.
 
 Bounds give structure to subsets: they tell you what "contains" or "divides into" an entire subset, without requiring that any single element of the subset be the maximum or minimum.
 

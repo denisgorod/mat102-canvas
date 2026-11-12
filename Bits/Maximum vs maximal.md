@@ -32,4 +32,4 @@ In contrast, in the poset $\{1, 2, 4, 8\}$ with divisibility, the maximum is 8 (
 The key insight: a maximum, if it exists, is automatically maximal. But a maximal element may not be a maximum.
 
 >[!idea]
-> A maximum is an element $\preceq$-comparable to everything; a maximal element has nothing strictly above it. Every maximum is maximal, but not every maximal element is a maximum.
+> A maximum lies above everything ($x \preceq M$ for all $x$); a maximal element has nothing strictly above it. Every maximum is maximal, but not every maximal element is a maximum.
